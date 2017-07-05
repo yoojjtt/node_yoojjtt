@@ -36,8 +36,13 @@ var auth = function ()
                 }
 
             }else if(return_code == '600'){
-                alert(msg)
+                alert(msg);
 
+            }else if(return_code =='200'){
+                alert(msg);
+                $('#company_id').val('');
+                $('#user_phone').val('');
+                $('#user_pwd').val('');
             }
 
 
@@ -59,6 +64,7 @@ var auth = function ()
             if(res){  // msg있을 경우 false
                 deleteCookie('sess_name');
                 deleteCookie('sess_company_no');
+                location.href='/';
                 return true;
             }else{
                 return false;

@@ -9,7 +9,8 @@ var dbConnection = mysql.createPool(Con.db_config);
 
 var Member = require("./member.js");  //서비스 신청, 직원등록
 var Auth = require("./auth.js"); //로그인
-var Employee = require("./employee.js"); // 직원 정보 수정, 직원정보 로드
+var Employee_info = require("./employee_info.js"); // 직원 정보 수정, 직원정보 로드
+var Company_info = require("./company_info.js");  //회사 정보 수정, 회사정보 로드
 
 
 function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
@@ -21,7 +22,8 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     //sqltest (프로시져 테스트)
     var member = new Member(router, this);
     var auth = new Auth(router, this);
-    var employee = new Employee(router, this);
+    var employee_info = new Employee_info(router, this);
+    var company_info = new Company_info(router, this);
 
 
 

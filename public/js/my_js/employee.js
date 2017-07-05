@@ -13,7 +13,7 @@ var employee = function ()
             iData[0] = name;
             iData[1] = company_no;
             iData[2] = phone;
-            var result = _DB_query.httpService("employee",gubun, iData);
+            var result = _DB_query.httpService("employee_info",gubun, iData);
             var res = result[0].data[0][0];
             $('#email').val(res.email);
             $('#jumin1').val(res.jumin1);
@@ -43,7 +43,7 @@ var employee = function ()
             iData[7] = $('#bank_account').val();
 
 
-            var result = _DB_query.httpService("employee",gubun, iData);
+            var result = _DB_query.httpService("employee_info",gubun, iData);
 
             var msg = result[0].data[0][0].msg;
             var return_code = result[0].data[0][0].return_code;
@@ -51,6 +51,7 @@ var employee = function ()
             if(return_code =="100"){
                 alert(msg);
                 alert('로그아웃 하셔야 합니다.');
+
             }
 
 

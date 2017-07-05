@@ -1,7 +1,7 @@
 
-var router_name = 'employee';
+var router_name = 'employee_info';
 
-function employee(router, parent)  //  /m, Mobile_routerAct   생성자
+function employee_info(router, parent)  //  /m, Mobile_routerAct   생성자
 {
 
     console.log('router '+router_name+' standby~~');
@@ -11,11 +11,11 @@ function employee(router, parent)  //  /m, Mobile_routerAct   생성자
 
 }
 
-employee.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
+employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
 {
     var parent = parent;  //Mobile_routerAct
 
-    router.post("/"+router_name+"/ajax.json", function(req, res) { //  /m/employee/ajax.json
+    router.post("/"+router_name+"/ajax.json", function(req, res) { //  /m/employee_info/ajax.json
 
         //var apiKey = req.body.apiKey;
         var gubun = req.body.gubun;
@@ -61,7 +61,7 @@ employee.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_route
 
 }
 
-employee.prototype.query_after = function(res, req, result, error)
+employee_info.prototype.query_after = function(res, req, result, error)
 {
     console.log(return_data);
 
@@ -70,4 +70,4 @@ employee.prototype.query_after = function(res, req, result, error)
 
 }
 
-module.exports = employee;
+module.exports = employee_info;

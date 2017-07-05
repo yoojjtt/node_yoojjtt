@@ -13,7 +13,7 @@
     <![endif]-->
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body id="login">
+<body >
 
 <div  class="container" >
 
@@ -262,29 +262,30 @@
 
 <script src="../js/my_js/_DB_query.js"></script>
 <script src="../js/my_js/_static.js"></script>
-<script src="../js/my_js/_employee.js"></script>
+<script src="../js/my_js/employee.js"></script>
+    <script src="../js/my_js/company.js"></script>
+
+
 <script>
-    $(function () {
-        $('#myTab a:first').tab('show')
-    })
-</script>
-<script>
-    function sujung(type){
-        if(type == 'private'){ employee.employee_sujung();}
-        if(type == 'company'){ company.company_sujung();}
-        if(type == 'password'){ employee.employee_sujung();}
-    }
 
     $(function() {
+        $('#myTab a:first').tab('show');
+
         var name = get_Cookie('sess_name');
         var company_no = get_Cookie('sess_company_no');
         var type = get_Cookie('sess_type');
         var phone = get_Cookie('sess_phone');
         employee.employee_load(name, company_no, phone);
+        company.company_load(company_no);
 
 
 
     });
+    function sujung(type){
+        if(type == 'private'){ employee.employee_sujung();}
+        if(type == 'company'){ company.company_sujung();}
+        if(type == 'password'){ employee.employee_sujung();}
+    }
 </script>
 </body>
 </html>
