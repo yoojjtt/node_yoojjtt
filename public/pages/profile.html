@@ -12,6 +12,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
 </head>
 <body >
 
@@ -20,7 +21,7 @@
     <!-- wizard -->
     <div class="row-fluid section">
         <!-- block -->
-        <div class="block span12">
+        <div class="block">
             <div class="navbar navbar-inner block-header">
                 <div class="muted pull-left">신상정보 수정</div>
             </div>
@@ -28,7 +29,7 @@
 
 
                     <div class="block-content collapse in">
-                        <div class="span8">
+                        <div class="span12">
 
                                 <div class="navbar">
 
@@ -48,7 +49,7 @@
 
 
                                     <div role="tabpanel" class="tab-pane" id="private">
-
+                                    <div class="well">
                                         <fieldset class="span6">
                                             <div class="control-group">
                                                 <label class="control-label" for="email">이메일</label>
@@ -65,7 +66,7 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="jumin2">주민번호 뒷자리</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="jumin2" type="text" value="">
+                                                    <input disabled class="input-xlarge focused" id="jumin2" type="password" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -75,7 +76,9 @@
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <fieldset class="span6">
+
+
+
 
                                             <div class="control-group">
                                                 <label class="control-label" for="phone">핸드폰 번호</label>
@@ -101,27 +104,28 @@
                                                     <input class="input-xlarge focused" id="bank_account" type="text" value="">
                                                 </div>
                                             </div>
-                                            <div class="muted pull-right">
-                                                <button class="btn  btn-primary" onClick="sujung('private')">저장</button>
-                                            </div>
+
                                         </fieldset>
-
-
-
-
-
                                     </div>
+
+                                        <hr>
+                                        <div class="muted pull-right">
+                                            <button class="btn  btn-primary" onClick="sujung('private')">저장</button>
+                                        </div>
+                                    </div>
+
 
 
 
                                     <!-- 회사 정보 -->
                                     <div role="tabpanel" class="tab-pane" id="company">
+                                        <div class="well">
 
                                         <fieldset class="span6">
                                             <div class="control-group">
                                                 <label class="control-label" for="company_name">회사명</label>
                                                 <div class="controls">
-                                                    <input class="input-xlarge focused" id="company_name" type="text" value="">
+                                                    <input disabled class="input-xlarge focused" id="company_name" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -156,7 +160,14 @@
                                             </div>
 
                                         </fieldset>
-                                        <fieldset>
+
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="c_LawNumber">법인 사업자등록번호</label>
+                                                <div class="controls">
+                                                    <input disabled class="input-xlarge focused" id="c_LawNumber" type="text" value="">
+                                                </div>
+                                            </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="c_address1">주소</label>
                                                 <div class="controls">
@@ -167,12 +178,6 @@
                                                 <label class="control-label" for="c_address2">상세주소</label>
                                                 <div class="controls">
                                                     <input class="input-xlarge focused" id="c_address2" type="text" value="">
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label" for="c_LawNumber">법인 사업자등록번호</label>
-                                                <div class="controls">
-                                                    <input class="input-xlarge focused" id="c_LawNumber" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -193,11 +198,15 @@
                                                     <input class="input-xlarge focused" id="c_bank_account" type="text" value="">
                                                 </div>
                                             </div>
+
+
+
+                                        </fieldset>
+                                        </div>
+                                            <hr>
                                             <div class="muted pull-right">
                                                 <button class="btn  btn-primary" onClick="sujung('company')">저장</button>
                                             </div>
-
-                                        </fieldset>
 
 
 
@@ -209,24 +218,29 @@
 
                                     <!-- 비밀 번호 -->
                                     <div role="tabpanel" class="tab-pane" id="password">
-                                        <div class="control-group">
-                                            <label class="control-label" for="jumin2">주민번호 뒷자리</label>
-                                            <div class="controls">
-                                                <input class="input-xlarge focused" id="jumin2" type="text" value="">
-                                            </div>
+                                        <div class="well">
+                                        <div class="col-6 col-md-auto">
+
+                                                    <label class="control-label" for="jumin2">기존 비밀번호</label>
+                                                    <div class="controls">
+                                                        <input class="input-xlarge focused" id="pwd" type="text" value="">
+
+                                                    </div>
+
+                                                    <label class="control-label" for="jumin2">새 비밀변호 </label>
+                                                    <div class="controls">
+                                                        <input class="input-xlarge focused" id="new_pwd" type="text" value="">
+                                                    </div>
+
+                                                    <label class="control-label" for="jumin2">새 비밀번호 확인</label>
+                                                    <div class="controls">
+                                                        <input class="input-xlarge focused" id="new_pwd2" type="text" value="">
+
+                                                    </div>
+
                                         </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="jumin2">주민번호 뒷자리</label>
-                                            <div class="controls">
-                                                <input class="input-xlarge focused" id="jumin2" type="text" value="">
-                                            </div>
                                         </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="jumin2">주민번호 뒷자리</label>
-                                            <div class="controls">
-                                                <input class="input-xlarge focused" id="jumin2" type="text" value="">
-                                            </div>
-                                        </div>
+                                        <hr>
                                         <div class="muted pull-right">
                                             <button class="btn  btn-primary" onClick="sujung('password')">저장</button>
                                         </div>
@@ -269,14 +283,14 @@
 <script>
 
     $(function() {
-        $('#myTab a:first').tab('show');
+        $('#myTab a:first').tab('show');  //toltip
 
         var name = get_Cookie('sess_name');
         var company_no = get_Cookie('sess_company_no');
         var type = get_Cookie('sess_type');
         var phone = get_Cookie('sess_phone');
-        employee.employee_load(name, company_no, phone);
-        company.company_load(company_no);
+        employee.employee_load(name, company_no, phone);  // 개인정보 로드
+        company.company_load(company_no);  // 회사정보 로드
 
 
 

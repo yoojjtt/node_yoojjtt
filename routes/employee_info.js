@@ -29,7 +29,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var company_no = data[1];
             var phone = data[2];
 
-
+            //TODO company_no int 값인데 varchar로 보내도 왜 에러가 나지않는지??
             var query = "CALL employee_list_R('"+name+"','"+phone+"','"+company_no+"')";
 
             console.log(query);
@@ -39,21 +39,32 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
         }
         if(gubun =="S"){
-            var email = data[0];
-            var jumin1 = data[1];
-            var jumin2 = data[2];
-            var name = data[3];
-            var phone = data[4];
-            var bank_owner = data[5];
-            var bank_name = data[6];
-            var bank_account = data[7];
+            var type = data[0];
+            var email = data[1];
+            var jumin1 = data[2];
+            var jumin2 = data[3];
+            var name = data[4];
+            var phone = data[5];
+            var bank_owner = data[6];
+            var bank_name = data[7];
+            var bank_account = data[8];
+            var company_id = data[9];
 
-            var query = "CALL employee_list_S('','"+email+"','"+jumin1+"','"+jumin2+"','','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner +"')";
+            var query = "CALL employee_list_S('"+type+"','"+email+"','"+jumin1+"','"+jumin2+"','','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner+"',"+ company_id +")";
 
             console.log(query);
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
+        }
+        if(gubun == "employees"){
+            var company_no = data[0];
+
+            var query = "CALL employee_list_R('','',"+company_no+")";
+
+            console.log(query);
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
         }
 
 

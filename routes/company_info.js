@@ -38,16 +38,21 @@ company_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_r
 
         }
         if(gubun =="S"){
-            var email = data[0];
-            var jumin1 = data[1];
-            var jumin2 = data[2];
-            var name = data[3];
-            var phone = data[4];
-            var bank_owner = data[5];
-            var bank_name = data[6];
-            var bank_account = data[7];
+            var company_name = data[0];
+            var company_id = data[1];
+            var president = data[2];
+            var c_phone = data[3];
+            var c_fax = data[4];
+            var c_postnum = data[5];
+            var c_address1 = data[6];
+            var c_address2 = data[7];
+            var c_LawNumber = data[8];
+            var c_bank_owner = data[9];
+            var c_bank_name = data[10];
+            var c_bank_account = data[11];
 
-            var query = "CALL company_list_S('','"+email+"','"+jumin1+"','"+jumin2+"','','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner +"')";
+            var query = "CALL company_list_S('"+company_name+"','"+company_id+"','"+president+"','"+c_phone+"','"+c_fax+"','"+c_postnum+"','"
+                +c_address1+"','"+c_address2 +"','"+c_LawNumber+"','"+c_bank_owner+"','"+c_bank_name+"','"+c_bank_account+"','','')";
 
             console.log(query);
 

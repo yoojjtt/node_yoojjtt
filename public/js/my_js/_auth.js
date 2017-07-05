@@ -35,10 +35,14 @@ var auth = function ()
                     location.href='/';
                 }
 
-            }else if(return_code == '600'){
+            }else if(return_code == '600'){  //유효기간이 지난 경우
                 alert(msg);
 
-            }else if(return_code =='200'){
+            }else if(return_code == '500'){  // 일치하는 회사계정이 없는 경우
+                alert(msg);
+                $('#company_id').val('');
+            }
+            else if(return_code =='200'){  //아이디 비번 틀림
                 alert(msg);
                 $('#company_id').val('');
                 $('#user_phone').val('');
