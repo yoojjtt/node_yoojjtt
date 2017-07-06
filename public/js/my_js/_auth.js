@@ -57,10 +57,11 @@ var auth = function ()
         },
         logout_process : function(){
             var gubun = "logout";
-            var iData = ['company_no'];
+            var iData = ['company_no','name'];
+
 
             iData[0] =  get_Cookie('sess_company_no');
-
+            iData[1] = get_Cookie('sess_name');
 
             var result = _DB_query.httpService("auth",gubun,iData);
             var res = result[0].data[0][0].msg;
