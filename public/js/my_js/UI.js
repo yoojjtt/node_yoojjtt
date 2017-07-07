@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    $('#myTab a:first').tab('show');
-    name = get_Cookie('sess_name');  // 전역변수로 써줌
+
+    name = get_Cookie('sess_name');  // cookie 전역변수로 써줌
     company_no = get_Cookie('sess_company_no');
     type = get_Cookie('sess_type');
     phone = get_Cookie('sess_phone');
@@ -22,16 +22,33 @@ $(document).ready(function(){
         }
 
     });
+
+    $('#myTab a:first').tab('show');  // 처음 페이지 로드하면, 첫번째 탭 보이게함
+
+
 });
 
+/*tab active effect ------------------*/
+$('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
 
+/*nav bar click effect -----------------*/
+$(".nav").on("click","li", function(){
+   $(this).toggleClass("active");
+   var target = $(".active");
+    target.not($(this)).removeClass("active");
+});
+
+/*table click event  ---------------------*/
 $("tbody").on("click", "tr", function() //
 {
 
-    $('.save-btn .btn .btn-primary').show(); //저장버튼
-    $('.delete-btn .btn .btn-danger').show(); //삭제버튼
-    $('.enroll-btn .btn .btn-success').show(); //신규등록 버튼
-    $('.new-btn .btn .btn-success').hide();  // 신규등록자 등록 버튼은 숨김
+    $('#save').show(); //저장버튼
+    $('#delete').show(); //삭제버튼
+    $('#enroll').show(); //신규등록 버튼
+
     /*공통 모듈이지만 버튼 show, hide 추가할 것 아니면 class로 해도될 것같다.*/
     $(this).toggleClass("highlight");
     var target = $('.highlight');
