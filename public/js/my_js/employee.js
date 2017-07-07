@@ -83,6 +83,7 @@ var employee = function ()
             $('#em_type').val('');
             $('#em_update').hide();
             $('#em_delete').hide();
+            $('#em_enroll').hide();
             $('#em_new').show();
             $('tr').removeClass('highlight');
 

@@ -14,66 +14,21 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <style> .highlight { background-color:#ccffff; }
-    #jb-container {
-        width: 940px;
-        margin: 10px auto;
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-header {
-        padding: 20px;
-        margin-bottom: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-content {
-        width: 580px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: left;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-sidebar {
-        width: 260px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: right;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-footer {
-        clear: both;
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    @media ( max-width: 480px ) {
-        #jb-container {
-            width: auto;
-        }
-        #jb-content {
-            float: none;
-            width: auto;
-        }
-        #jb-sidebar {
-            float: none;
-            width: auto;
-        }
-    }
-    .highlight { color:red; }
+    <style>
+
+
     </style>
 
 </head>
 
-<body>
+<body >
 
 
-<!-- Main Pannel -->
-<div class="container-fluid">
-    <div class="row-fluid" style="height:800px">
+
+    <div class="row-fluid" >
         <!--/span-->
         <div class="span12" id="content">
 
-            <!-- FIRST FLOOR ------------------------------------------------------------>
-            <div class="row-fluid">
 
 
                 <div class="span12">
@@ -89,16 +44,14 @@
 
 
                         <div role="tabpanel" class="tab-pane" id="profile">
-                            <div class="row-fluid">
+                            <div class="row-fluid" >
                                 <!-- block -->
-                                <div class="block">
-                                    <div class="navbar navbar-inner block-header">
-                                        <div class="muted pull-left">직원등록</div>
-                                    </div>
+                                <div class="block" >
+
                                     <div class="block-content collapse in">
                                         <div class="span6">
 
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" id="example">
+                                            <table id="example" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
                                                 <legend>직원 목록</legend>
                                                 <thead>
                                                 <tr>
@@ -115,14 +68,17 @@
                                         </div>
 
 
-
-
-
-                                        <div class="span6">
+                                        <div class="span6" >
                                             <div class="form-horizontal">
                                                 <fieldset>
                                                     <legend>직원 정보
-                                                        <div class="muted pull-right"> <button onClick="employee_sujung('new')" class="btn btn-success">신규등록</button></div>
+                                                        <div class="muted pull-right">
+                                                            <button  onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                                                            <button  onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+
+                                                            <button onClick="employee_sujung('insert')" class="new-btn btn btn-primary" style="display:none;">등록</button>
+                                                            <button  onClick="employee_sujung('new')" class="enroll-btn btn btn-success">신규등록</button>
+                                                        </div>
                                                     </legend>
 
 
@@ -181,13 +137,7 @@
 
 
                                                     </div>
-                                                    <div class="form-actions">
-                                                        <button id="em_update" onClick="employee_sujung('update')" type="submit" class="btn btn-primary">저장</button>
-                                                        <button id="em_delete" onClick="employee_sujung('delete')" class="btn btn-danger">삭제</button>
 
-                                                        <button id="em_new" onClick="employee_sujung('insert')" class="btn btn-success" style="display:none;">등록</button>
-
-                                                    </div>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -212,55 +162,126 @@
 
                         <!-- 세금 등록 -->
                         <div role="tabpanel" class="tab-pane active" id="messages">
-                            <div id="jb-container">
-                                <div id="jb-header">
-                                    <h1>Responsive Layout</h1>
+                            <div class="row-fluid" >
+                                <!-- block -->
+                                <div class="block" >
+
+                                    <div class="block-content collapse in">
+                                        <div class="span6">
+
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                                                <legend>세율 목록</legend>
+                                                <thead>
+                                                <tr>
+
+                                                    <th>성명</th>
+                                                    <th>핸드폰 번호</th>
+                                                    <th>이메일</th>
+                                                    <th>직책</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody id="tax_list">
+
+                                                    <tr>
+                                                        <td>세금</td>
+                                                        <td>01085371398</td>
+                                                        <td>iu@naver.com</td>
+                                                        <td>회계</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                        <div class="span6" >
+                                            <div class="form-horizontal">
+                                                <fieldset>
+                                                    <legend>직원 정보
+                                                        <div class="muted pull-right">
+                                                            <button s onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                                                            <button  onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+
+                                                            <button  onClick="employee_sujung('insert')" class="new-btn btn btn-success" style="display:none;">등록</button>
+                                                            <button  onClick="employee_sujung('new')" class="enroll-btn btn btn-success">신규등록</button>
+
+                                                        </div>
+                                                    </legend>
+
+
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="em_name">성명</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_name" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">주민번호</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_jumin" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">핸드폰 번호</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_phone" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">이메일</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_email" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">은행 예금주</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_account_owner" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">은행명</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_account_name" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">은행 계좌</label>
+                                                        <div class="controls">
+                                                            <input class="input-xlarge focused" id="em_account" type="text" value="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group success">
+                                                        <label class="control-label" for="em_type">직책</label>
+                                                        <div class="controls">
+                                                            <select id="em_type">
+                                                                <option>소장</option>
+                                                                <option>회계</option>
+                                                                <option>대표</option>
+
+                                                            </select>
+
+
+                                                        </div>
+
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="jb-content">
-                                    <h2>Content</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget, adipiscing risus.</p>
-                                </div>
-                                <div id="jb-sidebar">
-                                    <h2>Sidebar</h2>
-                                    <ul>
-                                        <li>Lorem</li>
-                                        <li>Ipsum</li>
-                                        <li>Dolor</li>
-                                    </ul>
-                                </div>
-                                <div id="jb-footer">
-                                    <p>Copyright</p>
-                                </div>
+                                <!-- /block -->
                             </div>
                         </div>
 
                     </div><!-- tab contents -->
 
-
                 </div>
-
-
-
-
-
-            </div>
-
-            <!-- END First floor  -->
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 
-</div>
-<!--/.fluid-container-->
+
+
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
@@ -272,19 +293,13 @@
 
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
+<script src="../js/my_js/UI.js"></script>
 
 <script>
 
     $(function() {
-        $('#myTab a:first').tab('show')
-        var name = get_Cookie('sess_name');
-        var company_no = get_Cookie('sess_company_no');
-        var type = get_Cookie('sess_type');
-        var phone = get_Cookie('sess_phone');
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
-
-
 
     });
     function employee_sujung(type){
@@ -294,28 +309,22 @@
         if(type == 'insert'){ employee.new_employee_insert();}
     }
 
-    $("table").on("click", "tr", function() //
-    {
+    function info_load(table, first, second){
 
-        $('#em_update').show();
-        $('#em_delete').show();
-        $('#em_new').hide();
-        $(this).toggleClass("highlight");
-        var target = $('.highlight');
-        var company_no = get_Cookie('sess_company_no');
-        var em_phone = target.children().eq(1).text();
-        var em_name = target.children().eq(0).text();
+        if(table == 'employees_list'){
+            employee.employee_load(first, company_no, second);
+        }
+        if(table == 'tax_list'){
+            alert('tax_talbe클릭');
+        }
 
-
-        employee.employee_load(em_name, company_no, em_phone);
-
-
-        target.not($(this)).removeClass("highlight");
-
-
-    });	//select end
+    }
 
 </script>
+
+
+
+
 
 
 

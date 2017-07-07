@@ -32,7 +32,9 @@ var auth = function ()
                 alert(last_time);
 
                 if(get_Cookie('sess_name')){
-                    location.href='/';
+
+                    location.href="/";
+
                 }
 
             }else if(return_code == '600'){  //유효기간이 지난 경우
