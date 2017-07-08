@@ -70,7 +70,7 @@
                                                     <fieldset>
                                                         <legend>직원 정보
                                                             <div class="muted pull-right">
-                                                                <button  id="enroll" onClick="employee_sujung('new')" class="enroll-btn btn btn-success">신규등록</button>
+                                                                <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">신규등록</button>
                                                                 <button  id="save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
                                                                 <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
                                                             </div>
@@ -304,7 +304,7 @@
     });
     function employee_sujung(type){
         if(type == 'update'){ alert('update');}
-        if(type == 'new'){ employee.new_employee();}
+        if(type == 'enroll'){ employee.new_employee();}
         if(type == 'delete'){ alert('delete');}
         if(type == 'insert'){ employee.new_employee_insert();}
     }
