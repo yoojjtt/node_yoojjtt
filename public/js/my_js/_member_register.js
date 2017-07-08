@@ -11,7 +11,7 @@ var member = function ()
 
             var gubun = "president_register";
             var iData = ['email','jumin1','jumin2','name','phone','bank_owner','bank_name','bank_account'
-            ,'company_name','company_id','president','c_phone','c_fax','c_postnum','c_address1','c_address2','c_LawNumber','c_bank_owner','c_bank_name','c_bank_account'];
+            ,'company_name','company_id','president','c_phone','c_fax','c_postnum','c_address1','c_address2','c_LawNumber','c_bank_owner','c_bank_name','c_bank_account','pwd'];
             iData[0] = $('#email').val();
             iData[1] = $('#jumin1').val();
             iData[2] = $('#jumin2').val();
@@ -32,6 +32,8 @@ var member = function ()
             iData[17] = $('#c_bank_owner').val();
             iData[18] = $('#c_bank_name').val();
             iData[19] = $('#c_bank_account').val();
+            iData[20] = $('#pwd').val();
+
 
 
 

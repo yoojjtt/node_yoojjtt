@@ -42,10 +42,11 @@ member.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerA
         var c_bank_owner = data[17];
         var c_bank_name = data[18];
         var c_bank_account = data[19];
+        var pwd = data[20];
 
 
         if(gubun == 'president_register'){
-            var query = "CALL _member_register('대표', '" +email +"','" +jumin1 +"','" +jumin2 +"','" +name +"','" +phone +"','" +jumin2 +"','"  +bank_owner +"','"  +bank_name +"','"  +bank_account +"'" +
+            var query = "CALL _member_register('대표', '" +email +"','" +jumin1 +"','" +jumin2 +"','" +name +"','" +phone +"','" +pwd +"','"  +bank_owner +"','"  +bank_name +"','"  +bank_account +"'" +
                 ",'"+company_name+"','"+company_id+"','"+president+"','"+c_phone+"','"+c_fax+"','"+c_postnum+"','"+c_address1+"','"+c_address2+"','"+c_LawNumber+"','"+c_bank_owner+"','"+c_bank_name+"','"+c_bank_account+"');";   //대표가 서비스를 처음 신청할 때
             console.log(query);
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec

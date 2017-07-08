@@ -14,181 +14,126 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <style> .highlight { background-color:#ccffff; }
-    #jb-container {
-        width: 940px;
-        margin: 10px auto;
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-header {
-        padding: 20px;
-        margin-bottom: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-content {
-        width: 580px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: left;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-sidebar {
-        width: 260px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: right;
-        border: 1px solid #bcbcbc;
-    }
-    #jb-footer {
-        clear: both;
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-    }
-    @media ( max-width: 480px ) {
-        #jb-container {
-            width: auto;
-        }
-        #jb-content {
-            float: none;
-            width: auto;
-        }
-        #jb-sidebar {
-            float: none;
-            width: auto;
-        }
-    }
-    .highlight { color:red; }
-    </style>
 
 </head>
 
 <body>
 
 
-<!-- Main Pannel -->
-<div class="container-fluid">
-    <div class="row-fluid" style="height:800px">
+
+    <div class="row-fluid" >
+
         <!--/span-->
         <div class="span12" id="content">
-
-            <!-- FIRST FLOOR ------------------------------------------------------------>
-            <div class="row-fluid">
-
 
                 <div class="span12">
 
                     <ul class="nav nav-tabs" role="tablist" id="myTab">
-
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">직원등록</a></li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">세금등록</a></li>
-
+                        <li role="presentation"><a href="#employee_page" aria-controls="employee_page" role="tab" data-toggle="tab">직원등록</a></li>
+                        <li role="presentation"><a href="#tax_page" aria-controls="messages_page" role="tab" data-toggle="tab">세금등록</a></li>
                     </ul>
 
                     <div class="tab-content">
 
-
-                        <div role="tabpanel" class="tab-pane" id="profile">
-                            <div class="row-fluid">
+                        <div role="tabpanel" class="tab-pane fade in active" id="employee_page">
+                            <div class="row-fluid" >
                                 <!-- block -->
-                                <div class="block">
-                                    <div class="navbar navbar-inner block-header">
-                                        <div class="muted pull-left">직원등록</div>
-                                    </div>
+                                <div class="block" >
+
                                     <div class="block-content collapse in">
-                                        <div class="span6">
-
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" id="example">
-                                                <legend>직원 목록</legend>
-                                                <thead>
-                                                <tr>
-
-                                                    <th>성명</th>
-                                                    <th>핸드폰 번호</th>
-                                                    <th>이메일</th>
-                                                    <th>직책</th>
-
-                                                </tr>
-                                                </thead>
-                                                <tbody id="employees_list"></tbody>
-                                            </table>
-                                        </div>
 
 
 
 
+                                        <div class="inner_contents">
+                                            <div class="span6">
 
-                                        <div class="span6">
-                                            <div class="form-horizontal">
-                                                <fieldset>
-                                                    <legend>직원 정보
-                                                        <div class="muted pull-right"> <button onClick="employee_sujung('new')" class="btn btn-success">신규등록</button></div>
-                                                    </legend>
+                                                <table id="example" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                                                    <legend>직원 목록</legend>
+                                                    <thead>
+                                                    <tr>
+
+                                                        <th>성명</th>
+                                                        <th>핸드폰 번호</th>
+                                                        <th>이메일</th>
+                                                        <th>직책</th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="employees_list"></tbody>
+                                                </table>
+                                            </div>
 
 
-                                                    <div class="control-group">
-                                                        <label class="control-label" for="em_name">성명</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_name" type="text" value="">
+                                            <div class="span6" >
+                                                <div class="form-horizontal">
+                                                    <fieldset>
+                                                        <legend>직원 정보
+                                                            <div class="muted pull-right">
+                                                                <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">신규등록</button>
+                                                                <button  id="save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                                                                <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                                                                <button    onClick="test()" class="delete-btn btn btn-danger">test_modal</button>
+                                                            </div>
+                                                        </legend>
+
+
+                                                        <div class="control-group">
+                                                            <label class="control-label" for="em_name">성명</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_name" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">주민번호</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_jumin" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">주민번호</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_jumin" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">핸드폰 번호</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_phone" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">핸드폰 번호</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_phone" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">이메일</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_email" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">이메일</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_email" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">은행 예금주</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_account_owner" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">은행 예금주</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_account_owner" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">은행명</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_account_name" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">은행명</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_account_name" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="control-group">
-                                                        <label class="control-label">은행 계좌</label>
-                                                        <div class="controls">
-                                                            <input class="input-xlarge focused" id="em_account" type="text" value="">
+                                                        <div class="control-group">
+                                                            <label class="control-label">은행 계좌</label>
+                                                            <div class="controls">
+                                                                <input class="input-xlarge focused" id="em_account" type="text" value="">
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="control-group success">
-                                                        <label class="control-label" for="em_type">직책</label>
-                                                        <div class="controls">
-                                                            <select id="em_type">
-                                                                <option>소장</option>
-                                                                <option>회계</option>
-                                                                <option>대표</option>
+                                                        <div class="control-group success">
+                                                            <label class="control-label" for="em_type">직책</label>
+                                                            <div class="controls">
+                                                                <select id="em_type">
+                                                                    <option>소장</option>
+                                                                    <option>회계</option>
+                                                                    <option>대표</option>
 
-                                                            </select>
-
-
-                                                    </div>
-                                                    <div class="form-actions">
-                                                        <button id="em_update" onClick="employee_sujung('update')" type="submit" class="btn btn-primary">저장</button>
-                                                        <button id="em_delete" onClick="employee_sujung('delete')" class="btn btn-danger">삭제</button>
-
-                                                        <button id="em_new" onClick="employee_sujung('insert')" class="btn btn-success" style="display:none;">등록</button>
-
-                                                    </div>
-                                                </fieldset>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -202,65 +147,142 @@
 
 
 
-
-
-
-
-
-
-
-
                         <!-- 세금 등록 -->
-                        <div role="tabpanel" class="tab-pane active" id="messages">
-                            <div id="jb-container">
-                                <div id="jb-header">
-                                    <h1>Responsive Layout</h1>
-                                </div>
-                                <div id="jb-content">
-                                    <h2>Content</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet. Proin gravida velit dictum dui consequat malesuada. Aenean et nibh eu purus scelerisque aliquet nec non justo. Aliquam vitae aliquet ipsum. Etiam condimentum varius purus ut ultricies. Mauris id odio pretium, sollicitudin sapien eget, adipiscing risus.</p>
-                                </div>
-                                <div id="jb-sidebar">
-                                    <h2>Sidebar</h2>
-                                    <ul>
-                                        <li>Lorem</li>
-                                        <li>Ipsum</li>
-                                        <li>Dolor</li>
-                                    </ul>
-                                </div>
-                                <div id="jb-footer">
-                                    <p>Copyright</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tax_page">
+                            <div class="row-fluid" >
+                                <!-- block -->
+                                <div class="block" >
+
+                                    <div class="block-content collapse in">
+                                        <div class="span6">
+                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                                                <legend>세율 목록</legend>
+                                                <select id="selectError">
+                                                    <option>건설</option>
+                                                    <option>제조</option>
+                                                    <option>추가1</option>
+                                                    <option>추가2</option>
+                                                    <option>추가3</option>
+                                                </select>
+                                                <table class="table table-hover table-striped table-bordered">
+                                                    <tr>
+                                                        <th rowspan ="2">갑근세</th>
+                                                        <th>면세범위</th>
+                                                        <th>no_tax</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>면세범위</th>
+                                                        <th>tax_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>주민세</th>
+                                                        <th>해당없음</th>
+                                                        <th>jumin_tax_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>고용보험</th>
+                                                        <th>해당없음</th>
+                                                        <th>employe_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>의료보험</th>
+                                                        <th>bonin_med_insurance_rate</th>
+                                                        <th>company_med_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>노인장기보험</th>
+                                                        <th>bonin_old_med_insurance_rate</th>
+                                                        <th>company_old_med_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>국민연금</th>
+                                                        <th>bonin_kumin_insurance_rate</th>
+                                                        <th>company_kumin_insurance_rate</th
+                                                    </tr>
+                                                </table>
+                                            </table>
+                                        </div><!-- span6 -->
+                                        <div class="span6" >
+                                            <div class="form-signin">
+                                                <legend>
+                                                    세금 상세정보
+                                                    <div class="muted pull-right">
+                                                        <button  onClick="employee_sujung('new')" class="enroll-btn btn btn-success">신규등록</button>
+                                                        <button  onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                                                        <button  disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                                                    </div>
+                                                </legend>
+                                                <select id="selectError">
+                                                    <option>건설</option>
+                                                    <option>제조</option>
+                                                    <option>추가1</option>
+                                                    <option>추가2</option>
+                                                    <option>추가3</option>
+                                                </select>
+                                                <table class="table table-hover table-striped table-bordered">
+                                                    <tr>
+                                                        <th rowspan ="2">갑근세</th>
+                                                        <th>면세범위</th>
+                                                        <th>no_tax</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>면세범위</th>
+                                                        <th>tax_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>주민세</th>
+                                                        <th>해당없음</th>
+                                                        <th>jumin_tax_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>고용보험</th>
+                                                        <th>해당없음</th>
+                                                        <th>employe_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>의료보험</th>
+                                                        <th>bonin_med_insurance_rate</th>
+                                                        <th>company_med_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>노인장기보험</th>
+                                                        <th>bonin_old_med_insurance_rate</th>
+                                                        <th>company_old_med_insurance_rate</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>국민연금</th>
+                                                        <th>bonin_kumin_insurance_rate</th>
+                                                        <th>company_kumin_insurance_rate</th
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div><!-- block collapse in -->
+                                </div><!-- /block -->
+                            </div><!-- row fluid -->
+                        </div><!-- tab-pane -->
 
                     </div><!-- tab contents -->
 
-
-                </div>
-
-
-
-
-
-            </div>
-
-            <!-- END First floor  -->
+                </div><!-- span12 -->
+        </div><!-- span12 content -->
+    </div><!-- row fluid -->
 
 
 
-
-
-
-
-
-
-
-        </div>
-    </div>
-
-</div>
-<!--/.fluid-container-->
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
@@ -272,51 +294,38 @@
 
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
+<script src="../js/my_js/UI.js"></script>
 
 <script>
 
     $(function() {
-        $('#myTab a:first').tab('show')
-        var name = get_Cookie('sess_name');
-        var company_no = get_Cookie('sess_company_no');
-        var type = get_Cookie('sess_type');
-        var phone = get_Cookie('sess_phone');
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
-
-
 
     });
     function employee_sujung(type){
         if(type == 'update'){ alert('update');}
-        if(type == 'new'){ employee.new_employee();}
+        if(type == 'enroll'){ employee.new_employee();}
         if(type == 'delete'){ alert('delete');}
         if(type == 'insert'){ employee.new_employee_insert();}
     }
 
-    $("table").on("click", "tr", function() //
-    {
+    function info_load(table, first, second){
 
-        $('#em_update').show();
-        $('#em_delete').show();
-        $('#em_new').hide();
-        $(this).toggleClass("highlight");
-        var target = $('.highlight');
-        var company_no = get_Cookie('sess_company_no');
-        var em_phone = target.children().eq(1).text();
-        var em_name = target.children().eq(0).text();
+        if(table == 'employees_list'){
+            employee.employee_load(first, company_no, second);
+        }
+        if(table == 'tax_list'){
+            alert('tax_table클릭');
+        }
 
+    }
 
-        employee.employee_load(em_name, company_no, em_phone);
-
-
-        target.not($(this)).removeClass("highlight");
-
-
-    });	//select end
+    function test(){
+        parent.modalOpen();
+    }
 
 </script>
-
 
 
 <script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

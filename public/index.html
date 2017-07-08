@@ -21,21 +21,44 @@
 
     <title>main</title>
 
-    <style>
 
-
-        #iframe_contents{
-            width:1535px;
-            height:800px;
-            padding-top:80px;
-
-        }
-    </style>
 </head>
 <body>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="AdminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Title</h4>
+            </div>
+            <div class="modal-body">
+
+                <iframe src=""
+                        name="iframe_modal"
+                        id="iframe_modal"
+                        width="100%" height="100%"
+                        frameborder="0"
+                        scrolling="no">
+                </iframe>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="_modal_close()">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <!-- top_nav_bar-->
 
-<div class="navbar navbar-fixed-top">
+<div id="fixed_top" class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
@@ -46,7 +69,7 @@
             <div class="nav-collapse collapse" data-role="navbar">
                 <ul class="nav pull-right">
                     <li class="dropdown">
-                        <a href="/" role="button" class="dropdown-toggle" data-toggle="dropdown"> <span id= "user_name"></span> <i class="icon-user"></i> <i id="com_info"class="caret"></i>
+                        <a href="/" role="button" class="dropdown-toggle" data-toggle="dropdown"> <span id= "user_name"></span> <i class="icon-user"></i>
                             <strong id="com_num" hidden style="color:black;"></strong>
                         </a>
                         <ul class="dropdown-menu">
@@ -54,8 +77,9 @@
                                 <a tabindex="-1" onClick="navbar_move('profile');" href="#">Profile</a>
                             </li>
                             <li class="divider"></li>
+
                             <li>
-                                <a onClick="logout()" tabindex="-1" href="">Logout</a>
+                                <a style="color:red;"onClick="logout()" tabindex="-1" href="#">Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -65,12 +89,11 @@
                         <a onClick="navbar_move('main');" href="#">회사관리</a>
                     </li>
                     <li class="dropdown">
-                        <a onClick="navbar_move('main');" href="#">현장관리</a>
+                        <a onClick="navbar_move('hyunjang');" href="#">현장관리</a>
                     </li>
                     <li class="dropdown">
-                        <a onClick="navbar_move('main');" href="#">재무관리</a>
+                        <a onClick="navbar_move('finance');" href="#">재무관리</a>
                     </li>
-
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -84,23 +107,16 @@
 
 
 <!-- contnents -->
-<div class="contents">
+ <div class="contents">
     <iframe name="iframe_contents"
             id="iframe_contents"
-            width="100%" height="100%"
-            frameborder="0"
-            scrolling="no">
+
+            frameborder=0"
+            scrolling="no"
+            class="myFrame">
     </iframe>
-</div>
+ </div>
 <!-- contents -->
-
-
-<hr>
-<footer>
-    <p>&copy; Jong tae World </p>
-</footer>
-
-
 
 
 <!--/.fluid-container-->
@@ -113,21 +129,27 @@
 <script src="js/my_js/_static.js"></script>
 
 <script src="js/my_js/_auth.js"></script>
+<script src="js/my_js/UI.js"></script>
 <script>
-    var name = get_Cookie('sess_name');
-    var company_no = get_Cookie('sess_company_no');
-    var type = get_Cookie('sess_type');
-    var phone = get_Cookie('sess_phone');
 
-    if(name == false){  //cookie  없으면 로그인페이지로 redirect
-        location.href="/pages/login.html";
+    /* page 초기 ------------*/
+    $(function() {
+        if (name == false) {  //cookie  없으면 로그인페이지로 redirects
+            location.href = "/pages/login.html";
+            $("#fixed_top").hide();
 
-    }else{ // 로그인 성공하면,
+        } else { // 로그인 성공하면,
+            $(".navbar navbar-fixed-top").show();
+            $('#user_name').append(type + ": " + name);  //메인화면 우측 상단 사용자 이름
+            $('#com_info').append(company_no); // 메인화면 좌측 상단 로고
+            navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
+        }
+        $('#AdminModal').modal('toggle');
+        modalOpen('login', '로그인', 'auto', 500, -1);
+    });
 
-        $('#user_name').append(type+": " + name);  //메인화면 우측 상단 사용자 이름
-        $('#com_info').append(company_no); // 메인화면 좌측 상단 로고
-        navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
-    }
+
+
 
     function logout(){  //logout, cookie, session 삭제
         auth.logout_process();
@@ -142,18 +164,36 @@
             //alert(num);
             document.getElementById('iframe_contents').src = loadPage;
             document.getElementById('iframe_contents').onload = function() {
-                //var target = document.getElementById('iframe_contents').contentWindow;
-                //target.comInfo(num, companyName, gubun_val);
+                var target = document.getElementById('iframe_contents').contentWindow;
+
+                target.comInfo(num, companyName, gubun_val);  //TODO companyName 없앨 것 !!
             };
+
+    }
+    function modalOpen(_pageName, _title, _width, _height, _n) {
+
+        $('#myModalLabel').html(_title);
+        $("#AdminModal").modal();
+
+        $('.modal-dialog').css('width', _width);
+        $('.modal-body').css('height', _height);
+
+        if(_pageName=="login") {
+            //$('.modal-footer').css('display', 'none');
+           // $('.modal-header .close').css('display', 'none');
+        }
+
+        document.getElementById('iframe_modal').src = '/pages/'+_pageName+".html";
 
     }
 
 
 
 
-
-
 </script>
+
+
+
 <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
 <script src="assets/DT_bootstrap.js"></script>
 

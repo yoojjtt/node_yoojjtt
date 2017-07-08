@@ -1,7 +1,7 @@
 /** Home Page **/
 body {
 	padding-top: 0;
-	padding-bottom: 40px;
+	padding-bottom: 0px;
 	background-color: #f5f5f5;
 }
 
@@ -212,3 +212,76 @@ body {
   font-size: 12px;
   padding-left: 2px;
 }
+/*추가
+----------------------*/
+.highlight { color:red; }
+
+.row-fluid{
+    padding:0px;
+    margin:0px;
+
+}
+.tab-content{
+
+    margin-top:-20px;
+
+}
+.block{
+    padding-top:0px;
+
+}
+
+
+div.block{
+    margin-top:-15px;
+}
+
+div.span6{
+    padding-top:20px;
+}
+
+@media screen and (max-width:600px){
+    div.contents {
+        width: 100%;
+        height: 500px;
+        padding-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        /*background-color:red;*/
+    }
+}
+@media screen and (min-width: 601px) and (max-width:1000px){
+    div.contents {
+        width: 100%;
+        height: 300px;
+        padding-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        /*background-color:blue;*/
+    }
+}
+@media screen and (min-width: 1000px){
+    div.contents {
+        width: 100%;
+        height: 300px;
+
+        padding:50px 10px 0px 10px;
+        /*background-color:green;*/
+    }
+    iframe#iframe_contents{
+
+        height:500px;
+        border-top-width:0px;
+        border-right-width:0px;
+        border-left-width:0px;
+        border-bottom-width:0px;
+    }
+
+}
+
+
+body{ /* iframe body 오른쪽 살 짝 띄우기 */
+    padding:0px;
+    padding-right:10px;
+}
+

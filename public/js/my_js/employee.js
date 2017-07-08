@@ -81,9 +81,10 @@ var employee = function ()
             $('#em_account_name').val('');
             $('#em_account').val('');
             $('#em_type').val('');
-            $('#em_update').hide();
-            $('#em_delete').hide();
-            $('#em_new').show();
+            $('#update').hide();
+            $('#delete').hide();
+            $('#enroll').hide();
+
             $('tr').removeClass('highlight');
 
         },
