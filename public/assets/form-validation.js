@@ -4,7 +4,7 @@ var FormValidation = function () {
         // for more info visit the official plugin documentation: 
             // http://docs.jquery.com/Plugins/Validation
 
-            var form1 = $('#form_sample_1');
+            var form1 = $('#register');
             var error1 = $('.alert-error', form1);
             var success1 = $('.alert-success', form1);
 
@@ -14,36 +14,26 @@ var FormValidation = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "",
                 rules: {
-                    name: {
-                        minlength: 2,
-                        required: true
-                    },
                     email: {
-                        required: true,
-                        email: true
-                    },
-                    url: {
-                        required: true,
-                        url: true
+                        email: true,
+                        required: true
                     },
                     number: {
                         required: true,
-                        number: true
+                        email: true
                     },
-                    digits: {
+                    pwd1: {
                         required: true,
-                        digits: true
+                        url: true
                     },
-                    creditcard: {
+                    pwd2: {
                         required: true,
-                        creditcard: true
+                        url: true
                     },
                     occupation: {
+                        required: true,
                         minlength: 5,
                     },
-                    category: {
-                        required: true
-                    }
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit              

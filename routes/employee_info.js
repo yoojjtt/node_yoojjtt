@@ -25,12 +25,12 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
 
         if(gubun =="R") {
-            var name = data[0];
-            var company_no = data[1];
-            var phone = data[2];
+            var company_no = data[0];
+            var email = data[1];
+            var type = data[2];
 
             //TODO company_no int 값인데 varchar로 보내도 왜 에러가 나지않는지??
-            var query = "CALL employee_list_R('"+name+"','"+phone+"','"+company_no+"')";
+            var query = "CALL employee_list_R('"+email+"','"+type+"','"+company_no+"')";
 
             console.log(query);
 
@@ -50,7 +50,8 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var bank_account = data[8];
             var company_id = data[9];
 
-            var query = "CALL employee_list_S('"+type+"','"+email+"','"+jumin1+"','"+jumin2+"','','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner+"',"+ company_id +")";
+
+            var query = "CALL employee_list_S('"+type+"','"+email+"','"+jumin1+"','"+jumin2+"','"+jumin2+"','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner+"',"+ company_id +")";
 
             console.log(query);
 

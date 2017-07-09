@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
 
-    name = get_Cookie('sess_name');  // cookie 전역변수로 써줌
+    email = get_Cookie('sess_userEmail');  // cookie 전역변수로 써줌
     company_no = get_Cookie('sess_company_no');
     type = get_Cookie('sess_type');
-    phone = get_Cookie('sess_phone');
+
 
 
 
@@ -58,8 +58,12 @@ $("tbody").on("click", "tr", function() //
     var table = $(this).parent().attr("id");
     var first = target.children().eq(0).text();
     var second = target.children().eq(1).text();
+    var third = target.children().eq(2).text();
+    var forth = target.children().eq(3).text();
 
-    info_load(table, first, second);
+
+
+    info_load(table, third, forth);
 
 
 

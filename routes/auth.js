@@ -25,12 +25,12 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
 
 
         if(gubun =="login") {
-            var company_id = data[0];
-            var phone = data[1];
-            var pwd = data[2];
+
+            var email = data[0];
+            var pwd = data[1];
 
 
-            var query = "CALL _auth('"+company_id+"','"+phone+"','"+pwd+"')";
+            var query = "CALL _auth('"+email+"','"+pwd+"')";
 
             console.log(query);
 
@@ -41,10 +41,10 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
         if(gubun =="logout"){
 
             var company_no = data[0];
-            var name = data[1];
+            var email = data[1];
             //TODO 세션삭제는 여기서 그냥 할 것?
             
-            var query = "CALL _auth_logout('"+company_no+"','"+name+"')";
+            var query = "CALL _auth_logout('"+company_no+"','"+email+"')";
             //TODO company_no만 가지고 로그아웃 할 경우 변별력이 없다. company_no으로만 한 이유는 개인정보 수정시 로그아웃 에러문제발생 ++name, type
             console.log(query);
 
@@ -70,14 +70,15 @@ auth.prototype.query_after = function(res, req, result, error)
 if(rd){
 
 
-    req.session.sess_name = rd.userName;  //session id 에 sess_name 값으로 저장
-    req.session.sess_phone = rd.phone;
+    req.session.sess_userEmail = rd.userEmail;  //session id 에 sess_name 값으로 저장
     req.session.sess_company_no = rd.companyNo;
     req.session.sess_type = rd.type;
 
 
 
-    console.log('session_user'+':'+req.session.sess_name+", "+'session_type'+':'+req.session.sess_type);
+    console.log('session_user'+':'+req.session.sess_userEmail
+        +", "+'session_type'+':'+req.session.sess_type
+        +", "+'session_companyNo'+':'+req.session.sess_company_no);
 
 
 
@@ -87,14 +88,13 @@ if(rd){
 
 }else{
 
-    delete req.session.sess_name;
-    delete req.session.sess_phone;
+    delete req.session.sess_userEmail;
     delete req.session.sess_company_no;
     delete req.session.sess_type;
 
 
 
-    console.log('session_delete'+':'+req.session.sess_name);
+    console.log('session_delete'+':'+req.session.sess_userEmail+","+req.session.sess_type+","+req.session.sess_company_no);
     res.json(return_data);
 }
 

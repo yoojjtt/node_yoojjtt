@@ -70,7 +70,7 @@
                                                     <fieldset>
                                                         <legend>직원 정보
                                                             <div class="muted pull-right">
-                                                                <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">신규등록</button>
+                                                                <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
                                                                 <button  id="save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
                                                                 <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
                                                                 <button    onClick="test()" class="delete-btn btn btn-danger">test_modal</button>
@@ -79,15 +79,15 @@
 
 
                                                         <div class="control-group">
-                                                            <label class="control-label" for="em_name">성명</label>
+                                                            <label class="control-label">주민번호</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_name" type="text" value="">
+                                                                <input maxlength='13' class="input-xlarge focused" id="em_jumin" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
-                                                            <label class="control-label">주민번호</label>
+                                                            <label class="control-label" for="em_name">성명</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_jumin" type="text" value="">
+                                                                <input class="input-xlarge focused" id="em_name" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
@@ -304,16 +304,17 @@
 
     });
     function employee_sujung(type){
-        if(type == 'update'){ alert('update');}
+        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
         if(type == 'enroll'){ employee.new_employee();}
         if(type == 'delete'){ alert('delete');}
-        if(type == 'insert'){ employee.new_employee_insert();}
+
     }
 
-    function info_load(table, first, second){
+    function info_load(table, third, forth){
+
 
         if(table == 'employees_list'){
-            employee.employee_load(first, company_no, second);
+            employee.employee_load(company_no, third, forth);
         }
         if(table == 'tax_list'){
             alert('tax_table클릭');

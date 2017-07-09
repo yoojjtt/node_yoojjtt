@@ -37,7 +37,7 @@
                                         <ul class="nav nav-tabs" role="tablist" id="myTab">
 
                                             <li role="presentation"><a href="#private" aria-controls="private" role="tab" data-toggle="tab">개인 정보</a></li>
-                                            <li role="presentation"><a href="#company" aria-controls="company" role="tab" data-toggle="tab">회사 정보</a></li>
+                                            <li id="company_info" role="presentation"><a href="#company" aria-controls="company" role="tab" data-toggle="tab">회사 정보</a></li>
                                             <li role="presentation"><a href="#password" aria-controls="password" role="tab" data-toggle="tab">비밀 번호</a></li>
 
                                         </ul>
@@ -60,19 +60,19 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="jumin1">주민번호 앞자리</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="jumin1" type="text" value="">
+                                                    <input  class="input-xlarge focused" id="jumin1" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="jumin2">주민번호 뒷자리</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="jumin2" type="password" value="">
+                                                    <input class="input-xlarge focused" id="jumin2" type="password" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label" for="name">성명</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="name" type="text" value="">
+                                                    <input  class="input-xlarge focused" id="name" type="text" value="">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -125,13 +125,13 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="company_name">회사명</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="company_name" type="text" value="">
+                                                    <input class="input-xlarge focused" id="company_name" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label" for="company_id">회사 ID</label>
+                                                <label class="control-label" for="president_email">대표 이메일</label>
                                                 <div class="controls">
-                                                    <input class="input-xlarge focused" id="company_id" type="text" value="">
+                                                    <input class="input-xlarge focused" id="president_email" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -165,7 +165,7 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="c_LawNumber">법인 사업자등록번호</label>
                                                 <div class="controls">
-                                                    <input disabled class="input-xlarge focused" id="c_LawNumber" type="text" value="">
+                                                    <input class="input-xlarge focused" id="c_LawNumber" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -277,19 +277,18 @@
 <script src="../js/my_js/_DB_query.js"></script>
 <script src="../js/my_js/_static.js"></script>
 <script src="../js/my_js/employee.js"></script>
-    <script src="../js/my_js/company.js"></script>
+<script src="../js/my_js/company.js"></script>
+<script src="../js/my_js/UI.js"></script>
 
 
 <script>
 
     $(function() {
-        $('#myTab a:first').tab('show');  //toltip
 
-        var name = get_Cookie('sess_name');
-        var company_no = get_Cookie('sess_company_no');
-        var type = get_Cookie('sess_type');
-        var phone = get_Cookie('sess_phone');
-        employee.employee_load(name, company_no, phone);  // 개인정보 로드
+        if(type !== '대표'){
+            $('#company_info').css('display', 'none');
+        }
+        employee.employee_load(company_no, email, type);  // 개인정보 로드
         company.company_load(company_no);  // 회사정보 로드
 
 

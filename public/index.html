@@ -85,13 +85,13 @@
                     </li>
                 </ul>
                 <ul id="top_navbar" class="nav" >
-                    <li class="active">
+                    <li id="company_management" class="active">
                         <a onClick="navbar_move('main');" href="#">회사관리</a>
                     </li>
-                    <li class="dropdown">
+                    <li id="hyunjang_management" class="dropdown">
                         <a onClick="navbar_move('hyunjang');" href="#">현장관리</a>
                     </li>
-                    <li class="dropdown">
+                    <li id="finance_management" class="dropdown">
                         <a onClick="navbar_move('finance');" href="#">재무관리</a>
                     </li>
                 </ul>
@@ -134,18 +134,40 @@
 
     /* page 초기 ------------*/
     $(function() {
-        if (name == false) {  //cookie  없으면 로그인페이지로 redirects
+
+
+        if (email == false) {  //cookie  없으면 로그인페이지로 redirects
             location.href = "/pages/login.html";
             $("#fixed_top").hide();
 
         } else { // 로그인 성공하면,
+
             $(".navbar navbar-fixed-top").show();
-            $('#user_name').append(type + ": " + name);  //메인화면 우측 상단 사용자 이름
+            $('#user_name').append(type + ": " + email);  //메인화면 우측 상단 사용자 이름
             $('#com_info').append(company_no); // 메인화면 좌측 상단 로고
-            navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
+            if(type == '대표'){
+                navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
+            }
+
+            if(type == '소장'){
+                //$('#hyunjang_management').trigger('click');
+                navbar_move("hyunjang");
+                $('#company_management').css('display', 'none');
+                $('#finance_management').css('display', 'none');
+            }
+            if(type == '회계'){
+                navbar_move("finance");
+                $('#company_management').css('display', 'none');
+                $('#hyunjang_management').css('display', 'none');
+            }
+
+
+
+
+
         }
         $('#AdminModal').modal('toggle');
-        modalOpen('login', '로그인', 'auto', 500, -1);
+        modalOpen('notification', '공지사항', 'auto', 500, -1);
     });
 
 
@@ -166,7 +188,7 @@
             document.getElementById('iframe_contents').onload = function() {
                 var target = document.getElementById('iframe_contents').contentWindow;
 
-                target.comInfo(num, companyName, gubun_val);  //TODO companyName 없앨 것 !!
+                //target.comInfo(num, companyName, gubun_val);  //TODO companyName 없앨 것 !!
             };
 
     }
@@ -178,9 +200,9 @@
         $('.modal-dialog').css('width', _width);
         $('.modal-body').css('height', _height);
 
-        if(_pageName=="login") {
-            //$('.modal-footer').css('display', 'none');
-           // $('.modal-header .close').css('display', 'none');
+        if(_pageName=="notification") {
+            $('.modal-footer').css('display', 'none');
+           $('.modal-header .close').css('display', 'none');
         }
 
         document.getElementById('iframe_modal').src = '/pages/'+_pageName+".html";
