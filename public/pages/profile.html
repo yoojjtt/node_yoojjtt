@@ -54,7 +54,7 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="email">이메일</label>
                                                 <div class="controls">
-                                                    <input class="input-xlarge focused" id="email" type="text" value="">
+                                                    <input disabled class="input-xlarge focused" id="email" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -131,7 +131,7 @@
                                             <div class="control-group">
                                                 <label class="control-label" for="president_email">대표 이메일</label>
                                                 <div class="controls">
-                                                    <input class="input-xlarge focused" id="president_email" type="text" value="">
+                                                    <input disabled class="input-xlarge focused" id="president_email" type="text" value="">
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -221,18 +221,18 @@
                                         <div class="well">
                                         <div class="col-6 col-md-auto">
 
-                                                    <label class="control-label" for="jumin2">기존 비밀번호</label>
+                                                    <label class="control-label" for="pwd">기존 비밀번호</label>
                                                     <div class="controls">
-                                                        <input class="input-xlarge focused" id="pwd" type="text" value="">
+                                                        <input disabled class="input-xlarge focused" id="pwd" type="text" value="">
 
                                                     </div>
 
-                                                    <label class="control-label" for="jumin2">새 비밀변호 </label>
+                                                    <label class="control-label" for="new_pwd">새 비밀변호 </label>
                                                     <div class="controls">
                                                         <input class="input-xlarge focused" id="new_pwd" type="text" value="">
                                                     </div>
 
-                                                    <label class="control-label" for="jumin2">새 비밀번호 확인</label>
+                                                    <label class="control-label" for="new_pwd2">새 비밀번호 확인</label>
                                                     <div class="controls">
                                                         <input class="input-xlarge focused" id="new_pwd2" type="text" value="">
 
@@ -278,6 +278,7 @@
 <script src="../js/my_js/_static.js"></script>
 <script src="../js/my_js/employee.js"></script>
 <script src="../js/my_js/company.js"></script>
+<script src="../js/my_js/password.js"></script>
 <script src="../js/my_js/UI.js"></script>
 
 
@@ -290,14 +291,15 @@
         }
         employee.employee_load(company_no, email, type);  // 개인정보 로드
         company.company_load(company_no);  // 회사정보 로드
+        password.password_load(email); //비밀번호정보 로드
 
 
 
     });
     function sujung(type){
-        if(type == 'private'){ employee.employee_sujung();}
-        if(type == 'company'){ company.company_sujung();}
-        if(type == 'password'){ employee.employee_sujung();}
+        if(type == 'private'){ employee.employee_sujung();}  // 개인정보 수정
+        if(type == 'company'){ company.company_sujung();}  // 회사정보 수정(대표만)
+        if(type == 'password'){ password.password_sujung(email);} // 비밀번호 수정
     }
 </script>
 </body>

@@ -36,6 +36,7 @@
                 <li role="presentation"><a href="#danga_page" aria-controls="danga_page" role="tab" data-toggle="tab">단가 입력</a></li>
                 <li role="presentation"><a href="#kongsu_page" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수 입력</a></li>
                 <li role="presentation"><a href="#closing_page" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
+
             </ul>
 
             <div align="top"  class="tab-content">
@@ -55,97 +56,42 @@
                         <div class="block" >
 
                             <div class="block-content collapse in">
-                                        <div class="span6">
-                                            <div class="row-fluid">
-                                                <!-- block -->
-                                                <div class="block">
-                                                    <div class="navbar navbar-inner block-header">
-                                                        <div class="muted pull-left">Bordered Table</div>
-                                                    </div>
-                                                    <div class="block-content collapse in">
-                                                        <div class="span12">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>#</th>
-                                                                    <th>First Name</th>
-                                                                    <th>Last Name</th>
-                                                                    <th>Username</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Mark</td>
-                                                                    <td>Otto</td>
-                                                                    <td>@mdo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Jacob</td>
-                                                                    <td>Thornton</td>
-                                                                    <td>@fat</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Larry</td>
-                                                                    <td>the Bird</td>
-                                                                    <td>@twitter</td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- /block -->
-                                            </div>
+                                <div class="block-content collapse in">
 
-                                        </div>
-                                        <div class="span6" >
-                                            <div class="row-fluid">
-                                                <!-- block -->
-                                                <div class="block">
-                                                    <div class="navbar navbar-inner block-header">
-                                                        <div class="muted pull-left">Bordered Table</div>
-                                                    </div>
-                                                    <div class="block-content collapse in">
-                                                        <div class="span12">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>#</th>
-                                                                    <th>First Name</th>
-                                                                    <th>Last Name</th>
-                                                                    <th>Username</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Mark</td>
-                                                                    <td>Otto</td>
-                                                                    <td>@mdo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Jacob</td>
-                                                                    <td>Thornton</td>
-                                                                    <td>@fat</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Larry</td>
-                                                                    <td>the Bird</td>
-                                                                    <td>@twitter</td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
+
+                                    <div class="span12">
+
+                                        <table id="hyunjang" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                                            <legend><span id="employee_title">현장 목록</span>
+                                                <div class="muted pull-right">
+                                                    <button  id="enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">현장등록</button>
+                                                    <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+
                                                 </div>
-                                                <!-- /block -->
-                                            </div>
-                                        </div>
+                                            </legend>
+                                            <thead>
+                                            <tr>
+                                                <th style="display:none"></th>
+                                                <th>Index</th>
+                                                <th>현장명</th>
+                                                <th>공사내용</th>
+                                                <th>발주회사</th>
+                                                <th>보고자</th>
+                                                <th>공사 시작일</th>
+                                                <th>공사 종료일</th>
+
+
+
+                                            </tr>
+                                            </thead>
+                                            <tbody id="hyunjang_list"></tbody>
+                                        </table>
+                                    </div>
+
+
+
+
+                                </div>
                             </div>
                         </div>
                         <!-- /block -->
@@ -317,11 +263,13 @@
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
 <script src="../js/my_js/UI.js"></script>
+<script src="../js/my_js/hyunjang.js"></script>
 
 <script>
 
     $(function() {
 
+    hyunjang.hyunjang_load(company_no);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = e.target // newly activated tab
@@ -331,7 +279,7 @@
         if(target == 'http://220.230.113.201:3001/pages/hyunjang.html#hyunjang_page'){
            $('#top_search').hide();
             var content = $('.block');
-            content.css('padding-top','0px');
+            content.css('padding-top','0px');   // 현장찾기, 현장날짜 선택 없을 때
         }else{
             $('#top_search').show();
             var content = $('.block');
@@ -341,7 +289,23 @@
     })
 
 
+
+
+
+
     });
+    function modal(hyunjang_modal){
+        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800');
+    }
+    function hyunjang_load(table, seventh){
+
+
+        if(table == 'hyunjang_list'){
+            parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh);
+        }
+
+
+    }
 
 
 

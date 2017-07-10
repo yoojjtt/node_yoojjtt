@@ -31,13 +31,15 @@ var employee = function ()
 
 
                 $('#em_name').val(res.name);
-                $('#em_jumin').val(res.jumin1 + res.jumin2);
+                $('#em_jumin1').val(res.jumin1);
+                $('#em_jumin2').val(res.jumin2);
                 $('#em_phone').val(res.phone);
                 $('#em_email').val(res.email);
                 $('#em_account_owner').val(res.bank_owner);
                 $('#em_account_name').val(res.bank_name);
                 $('#em_account').val(res.bank_account);
                 $('#em_type').val(res.type);
+
             }
 
 
@@ -69,7 +71,7 @@ var employee = function ()
 
             if(return_code =="100"){
                 alert(msg);
-                alert('로그아웃 하셔야 합니다.');
+                location.reload();
 
             }  
 
@@ -92,10 +94,13 @@ var employee = function ()
                 var str = '';
 
                 str += "<tr>"
+
                 str += "<td>" + res[i].name + "</td>"
                 str += "<td>" + res[i].phone + "</td>"
                 str += "<td>" + res[i].email + "</td>"
                 str += "<td>" + res[i].type + "</td>"
+
+
 
                 str += "</tr>"
                 $("#employees_list").append(str);
@@ -108,8 +113,10 @@ var employee = function ()
 
         },
         new_employee : function(){  // 직원등록 버튼 클릭할 경우
+            $('#employee_title').text('직원 신규등록');
             $('#em_name').val('');
-            $('#em_jumin').val('');
+            $('#em_jumin1').attr('disabled', false).val('');
+            $('#em_jumin2').attr('disabled', false).val('');
             $('#em_phone').val('');
             $('#em_email').val('');
             $('#em_account_owner').val('');
@@ -131,8 +138,9 @@ var employee = function ()
             var account_owner = $('#em_account_owner').val();
             var account_name = $('#em_account_name').val();
             var account = $('#em_account').val();
-            var jumin = $('#em_jumin').val();
-            var jumin_num = jumin.length;
+            var jumin1 = $('#em_jumin1').val();
+            var jumin2 = $('#em_jumin2').val();
+            var jumin_num = jumin1.length + jumin2.length;
 
 
             if(!email){
@@ -150,7 +158,7 @@ var employee = function ()
                 $('#em_phone').focus();
                 return false
             }
-            if(!jumin){
+            if(!jumin1 && !jumin2){
                 alert('주민번호는 필수사항입니다.');
                 $('#em_jumin').focus();
                 return false
@@ -159,10 +167,12 @@ var employee = function ()
             if(jumin_num < 13){
                 alert("주민 번호 형식이 잘못되었습니다.");
                 return false
-            }else{
-                var jumin1 = jumin.substring(0,5);
-                var jumin2 = jumin.substring(6, 12);
             }
+            /*else{
+                var jumin1 = jumin.substring(0,5);
+                var jumin2 = jumin.substring(6, 13);
+            }*/
+
             /*
             if(jumin_num > 13 && jumin_num < 15){
                 var juminArray = jumin.split("-");

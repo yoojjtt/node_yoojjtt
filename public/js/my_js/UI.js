@@ -44,26 +44,35 @@ $(".nav").on("click","li", function(){
 /*table click event  ---------------------*/
 $("tbody").on("click", "tr", function() //
 {
-
+    $('#employee_title').text('직원 정보');
+    $('#em_jumin1').attr('disabled', true);
+    $('#em_jumin2').attr('disabled', true);
     $('#save').show(); //저장버튼
     $('#delete').show(); //삭제버튼
     $('#enroll').show(); //신규등록 버튼
 
-    /*공통 모듈이지만 버튼 show, hide 추가할 것 아니면 class로 해도될 것같다.*/
+
     $(this).toggleClass("highlight");
     var target = $('.highlight');
     target.not($(this)).removeClass("highlight");
 
+
     /*테이블 명을 가져와야 한다.*/
     var table = $(this).parent().attr("id");
-    var first = target.children().eq(0).text();
-    var second = target.children().eq(1).text();
-    var third = target.children().eq(2).text();
-    var forth = target.children().eq(3).text();
+    //var select = target.children().eq(0).text();
+    var first = $(this).children().eq(0).text();
+    var second = $(this).children().eq(1).text();
+    var third = $(this).children().eq(2).text();
+    var forth = $(this).children().eq(3).text();
+    var seventh = $(this).children().eq(7).text();
+    //alert(seventh);
+    //alert(table+third+forth);
 
+    if(table =='employees_list'){info_load(table, third, forth);}  // 직원 개별정보 불러올 때
 
+    if(table =='hyunjang_list'){hyunjang_load(table, seventh);} //현장 로드
 
-    info_load(table, third, forth);
+    //info_load(table, first, second); // 세금정보 load할 때
 
 
 

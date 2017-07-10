@@ -147,6 +147,8 @@
             $('#com_info').append(company_no); // 메인화면 좌측 상단 로고
             if(type == '대표'){
                 navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
+                $('#AdminModal').modal('toggle');
+                modalOpen('notification', '공지사항', 'auto', 500, -1);
             }
 
             if(type == '소장'){
@@ -166,8 +168,7 @@
 
 
         }
-        $('#AdminModal').modal('toggle');
-        modalOpen('notification', '공지사항', 'auto', 500, -1);
+
     });
 
 
@@ -192,20 +193,29 @@
             };
 
     }
-    function modalOpen(_pageName, _title, _width, _height, _n) {
+    function modalOpen(_pageName, _title, _width, _height, _value1, _value2) {
 
         $('#myModalLabel').html(_title);
         $("#AdminModal").modal();
 
-        $('.modal-dialog').css('width', _width);
-        $('.modal-body').css('height', _height);
 
-        if(_pageName=="notification") {
-            $('.modal-footer').css('display', 'none');
-           $('.modal-header .close').css('display', 'none');
-        }
 
         document.getElementById('iframe_modal').src = '/pages/'+_pageName+".html";
+        document.getElementById('iframe_modal').onload = function() {
+            var target = document.getElementById('iframe_modal').contentWindow;
+            var width = $(target).width();
+
+            if(_pageName=="notification") {
+                $('.modal-footer').css('display', 'none');
+                $('.modal-header .close').css('display', 'none');
+                $('#iframe_modal').css('height', 300);
+            }
+            $('.modal-dialog').css('width', _width);
+            $('#iframe_modal').css('height', _height);
+            $('.modal-footer').css('display', 'none');
+
+            target.hyunjang_Info(_value1);
+        };
 
     }
 

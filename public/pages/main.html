@@ -43,9 +43,6 @@
                                     <div class="block-content collapse in">
 
 
-
-
-                                        <div class="inner_contents">
                                             <div class="span6">
 
                                                 <table id="example" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
@@ -58,6 +55,7 @@
                                                         <th>이메일</th>
                                                         <th>직책</th>
 
+
                                                     </tr>
                                                     </thead>
                                                     <tbody id="employees_list"></tbody>
@@ -68,7 +66,7 @@
                                             <div class="span6" >
                                                 <div class="form-horizontal">
                                                     <fieldset>
-                                                        <legend>직원 정보
+                                                        <legend><span id="employee_title">직원 정보</span>
                                                             <div class="muted pull-right">
                                                                 <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
                                                                 <button  id="save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
@@ -81,43 +79,44 @@
                                                         <div class="control-group">
                                                             <label class="control-label">주민번호</label>
                                                             <div class="controls">
-                                                                <input maxlength='13' class="input-xlarge focused" id="em_jumin" type="text" value="">
+                                                                <input maxlength='6' class="span3 focused" id="em_jumin1" type="text" value="">
+                                                                <input maxlength='7' class="span3 focused" id="em_jumin2" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label" for="em_name">성명</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_name" type="text" value="">
+                                                                <input class="span6 focused" id="em_name" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label">핸드폰 번호</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_phone" type="text" value="">
+                                                                <input class="span6 focused" id="em_phone" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label">이메일</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_email" type="text" value="">
+                                                                <input class="span6 focused" id="em_email" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label">은행 예금주</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_account_owner" type="text" value="">
+                                                                <input class="span6 focused" id="em_account_owner" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label">은행명</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_account_name" type="text" value="">
+                                                                <input class="span6 focused" id="em_account_name" type="text" value="">
                                                             </div>
                                                         </div>
                                                         <div class="control-group">
                                                             <label class="control-label">은행 계좌</label>
                                                             <div class="controls">
-                                                                <input class="input-xlarge focused" id="em_account" type="text" value="">
+                                                                <input class="span6 focused" id="em_account" type="text" value="">
                                                             </div>
                                                         </div>
 
@@ -135,7 +134,7 @@
                                                     </fieldset>
                                                 </div>
                                             </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <!-- /block -->
@@ -154,61 +153,9 @@
                                 <div class="block" >
 
                                     <div class="block-content collapse in">
-                                        <div class="span6">
-                                            <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
-                                                <legend>세율 목록</legend>
-                                                <select id="selectError">
-                                                    <option>건설</option>
-                                                    <option>제조</option>
-                                                    <option>추가1</option>
-                                                    <option>추가2</option>
-                                                    <option>추가3</option>
-                                                </select>
-                                                <table class="table table-hover table-striped table-bordered">
-                                                    <tr>
-                                                        <th rowspan ="2">갑근세</th>
-                                                        <th>면세범위</th>
-                                                        <th>no_tax</th>
-                                                    </tr>
 
-                                                    <tr>
-                                                        <th>면세범위</th>
-                                                        <th>tax_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>주민세</th>
-                                                        <th>해당없음</th>
-                                                        <th>jumin_tax_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>고용보험</th>
-                                                        <th>해당없음</th>
-                                                        <th>employe_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>의료보험</th>
-                                                        <th>bonin_med_insurance_rate</th>
-                                                        <th>company_med_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>노인장기보험</th>
-                                                        <th>bonin_old_med_insurance_rate</th>
-                                                        <th>company_old_med_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>국민연금</th>
-                                                        <th>bonin_kumin_insurance_rate</th>
-                                                        <th>company_kumin_insurance_rate</th
-                                                    </tr>
-                                                </table>
-                                            </table>
-                                        </div><!-- span6 -->
-                                        <div class="span6" >
+                                        <!-- span12 -->
+                                        <div class="span12" >
                                             <div class="form-signin">
                                                 <legend>
                                                     세금 상세정보

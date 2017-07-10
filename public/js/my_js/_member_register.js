@@ -55,8 +55,8 @@ var member = function ()
                 if(return_code == '200'){
                     alert(msg);
                 }else if(return_code == '100'){
-                    alert(msg);
-                    location.href='/pages/login.html';
+                    alert(msg+ '7일간 서비스를 무료로 체험하세요!!');
+                    location.href='/';
                 }
             }
 

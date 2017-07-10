@@ -39,7 +39,7 @@ var company = function ()
             var iData = ['company_name','company_id','president','c_phone','c_fax','c_postnum',
                 'c_address1','c_address2','c_LawNumber','c_bank_owner','c_bank_name','c_bank_account'];
             iData[0] = $('#company_name').val();
-            iData[1] = $('#company_id').val();
+            iData[1] = $('#president_email').val();
             iData[2] = $('#president').val();
             iData[3] = $('#c_phone').val();
             iData[4] = $('#c_fax').val();
@@ -59,7 +59,7 @@ var company = function ()
 
             if(return_code =="100"){
                 alert(msg);
-                alert('로그아웃 하셔야 합니다.');
+                location.reload();
 
             }
 
