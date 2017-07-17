@@ -123,9 +123,9 @@ var employee = function ()
             $('#em_account_name').val('');
             $('#em_account').val('');
             $('#em_type').val('');
-            $('#update').hide();
-            $('#delete').hide();
-            $('#enroll').hide();
+            $('#employee_update').hide();
+            $('#employee_delete').hide();
+            $('#employee_enroll').hide();
 
             $('tr').removeClass('highlight');
 

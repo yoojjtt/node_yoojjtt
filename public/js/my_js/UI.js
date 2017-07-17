@@ -8,11 +8,11 @@ $(document).ready(function(){
 
 
 
-    $("iframe.myFrame").height($(window).height()-10);
+    $("iframe.myFrame").height(655); // iframe에 대한 스크롤바 변동시 높이값
     $("iframe.myFrame").width($(window).width()-5);  // -5 정도 해줘야 스크롤바에 안가린다.
 
     $(window).resize(function(){
-        $("iframe.myFrame").height($(window).height()-10);
+        $("iframe.myFrame").height(655);
         $("iframe.myFrame").width($(window).width()-5);
 
         width = $(window).width();
@@ -47,9 +47,9 @@ $("tbody").on("click", "tr", function() //
     $('#employee_title').text('직원 정보');
     $('#em_jumin1').attr('disabled', true);
     $('#em_jumin2').attr('disabled', true);
-    $('#save').show(); //저장버튼
-    $('#delete').show(); //삭제버튼
-    $('#enroll').show(); //신규등록 버튼
+    $('#employee_save').show(); //저장버튼
+    $('#employee_delete').show(); //삭제버튼
+    $('#employee_enroll').show(); //신규등록 버튼
 
 
     $(this).toggleClass("highlight");

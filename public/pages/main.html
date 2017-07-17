@@ -29,16 +29,32 @@
                 <div class="span12">
 
                     <ul class="nav nav-tabs" role="tablist" id="myTab">
-                        <li role="presentation"><a href="#employee_page" aria-controls="employee_page" role="tab" data-toggle="tab">직원등록</a></li>
-                        <li role="presentation"><a href="#tax_page" aria-controls="messages_page" role="tab" data-toggle="tab">세금등록</a></li>
+                        <li role="presentation"><a href="#com_dashboard_page" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">회사 상황판</a></li>
+                        <li role="presentation"><a href="#employee_page" aria-controls="employee_page" role="tab" data-toggle="tab">직원정보</a></li>
+                        <li role="presentation"><a href="#tax_page" aria-controls="messages_page" role="tab" data-toggle="tab">세금정보</a></li>
+
                     </ul>
 
                     <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="com_dashboard_page">
+                            <div class="row-fluid">
+                                <div class="block" style="height:600px;">
+                                    <div class="block-content collapse in">
+                                        <div class="span6 pannel">
+                                            <h3>hello dashboard</h3>
+                                            <p>content</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
 
                         <div role="tabpanel" class="tab-pane fade in active" id="employee_page">
                             <div class="row-fluid" >
                                 <!-- block -->
-                                <div class="block" >
+                                <div class="block" style="height:600px;" >
 
                                     <div class="block-content collapse in">
 
@@ -63,14 +79,14 @@
                                             </div>
 
 
-                                            <div class="span6" >
+                                            <div class="span6 panel" >
                                                 <div class="form-horizontal">
                                                     <fieldset>
                                                         <legend><span id="employee_title">직원 정보</span>
                                                             <div class="muted pull-right">
-                                                                <button  id="enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
-                                                                <button  id="save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
-                                                                <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                                                                <button  id="employee_enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
+                                                                <button  id="employee_save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                                                                <button  id="employee_delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
                                                                 <button    onClick="test()" class="delete-btn btn btn-danger">test_modal</button>
                                                             </div>
                                                         </legend>
@@ -150,69 +166,34 @@
                         <div role="tabpanel" class="tab-pane fade" id="tax_page">
                             <div class="row-fluid" >
                                 <!-- block -->
-                                <div class="block" >
+                                <div class="block"style="height:600px;" >
 
                                     <div class="block-content collapse in">
 
                                         <!-- span12 -->
-                                        <div class="span12" >
+                                        <div class="span12" style="padding-top:20px;" >
                                             <div class="form-signin">
                                                 <legend>
-                                                    세금 상세정보
-                                                    <div class="muted pull-right">
-                                                        <button  onClick="employee_sujung('new')" class="enroll-btn btn btn-success">신규등록</button>
-                                                        <button  onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
-                                                        <button  disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                                                   <span id="tax_title">세금 상세정보</span>
+                                                    <div  class="muted pull-right">
+                                                        <button  id="tax_return" onClick="tax_sujung('return')" class="enroll-btn btn btn-success">테이블</button>
+                                                        <button  id="tax_new" onClick="tax_sujung('new')" class="enroll-btn btn btn-success">수정</button>
+                                                        <button  id="tax_update" onClick="tax_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
                                                     </div>
                                                 </legend>
-                                                <select id="selectError">
-                                                    <option>건설</option>
-                                                    <option>제조</option>
-                                                    <option>추가1</option>
-                                                    <option>추가2</option>
-                                                    <option>추가3</option>
-                                                </select>
-                                                <table class="table table-hover table-striped table-bordered">
-                                                    <tr>
-                                                        <th rowspan ="2">갑근세</th>
-                                                        <th>면세범위</th>
-                                                        <th>no_tax</th>
-                                                    </tr>
 
-                                                    <tr>
-                                                        <th>면세범위</th>
-                                                        <th>tax_rate</th>
-                                                    </tr>
+                                                <table class="table table-bordered ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align:center" width="10%">구분</th>
+                                                            <th style="text-align:center">근로자</th>
+                                                            <th style="text-align:center">사업주</th>
+                                                            <th style="text-align:center">설명</th>
 
-                                                    <tr>
-                                                        <th>주민세</th>
-                                                        <th>해당없음</th>
-                                                        <th>jumin_tax_rate</th>
-                                                    </tr>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tax_table"></tbody>
 
-                                                    <tr>
-                                                        <th>고용보험</th>
-                                                        <th>해당없음</th>
-                                                        <th>employe_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>의료보험</th>
-                                                        <th>bonin_med_insurance_rate</th>
-                                                        <th>company_med_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>노인장기보험</th>
-                                                        <th>bonin_old_med_insurance_rate</th>
-                                                        <th>company_old_med_insurance_rate</th>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>국민연금</th>
-                                                        <th>bonin_kumin_insurance_rate</th>
-                                                        <th>company_kumin_insurance_rate</th
-                                                    </tr>
                                                 </table>
 
                                             </div>
@@ -241,6 +222,7 @@
 
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
+<script src ="../js/my_js/tax.js"></script>
 <script src="../js/my_js/UI.js"></script>
 
 <script>
@@ -248,12 +230,20 @@
     $(function() {
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
+        tax.tax_load();
+
 
     });
     function employee_sujung(type){
         if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
         if(type == 'enroll'){ employee.new_employee();}
         if(type == 'delete'){ alert('delete');}
+
+    }
+    function tax_sujung(type){
+        if(type =='new'){tax.tax_new()}
+        if(type =='update'){tax.tax_update()}
+        if(type =='return'){tax.tax_load()}
 
     }
 

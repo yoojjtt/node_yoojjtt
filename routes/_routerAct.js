@@ -13,6 +13,7 @@ var Employee_info = require("./employee_info.js"); // 직원 정보 수정, 직�
 var Company_info = require("./company_info.js");  //회사 정보 수정, 회사정보 로드
 var Password_info = require("./password_info.js"); //비밀번호 수정, 비밀번호 정보 로드
 var Hyunjang_info = require("./hyunjang_info.js");  //현장정보 로드, 수정
+var Tax_info = require("./tax_info.js"); //세금정보 로드
 
 
 function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
@@ -28,6 +29,7 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     var company_info = new Company_info(router, this);
     var password_info = new Password_info(router,this);
     var hyunjang_info = new Hyunjang_info(router, this);
+    var tax_info = new Tax_info(router, this);
 
 
 
