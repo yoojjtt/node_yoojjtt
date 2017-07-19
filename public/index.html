@@ -110,7 +110,7 @@
  <div id="main_contents" class="contents" >
     <iframe name="iframe_contents"
             id="iframe_contents"
-
+            style="margin:0 10px;"
             frameborder=0"
             scrolling="no"
             class="myFrame">
@@ -148,7 +148,7 @@
             if(type == '대표'){
                 navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
                 $('#AdminModal').modal('toggle');
-                modalOpen('notification', '공지사항', 'auto', 'auto');
+                modalOpen('modal/notification', '공지사항', '100%', '100%');  // 공지모달 팝업
             }
 
             if(type == '소장'){
@@ -214,15 +214,13 @@
 
             }
 
-            if(_pageName=="notification") {
+            if(_pageName=="modal/notification") {
+                //$('#myModalLabel').css('display', 'none');
                 $('.modal-footer').css('display', 'none');
-                $('.modal-header .close').css('display', 'none');
+                //$('.modal-header .close').css('display', 'none');
                 $('#iframe_modal').css('width', _width);
                 $('#iframe_modal').css('height', _height);
-                $('.modal-dialog').css('height', 300);
-                $('.modal-dialog').css('width', '50%');  //의미없음
-                //$('.modal-body').css('width', _width);
-                //$('.modal-body').css('height', _height);
+
 
             }
             $('.modal-dialog').css('width', _width);
@@ -232,6 +230,9 @@
             //target.hyunjang_Info(_value1);
         };
 
+    }
+    function test(){
+        alert('경고');
     }
 
 

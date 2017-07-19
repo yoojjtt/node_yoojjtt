@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="row-fluid">
+    <div class="row-fluid" style="height:500px;">
 
         <!--/span-->
         <div class="span12" id="content">
@@ -29,17 +29,18 @@
                         <li role="presentation"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">회사 상황판</a></li>
                         <li role="presentation"><a onclick="_tabFrame('main_tab/employee_page.html');" href="#" aria-controls="employee_page" role="tab" data-toggle="tab">직원정보</a></li>
                         <li role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금정보</a></li>
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">서비스 현황</a></li>
+                        <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">계정 현황</a></li>
 
                     </ul>
 
                         <!-- tab_contnents -->
-                        <div  class="tab_contents" style=" margin:auto;" >
+                        <div  class="tab_contents"  >
                             <iframe name="iframe_tab_contents"
                                     id="iframe_tab_contents"
                                     frameborder=0"
+                                    style="border:1px "
                                     scrolling="no"
-                                    width="100%" height="100%"
+                                    width="100%" height="90%"
                                     class="">
                             </iframe>
                         </div>
@@ -106,14 +107,16 @@
         document.getElementById('iframe_tab_contents').src = loadPage;
         document.getElementById('iframe_tab_contents').onload = function() {
             var target = document.getElementById('iframe_tab_contents').contentWindow;
+
             //$(target).height($(window).height());
             //$(target).width($(window).width());
-            $("#tab_contents").css("height", '777px;');
-            $("#tab_contents").width($(window).width());
+            //$("#tab_contents").css("height", '500px');
+            //$("#tab_contents").width(300);
             //target.comInfo(num, companyName, gubun_val);  //
         };
 
     }
+
 
 
 </script>

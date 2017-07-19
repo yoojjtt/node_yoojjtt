@@ -25,186 +25,31 @@
 
 
 
-<div class="row-fluid" style="overflow:scroll;">
+<div class="row-fluid">
     <!--/span-->
     <div class="span12" id="content">
         <div class="span12">
 
             <ul class="nav nav-tabs" role="tablist" id="myTab">
-                <li role="presentation"><a href="#hyunjang_page" aria-controls="hyunjang_page" role="tab" data-toggle="tab">현장등록</a></li>
-                <li role="presentation"><a href="#daily_member_page" aria-controls="daily_member_page" role="tab" data-toggle="tab">일용직 등록</a></li>
-                <li role="presentation"><a href="#danga_page" aria-controls="danga_page" role="tab" data-toggle="tab">단가 입력</a></li>
-                <li role="presentation"><a href="#kongsu_page" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수 입력</a></li>
-                <li role="presentation"><a href="#closing_page" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
+                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/hyunjang_page.html');" href="#" aria-controls="hyunjang_page" role="tab" data-toggle="tab">현장등록</a></li>
+                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/daily_employee_page.html');" href="#" aria-controls="daily_member_page" role="tab" data-toggle="tab">일용직 등록</a></li>
+                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/danga_page.html');" href="#" aria-controls="danga_page" role="tab" data-toggle="tab">단가 입력</a></li>
+                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/kongsu_page.html');" href="#" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수 입력</a></li>
+                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/closing_page.html');" href="#" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
 
             </ul>
+            <!-- tab_contnents -->
+            <div  class="tab_contents"  >
+                <iframe name="iframe_tab_contents"
+                        id="iframe_tab_contents"
+                        frameborder=0"
+                        style="border:1px"
+                        scrolling="no"
+                        width="100%" height="90%"
+                        class="">
+                </iframe>
+            </div>
 
-            <div align="top"  class="tab-content">
-                <div align="right" style="display:none; padding:20px" id="top_search" class="span12">
-
-                    <input type="date" class="input-xlarge" id="date01" placeholder="날짜 찾기">
-                    <input type="text" class="input-xlarge"  placeholder="현장 찾기">
-
-
-                </div>
-
-
-
-                <div role="tabpanel" class="tab-pane fade in active" id="hyunjang_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-
-                            <div class="block-content collapse in">
-                                <div class="block-content collapse in">
-
-
-                                    <div class="span12" >
-
-                                        <table id="hyunjang" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
-                                            <legend><span id="employee_title">현장 목록</span>
-                                                <div class="muted pull-right">
-                                                    <button  id="enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
-
-
-                                                </div>
-                                            </legend>
-                                            <thead>
-                                            <tr>
-                                                <th style="display:none"></th>
-                                                <th>Index</th>
-                                                <th>현장명</th>
-                                                <th>공사내용</th>
-                                                <th>발주회사</th>
-                                                <th>보고자</th>
-                                                <th>공사 시작일</th>
-                                                <th>공사 종료일</th>
-
-
-
-                                            </tr>
-                                            </thead>
-                                            <tbody id="hyunjang_list"></tbody>
-                                        </table>
-                                    </div>
-
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tap-pane -->
-
-
-
-
-                <!-- 일용직 등록 -->
-                <div role="tabpanel" class="tab-pane fade" id="daily_member_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block">
-                                <div class="block-content collapse in">
-                                    <div class="block-content collapse in">
-                                    <div class="span12">
-
-                                        <table id="daily" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
-                                            <legend><span id="daily_member_title">일용직 목록</span>
-                                                <div class="muted pull-right">
-                                                    <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
-
-
-                                                </div>
-                                            </legend>
-                                            <thead>
-                                            <tr>
-
-                                                <th>Index</th>
-                                                <th>이름</th>
-                                                <th>직종</th>
-                                                <th>핸드폰</th>
-                                                <th>주소</th>
-                                                <th>상세주소</th>
-
-                                            </tr>
-                                            </thead>
-                                            <tbody id="daily_employee_list">
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-                <!-- 단가 입력 -->
-                <div role="tabpanel" class="tab-pane fade" id="danga_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span6">
-                                    <h3>단가입력 테이블</h3>
-                                </div>
-                                <div class="span6" >
-                                    <h3>단가 입력</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-
-                <!-- 공수 입력 -->
-                <div role="tabpanel" class="tab-pane fade" id="kongsu_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span6">
-                                    <h3>공수입력 테이블</h3>
-                                </div>
-                                <div class="span6" >
-                                    <h3>공수 입력</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-                <!-- 결산 -->
-                <div role="tabpanel" class="tab-pane fade" id="closing_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                    <h3>결산 테이블</h3>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-
-
-
-
-
-
-
-
-            </div><!-- tab contents -->
 
         </div><!-- span 12-->
     </div><!-- span 12 contents -->
@@ -233,7 +78,7 @@
 
     hyunjang.hyunjang_load(company_no);
     daily_employee.daily_employee_load(company_no);
-
+        _tabFrame('hyunjang_tab/hyunjang_page.html');
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = e.target // newly activated tab
         var before_target = e.relatedTarget // previous active tab
@@ -253,11 +98,20 @@
     });
 
     });
-    function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
-    }
-    function hyunjang_indv_modal(table, seventh){
-            parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
+
+    function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
+        //alert(num);
+
+        document.getElementById('iframe_tab_contents').src = loadPage;
+        document.getElementById('iframe_tab_contents').onload = function() {
+            var target = document.getElementById('iframe_tab_contents').contentWindow;
+
+            //$(target).height($(window).height());
+            //$(target).width($(window).width());
+            //$("#tab_contents").css("height", '500px');
+            //$("#tab_contents").width(300);
+            //target.comInfo(num, companyName, gubun_val);  //
+        };
 
     }
 

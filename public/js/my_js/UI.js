@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     //$("iframe.myFrame").height(655); // iframe에 대한 스크롤바 변동시 높이값
     $("iframe.myFrame").height($(window).height()-100); // iframe에 대한 스크롤바 변동시 높이값
-    $("iframe.myFrame").width($(window).width());  // -5 정도 해줘야 스크롤바에 안가린다.
+    $("iframe.myFrame").width($(window).width()-20);  // -5 정도 해줘야 스크롤바에 안가린다.
     $("#main_contents").height($(window).height()-100);
     $("#main_contents").width($(window).width());
 
@@ -19,17 +19,18 @@ $(document).ready(function(){
     $(window).resize(function(){  //윈도우 크기 변화하면 작동
         //$("iframe.myFrame").height(655); // 높이고정
         $("iframe.myFrame").height($(window).height()-60); // 높이고정
-        $("iframe.myFrame").width($(window).width()); // 넓이고정
+        $("iframe.myFrame").width($(window).width()-20); // 넓이고정
         $("#main_contents").height($(window).height()-60);
         $("#main_contents").width($(window).width());
 
         width = $(window).width();
         height = $(window).height();
+        /*
         if(width < 1050){  // 만약 1050 밑으로 갈 경우 width 고정
 
             $("iframe.myFrame").width(1045);  //
         }
-
+           */
     });
 
     $('#myTab a:first').tab('show');  // 처음 페이지 로드하면, 첫번째 탭 보이게함

@@ -25,8 +25,14 @@ var service_auth = function ()
                 var j = i+1;
 
                 str += "<tr>";
-                str += "<td>" + j + "</td>";
+                var c_name = res[i].company_name;
+                if(c_name == ''){
+                    var c_name = '미 등록';
+
+                }
+                str += "<td>" + c_name + "</td>";
                 str += "<td>" + res[i].name + "</td>";
+                str += "<td>" + res[i].president_email + "</td>";
 
                 var startDay = new Date(res[i].startDay*1000);
                 var s_year = startDay.getFullYear();
@@ -39,15 +45,16 @@ var service_auth = function ()
                 var e_month = endDay.getMonth()+1;
                 var e_date = endDay.getDate();
 
-
-                var gap_day = (endDay - startDay)/(24*60*60*1000);
-                //var gap = new Date(Math.floor(gap_day));
+                var d = new Date();
+                var toDay = d.getTime();
+                var gap_day = (endDay - toDay)/(24*60*60*1000);
+                var gap = Math.floor(gap_day);
                 //var gap_date = gap.getDate();
 
 
                 str += "<td style='text-align:center'>" + s_year+"년 " +s_month+"월 "+ s_date +"일 "
                     +"~"+ e_year+"년 " +e_month+"월 "+ e_date +"일 "
-                    +"<span style='color:red;'>" +"("+"잔여일 수:  "+gap_day+" 일"+")"+"</span>"
+                    +"<span style='color:red;'>" +"("+"잔여일 수:  "+gap+" 일"+")"+"</span>"
                     +  "</td>";
 
                 str += "<td>"
