@@ -31,7 +31,7 @@ tax_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_route
 
             var query = "CALL tax_R('"+company_no+"')";
 
-            console.log(query);
+            console.log(query+": 세금정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

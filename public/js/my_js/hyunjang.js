@@ -44,6 +44,7 @@ var hyunjang = function ()
 
 
 
+
         },
         hyunjang_indv_load : function(hyunjang_no){
 

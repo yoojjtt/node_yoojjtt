@@ -18,10 +18,7 @@
 </head>
 
 <body>
-
-
-
-    <div class="row-fluid" >
+    <div class="row-fluid">
 
         <!--/span-->
         <div class="span12" id="content">
@@ -29,182 +26,24 @@
                 <div class="span12">
 
                     <ul class="nav nav-tabs" role="tablist" id="myTab">
-                        <li role="presentation"><a href="#com_dashboard_page" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">회사 상황판</a></li>
-                        <li role="presentation"><a href="#employee_page" aria-controls="employee_page" role="tab" data-toggle="tab">직원정보</a></li>
-                        <li role="presentation"><a href="#tax_page" aria-controls="messages_page" role="tab" data-toggle="tab">세금정보</a></li>
+                        <li role="presentation"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">회사 상황판</a></li>
+                        <li role="presentation"><a onclick="_tabFrame('main_tab/employee_page.html');" href="#" aria-controls="employee_page" role="tab" data-toggle="tab">직원정보</a></li>
+                        <li role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금정보</a></li>
+                        <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">서비스 현황</a></li>
 
                     </ul>
 
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="com_dashboard_page">
-                            <div class="row-fluid">
-                                <div class="block" style="height:600px;">
-                                    <div class="block-content collapse in">
-                                        <div class="span6 pannel">
-                                            <h3>hello dashboard</h3>
-                                            <p>content</p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
+                        <!-- tab_contnents -->
+                        <div  class="tab_contents" style=" margin:auto;" >
+                            <iframe name="iframe_tab_contents"
+                                    id="iframe_tab_contents"
+                                    frameborder=0"
+                                    scrolling="no"
+                                    width="100%" height="100%"
+                                    class="">
+                            </iframe>
                         </div>
-
-                        <div role="tabpanel" class="tab-pane fade in active" id="employee_page">
-                            <div class="row-fluid" >
-                                <!-- block -->
-                                <div class="block" style="height:600px;" >
-
-                                    <div class="block-content collapse in">
-
-
-                                            <div class="span6">
-
-                                                <table id="example" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
-                                                    <legend>직원 목록</legend>
-                                                    <thead>
-                                                    <tr>
-
-                                                        <th>성명</th>
-                                                        <th>핸드폰 번호</th>
-                                                        <th>이메일</th>
-                                                        <th>직책</th>
-
-
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="employees_list"></tbody>
-                                                </table>
-                                            </div>
-
-
-                                            <div class="span6 panel" >
-                                                <div class="form-horizontal">
-                                                    <fieldset>
-                                                        <legend><span id="employee_title">직원 정보</span>
-                                                            <div class="muted pull-right">
-                                                                <button  id="employee_enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
-                                                                <button  id="employee_save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
-                                                                <button  id="employee_delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
-                                                                <button    onClick="test()" class="delete-btn btn btn-danger">test_modal</button>
-                                                            </div>
-                                                        </legend>
-
-
-                                                        <div class="control-group">
-                                                            <label class="control-label">주민번호</label>
-                                                            <div class="controls">
-                                                                <input maxlength='6' class="span3 focused" id="em_jumin1" type="text" value="">
-                                                                <input maxlength='7' class="span3 focused" id="em_jumin2" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label" for="em_name">성명</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_name" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label">핸드폰 번호</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_phone" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label">이메일</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_email" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label">은행 예금주</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_account_owner" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label">은행명</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_account_name" type="text" value="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <label class="control-label">은행 계좌</label>
-                                                            <div class="controls">
-                                                                <input class="span6 focused" id="em_account" type="text" value="">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="control-group success">
-                                                            <label class="control-label" for="em_type">직책</label>
-                                                            <div class="controls">
-                                                                <select id="em_type">
-                                                                    <option>소장</option>
-                                                                    <option>회계</option>
-                                                                    <option>대표</option>
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                </div>
-                                <!-- /block -->
-                            </div>
-
-
-                        </div>
-
-
-
-
-                        <!-- 세금 등록 -->
-                        <div role="tabpanel" class="tab-pane fade" id="tax_page">
-                            <div class="row-fluid" >
-                                <!-- block -->
-                                <div class="block"style="height:600px;" >
-
-                                    <div class="block-content collapse in">
-
-                                        <!-- span12 -->
-                                        <div class="span12" style="padding-top:20px;" >
-                                            <div class="form-signin">
-                                                <legend>
-                                                   <span id="tax_title">세금 상세정보</span>
-                                                    <div  class="muted pull-right">
-                                                        <button  id="tax_return" onClick="tax_sujung('return')" class="enroll-btn btn btn-success">테이블</button>
-                                                        <button  id="tax_new" onClick="tax_sujung('new')" class="enroll-btn btn btn-success">수정</button>
-                                                        <button  id="tax_update" onClick="tax_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
-                                                    </div>
-                                                </legend>
-
-                                                <table class="table table-bordered ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="text-align:center" width="10%">구분</th>
-                                                            <th style="text-align:center">근로자</th>
-                                                            <th style="text-align:center">사업주</th>
-                                                            <th style="text-align:center">설명</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="tax_table"></tbody>
-
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                    </div><!-- block collapse in -->
-                                </div><!-- /block -->
-                            </div><!-- row fluid -->
-                        </div><!-- tab-pane -->
-
-                    </div><!-- tab contents -->
-
+                        <!-- tab_contents -->
                 </div><!-- span12 -->
         </div><!-- span12 content -->
     </div><!-- row fluid -->
@@ -223,6 +62,7 @@
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
 <script src ="../js/my_js/tax.js"></script>
+<script src ="../js/my_js/_service_auth.js"></script>
 <script src="../js/my_js/UI.js"></script>
 
 <script>
@@ -231,6 +71,8 @@
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
         tax.tax_load();
+        service_auth.load(email);
+        _tabFrame('main_tab/dashboard.html');
 
 
     });
@@ -258,10 +100,21 @@
         }
 
     }
+    function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
+        //alert(num);
 
-    function test(){
-        parent.modalOpen();
+        document.getElementById('iframe_tab_contents').src = loadPage;
+        document.getElementById('iframe_tab_contents').onload = function() {
+            var target = document.getElementById('iframe_tab_contents').contentWindow;
+            //$(target).height($(window).height());
+            //$(target).width($(window).width());
+            $("#tab_contents").css("height", '777px;');
+            $("#tab_contents").width($(window).width());
+            //target.comInfo(num, companyName, gubun_val);  //
+        };
+
     }
+
 
 </script>
 

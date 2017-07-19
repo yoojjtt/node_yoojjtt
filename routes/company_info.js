@@ -31,7 +31,7 @@ company_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_r
 
             var query = "CALL company_list_R("+company_no+")";
 
-            console.log(query);
+            console.log(query+": 회사정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -54,7 +54,7 @@ company_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_r
             var query = "CALL company_list_S('"+company_name+"','','"+president+"','"+c_phone+"','"+c_fax+"','"+c_postnum+"','"+c_address1+"','"
                 +c_address2 +"','"+c_LawNumber+"','"+c_bank_owner+"','"+c_bank_name+"','"+c_bank_account+"','','','"+president_email+"')";
 
-            console.log(query);
+            console.log(query+ ": 회사정보 수정");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

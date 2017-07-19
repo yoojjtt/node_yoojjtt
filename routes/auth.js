@@ -32,7 +32,7 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
 
             var query = "CALL _auth('"+email+"','"+pwd+"')";
 
-            console.log(query);
+            console.log(query+": 접속");
 
            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -46,7 +46,7 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
             
             var query = "CALL _auth_logout('"+company_no+"','"+email+"')";
             //TODO company_no만 가지고 로그아웃 할 경우 변별력이 없다. company_no으로만 한 이유는 개인정보 수정시 로그아웃 에러문제발생 ++name, type
-            console.log(query);
+            console.log(query+": 로그아웃");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

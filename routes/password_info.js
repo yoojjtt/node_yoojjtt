@@ -31,7 +31,7 @@ password_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
             var query = "CALL password_R('"+email+"')";
 
-            console.log(query);
+            console.log(query+": 비밀번호 정보로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -44,7 +44,7 @@ password_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
             var query = "CALL password_S('"+email+ "','"+ new_pwd +"')";
 
-            console.log(query);
+            console.log(query+": 비밀번호 변경");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

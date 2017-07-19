@@ -1,7 +1,7 @@
 
-var router_name = 'hyunjang_info';
+var router_name = 'daily_employee_info';
 
-function hyunjang_info(router, parent)  //  /m, Mobile_routerAct   생성자
+function daily_employee_info(router, parent)  //  /m, Mobile_routerAct   생성자
 {
 
     console.log('router '+router_name+' standby~~');
@@ -11,11 +11,11 @@ function hyunjang_info(router, parent)  //  /m, Mobile_routerAct   생성자
 
 }
 
-hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
+daily_employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
 {
     var parent = parent;  //Mobile_routerAct
 
-    router.post("/"+router_name+"/ajax.json", function(req, res) { //  /m/hyunjang_info/ajax.json
+    router.post("/"+router_name+"/ajax.json", function(req, res) { //  /m/daily_employee_info/ajax.json
 
         //var apiKey = req.body.apiKey;
         var gubun = req.body.gubun;
@@ -29,19 +29,19 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
 
 
-            var query = "CALL hyunjang_R('"+company_no+"','')";
+            var query = "CALL daily_employee_R("+company_no+")";
 
-            console.log(query+": 현장리스트 로드");
+            console.log(query+": 일용직 리스트 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
 
         }
-        if(gubun =="individual"){
+        if(gubun =="S"){
             var hyunjang_no = data[0];
 
 
-            var query = "CALL hyunjang_R('','"+ hyunjang_no+"')";
+            var query = "CALL daily_member_S('','"+ hyunjang_no+"')";
 
             console.log(query+": 개별 현장정보 로드");
 
@@ -54,7 +54,7 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
 }
 
-hyunjang_info.prototype.query_after = function(res, req, result, error)
+daily_employee_info.prototype.query_after = function(res, req, result, error)
 {
     console.log(return_data);
 
@@ -63,4 +63,4 @@ hyunjang_info.prototype.query_after = function(res, req, result, error)
 
 }
 
-module.exports = hyunjang_info;
+module.exports = daily_employee_info;

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+
+<body>
+
+<div role="tabpanel" class="tab-pane fade in active" id="employee_page">
+    <div class="row-fluid" >
+        <!-- block -->
+        <div class="block"  >
+            <div class="navbar navbar-inner navbar-fixed-top block-header">  <!--head -->
+                <div class="muted pull-left">직원 목록</div>
+                <div class="pull-right" style="margin-bottom:10px;">
+                    <button  id="employee_enroll" onClick="employee_sujung('enroll')" class="enroll-btn btn btn-success">직원등록</button>
+                    <button  id="employee_save" onClick="employee_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+                    <button  id="employee_delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                </div>
+            </div>
+
+            <div class="block-content collapse in" >
+                <div class="span6">
+                    <table id="example" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                        <thead>
+                        <tr>
+                            <th>성명</th>
+                            <th>핸드폰 번호</th>
+                            <th>이메일</th>
+                            <th>직책</th>
+                        </tr>
+                        </thead>
+                        <tbody id="employees_list"></tbody>
+                    </table>
+                </div>
+
+                <div class="span6 " >
+                    <div class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">주민번호</label>
+                                <div class="controls">
+                                    <input maxlength='6' class="span3 focused" id="em_jumin1" type="text" value="">
+                                    <input maxlength='7' class="span3 focused" id="em_jumin2" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="em_name">성명</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_name" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">핸드폰 번호</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_phone" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">이메일</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_email" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">은행 예금주</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_account_owner" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">은행명</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_account_name" type="text" value="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">은행 계좌</label>
+                                <div class="controls">
+                                    <input class="span6 focused" id="em_account" type="text" value="">
+                                </div>
+                            </div>
+
+                            <div class="control-group success">
+                                <label class="control-label" for="em_type">직책</label>
+                                <div class="controls">
+                                    <select id="em_type">
+                                        <option>소장</option>
+                                        <option>회계</option>
+                                        <option>대표</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /block -->
+    </div>
+
+
+</div>
+
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<script src="../../assets/scripts.js"></script>
+
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/_auth.js"></script>
+<script src="../../js/my_js/employee.js"></script>
+<script src ="../../js/my_js/tax.js"></script>
+<script src ="../../js/my_js/_service_auth.js"></script>
+<script src="../../js/my_js/UI.js"></script>
+
+<script>
+
+    $(function() {
+        employee.employees_load(company_no);  // 직원 리스트 로드
+        employee.new_employee();
+
+
+
+    });
+    function employee_sujung(type){
+        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
+        if(type == 'enroll'){ employee.new_employee();}
+        if(type == 'delete'){ alert('delete');}
+
+    }
+
+
+    function info_load(table, third, forth){
+
+
+        if(table == 'employees_list'){
+            employee.employee_load(company_no, third, forth);
+        }
+        if(table == 'tax_list'){
+            alert('tax_table클릭');
+        }
+
+    }
+
+
+
+</script>
+
+
+<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

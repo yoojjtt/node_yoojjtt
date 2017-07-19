@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+
+<body>
+
+                <div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
+                    <div class="row-fluid">
+                        <div class="block" >
+                            <div class="navbar navbar-inner navbar-fixed-top block-header">  <!--head -->
+                                <div class="muted pull-left">hello dashboard</div>
+                                <div class="pull-right"><span class="badge badge-info">(주)해인엔지니어링</span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in"> <!-- body -->
+                                <div class="span6 pannel">
+                                    <p>content
+                                        <br>
+                                        <br>
+                                        <br>
+                                        content
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<script src="../../assets/scripts.js"></script>
+
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/_auth.js"></script>
+<script src="../../js/my_js/employee.js"></script>
+<script src ="../../js/my_js/tax.js"></script>
+<script src ="../../js/my_js/_service_auth.js"></script>
+<script src="../../js/my_js/UI.js"></script>
+
+<script>
+
+    $(function() {
+        employee.employees_load(company_no);  // 직원 리스트 로드
+        employee.new_employee();
+        tax.tax_load();
+        service_auth.load(email);
+
+
+    });
+    function employee_sujung(type){
+        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
+        if(type == 'enroll'){ employee.new_employee();}
+        if(type == 'delete'){ alert('delete');}
+
+    }
+    function tax_sujung(type){
+        if(type =='new'){tax.tax_new()}
+        if(type =='update'){tax.tax_update()}
+        if(type =='return'){tax.tax_load()}
+
+    }
+
+    function info_load(table, third, forth){
+
+
+        if(table == 'employees_list'){
+            employee.employee_load(company_no, third, forth);
+        }
+        if(table == 'tax_list'){
+            alert('tax_table클릭');
+        }
+
+    }
+
+
+
+</script>
+
+
+<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

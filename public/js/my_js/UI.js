@@ -6,19 +6,28 @@ $(document).ready(function(){
     type = get_Cookie('sess_type');
 
 
+    window.onload = funLoad; // tab-contents에 대한 사이즈 조정
+    window.onresize = funLoad;
+
+    //$("iframe.myFrame").height(655); // iframe에 대한 스크롤바 변동시 높이값
+    $("iframe.myFrame").height($(window).height()-100); // iframe에 대한 스크롤바 변동시 높이값
+    $("iframe.myFrame").width($(window).width());  // -5 정도 해줘야 스크롤바에 안가린다.
+    $("#main_contents").height($(window).height()-100);
+    $("#main_contents").width($(window).width());
 
 
-    $("iframe.myFrame").height(655); // iframe에 대한 스크롤바 변동시 높이값
-    $("iframe.myFrame").width($(window).width()-5);  // -5 정도 해줘야 스크롤바에 안가린다.
-
-    $(window).resize(function(){
-        $("iframe.myFrame").height(655);
-        $("iframe.myFrame").width($(window).width()-5);
+    $(window).resize(function(){  //윈도우 크기 변화하면 작동
+        //$("iframe.myFrame").height(655); // 높이고정
+        $("iframe.myFrame").height($(window).height()-60); // 높이고정
+        $("iframe.myFrame").width($(window).width()); // 넓이고정
+        $("#main_contents").height($(window).height()-60);
+        $("#main_contents").width($(window).width());
 
         width = $(window).width();
         height = $(window).height();
-        if(width < 1050){
-            $("iframe.myFrame").width(1045);  // 1050 밑으로 갈 경우 width 고정
+        if(width < 1050){  // 만약 1050 밑으로 갈 경우 width 고정
+
+            $("iframe.myFrame").width(1045);  //
         }
 
     });
@@ -27,6 +36,13 @@ $(document).ready(function(){
 
 
 });
+/* div content dynamic css width,height -------------+*/
+function funLoad(){
+    var Cheight = $(window).height();
+    $('div.tab_contents').css({'height':Cheight+'px'});
+}
+
+
 
 /*tab active effect ------------------*/
 $('#myTab a').click(function (e) {
@@ -40,6 +56,11 @@ $(".nav").on("click","li", function(){
    var target = $(".active");
     target.not($(this)).removeClass("active");
 });
+
+
+
+
+
 
 /*table click event  ---------------------*/
 $("tbody").on("click", "tr", function() //
@@ -64,13 +85,14 @@ $("tbody").on("click", "tr", function() //
     var second = $(this).children().eq(1).text();
     var third = $(this).children().eq(2).text();
     var forth = $(this).children().eq(3).text();
+    var sixth = $(this).children().eq(6).text();
     var seventh = $(this).children().eq(7).text();
     //alert(seventh);
     //alert(table+third+forth);
 
     if(table =='employees_list'){info_load(table, third, forth);}  // 직원 개별정보 불러올 때
 
-    if(table =='hyunjang_list'){hyunjang_load(table, seventh);} //현장 로드
+    if(table =='hyunjang_list'){hyunjang_indv_modal(table, seventh);} //현장 로드
 
     //info_load(table, first, second); // 세금정보 load할 때
 

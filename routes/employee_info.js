@@ -32,7 +32,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             //TODO company_no int 값인데 varchar로 보내도 왜 에러가 나지않는지??
             var query = "CALL employee_list_R('"+email+"','"+type+"','"+company_no+"')";
 
-            console.log(query);
+            console.log(query+ ": 개인정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -53,7 +53,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
             var query = "CALL employee_list_S('"+type+"','"+email+"','"+jumin1+"','"+jumin2+"','"+jumin2+"','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner+"',"+ company_id +")";
 
-            console.log(query);
+            console.log(query +": 개인정보 수정");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -63,7 +63,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
             var query = "CALL employee_list_R('','',"+company_no+")";
 
-            console.log(query);
+            console.log(query+": 직원리스트 정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
         }

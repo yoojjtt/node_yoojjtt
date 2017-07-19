@@ -65,7 +65,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <div style="display:none" id="com_info" class="brand"></div>
+
             <div class="nav-collapse collapse" data-role="navbar">
                 <ul class="nav pull-right">
                     <li class="dropdown">
@@ -107,7 +107,7 @@
 
 
 <!-- contnents -->
- <div class="contents">
+ <div id="main_contents" class="contents" >
     <iframe name="iframe_contents"
             id="iframe_contents"
 
@@ -148,7 +148,7 @@
             if(type == '대표'){
                 navbar_move("main"); //main 페이지를 로드하면서 페이지 시작
                 $('#AdminModal').modal('toggle');
-                modalOpen('notification', '공지사항', 'auto', 500, -1);
+                modalOpen('notification', '공지사항', 'auto', 'auto');
             }
 
             if(type == '소장'){
@@ -162,9 +162,6 @@
                 $('#company_management').css('display', 'none');
                 $('#hyunjang_management').css('display', 'none');
             }
-
-
-
 
 
         }
@@ -193,7 +190,7 @@
             };
 
     }
-    function modalOpen(_pageName, _title, _width, _height, _value1, _value2) {
+    function modalOpen(_pageName, _title, _width, _height, _value1, _value2) {// modal 창
 
         $('#myModalLabel').html(_title);
         $("#AdminModal").modal();
@@ -203,16 +200,34 @@
         document.getElementById('iframe_modal').src = '/pages/'+_pageName+".html";
         document.getElementById('iframe_modal').onload = function() {
             var target = document.getElementById('iframe_modal').contentWindow;
+
             var width = $(target).width();
+            var height = $(target).height();
+
+            if(_pageName=="hyunjang_modal"){
+                if(_value1 ==''){ // 현장신규등록인 경우
+
+                }else{//현장 테이블 클릭해서 현장번호 있을 경우
+                    target.hyunjang_Info(_value1);
+                    $('#iframe_modal').css('height', 300);
+                }
+
+            }
 
             if(_pageName=="notification") {
                 $('.modal-footer').css('display', 'none');
                 $('.modal-header .close').css('display', 'none');
-                $('#iframe_modal').css('height', 300);
+                $('#iframe_modal').css('width', _width);
+                $('#iframe_modal').css('height', _height);
+                $('.modal-dialog').css('height', 300);
+                $('.modal-dialog').css('width', '50%');  //의미없음
+                //$('.modal-body').css('width', _width);
+                //$('.modal-body').css('height', _height);
+
             }
             $('.modal-dialog').css('width', _width);
             $('#iframe_modal').css('height', _height);
-            $('.modal-footer').css('display', 'none');
+           // $('.modal-footer').css('display', 'none');
 
             //target.hyunjang_Info(_value1);
         };

@@ -13,31 +13,19 @@
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </head>
-<body id="login">
-<div class="container">
+<body> <!-- body 태그 안에서 style 을 주는 것은 안에 콘텐츠만 적용된다.-->
 
-    <div  class="form-signin">
-        <h2 class="form-signin-heading">공지사항</h2>
+
+    <div>
+        <h2>공지사항</h2>
 
         <div>공지사항</div>
         <P>서비스를 신청하고 추가 정보를 입력하면 부가서비스를 사용할 수 있습니다.</P>
 
     </div>
 
-</div> <!-- /container -->
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-<script src="../js/my_js/_static.js"></script>
-<script src="../js/my_js/_DB_query.js"></script>
-<script src="../js/my_js/_auth.js"></script>
-<script>
-    function submit(){
-        auth.login_process();
-    }
 
-    function register(){
-        location.href="/pages/register.html";
-    }
-</script>
 </body>
 </html>

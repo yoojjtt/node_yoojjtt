@@ -13,77 +13,66 @@
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </head>
-<body id="login">
-<div class="container" >
+<body >
 
 
                 <form class="form-horizontal">
-                    <fieldset>
 
-                        <div class="control-group">
-                            <label class="control-label" for="hyun_jang_name">현장명</label>
-                            <div class="controls">
+
+                                <labelclass="control-label"  for="hyun_jang_name">현장명</label>
                                 <input type="text" class="form-control" name="hyun_jang_name" id="hyun_jang_name"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">책임자</label>
-                            <div class="controls">
+
+
+                                 <label class="control-label">책임자</label>
                                 <input type="text" class="form-control" name="bogoja" id="bogoja"/>
                                 <input type="hidden" class="form-control" id="kosaNum"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="hyun_jang_content">공사내용</label>
-                            <div class="controls">
-                                <input type="text" class="form-control" name="hyun_jang_content" id="hyun_jang_content"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="balju_company">발주회사</label>
-                            <div class="controls">
-                                <input type="text" class="form-control" name="balju_company" id="balju_company"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="hyunjang_start">공사 시작일</label>
-                            <div class="controls">
-                                <input type="date" class="form-control" name="hyunjang_start" id="hyunjang_start"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="hyunjang_end">공사 종료일</label>
-                            <div class="controls">
-                                <input type="date" class="form-control" name="hyunjang_end" id="hyunjang_end"/>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="remark">특이 사항</label>
-                            <div class="controls">
-                                <textarea class="form-control" name="remark" rows="8" id="remark"></textarea>
-                            </div>
-                        </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            <button type="reset" class="btn">Cancel</button>
-                        </div>
-                    </fieldset>
+
+                            <label class="control-label" for="hyun_jang_content">공사내용</label>
+
+                                <input type="text" class="form-control" name="hyun_jang_content" id="hyun_jang_content"/>
+
+
+                            <label class="control-label" for="balju_company">발주회사</label>
+
+                                <input type="text" class="form-control" name="balju_company" id="balju_company"/>
+
+
+                            <label class="control-label" for="hyunjang_start">공사 시작일</label>
+
+                                <input type="date" class="form-control" name="hyunjang_start" id="hyunjang_start"/>
+
+
+                            <label class="control-label" for="hyunjang_end">공사 종료일</label>
+
+                                <input type="date" class="form-control" name="hyunjang_end" id="hyunjang_end"/>
+
+
+                         <label class="control-label" for="remark">특이사항</label>
+                                <textarea class="form-control" name="remark" rows="6" id="remark"></textarea>
+
+
+
+
                 </form>
 
 
-
-</div> <!-- /container -->
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../js/my_js/_static.js"></script>
 <script src="../js/my_js/_DB_query.js"></script>
 <script src="../js/my_js/hyunjang.js"></script>
 <script>
-//var width = $(window).width();
-//var height = $(window).height();
-//alert(width);
-//alert(height);
+    $(function(){
+        var width = $(window).width();
+        var height = $(window).height();
+        $('html').width(width);
+        $('html').height(height);
+
+    });
+
+    //alert(width);
+    //alert(height);
     function hyunjang_Info(v1){
 
         hyunjang.hyunjang_indv_load(v1);

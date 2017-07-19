@@ -25,7 +25,7 @@
 
 
 
-<div class="row-fluid" >
+<div class="row-fluid" style="overflow:scroll;">
     <!--/span-->
     <div class="span12" id="content">
         <div class="span12">
@@ -59,13 +59,13 @@
                                 <div class="block-content collapse in">
 
 
-                                    <div class="span12">
+                                    <div class="span12" >
 
                                         <table id="hyunjang" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
                                             <legend><span id="employee_title">현장 목록</span>
                                                 <div class="muted pull-right">
-                                                    <button  id="enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">현장등록</button>
-                                                    <button  id="delete" disabled onClick="employee_sujung('delete')" class="delete-btn btn btn-danger">삭제</button>
+                                                    <button  id="enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+
 
                                                 </div>
                                             </legend>
@@ -106,75 +106,36 @@
                     <div class="row-fluid" >
                         <!-- block -->
                         <div class="block">
-                            <div class="block-content collapse in">
-                                <div class="span6">
+                                <div class="block-content collapse in">
+                                    <div class="block-content collapse in">
+                                    <div class="span12">
 
-                                    <h4>일용직 리스트</h4>
-                                        <table class="table table-bordered">
+                                        <table id="daily" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
+                                            <legend><span id="daily_member_title">일용직 목록</span>
+                                                <div class="muted pull-right">
+                                                    <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+
+
+                                                </div>
+                                            </legend>
                                             <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Product</th>
-                                                <th>Date</th>
-                                                <th>Amount</th>
+
+                                                <th>Index</th>
+                                                <th>이름</th>
+                                                <th>직종</th>
+                                                <th>핸드폰</th>
+                                                <th>주소</th>
+                                                <th>상세주소</th>
+
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Coat</td>
-                                                <td>02/02/2013</td>
-                                                <td>$25.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacket</td>
-                                                <td>01/02/2013</td>
-                                                <td>$335.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Shoes</td>
-                                                <td>01/02/2013</td>
-                                                <td>$29.99</td>
-                                            </tr>
+                                            <tbody id="daily_employee_list">
                                             </tbody>
                                         </table>
 
-                                </div>
-                                <div class="span6" >
+                                    </div>
 
-                                    <h4>일용직 상세정보</h4>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Product</th>
-                                            <th>Date</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Coat</td>
-                                            <td>02/02/2013</td>
-                                            <td>$25.12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacket</td>
-                                            <td>01/02/2013</td>
-                                            <td>$335.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Shoes</td>
-                                            <td>01/02/2013</td>
-                                            <td>$29.99</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -264,19 +225,22 @@
 <script src="../js/my_js/employee.js"></script>
 <script src="../js/my_js/UI.js"></script>
 <script src="../js/my_js/hyunjang.js"></script>
+<script src="../js/my_js/daily_employee.js"></script>
 
 <script>
 
     $(function() {
 
     hyunjang.hyunjang_load(company_no);
+    daily_employee.daily_employee_load(company_no);
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = e.target // newly activated tab
         var before_target = e.relatedTarget // previous active tab
 
-
-        if(target == 'http://220.230.113.201:3001/pages/hyunjang.html#hyunjang_page'){
+        var hyunjang_page = 'http://220.230.113.201:3001/pages/hyunjang.html#hyunjang_page';
+        var daily_page = 'http://220.230.113.201:3001/pages/hyunjang.html#daily_member_page';
+        if(target == hyunjang_page || target == daily_page){
            $('#top_search').hide();
             var content = $('.block');
             content.css('padding-top','0px');   // 현장찾기, 현장날짜 선택 없을 때
@@ -286,35 +250,20 @@
             content.css('padding-top','81px');
         }
 
-    })
-
-
-
-
-
+    });
 
     });
     function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800');
+        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
-    function hyunjang_load(table, seventh){
-
-
-        if(table == 'hyunjang_list'){
-            parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh);
-        }
-
+    function hyunjang_indv_modal(table, seventh){
+            parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
 
     }
 
 
 
 </script>
-
-
-
-
-
 
 
 <script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

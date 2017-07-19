@@ -31,7 +31,7 @@ member.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerA
 
         if(gubun == 'president_register'){
             var query = "CALL _member_register('"+type +"','" +email + "','" + phone +"','" +pwd +"');";   //대표가 서비스를 처음 신청할 때
-            console.log(query);
+            console.log(query+": 회원가입");
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
         }
 
