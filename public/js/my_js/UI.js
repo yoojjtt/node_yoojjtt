@@ -9,35 +9,32 @@ $(document).ready(function(){
     window.onload = funLoad; // tab-contents에 대한 사이즈 조정
     window.onresize = funLoad;
 
-    //$("iframe.myFrame").height(655); // iframe에 대한 스크롤바 변동시 높이값
-    $("iframe.myFrame").height($(window).height()-100); // iframe에 대한 스크롤바 변동시 높이값
-    $("iframe.myFrame").width($(window).width()-20);  // -5 정도 해줘야 스크롤바에 안가린다.
-    $("#main_contents").height($(window).height()-100);
+    /* page load 하면 조정 값 */
+    $("iframe.myFrame").height($(window).height()-100);
+    $("iframe.myFrame").width($(window).width()-20);
+    $("#main_contents").height($(window).height()-80);
     $("#main_contents").width($(window).width());
 
-
+    /* page size resize 하면 조정 값*/
     $(window).resize(function(){  //윈도우 크기 변화하면 작동
-        //$("iframe.myFrame").height(655); // 높이고정
-        $("iframe.myFrame").height($(window).height()-60); // 높이고정
-        $("iframe.myFrame").width($(window).width()-20); // 넓이고정
+        $("iframe.myFrame").height($(window).height()-60);
+        $("iframe.myFrame").width($(window).width()-20);
         $("#main_contents").height($(window).height()-60);
         $("#main_contents").width($(window).width());
 
-        width = $(window).width();
-        height = $(window).height();
         /*
         if(width < 1050){  // 만약 1050 밑으로 갈 경우 width 고정
 
             $("iframe.myFrame").width(1045);  //
         }
-           */
+        */
     });
 
     $('#myTab a:first').tab('show');  // 처음 페이지 로드하면, 첫번째 탭 보이게함
 
 
 });
-/* div content dynamic css width,height -------------+*/
+/* div content dynamic css width,height -------------*/
 function funLoad(){
     var Cheight = $(window).height();
     $('div.tab_contents').css({'height':Cheight+'px'});
@@ -45,21 +42,12 @@ function funLoad(){
 
 
 
-/*tab active effect ------------------*/
-$('#myTab a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-});
-
 /*nav bar click effect -----------------*/
 $(".nav").on("click","li", function(){
    $(this).toggleClass("active");
    var target = $(".active");
     target.not($(this)).removeClass("active");
 });
-
-
-
 
 
 
@@ -98,6 +86,36 @@ $("tbody").on("click", "tr", function() //
     //info_load(table, first, second); // 세금정보 load할 때
 
 
+
+
+});
+
+/*table click event  ---------------------*/
+$("tbody").on("click", "button", function() //
+{
+    var tbody = $(this).parent().parent().parent().parent();
+    var td = $(this).parent().parent().parent().children();
+    var table = tbody.attr("id");
+    var third = td.eq(2).text();
+    var button_type = $(this).attr('name');
+    //alert(button_type);
+
+    if(table == 'service_table'){
+        if(button_type == 'extension'){
+            var input_value = $(this).siblings('span').children().val();
+            if(!input_value){
+                alert('값을 입력하세요');
+                return false
+            }
+            service_auth.update(email, third, input_value , '');
+        }else if(button_type =='ban'){
+            var ban = $(this).attr('name');
+            service_auth.update(email, third, input_value , ban);
+        }
+
+
+
+    }
 
 
 

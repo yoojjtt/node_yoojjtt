@@ -43,7 +43,7 @@
                 <iframe name="iframe_tab_contents"
                         id="iframe_tab_contents"
                         frameborder=0"
-                        style="border:1px"
+
                         scrolling="no"
                         width="100%" height="90%"
                         class="">
@@ -79,23 +79,6 @@
     hyunjang.hyunjang_load(company_no);
     daily_employee.daily_employee_load(company_no);
         _tabFrame('hyunjang_tab/hyunjang_page.html');
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        var target = e.target // newly activated tab
-        var before_target = e.relatedTarget // previous active tab
-
-        var hyunjang_page = 'http://220.230.113.201:3001/pages/hyunjang.html#hyunjang_page';
-        var daily_page = 'http://220.230.113.201:3001/pages/hyunjang.html#daily_member_page';
-        if(target == hyunjang_page || target == daily_page){
-           $('#top_search').hide();
-            var content = $('.block');
-            content.css('padding-top','0px');   // 현장찾기, 현장날짜 선택 없을 때
-        }else{
-            $('#top_search').show();
-            var content = $('.block');
-            content.css('padding-top','81px');
-        }
-
-    });
 
     });
 

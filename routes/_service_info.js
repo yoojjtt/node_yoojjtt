@@ -38,12 +38,13 @@ service_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_r
 
         }
         if(gubun =="S"){
+            var super_user = data[0]
+            var sujung_email = data[1];
+            var expiration_date = data[2];
+            var ban = data[3];
 
-            var company_no = data[0];
-            var email = data[1];
 
-
-            var query = "CALL _expiration_date_S('"+company_no+"','"+email+"')";
+            var query = "CALL _expiration_date_S('"+super_user+"','"+sujung_email+"','"+expiration_date+"','"+ban+"')";
 
             console.log(query+": 사용기간 수정");
 

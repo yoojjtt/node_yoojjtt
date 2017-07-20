@@ -79,26 +79,22 @@
 <script src="../../js/my_js/_DB_query.js"></script>
 <script src="../../js/my_js/_static.js"></script>
 
-<script src="../../js/my_js/_auth.js"></script>
-<script src="../../js/my_js/employee.js"></script>
 <script src="../../js/my_js/UI.js"></script>
-<script src="../../js/my_js/hyunjang.js"></script>
 <script src="../../js/my_js/daily_employee.js"></script>
 
 <script>
 
     $(function() {
 
-        hyunjang.hyunjang_load(company_no);
         daily_employee.daily_employee_load(company_no);
 
 
     });
     function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
+        //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
     function hyunjang_indv_modal(table, seventh){
-        parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
+        //parent.parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
 
     }
 
