@@ -164,6 +164,15 @@
         }
 
     }
+    $("tbody").on("click", "tr", function() //
+    {
+        $('#employee_title').text('직원 정보');
+        $('#em_jumin1').attr('disabled', true);
+        $('#em_jumin2').attr('disabled', true);
+        $('#employee_save').show(); //저장버튼
+        $('#employee_delete').show(); //삭제버튼
+        $('#employee_enroll').show(); //신규등록 버튼
+    });
 
 
 

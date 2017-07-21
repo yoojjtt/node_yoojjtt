@@ -54,18 +54,12 @@ $(".nav").on("click","li", function(){
 /*table click event  ---------------------*/
 $("tbody").on("click", "tr", function() //
 {
-    $('#employee_title').text('직원 정보');
-    $('#em_jumin1').attr('disabled', true);
-    $('#em_jumin2').attr('disabled', true);
-    $('#employee_save').show(); //저장버튼
-    $('#employee_delete').show(); //삭제버튼
-    $('#employee_enroll').show(); //신규등록 버튼
+
 
 
     $(this).toggleClass("highlight");
     var target = $('.highlight');
     target.not($(this)).removeClass("highlight");
-
 
     /*테이블 명을 가져와야 한다.*/
     var table = $(this).parent().attr("id");
@@ -76,14 +70,12 @@ $("tbody").on("click", "tr", function() //
     var forth = $(this).children().eq(3).text();
     var sixth = $(this).children().eq(6).text();
     var seventh = $(this).children().eq(7).text();
-    //alert(seventh);
-    //alert(table+third+forth);
 
     if(table =='employees_list'){info_load(table, third, forth);}  // 직원 개별정보 불러올 때
 
     if(table =='hyunjang_list'){hyunjang_indv_modal(table, seventh);} //현장 로드
 
-    //info_load(table, first, second); // 세금정보 load할 때
+    if(table =='daily_employee_list'){daily_employee_modal('modal/daily_employee_modal', second)} // 일용직 개인정보 불러올 때
 
 
 

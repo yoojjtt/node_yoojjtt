@@ -23,7 +23,7 @@
 
 
 </head>
-<body>
+<body class="img_background">
 
 
 
@@ -42,7 +42,7 @@
                         id="iframe_modal"
                         width="100%" height="100%"
                         frameborder="0"
-                        scrolling="no">
+                        scrolling="yes">
                 </iframe>
 
             </div>
@@ -110,7 +110,7 @@
  <div id="main_contents" class="contents" >
     <iframe name="iframe_contents"
             id="iframe_contents"
-            style="margin:0 10px;"
+            style="margin:10px;"
             frameborder=0"
             scrolling="no"
             class="myFrame">
@@ -182,9 +182,8 @@
         document.getElementById('iframe_modal').src = '/pages/'+_pageName+".html";
         document.getElementById('iframe_modal').onload = function() {
             var target = document.getElementById('iframe_modal').contentWindow;
-            //var width = $(target).width();
-            //var height = $(target).height();
-            if(_pageName=="hyunjang_modal"){
+
+            if(_pageName=="modal/hyunjang_modal"){
                 if(_value1 ==''){ // 현장신규등록인 경우
 
                 }else{//현장 테이블 클릭해서 현장번호 있을 경우
@@ -193,17 +192,22 @@
                 }
             }
             if(_pageName=="modal/notification") {
-                //$('#myModalLabel').css('display', 'none');
+
                 $('.modal-footer').css('display', 'none');
-                //$('.modal-header .close').css('display', 'none');
                 $('#iframe_modal').css('width', _width);
                 $('#iframe_modal').css('height', _height);
 
             }
-            $('.modal-dialog').css('width', _width);
-            $('#iframe_modal').css('height', _height);
-           // $('.modal-footer').css('display', 'none');
-            //target.hyunjang_Info(_value1);
+            if(_pageName=='modal/daily_employee_modal'){
+                target.daily_Info(_value1);
+                $('.modal-footer').css('display', '');
+                $('.modal-body').css('width', _width);
+                $('.modal-body').css('height', _height);
+                $('.modal-body').css('overflow', 'hidden');
+
+            }
+
+
         };
 
     }

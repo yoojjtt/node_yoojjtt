@@ -214,8 +214,11 @@ body {
 }
 /*추가
 ----------------------*/
-.highlight {
-        color:red;}  /*tbody tr 클릭시 강조*/
+.highlight {color:red;}  /*tbody tr 클릭시 강조*/
+
+tbody > tr:hover {background-color: #4bb1cf}
+
+
 
 /* div.contents 에 padding 값을 줘서 */
 @media screen and (max-width:600px){
@@ -257,7 +260,7 @@ div.block{
     margin-top:-15px;
 }/* */
 
-body{
+body.img_background{
     background-image:url(../images/bg_pattern2.gif);
 }
 .modal-body{

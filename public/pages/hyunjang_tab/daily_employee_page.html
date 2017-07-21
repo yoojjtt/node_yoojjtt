@@ -8,6 +8,7 @@
     <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
     <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../assets/styles_daily.css" rel="stylesheet" media="screen">
     <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -18,57 +19,41 @@
 </head>
 
 <body>
-
 <div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
     <div class="row-fluid">
         <div class="block" >
             <div class="navbar navbar-inner  block-header">  <!--head -->
-                <div class="muted pull-left">일용직 목록</div>
+                <div class="muted pull-left">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="검색" title="Type in a name">
+
+                </div>
                 <div class="pull-right">
                      <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+                    <p class="test">dddddd</p>
 
                 </div>
             </div>
-
-            <div class="block-content collapse in" style="margin:0;"> <!-- body -->
-                <div class="span12 pannel" style="overflow-y:scroll;width:100%;height:500px;">
-                    <div style="margin:10px;">  <!-- 안쪽 공간 여백 -->
-                        <div class="span12">
-
-                            <table id="daily" cellpadding="0" cellspacing="0" border="0" class="table table-hover table-striped table-bordered" >
-
-                                <thead>
-                                <tr>
-
-                                    <th>Index</th>
-                                    <th>이름</th>
-                                    <th>직종</th>
-                                    <th>핸드폰</th>
-                                    <th>주소</th>
-                                    <th>상세주소</th>
-
-                                </tr>
-                                </thead>
-                                <tbody id="daily_employee_list">
-                                </tbody>
-                            </table>
-
-                        </div>
-
-
-                    </div>
-
-
-
+            <div>
+                <div class="span12">
+                    <table id="daily"  style="width:100%; background-color:white;" class="scrolltbody2 table  table-bordered" >
+                        <thead>
+                            <tr style=" background-color:white;">
+                                <th >Index</th>
+                                <th>이름</th>
+                                <th>직종</th>
+                                <th>핸드폰</th>
+                                <th>주소</th>
+                                <th>상세주소</th>
+                            </tr>
+                        </thead>
+                        <tbody style="height:500px;" id="daily_employee_list">
+                        </tbody>
+                    </table>
 
                 </div>
-
             </div>
-
         </div>
     </div>
-</div>
-
 
 
 <script src="../../vendors/jquery-1.9.1.min.js"></script>
@@ -80,6 +65,7 @@
 <script src="../../js/my_js/_static.js"></script>
 
 <script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/_table_ui.js"></script>
 <script src="../../js/my_js/daily_employee.js"></script>
 
 <script>
@@ -93,10 +79,13 @@
     function modal(hyunjang_modal){
         //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
-    function hyunjang_indv_modal(table, seventh){
-        //parent.parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
 
+    function daily_employee_modal(modal, name){
+        parent.parent.modalOpen(modal, '일용직 정보', '100%', '600px', name, '');
     }
+
+
+
 
 
 
