@@ -8,8 +8,9 @@
     <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
     <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
-    <link href="../../assets/styles_daily.css" rel="stylesheet" media="screen">
+
     <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,25 +20,28 @@
 </head>
 
 <body>
-<div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
+<div role="tabpanel" class="tab-pane fade in active ">
     <div class="row-fluid">
-        <div class="block" >
+        <div class="block">
             <div class="navbar navbar-inner  block-header">  <!--head -->
-                <div class="muted pull-left">
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="검색" title="Type in a name">
-
-                </div>
-                <div class="pull-right">
-                     <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
-                    <p class="test">dddddd</p>
-
+                <div class="nav_info">
+                    <div class="pull-left">
+                        <input type="text" id="search_name" onkeyup="myFunction()" placeholder="이름 검색">
+                        <input type="text" id="search_job" onkeyup="myFunction()" placeholder="직종 검색">
+                    </div>
+                    <div class="pull-right">
+                         <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+                    </div>
                 </div>
             </div>
             <div>
                 <div class="span12">
-                    <table id="daily"  style="width:100%; background-color:white;" class="scrolltbody2 table  table-bordered" >
+
+
+
+                    <table id="daily"  class="scrolltbody2 table  table-bordered" >
                         <thead>
-                            <tr style=" background-color:white;">
+                            <tr>
                                 <th >Index</th>
                                 <th>이름</th>
                                 <th>직종</th>
@@ -46,9 +50,20 @@
                                 <th>상세주소</th>
                             </tr>
                         </thead>
-                        <tbody style="height:500px;" id="daily_employee_list">
+                        <tbody id="daily_employee_list">
                         </tbody>
                     </table>
+
+                    <div class="pannel">
+                        <input>
+                    </div>
+
+
+
+
+
+
+
 
                 </div>
             </div>
@@ -58,7 +73,7 @@
 
 <script src="../../vendors/jquery-1.9.1.min.js"></script>
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+
 <script src="../../assets/scripts.js"></script>
 
 <script src="../../js/my_js/_DB_query.js"></script>
@@ -93,8 +108,6 @@
 </script>
 
 
-<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="../../assets/DT_bootstrap.js"></script>
 </body>
 
 

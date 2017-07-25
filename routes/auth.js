@@ -42,10 +42,10 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
 
             var company_no = data[0];
             var email = data[1];
-            //TODO 세션삭제는 여기서 그냥 할 것?
+
             
             var query = "CALL _auth_logout('"+company_no+"','"+email+"')";
-            //TODO company_no만 가지고 로그아웃 할 경우 변별력이 없다. company_no으로만 한 이유는 개인정보 수정시 로그아웃 에러문제발생 ++name, type
+
             console.log(query+": 로그아웃");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
@@ -80,10 +80,6 @@ if(rd){
         +", "+'session_type'+':'+req.session.sess_type
         +", "+'session_companyNo'+':'+req.session.sess_company_no);
 
-
-
-    //var return_result = req.session.sess_name;
-   // console.log(return_result);
     res.json(return_data);
 
 }else{

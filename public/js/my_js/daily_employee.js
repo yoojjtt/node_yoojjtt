@@ -25,13 +25,13 @@ var daily_employee = function ()
                 var j = i+1;
 
                 str += "<tr>";
-                str += "<td>" + j + "</td>";
+                //str += "<td>" + j + "</td>";
                 str += "<td>" + res[i].name + "</td>";
                 str += "<td>" + res[i].job + "</td>";
-                str += "<td>" + res[i].phone + "</td>";
-                str += "<td>" + res[i].address1 + "</td>";
-                str += "<td>" + res[i].address2 + "</td>";
-                str += "</tr>";
+                //str += "<td>" + res[i].phone + "</td>";
+                //str += "<td>" + res[i].address1 + "</td>";
+                //str += "<td>" + res[i].address2 + "</td>";
+                //str += "</tr>";
                 $("#daily_employee_list").append(str);
             }
 

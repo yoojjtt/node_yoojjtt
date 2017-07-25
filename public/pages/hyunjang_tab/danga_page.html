@@ -8,7 +8,9 @@
     <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
     <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
-    <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+
+    <link href="../../css/danga_styles.css" rel="stylesheet" media="screen">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,22 +39,119 @@
                             <div class="span6">
                                 <h3>단가입력 테이블</h3>
                             </div>
-                            <div class="span6" >
-                                <h3>단가 입력</h3>
-                            </div>
 
 
 
 
-                    </div>
+
+                            <div class="span3" >
+                                <div class="pannel">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <label class="control-label">성명</label>
+                                                    <input type="text" class="form-control" name="oun_name_i" id="oun_name_i"/>
+                                                </div>
+                                                <div class="">
+                                                    <label class="control-label">단가</label>
+                                                    <input type="text" class="form-control" name="daily_salary_i" id="daily_salary_i"/>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="control-label">직종</label>
+                                                    <select class="form-control" name="job_i" id="job_i">
+                                                        <option value="">선택</option>
+                                                        <option value="반장">반장</option>
+                                                        <option value="함석">함석</option>
+                                                        <option value="보온">보온</option>
+                                                        <option value="비계">비계</option>
+                                                        <option value="일반">일반</option>
+                                                        <option value="여공">여공</option>
+                                                        <option value="용접">용접</option>
+                                                        <option value="기계">기계</option>
+                                                        <option value="제관">제관</option>
+                                                        <option value="기타">기타</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <label class="control-label">주민번호</label>
+                                                    <input type="text" class="form-control" name="jumin1_i" id="jumin1_i" placeholder ="앞자리" >
+                                                    <input type="text" class="form-control" name="jumin2_i" id="jumin2_i"  placeholder ="뒷자리">
+                                                </div>
+                                                <div class="">
+                                                    <label class="control-label">&nbsp</label>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="control-label">연락처</label>
+                                                    <input type="text" class="form-control"  name="oun_phone_i" id="oun_phone_i" />
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <label class="control-label">주소</label>
+                                                    <input type="text" class="form-control" name="address1_i" id="address1_i" >
+                                                </div>
+                                                <div class="">
+                                                    <label class="control-label">우편번호</label>
+                                                    <input type="text" class="form-control" name="postnum_i" id="postnum_i" >
+                                                </div>
+                                                <div class="">
+                                                    <label class="control-label">상세주소</label>
+                                                    <input type="text" class="form-control" name="address2_i" id="address2_i">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                <div class="span3">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <label class="control-label">예금주</label>
+                                                <input type="text" class="form-control" name="bank_name_i" id="bank_name_i">
+                                            </div>
+                                            <div class="">
+                                                <label class="control-label">은행</label>
+                                                <input type="text" class="form-control" name="bank_i" id="bank_i" >
+                                            </div>
+                                            <div class="">
+                                                <label class="control-label">계좌번호</label>
+                                                <input type="text" class="form-control" name="bank_number_i" id="bank_number_i" >
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <label class="control-label">보험적용 여부</label>
+                                            </div>
+                                            <div class="">
+                                                <label class="control-label">
+                                                    <input type="checkbox" name="rating_i" value="kumin" class="radiobox style-2" />
+                                                    <span>국민연금</span> </label>
+                                                <label class="">
+                                                    <input type="checkbox" name="rating_i" value="health" class="radiobox style-2" />
+                                                    <span>건강보험</span> </label>
+                                                <label class="">
+                                                    <input type="checkbox" name="rating_i" value="employ" class="radiobox style-2" />
+                                                    <span>고용보험</span> </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                </div><!-- div.pannel -->
+                            </div><!-- div.span3 -->
 
 
 
-
+                    </div><!-- 안쪽공간 여백 -->
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>

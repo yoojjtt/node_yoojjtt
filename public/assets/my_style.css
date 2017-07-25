@@ -1,0 +1,106 @@
+/*추가
+----------------------*/
+.highlight {color:red;}  /*tbody tr 클릭시 강조*/
+
+tbody > tr:hover {background-color: #4bb1cf}
+
+
+
+/* div.contents 에 padding 값을 줘서 */
+@media screen and (max-width:600px){
+    div.contents {
+
+        padding-top: 10px;
+
+
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width:1000px){
+    div.contents {
+
+        padding-top: 30px;
+
+
+    }
+}
+@media screen and (min-width: 1000px){
+    div.contents {
+
+
+        padding-top:50px;
+
+    }
+
+
+}
+
+div.tab-pane.fade.in.active{
+    margin-top:15px;
+}/* tab_contents 위에 살짝 감춰지는 것 수정*/
+
+ul#myTab{
+    margin-bottom:0px;
+}
+div.block{
+    margin-top:-15px;
+}/* */
+
+body.img_background{
+    background-image:url(../images/bg_pattern2.gif);
+}
+.modal-body{
+    padding:0px;
+}
+/*
+div.block-content.collapse.in{
+    margin:0;
+}
+scroll-bar 가 우측으로 붙이기 위해 collapse margin을 없애주었다. 그러나 딱 붙음...필요한 곳마 개별적으로
+*/
+
+
+
+/* service_page의 스크롤 상단 th 고정 css  */
+.scrolltbody {
+    display: block;
+    width: 99%;
+    /*border-collapse: collapse;*/
+}
+
+.scrolltbody tbody {
+    display: block;
+    width: 100%;
+    height: 450px;
+    overflow: auto;
+}
+
+.scrolltbody th:nth-of-type(2), .scrolltbody th:nth-of-type(3), .scrolltbody th:nth-of-type(4), .scrolltbody th:nth-of-type(5){
+    border-left:none;
+}
+
+.scrolltbody th:nth-of-type(1), .scrolltbody td:nth-of-type(1) { width: 10%; text-align:center; }
+.scrolltbody th:nth-of-type(2), .scrolltbody td:nth-of-type(2) { width: 10%; text-align:center;}
+.scrolltbody th:nth-of-type(3), .scrolltbody td:nth-of-type(3) { width: 20%; text-align:center;}
+.scrolltbody th:nth-of-type(4), .scrolltbody td:nth-of-type(4) { width: 40%; text-align:center; }
+.scrolltbody th:nth-of-type(5), .scrolltbody td:nth-of-type(5) { width: 20%; text-align:center;}
+.scrolltbody th:last-child { width: 297px; }
+/*.scrolltbody td:last-child { width: calc( 100px - 19px );  }*/
+
+
+/*table 상단 고정하기
+div.wrap{position: relative;padding-top:30px;width:100%;height:100%;overflow: hidden;}
+div.wrap > div {height:100%;overflow: auto;}
+table{width: 100%}
+thead tr{position: absolute;top: 0;display: block;background-color:white; border-left:0;width: 100%;height: 30px;}
+thead th{width: 200px}
+tbody{display: block;height: 450px;}
+tbody tr{height: auto;}
+tbody td{width: 200px;text-align: center;}
+
+.table-bordered th, .table-bordered td{
+    border-left:0;
+
+}/* table tr 배경 흰색으로 지워짐 쓸 영역만 지정해서 DT 영향받지 않도록 할 것 */
+
+/* table 상단 tr 고정시키는데 border-left 없애주기 */

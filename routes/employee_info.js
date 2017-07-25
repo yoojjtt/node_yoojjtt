@@ -29,7 +29,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var email = data[1];
             var type = data[2];
 
-            //TODO company_no int 값인데 varchar로 보내도 왜 에러가 나지않는지??
+
             var query = "CALL employee_list_R('"+email+"','"+type+"','"+company_no+"')";
 
             console.log(query+ ": 개인정보 로드");
