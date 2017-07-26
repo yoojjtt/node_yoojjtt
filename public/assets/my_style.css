@@ -1,12 +1,14 @@
 /*추가
 ----------------------*/
-.highlight {color:red;}  /*tbody tr 클릭시 강조*/
+/*
+
+.highlight {color:red;}  /*tbody tr 클릭시 강조
 
 tbody > tr:hover {background-color: #4bb1cf}
 
 
-
-/* div.contents 에 padding 값을 줘서 */
+*/
+/* div.contents 에 padding 값을 줘서
 @media screen and (max-width:600px){
     div.contents {
 
@@ -37,7 +39,7 @@ tbody > tr:hover {background-color: #4bb1cf}
 
 div.tab-pane.fade.in.active{
     margin-top:15px;
-}/* tab_contents 위에 살짝 감춰지는 것 수정*/
+}/* tab_contents 위에 살짝 감춰지는 것 수정
 
 ul#myTab{
     margin-bottom:0px;
@@ -45,13 +47,14 @@ ul#myTab{
 div.block{
     margin-top:-15px;
 }/* */
-
+/*
 body.img_background{
     background-image:url(../images/bg_pattern2.gif);
 }
 .modal-body{
     padding:0px;
 }
+*/
 /*
 div.block-content.collapse.in{
     margin:0;
@@ -61,13 +64,14 @@ scroll-bar 가 우측으로 붙이기 위해 collapse margin을 없애주었다.
 
 
 
-/* service_page의 스크롤 상단 th 고정 css  */
+/* service_page의 스크롤 상단 th 고정 css
 .scrolltbody {
     display: block;
     width: 99%;
-    /*border-collapse: collapse;*/
+    /*border-collapse: collapse;
 }
-
+*/
+/*
 .scrolltbody tbody {
     display: block;
     width: 100%;

@@ -5,17 +5,17 @@ $(document).ready(function(){
     company_no = get_Cookie('sess_company_no');
     type = get_Cookie('sess_type');
 
-
+/*
     window.onload = funLoad; // tab-contents에 대한 사이즈 조정
     window.onresize = funLoad;
-
-    /* page load 하면 조정 값 */
+*/
+    /* page load 하면 조정 값
     $("iframe.myFrame").height($(window).height()-100);
     $("iframe.myFrame").width($(window).width()-20);
     $("#main_contents").height($(window).height()-80);
     $("#main_contents").width($(window).width());
-
-    /* page size resize 하면 조정 값*/
+     */
+    /* page size resize 하면 조정 값
     $(window).resize(function(){  //윈도우 크기 변화하면 작동
         $("iframe.myFrame").height($(window).height()-60);
         $("iframe.myFrame").width($(window).width()-20);
@@ -28,26 +28,29 @@ $(document).ready(function(){
             $("iframe.myFrame").width(1045);  //
         }
         */
+    /*
     });
 
     $('#myTab a:first').tab('show');  // 처음 페이지 로드하면, 첫번째 탭 보이게함
-
+*/
 
 });
-/* div content dynamic css width,height -------------*/
+/* div content dynamic css width,height -------------
 function funLoad(){
     var Cheight = $(window).height();
     $('div.tab_contents').css({'height':Cheight+'px'});
 }
+ */
 
 
 
-/*nav bar click effect -----------------*/
+/*nav bar click effect -----------------
 $(".nav").on("click","li", function(){
    $(this).toggleClass("active");
    var target = $(".active");
     target.not($(this)).removeClass("active");
 });
+ */
 
 
 

@@ -208,4 +208,70 @@ test("rules(), add and remove", function() {
 	deepEqual( $("#v2-i5").rules(), { required: true, email: true, minlength: 2, maxlength: 5, min: 5, customMethod1: "123" });
 
 	$("#v2-i5").removeClass("required email").removeAttrs("minlength maxlength customMethod1 min");
-	deepEqual( $("#v2-i5").rules(),
+	deepEqual( $("#v2-i5").rules(), {});
+
+	delete $.validator.methods.customMethod1;
+	delete $.validator.messages.customMethod1;
+});
+
+test("rules(), add and remove static rules", function() {
+	var v = $("#testForm1clean").validate({
+		rules: {
+			firstname: "required date"
+		}
+	});
+	deepEqual( $("#firstnamec").rules(), { required: true, date: true } );
+
+	$("#firstnamec").rules("remove", "date");
+	deepEqual( $("#firstnamec").rules(), { required: true } );
+	$("#firstnamec").rules("add", "email");
+	deepEqual( $("#firstnamec").rules(), { required: true, email: true } );
+
+	$("#firstnamec").rules("remove", "required");
+	deepEqual( $("#firstnamec").rules(), { email: true } );
+
+	deepEqual( $("#firstnamec").rules("remove"), { email: true } );
+	deepEqual( $("#firstnamec").rules(), { } );
+
+	$("#firstnamec").rules("add", "required email");
+	deepEqual( $("#firstnamec").rules(), { required: true, email: true } );
+
+
+	deepEqual( $("#lastnamec").rules(), {} );
+	$("#lastnamec").rules("add", "required");
+	$("#lastnamec").rules("add", {
+		minlength: 2
+	});
+	deepEqual( $("#lastnamec").rules(), { required: true, minlength: 2 } );
+
+
+	var removedRules = $("#lastnamec").rules("remove", "required email");
+	deepEqual( $("#lastnamec").rules(), { minlength: 2 } );
+	$("#lastnamec").rules("add", removedRules);
+	deepEqual( $("#lastnamec").rules(), { required: true, minlength: 2 } );
+});
+
+test("rules(), add messages", function() {
+	$("#firstnamec").attr("title", null);
+	var v = $("#testForm1clean").validate({
+		rules: {
+			firstname: "required"
+		}
+	});
+	$("#testForm1clean").valid();
+	$("#firstnamec").valid();
+	deepEqual( v.settings.messages.firstname, undefined );
+
+	$("#firstnamec").rules("add", {
+		messages: {
+			required: "required"
+		}
+	});
+
+	$("#firstnamec").valid();
+	deepEqual( v.errorList[0] && v.errorList[0].message, "required" );
+
+	$("#firstnamec").val("test");
+	$("#firstnamec").valid();
+	equal(v.errorList.length, 0);
+});

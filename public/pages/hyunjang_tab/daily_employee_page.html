@@ -3,72 +3,147 @@
 
 <head>
     <title>Admin Home Page test</title>
-    <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
 
-    <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
-    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
 
 </head>
 
 <body>
-<div role="tabpanel" class="tab-pane fade in active ">
-    <div class="row-fluid">
-        <div class="block">
-            <div class="navbar navbar-inner  block-header">  <!--head -->
-                <div class="nav_info">
-                    <div class="pull-left">
-                        <input type="text" id="search_name" onkeyup="myFunction()" placeholder="이름 검색">
-                        <input type="text" id="search_job" onkeyup="myFunction()" placeholder="직종 검색">
-                    </div>
-                    <div class="pull-right">
-                         <button  id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
-                    </div>
-                </div>
+
+<div role="tabpanel" class="daily_employee_page">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+                <select class="btn btn-default form-control">
+                    <option>전체(직종)</option>
+                    <option>전체(직종)</option>
+                    <option>전체(직종)</option>
+                    <option>전체(직종)</option>
+                </select>
+                <span>총 원 : 206명</span>
             </div>
-            <div>
-                <div class="span12">
-
-
-
-                    <table id="daily"  class="scrolltbody2 table  table-bordered" >
-                        <thead>
-                            <tr>
-                                <th >Index</th>
-                                <th>이름</th>
-                                <th>직종</th>
-                                <th>핸드폰</th>
-                                <th>주소</th>
-                                <th>상세주소</th>
-                            </tr>
-                        </thead>
-                        <tbody id="daily_employee_list">
-                        </tbody>
-                    </table>
-
-                    <div class="pannel">
-                        <input>
-                    </div>
-
-
-
-
-
-
-
-
-                </div>
+            <div class="pull-right">
+                <button class="btn btn-info"id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+                <button class="btn btn-success" id="btn_save">저장</button>
+                <button class="btn btn-default" id="btn_delete">삭제</button>
             </div>
         </div>
     </div>
+    <div class="area_in_box" id="daily_employee_panel">
+        <div class="area area1">
+            <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>직종</th>
+                    <th>이름</th>
+                </tr>
+                </thead>
+                <tbody id="daily_employee_list">
+                </tbody>
+            </table>
+        </div>
+        <div class="area area2">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*이름</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="iName" placeholder="이름"></div>
+                    <!--Radio
+                    <div class="radio-sex">
+                        <div class="box"><input id="sex1" type="radio" name="sex" checked> 남 </div>
+                        <div class="box"><input id="sex2" type="radio" name="sex" > 여 </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*직종</label>
+                <div class="col-sm-9">
+                    <select class="btn-default form-control btn_job">
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*주민번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="iIdNum1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="iIdNum2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*핸드폰</label>
+                <div class="col-sm-9">
+                    <select class="btn btn-default form-control" id="sCell1">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">주소</label>
+                <div class="col-sm-9">
+                    <div class="input_box_post"><input readonly type="text" class="form-control iPost" id="iPost" placeholder=""></div>
+                    <div class="btn_box"><button class="btn btn-default" id="btn_post_search">우편번호검색</button></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="iAddress1" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*통상단가</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="iDanga"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*급여계좌</label>
+                <div class="col-sm-9">
+                    <select class="btn btn-default form-control btn_bank" id="sBank">
+                        <option>은행선택</option>
+                        <option>신한</option>
+                        <option>기업</option>
+                        <option>농협</option>
+                        <option>기업</option>
+                        <option>외환</option>
+                    </select>
+                    <div class="input-box"><input type="text" class="form-control" id="iAccountHolder" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="iAccount" placeholder="">
+                </div>
+            </div>
+
+        </div>
+
+
+        </div>
+    </div>
+</div>
 
 
 <script src="../../vendors/jquery-1.9.1.min.js"></script>
@@ -87,10 +162,28 @@
 
     $(function() {
 
+        window_resize();
+
         daily_employee.daily_employee_load(company_no);
 
 
     });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        $('#daily_employee_panel').css('height', win_height-47);
+        $('#daily_employee_panel').css('width', win_width);
+        $('#daily_employee_list').css('height', win_height-105);
+    }
+
     function modal(hyunjang_modal){
         //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
@@ -98,11 +191,6 @@
     function daily_employee_modal(modal, name){
         parent.parent.modalOpen(modal, '일용직 정보', '100%', '600px', name, '');
     }
-
-
-
-
-
 
 
 </script>

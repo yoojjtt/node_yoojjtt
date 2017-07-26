@@ -160,4 +160,103 @@ $.extend( DataTable.ext.oPagination, {
 		 * Purpose:  Update the list of page buttons shows
 		 * Returns:  -
 		 * Inputs:   object:oSettings - dataTables settings object
-		 *           function
+		 *           function:fnCallbackDraw - draw function to call on page change
+		 */
+		"fnUpdate": function ( oSettings, fnCallbackDraw )
+		{
+			if ( !oSettings.aanFeatures.p )
+			{
+				return;
+			}
+			
+			var iPageCount = DataTable.ext.oPagination.iFullNumbersShowPages;
+			var iPageCountHalf = Math.floor(iPageCount / 2);
+			var iPages = Math.ceil((oSettings.fnRecordsDisplay()) / oSettings._iDisplayLength);
+			var iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
+			var sList = "";
+			var iStartButton, iEndButton, i, iLen;
+			var oClasses = oSettings.oClasses;
+			var anButtons, anStatic, nPaginateList, nNode;
+			var an = oSettings.aanFeatures.p;
+			var fnBind = function (j) {
+				oSettings.oApi._fnBindAction( this, {"page": j+iStartButton-1}, function(e) {
+					/* Use the information in the element to jump to the required page */
+					oSettings.oApi._fnPageChange( oSettings, e.data.page );
+					fnCallbackDraw( oSettings );
+					e.preventDefault();
+				} );
+			};
+			
+			/* Pages calculation */
+			if ( oSettings._iDisplayLength === -1 )
+			{
+				iStartButton = 1;
+				iEndButton = 1;
+				iCurrentPage = 1;
+			}
+			else if (iPages < iPageCount)
+			{
+				iStartButton = 1;
+				iEndButton = iPages;
+			}
+			else if (iCurrentPage <= iPageCountHalf)
+			{
+				iStartButton = 1;
+				iEndButton = iPageCount;
+			}
+			else if (iCurrentPage >= (iPages - iPageCountHalf))
+			{
+				iStartButton = iPages - iPageCount + 1;
+				iEndButton = iPages;
+			}
+			else
+			{
+				iStartButton = iCurrentPage - Math.ceil(iPageCount / 2) + 1;
+				iEndButton = iStartButton + iPageCount - 1;
+			}
+
+			
+			/* Build the dynamic list */
+			for ( i=iStartButton ; i<=iEndButton ; i++ )
+			{
+				sList += (iCurrentPage !== i) ?
+					'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButton+'">'+oSettings.fnFormatNumber(i)+'</a>' :
+					'<a tabindex="'+oSettings.iTabIndex+'" class="'+oClasses.sPageButtonActive+'">'+oSettings.fnFormatNumber(i)+'</a>';
+			}
+			
+			/* Loop over each instance of the pager */
+			for ( i=0, iLen=an.length ; i<iLen ; i++ )
+			{
+				nNode = an[i];
+				if ( !nNode.hasChildNodes() )
+				{
+					continue;
+				}
+				
+				/* Build up the dynamic list first - html and listeners */
+				$('span:eq(0)', nNode)
+					.html( sList )
+					.children('a').each( fnBind );
+				
+				/* Update the permanent button's classes */
+				anButtons = nNode.getElementsByTagName('a');
+				anStatic = [
+					anButtons[0], anButtons[1], 
+					anButtons[anButtons.length-2], anButtons[anButtons.length-1]
+				];
+
+				$(anStatic).removeClass( oClasses.sPageButton+" "+oClasses.sPageButtonActive+" "+oClasses.sPageButtonStaticDisabled );
+				$([anStatic[0], anStatic[1]]).addClass( 
+					(iCurrentPage==1) ?
+						oClasses.sPageButtonStaticDisabled :
+						oClasses.sPageButton
+				);
+				$([anStatic[2], anStatic[3]]).addClass(
+					(iPages===0 || iCurrentPage===iPages || oSettings._iDisplayLength===-1) ?
+						oClasses.sPageButtonStaticDisabled :
+						oClasses.sPageButton
+				);
+			}
+		}
+	}
+} );

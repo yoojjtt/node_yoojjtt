@@ -18,38 +18,29 @@
 </head>
 
 <body class="img_background">
-    <div class="row-fluid" style="height:500px;">
+    <div class="main">
+        <ul class="nav nav-tabs" role="tablist" id="myTab">
+            <li role="presentation"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">전체 현황</a></li>
+            <li role="presentation"><a onclick="_tabFrame('main_tab/employee_page.html');" href="#" aria-controls="employee_page" role="tab" data-toggle="tab">직원 관리</a></li>
+            <li role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금 관리</a></li>
+            <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">계정 관리</a></li>
+            <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">SUPER_USER</a></li>
 
+        </ul>
+
+        <div  class="tab_contents">
+
+            <iframe name="iframe_tab_contents"
+                    id="iframe_tab_contents"
+                    frameborder=0"
+
+                    scrolling="no"
+                    width="100%" height="90%"
+                    class="">
+            </iframe>
+        </div>
         <!--/span-->
-        <div class="span12" id="content">
-
-                <div class="span12">
-
-                    <ul class="nav nav-tabs" role="tablist" id="myTab">
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">회사 상황판</a></li>
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/employee_page.html');" href="#" aria-controls="employee_page" role="tab" data-toggle="tab">직원 관리</a></li>
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금 관리</a></li>
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">계정 관리</a></li>
-                        <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">SUPER_USER</a></li>
-
-                    </ul>
-
-                        <!-- tab_contnents -->
-                        <div  class="tab_contents"  >
-                            <iframe name="iframe_tab_contents"
-                                    id="iframe_tab_contents"
-                                    frameborder=0"
-
-                                    scrolling="no"
-                                    width="100%" height="90%"
-                                    class="">
-                            </iframe>
-                        </div>
-                        <!-- tab_contents -->
-                </div><!-- span12 -->
-        </div><!-- span12 content -->
     </div><!-- row fluid -->
-
 
 
 <script src="../vendors/jquery-1.9.1.min.js"></script>

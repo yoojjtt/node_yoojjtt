@@ -18,7 +18,6 @@ var daily_employee = function ()
 
             var res_num = result[0].data[0].length;
 
-
             for (var i = 0; i < res_num; i++)
             {
                 var str = '';
@@ -26,8 +25,9 @@ var daily_employee = function ()
 
                 str += "<tr>";
                 //str += "<td>" + j + "</td>";
-                str += "<td>" + res[i].name + "</td>";
                 str += "<td>" + res[i].job + "</td>";
+                str += "<td>" + res[i].name + "</td>";
+
                 //str += "<td>" + res[i].phone + "</td>";
                 //str += "<td>" + res[i].address1 + "</td>";
                 //str += "<td>" + res[i].address2 + "</td>";

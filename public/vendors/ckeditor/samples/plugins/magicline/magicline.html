@@ -147,3 +147,61 @@ CKEDITOR.replace( 'editor2', {
 									&lt;td&gt;We can type&amp;nbsp;either before or after it though.&lt;/td&gt;
 								&lt;/tr&gt;
 							&lt;/tbody&gt;
+						&lt;/table&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+
+			&lt;p&gt;Two succesive horizontal lines (&lt;tt&gt;HR&lt;/tt&gt; tags). We can access the space in between:&lt;/p&gt;
+
+			&lt;hr /&gt;
+			&lt;hr /&gt;
+			&lt;ol&gt;
+				&lt;li&gt;This numbered list...&lt;/li&gt;
+				&lt;li&gt;...is a neighbour of a horizontal line...&lt;/li&gt;
+				&lt;li&gt;...and another list.&lt;/li&gt;
+			&lt;/ol&gt;
+
+			&lt;ul&gt;
+				&lt;li&gt;We can type between the lists...&lt;/li&gt;
+				&lt;li&gt;...thanks to &lt;strong&gt;Magicline&lt;/strong&gt;.&lt;/li&gt;
+			&lt;/ul&gt;
+
+			&lt;p&gt;Lorem ipsum dolor sit amet dui. Morbi vel turpis. Nullam et leo. Etiam rutrum, urna tellus dui vel tincidunt mattis egestas, justo fringilla vel, massa. Phasellus.&lt;/p&gt;
+
+			&lt;p&gt;Quisque iaculis, dui lectus varius vitae, tortor. Proin lacus. Pellentesque ac lacus. Aenean nonummy commodo nec, pede. Etiam blandit risus elit.&lt;/p&gt;
+
+			&lt;p&gt;Ut pretium. Vestibulum rutrum in, adipiscing elit. Sed in quam in purus sem vitae pede. Pellentesque bibendum, urna sem vel risus. Vivamus posuere metus. Aliquam gravida iaculis nisl. Nam enim. Aliquam erat ac lacus tellus ac felis.&lt;/p&gt;
+
+			&lt;div style=&quot;border: 2px dashed green; background: #ddd; text-align: center;&quot;&gt;
+			&lt;p&gt;This text is wrapped in a&amp;nbsp;&lt;tt&gt;DIV&lt;/tt&gt;&amp;nbsp;element. We can type after this element though.&lt;/p&gt;
+			&lt;/div&gt;
+		</textarea>
+		<script>
+
+			// This call can be placed at any point after the
+			// <textarea>, or inside a <head><script> in a
+			// window.onload event handler.
+
+			CKEDITOR.replace( 'editor2', {
+				extraPlugins: 'magicline',	// Ensure that magicline plugin, which is required for this sample, is loaded.
+				magicline_color: 'blue',	// Blue line
+				allowedContent: true		// Switch off the ACF, so very complex content created to
+											// show magicline's power isn't filtered.
+			});
+
+		</script>
+	</div>
+	<div id="footer">
+		<hr>
+		<p>
+			CKEditor - The text editor for the Internet - <a class="samples" href="http://ckeditor.com/">http://ckeditor.com</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2003-2013, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico
+			Knabben. All rights reserved.
+		</p>
+	</div>
+</body>
+</html>

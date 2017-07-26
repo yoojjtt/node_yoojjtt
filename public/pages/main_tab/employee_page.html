@@ -6,9 +6,9 @@
     <!-- Bootstrap -->
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
-    <link href="../../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -114,74 +114,4 @@
             </div>
         </div>
         <!-- /block -->
-    </div>
-
-
-</div>
-
-
-
-<script src="../../vendors/jquery-1.9.1.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-<script src="../../assets/scripts.js"></script>
-
-
-<script src="../../js/my_js/_DB_query.js"></script>
-<script src="../../js/my_js/_static.js"></script>
-
-<script src="../../js/my_js/_auth.js"></script>
-<script src="../../js/my_js/employee.js"></script>
-<script src ="../../js/my_js/tax.js"></script>
-<script src ="../../js/my_js/_service_auth.js"></script>
-<script src="../../js/my_js/UI.js"></script>
-
-<script>
-
-    $(function() {
-        employee.employees_load(company_no);  // 직원 리스트 로드
-        employee.new_employee();
-
-
-
-    });
-    function employee_sujung(type){
-        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
-        if(type == 'enroll'){ employee.new_employee();}
-        if(type == 'delete'){ alert('delete');}
-
-    }
-
-
-    function info_load(table, third, forth){
-
-
-        if(table == 'employees_list'){
-            employee.employee_load(company_no, third, forth);
-        }
-        if(table == 'tax_list'){
-            alert('tax_table클릭');
-        }
-
-    }
-    $("tbody").on("click", "tr", function() //
-    {
-        $('#employee_title').text('직원 정보');
-        $('#em_jumin1').attr('disabled', true);
-        $('#em_jumin2').attr('disabled', true);
-        $('#employee_save').show(); //저장버튼
-        $('#employee_delete').show(); //삭제버튼
-        $('#employee_enroll').show(); //신규등록 버튼
-    });
-
-
-
-</script>
-
-
-<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="../../assets/DT_bootstrap.js"></script>
-</body>
-
-
-</html>
+    </div>

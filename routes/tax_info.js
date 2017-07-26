@@ -37,6 +37,19 @@ tax_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_route
 
 
         }
+        if(gubun =="S"){
+            //TODO super_user....
+            var company_no = data[0];
+
+
+
+            var query = "CALL tax_S('"+company_no+"')";
+
+            console.log(query+": 세금정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+
+        }
 
     });
 

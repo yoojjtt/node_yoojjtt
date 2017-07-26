@@ -187,4 +187,58 @@ var bootstrapWizardCreate = function(element, options) {
 
 	$('a[data-toggle="tab"]', $navigation).on('click', function (e) {
 		// Get the index of the clicked tab
-		var clickedIndex = $navigation.find(
+		var clickedIndex = $navigation.find('li').index($(e.currentTarget).parent('li'));
+		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){
+			return false;
+		}
+	});
+
+	$('a[data-toggle="tab"]', $navigation).on('show', function (e) {
+		$element = $(e.target).parent();
+		// If it's disabled then do not change
+		if($element.hasClass('disabled')) {
+			return false;
+		}
+
+		$activeTab = $element; // activated tab
+		obj.fixNavigationButtons();
+	});
+};
+$.fn.bootstrapWizard = function(options) {
+	//expose methods
+	if (typeof options == 'string') {
+		var args = Array.prototype.slice.call(arguments, 1)
+		if(args.length === 1) {
+			args.toString();
+		}
+		return this.data('bootstrapWizard')[options](args);
+	}
+	return this.each(function(index){
+		var element = $(this);
+		// Return early if this element already has a plugin instance
+		if (element.data('bootstrapWizard')) return;
+		// pass options to plugin constructor
+		var wizard = new bootstrapWizardCreate(element, options);
+		// Store plugin object in this element's data
+		element.data('bootstrapWizard', wizard);
+	});
+};
+
+// expose options
+$.fn.bootstrapWizard.defaults = {
+	tabClass:         'nav nav-pills',
+	nextSelector:     '.wizard li.next',
+	previousSelector: '.wizard li.previous',
+	firstSelector:    '.wizard li.first',
+	lastSelector:     '.wizard li.last',
+	onShow:           null,
+	onInit:           null,
+	onNext:           null,
+	onPrevious:       null,
+	onLast:           null,
+	onFirst:          null,
+	onTabClick:       null,
+	onTabShow:        null
+};
+
+})(jQuery);

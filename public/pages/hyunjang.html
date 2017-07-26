@@ -6,9 +6,9 @@
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
     <link href="../assets/styles.css" rel="stylesheet" media="screen">
-    <link href="../assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -21,39 +21,28 @@
 
 </head>
 
-<body class="img_background">
+<body>
 
+<div class="hyunjang">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class="active"><a onclick="_tabFrame('hyunjang_tab/hyunjang_page.html');" href="#" aria-controls="hyunjang_page" role="tab" data-toggle="tab">현장등록</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/daily_employee_page.html');" href="#" aria-controls="daily_member_page" role="tab" data-toggle="tab">일용직 등록</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/danga_page.html');" href="#" aria-controls="danga_page" role="tab" data-toggle="tab">단가 입력</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/kongsu_page.html');" href="#" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수 입력</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/closing_page.html');" href="#" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
 
-
-<div class="row-fluid">
-    <!--/span-->
-    <div class="span12" id="content">
-        <div class="span12">
-
-            <ul class="nav nav-tabs" role="tablist" id="myTab">
-                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/hyunjang_page.html');" href="#" aria-controls="hyunjang_page" role="tab" data-toggle="tab">현장등록</a></li>
-                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/daily_employee_page.html');" href="#" aria-controls="daily_member_page" role="tab" data-toggle="tab">일용직 등록</a></li>
-                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/danga_page.html');" href="#" aria-controls="danga_page" role="tab" data-toggle="tab">단가 입력</a></li>
-                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/kongsu_page.html');" href="#" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수 입력</a></li>
-                <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/closing_page.html');" href="#" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
-
-            </ul>
-            <!-- tab_contnents -->
-            <div  class="tab_contents"  >
-                <iframe name="iframe_tab_contents"
-                        id="iframe_tab_contents"
-                        frameborder=0"
-
-                        scrolling="no"
-                        width="100%" height="100%"
-                        class="">
-                </iframe>
-            </div>
-
-
-        </div><!-- span 12-->
-    </div><!-- span 12 contents -->
-</div><!-- row fluid -->
+    </ul>
+    <!-- tab_contnents -->
+    <div  class="tab_contents" id="tab_contents">
+        <iframe name="iframe_tab_contents"
+                id="iframe_tab_contents"
+                frameborder=0"
+                scrolling="no"
+                width="100%" height="100%"
+                class="">
+        </iframe>
+    </div>
+</div>
 
 
 
@@ -76,11 +65,30 @@
 
     $(function() {
 
+        window_resize();
+
     hyunjang.hyunjang_load(company_no);
     daily_employee.daily_employee_load(company_no);
         _tabFrame('hyunjang_tab/hyunjang_page.html');
 
+
     });
+
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        var basic_height = win_height-41;
+        $('#tab_contents').css('height', basic_height);
+    }
+
 
 
     function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
@@ -89,13 +97,6 @@
         document.getElementById('iframe_tab_contents').src = loadPage;
         document.getElementById('iframe_tab_contents').onload = function() {
             var target = document.getElementById('iframe_tab_contents').contentWindow;
-
-            if(loadPage == 'hyunjang_tab/daily_employee_page.html'){
-                $(".tab_contents").height($(window).height()+200);
-                $("iframe.iframe_tab_contents").height($(window).height()+100);
-                $("iframe.iframe_tab_contents").width($(window).width()-20);
-            }
-
         };
 
     }

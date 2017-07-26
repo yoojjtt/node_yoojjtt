@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
@@ -14,7 +13,7 @@
     <link href="assets/styles.css" rel="stylesheet" media="screen">
     <link href="assets/DT_bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/style.css" rel="stylesheet"  media="screen">
-    <link href="assets/my_style.css" rel="stylesheet"  media="screen">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,7 +24,7 @@
 
 
 </head>
-<body class="img_background" >
+<body>
 
 
 
@@ -54,8 +53,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <!-- top_nav_bar-->
@@ -87,7 +84,7 @@
                     </li>
                 </ul>
                 <ul id="top_navbar" class="nav" >
-                    <li id="company_management" class="active">
+                    <li id="company_management" class="">
                         <a onClick="_callFrame('main');" href="#">회사관리</a>
                     </li>
                     <li id="hyunjang_management" class="dropdown">
@@ -109,12 +106,12 @@
 
 
 <!-- contnents -->
- <div id="main_contents" class="contents" >
+ <div id="main_contents" class="main_contents" >
     <iframe name="iframe_contents"
             id="iframe_contents"
-            style="margin:10px;"
             frameborder=0"
             scrolling="no"
+            width="100%" height="100%"
             class="myFrame">
     </iframe>
  </div>
@@ -147,8 +144,8 @@
 
             if(type == '대표'){
                 _callFrame("main"); //main 페이지를 로드하면서 페이지 시작
-                $('#AdminModal').modal('toggle');
-                modalOpen('modal/notification', '공지사항', '100%', '100%');  // 공지모달 팝업
+                //$('#AdminModal').modal('toggle');
+                //modalOpen('modal/notification', '공지사항', '100%', '100%');  // 공지모달 팝업
             }
             if(type == '소장'){
                 _callFrame("hyunjang");
@@ -162,7 +159,24 @@
             }
         }
 
+        window_resize();
+
     });
+
+    $(window).resize(function() {
+
+        window_resize()
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이
+        var basic_height = win_height-56;
+        $('#main_contents').css('height', basic_height);
+    }
     function logout(){  //WHEN: logout;
         auth.logout_process();
     }
