@@ -16,6 +16,7 @@ var Password_info = require("./password_info.js"); //비밀번호 수정, 비밀
 var Hyunjang_info = require("./hyunjang_info.js");  //현장정보 로드, 수정
 var Tax_info = require("./tax_info.js"); //세금정보 로드
 var Daily_employee_info = require("./daily_employee_info.js");
+var Kongsu_info = require("./kongsu_info.js");
 
 
 
@@ -35,7 +36,7 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     var hyunjang_info = new Hyunjang_info(router, this);
     var tax_info = new Tax_info(router, this);
     var daily_employee_info = new Daily_employee_info(router, this);
-
+    var kongsu_info = new Kongsu_info(router, this);
 
 
 

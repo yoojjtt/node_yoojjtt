@@ -78,7 +78,7 @@ $("tbody").on("click", "tr", function() //
 
     if(table =='hyunjang_list'){hyunjang_indv_modal(table, seventh);} //현장 로드
 
-    if(table =='daily_employee_list'){daily_employee_modal('modal/daily_employee_modal', second)} // 일용직 개인정보 불러올 때
+    if(table =='daily_employee_list'){daily_employee_modal('daily_employee_modal', second)} // 일용직 개인정보 불러올 때
 
 
 

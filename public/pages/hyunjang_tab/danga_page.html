@@ -4,163 +4,89 @@
 <head>
     <title>Admin Home Page test</title>
     <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="../../vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-    <link href="../../css/danga_styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </head>
 
 <body>
 
-<div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
-    <div class="row-fluid">
-        <div class="block" >
-            <div class="navbar navbar-inner  block-header">  <!--head -->
-                <div class="muted pull-left">hello dashboard</div>
-                <div class="pull-right"><span class="badge badge-info">(주)해인엔지니어링</span>
-
+<div role="tabpanel" class="danga">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+                <select class="btn btn-default form-control">
+                    <option>전체(현장)</option>
+                    <option>전체(현장)</option>
+                    <option>전체(현장)</option>
+                    <option>전체(현장)</option>
+                </select>
+                <div class="btn-box">
+                    <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
+                    <span class="label_toMonth" id="label_toMonth">2017년 07월</span>
+                    <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
+                    <button type="button" class="btn btn-default" id="btn_toMonth">현재월로</button>
+                    <button class="btn btn-success" id="btn_save">저장</button>
                 </div>
             </div>
-
-            <div class="block-content collapse in" style="margin:0;"> <!-- body -->
-                <div class="span12 pannel" style="overflow-y:scroll;width:100%;height:500px;">
-                    <div style="margin:10px;">  <!-- 안쪽 공간 여백 -->
-
-
-                            <div class="span6">
-                                <h3>단가입력 테이블</h3>
-                            </div>
-
-
-
-
-
-                            <div class="span3" >
-                                <div class="pannel">
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <div class="">
-                                                    <label class="control-label">성명</label>
-                                                    <input type="text" class="form-control" name="oun_name_i" id="oun_name_i"/>
-                                                </div>
-                                                <div class="">
-                                                    <label class="control-label">단가</label>
-                                                    <input type="text" class="form-control" name="daily_salary_i" id="daily_salary_i"/>
-                                                </div>
-
-                                                <div class="">
-                                                    <label class="control-label">직종</label>
-                                                    <select class="form-control" name="job_i" id="job_i">
-                                                        <option value="">선택</option>
-                                                        <option value="반장">반장</option>
-                                                        <option value="함석">함석</option>
-                                                        <option value="보온">보온</option>
-                                                        <option value="비계">비계</option>
-                                                        <option value="일반">일반</option>
-                                                        <option value="여공">여공</option>
-                                                        <option value="용접">용접</option>
-                                                        <option value="기계">기계</option>
-                                                        <option value="제관">제관</option>
-                                                        <option value="기타">기타</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <div class="">
-                                                    <label class="control-label">주민번호</label>
-                                                    <input type="text" class="form-control" name="jumin1_i" id="jumin1_i" placeholder ="앞자리" >
-                                                    <input type="text" class="form-control" name="jumin2_i" id="jumin2_i"  placeholder ="뒷자리">
-                                                </div>
-                                                <div class="">
-                                                    <label class="control-label">&nbsp</label>
-                                                </div>
-
-                                                <div class="">
-                                                    <label class="control-label">연락처</label>
-                                                    <input type="text" class="form-control"  name="oun_phone_i" id="oun_phone_i" />
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset>
-                                            <div class="form-group">
-                                                <div class="">
-                                                    <label class="control-label">주소</label>
-                                                    <input type="text" class="form-control" name="address1_i" id="address1_i" >
-                                                </div>
-                                                <div class="">
-                                                    <label class="control-label">우편번호</label>
-                                                    <input type="text" class="form-control" name="postnum_i" id="postnum_i" >
-                                                </div>
-                                                <div class="">
-                                                    <label class="control-label">상세주소</label>
-                                                    <input type="text" class="form-control" name="address2_i" id="address2_i">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                <div class="span3">
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <div class="">
-                                                <label class="control-label">예금주</label>
-                                                <input type="text" class="form-control" name="bank_name_i" id="bank_name_i">
-                                            </div>
-                                            <div class="">
-                                                <label class="control-label">은행</label>
-                                                <input type="text" class="form-control" name="bank_i" id="bank_i" >
-                                            </div>
-                                            <div class="">
-                                                <label class="control-label">계좌번호</label>
-                                                <input type="text" class="form-control" name="bank_number_i" id="bank_number_i" >
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <div class="">
-                                                <label class="control-label">보험적용 여부</label>
-                                            </div>
-                                            <div class="">
-                                                <label class="control-label">
-                                                    <input type="checkbox" name="rating_i" value="kumin" class="radiobox style-2" />
-                                                    <span>국민연금</span> </label>
-                                                <label class="">
-                                                    <input type="checkbox" name="rating_i" value="health" class="radiobox style-2" />
-                                                    <span>건강보험</span> </label>
-                                                <label class="">
-                                                    <input type="checkbox" name="rating_i" value="employ" class="radiobox style-2" />
-                                                    <span>고용보험</span> </label>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                </div><!-- div.pannel -->
-                            </div><!-- div.span3 -->
-
-
-
-                    </div><!-- 안쪽공간 여백 -->
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="area_in_box" id="danga_panel">
+        <div class="area area1">
+            <table id="danga_list" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>삭제</th>
+                    <th>직종</th>
+                    <th>이름</th>
+                    <th>단가</th>
+                </tr>
+                </thead>
+                <tbody id="danga_tbody">
+                </tbody>
+            </table>
+        </div>
+        <div class="area area2">
+            <div class="glyphicon glyphicon-triangle-left arrow_left"></div>
+        </div>
+        <div class="area area3">
+            <select class="btn btn-default form-control">
+                <option>전체(직종)</option>
+                <option>전체(직종)</option>
+                <option>전체(직종)</option>
+                <option>전체(직종)</option>
+            </select>
+            <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>직종</th>
+                    <th>이름</th>
+                    <th>주민번호 앞자리</th>
+                </tr>
+                </thead>
+                <tbody id="daily_employee_list">
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
 
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<script src="../../vendors/jquery-1.9.1.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+
+
 <script src="../../assets/scripts.js"></script>
 
 <script src="../../js/my_js/_DB_query.js"></script>
@@ -175,12 +101,28 @@
 <script>
 
     $(function() {
+        window_resize();
 
         hyunjang.hyunjang_load(company_no);
         daily_employee.daily_employee_load(company_no);
 
 
     });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        $('#danga_panel').css('height', win_height-47);
+        $('#danga_panel').css('width', win_width);
+        $('#danga_tbody').css('height', win_height-150);
+        $('#daily_employee_list').css('height', win_height-189);
+    }
     function modal(hyunjang_modal){
         parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
