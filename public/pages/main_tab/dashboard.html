@@ -141,6 +141,8 @@
 <script>
 
     $(function() {
+
+        window_resize();
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
         tax.tax_load();
@@ -148,6 +150,20 @@
 
 
     });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        $('#hyunjang_panel').css('height', win_height-47);
+        $('#hyunjang_panel').css('width', win_width);
+        $('#hyunjang_list').css('height', win_height-105);
+    }
     function employee_sujung(type){
         if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
         if(type == 'enroll'){ employee.new_employee();}

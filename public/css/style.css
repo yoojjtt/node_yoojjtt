@@ -1,3 +1,139 @@
+.hyunjang_page .panel {
+  margin-bottom: 0;
+  border: inherit;
+}
+.hyunjang_page .panel-heading {
+  height: 47px;
+  padding: 6px 10px 6px 10px;
+}
+.hyunjang_page .panel-heading .pull-left {
+  float: left;
+}
+.hyunjang_page .panel-heading .pull-left select {
+  margin-top: 0;
+  width: 200px;
+}
+.hyunjang_page .panel-heading .pull-left span {
+  margin-left: 6px;
+}
+.hyunjang_page .panel-heading .pull-right {
+  position: absolute;
+  right: 10px;
+}
+.hyunjang_page .form-group {
+  height: 33px;
+}
+.hyunjang_page .form-group .col-sm-3 {
+  padding-top: 7px;
+  text-align: right;
+}
+.hyunjang_page .area_in_box {
+  background: white;
+  min-width: 990px;
+  display: block;
+}
+.hyunjang_page .area_in_box .area {
+  padding: 10px;
+  float: left;
+  font-size: 12px;
+}
+.hyunjang_page .area_in_box .area1 {
+  width: 270px;
+  margin-right: 250px;
+}
+.hyunjang_page .area_in_box .area1 table {
+  width: 450px!important;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+}
+.hyunjang_page .area_in_box .area1 table thead {
+  display: block;
+  text-align: center;
+  background-color: white;
+}
+.hyunjang_page .area_in_box .area1 table tbody {
+  display: block;
+  height: 550px;
+  min-height: 200px;
+  overflow: auto;
+  background-image: url(../images/bg_pattern2.gif);
+}
+.hyunjang_page .area_in_box .area1 table th {
+  text-align: center!important;
+}
+.hyunjang_page .area_in_box .area1 table th:nth-of-type(1) {
+  width: 150px;
+}
+.hyunjang_page .area_in_box .area1 table th:nth-of-type(2) {
+  width: 150px;
+}
+.hyunjang_page .area_in_box .area1 table th:nth-of-type(3) {
+  width: 150px;
+}
+.hyunjang_page .area_in_box .area1 table td {
+  text-align: center!important;
+}
+.hyunjang_page .area_in_box .area1 table td:nth-of-type(1) {
+  width: 150px;
+}
+.hyunjang_page .area_in_box .area1 table td:nth-of-type(2) {
+  width: 150px;
+}
+.hyunjang_page .area_in_box .area1 table td:nth-of-type(3) {
+  width: 200px;
+}
+.hyunjang_page .area_in_box .area1 table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.hyunjang_page .area_in_box .area2 {
+  width: 400px;
+  min-width: 400px;
+}
+.hyunjang_page .area_in_box .area2 .form-group {
+  margin-bottom: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input-box-type2 {
+  float: left;
+  width: 60px;
+  margin-right: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input-box {
+  float: left;
+  width: 120px;
+  margin-right: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input_box_post {
+  float: left;
+  width: 80px;
+  margin-right: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .iPost {
+  width: 80px;
+  text-align: center;
+}
+.hyunjang_page .area_in_box .area2 .form-group .btn-box {
+  float: left;
+}
+.hyunjang_page .area_in_box .area2 .form-group .radio-sex {
+  float: left;
+  width: 120px;
+  padding: 5px 0 0 10px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .radio-sex .box {
+  float: left;
+  width: 40px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .btn_job {
+  width: 120px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .btn_bank {
+  width: 120px;
+}
+.hyunjang_page .area_in_box .area2 .form-group select {
+  float: left;
+  width: 60px;
+  margin-right: 5px;
+}
 .daily_employee_page .panel {
   margin-bottom: 0;
   border: inherit;
@@ -129,8 +265,11 @@
   margin-right: 5px;
 }
 .main {
-  position: absolute;
   width: 100%;
+  min-width: 990px;
+}
+.main .tab_contents {
+  border: 1px solid #dddddd;
 }
 .hyunjang {
   width: 100%;

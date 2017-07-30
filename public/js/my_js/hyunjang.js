@@ -26,13 +26,13 @@ var hyunjang = function ()
 
                 str += "<tr>"
 
-                str += "<td>" + j + "</td>"
                 str += "<td>" + res[i].hyun_jang_name + "</td>"
-                str += "<td>" + res[i].hyun_jang_content + "</td>"
-                str += "<td>" + res[i].balju_company + "</td>"
                 str += "<td>" + res[i].bogoja + "</td>"
-                str += "<td>" + res[i].hyunjang_start + "</td>"
-                str += "<td>" + res[i].hyunjang_end + "</td>"
+                str += "<td>" + res[i].hyunjang_start+"~"+res[i].hyunjang_end + "</td>"
+                //str += "<td>" + res[i].balju_company + "</td>"
+                //str += "<td>" + res[i].bogoja + "</td>"
+                //str += "<td>" + res[i].hyunjang_start + "</td>"
+                //str += "<td>" + res[i].hyunjang_end + "</td>"
                 str += "<td style='display:none;'>" + res[i].no + "</td>"
 
 

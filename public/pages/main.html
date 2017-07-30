@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="img_background">
+<body>
     <div class="main">
         <ul class="nav nav-tabs" role="tablist" id="myTab">
             <li role="presentation"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">전체 현황</a></li>
@@ -27,19 +27,16 @@
             <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">SUPER_USER</a></li>
 
         </ul>
-
-        <div  class="tab_contents">
-
+        <!-- tab_contnents -->
+        <div  class="tab_contents" id="tab_contents">
             <iframe name="iframe_tab_contents"
                     id="iframe_tab_contents"
                     frameborder=0"
-
                     scrolling="no"
-                    width="100%" height="90%"
+                    width="100%" height="100%"
                     class="">
             </iframe>
         </div>
-        <!--/span-->
     </div><!-- row fluid -->
 
 
@@ -61,6 +58,7 @@
 <script>
 
     $(function() {
+        window_resize();
         employee.employees_load(company_no);  // 직원 리스트 로드
         employee.new_employee();
         tax.tax_load();
@@ -69,6 +67,20 @@
 
 
     });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        var basic_height = win_height-41;
+        $('#tab_contents').css('height', basic_height);
+    }
+
     function employee_sujung(type){
         if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
         if(type == 'enroll'){ employee.new_employee();}

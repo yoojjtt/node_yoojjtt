@@ -27,6 +27,7 @@ var daily_employee = function ()
                 //str += "<td>" + j + "</td>";
                 str += "<td>" + res[i].job + "</td>";
                 str += "<td>" + res[i].name + "</td>";
+                str += "<td>" + res[i].jumin1 + "</td>";
 
                 //str += "<td>" + res[i].phone + "</td>";
                 //str += "<td>" + res[i].address1 + "</td>";

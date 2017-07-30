@@ -182,4 +182,211 @@ $(document).ready( function () {
 			$('#example_previous').click();
 			$("select[name=example_length]").val('10').change();
 		},
-		function () { return document.getElementById('example_info').innerHTML == "Showing
+		function () { return document.getElementById('example_info').innerHTML == "Showing 1 to 10 of 57 entries"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win'",
+		function () { $('#example_filter input').val("Win").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win' second page",
+		function () { $('#example_next').click(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 11 to 20 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win' last page",
+		function () {
+			$('#example_next').click();
+			$('#example_next').click();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 31 to 31 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win' back to first page",
+		function () {
+			$('#example_previous').click();
+			$('#example_previous').click();
+			$('#example_previous').click();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win' second page - second time",
+		function () {
+			$('#example_next').click();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 11 to 20 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter increased to 'Win 98'",
+		function () { $('#example_filter input').val("Win 98").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 9 of 9 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter decreased to 'Win'",
+		function () { $('#example_filter input').val("Win").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter 'Win' second page - third time",
+		function () {
+			$('#example_next').click();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 11 to 20 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Information with filter removed",
+		function () { $('#example_filter input').val("").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 57 entries"; }
+	);
+	
+	
+	/*
+	 * Filtering
+	 */
+	oTest.fnTest(
+		"Filter 'W' - rows",
+		function () { 
+			/* Reset the table such that the old sorting doesn't mess things up */
+			oSession.fnRestore();
+			$('#example').dataTable( oInit );
+			$('#example_filter input').val("W").keyup(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(0)').html() == ""; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'W' - info",
+		null,
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 42 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Wi'",
+		function () { $('#example_filter input').val("Wi").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 32 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win'",
+		function () { $('#example_filter input').val("Win").keyup(); },
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win' - sorting column 1",
+		function () { $('#example thead th:eq(1)').click(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == ""; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win' - sorting column 1 info",
+		null,
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 31 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win' - sorting column 1 reverse",
+		function () { $('#example thead th:eq(1)').click(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "true"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win XP' - maintaing reverse sorting col 1",
+		function () { $('#example_filter input').val("Win XP").keyup(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "Internet Explorer 7"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win XP' - sorting col 3",
+		function () { $('#example thead th:eq(3)').click(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(3)').html() == "5"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win XP' - sorting col 3 - reversed",
+		function () { $('#example thead th:eq(3)').click(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(3)').html() == "7"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'Win' - sorting col 3 - reversed info",
+		null,
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 5 of 5 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'nothinghere'",
+		function () { $('#example_filter input').val("nothinghere").keyup(); },
+		function () { return $('#example tbody tr:eq(0) td:eq(0)').html() == 
+			"No matching records found"; }
+	);
+	
+	oTest.fnTest(
+		"Filter 'nothinghere' - info",
+		null,
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 0 to 0 of 0 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Filter back to blank and 1st column sorting",
+		function () {
+			$('#example_filter input').val("").keyup();
+			$('#example thead th:eq(0)').click();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 57 entries"; }
+	);
+	
+	oTest.fnTest(
+		"Prefixing a filter entry",
+		function () {
+			$('#example_filter input').val("Win").keyup();
+			$('#example_filter input').val("GeckoWin").keyup();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 0 to 0 of 0 entries (filtered from 57 total entries)"; }
+	);
+	
+	oTest.fnTest(
+		"Prefixing a filter entry with space",
+		function () {
+			$('#example_filter input').val("Gecko Win").keyup();
+		},
+		function () { return document.getElementById('example_info').innerHTML == 
+			"Showing 1 to 10 of 17 entries (filtered from 57 total entries)"; }
+	);
+	
+	
+	
+	
+	
+	
+	
+	
+	oTest.fnComplete();
+} );
