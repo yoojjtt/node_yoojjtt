@@ -25,11 +25,12 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
 
         if(gubun =="R") {
-            var company_no = data[0];
+            var company_no = req.session.sess_company_no;
+            var proc = data[0];
 
 
 
-            var query = "CALL hyunjang_R('"+company_no+"','')";
+            var query = "CALL hyunjang_R('"+company_no+"','',"+proc+")";
 
             console.log(query+": 현장리스트 로드");
 
@@ -38,15 +39,38 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
         }
         if(gubun =="individual"){
-            var hyunjang_no = data[0];
+            var company_no = req.session.sess_company_no;
+            var hyunjang_id = data[0];
 
 
-            var query = "CALL hyunjang_R('','"+ hyunjang_no+"')";
+            var query = "CALL hyunjang_R('"+ company_no +"','"+ hyunjang_id+"','')";
 
             console.log(query+": 개별 현장정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
+        }
+        if(gubun == "S"){
+            var hyunjang_id = data[0];
+            var hyun_jang_name = data[1];
+            var proc = data[2];
+            var bogoja = data[3];
+            var balju_company = data[4];
+            var hyun_jang_number = data[5];
+            var hyunjang_start = data[6];
+            var hyunjang_end = data[7];
+            var hyun_jang_content = data[8];
+            var remark = data[9];
+            var company_no = req.session.sess_company_no;
+            var email = req.session.sess_userEmail;
+
+
+            var query = "CALL hyunjang_S("+hyunjang_id +",'"+ hyun_jang_name +"','"+ proc+"','"+bogoja+"','"+balju_company
+            +"','"+hyun_jang_number+"','"+hyunjang_start+"','"+hyunjang_end+"','"+hyun_jang_content+"','"+remark+"','"+company_no+"','"+ email+"')";
+
+            console.log(query+": 개별 현장정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
         }
 
 

@@ -22,15 +22,26 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
         var data = req.body.data;
         //console.log(apiKey);
 
+        if(gubun =="selectR"){
+            var manager = data[0];
+            var company_no = req.session.sess_company_no;
+            var email = req.session.sess_userEmail;
+            var type = req.session.sess_type;
 
+            var query = "CALL employee_list_R('"+manager+"','"+email+"','"+type+"','"+company_no+"')";
+
+            console.log(query+ ": 개인정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+        }
 
         if(gubun =="R") {
-            var company_no = data[0];
-            var email = data[1];
-            var type = data[2];
+            var company_no = req.session.sess_company_no;
+            var email = req.session.sess_userEmail;
+            var type = req.session.sess_type;
 
 
-            var query = "CALL employee_list_R('"+email+"','"+type+"','"+company_no+"')";
+            var query = "CALL employee_list_R('','"+email+"','"+type+"','"+company_no+"')";
 
             console.log(query+ ": 개인정보 로드");
 

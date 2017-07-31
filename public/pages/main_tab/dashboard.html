@@ -3,151 +3,123 @@
 
 <head>
     <title>Admin Home Page test</title>
-    <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
 
-    <link href="../../css/style.css" rel="stylesheet"  media="screen">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </head>
 
 <body>
+<div class="panel panel-default dashboard">
 
-                <div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
-                    <div class="row-fluid">
-                        <div class="block" >
-                            <div class="navbar navbar-inner  block-header">  <!--head -->
-                                <div class="muted pull-left">hello dashboard</div>
-                                <div class="pull-right">
+    <div class="panel-heading head1">
+        <div class="btn_box_left">
+            <div class="btn_check_all">
+                <div class="select-box">
+                    <select class="btn-default form-control btn_class" id="sHyunjang">
 
-                                </div>
-                            </div>
+                    </select>
+                </div>
+                <div class="btn-box">
+                    <button class="btn btn-default" id="btn_all">전체선택</button>
+                </div>
+                <div class="select-box2">
+                    <select class="btn-default form-control btn_type" id="sKongsu_type">
+                        <option value="0">[공수처리]</option>
+                        <option value="1">정상처리</option>
+                        <option value="2">결석처리</option>
+                        <option value="3">휴일처리</option>
+                        <option value="4">미처리</option>
+                        <option value="99">[공수정보삭제]</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn_etc">
+                <button class="btn btn-success" id="btn_save">저장</button>
+                <button class="btn btn-default" id="btn_month_view">월별현황</button>
+            </div>
+        </div>
+        <div class="btn_box_right">
 
-                            <div class="block-content collapse in" style="margin:0;"> <!-- body -->
-                                <div class="span6 pannel" style="overflow-y:scroll;width:100%;height:500px;">
-                                    <div style="margin:10px;">  <!-- 안쪽 공간 여백 -->
-                                        <p>
-                                            1번 맨윗줄
-                                            content8
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <span class="test_first">content9</span>
-                                            <span class="test_second">content0</span>
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content00
-                                            content01
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            content
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content8
-                                            content
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            content7
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            content
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            content
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            content
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content6
-                                            content5
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content4
-                                            content3
-                                            <br>
-                                            <br>
-                                            <br>content4
-                                            content3
-                                            <br>
-                                            <br>content4
-                                            content3
-                                            <br>
-                                            <br>content4
-                                            content3
-                                            <br>
-                                            <br>
-                                            contentcontent2
-                                            <br>
-                                            <br>
-                                            <br>
-                                            content
-                                            ENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDENDEND
+            <button class="btn btn-default" id="btn_today">오늘</button>
+            <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
+            <button class="btn date">
 
-                                        </p>
-
-
-                                    </div>
-
-
-
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="input-append date" id="dp3">
+                    <input type="date" style="width: 0; display: none;" readonly>
+                    <span class="add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="lbl_targetDay" id="lbl_targetDay"></span>
+                    </span>
                 </div>
 
+            </button>
+            <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
+
+        </div>
+    </div>
+    <div class="panel-heading head2">
+        <div class="name-label" id="total_label">총 원 : 206명</div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label normality" id="normality_num"> 정상 : 0명 </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label absence" id="absence_num"> 결석 : 0명 </div>
+
+    </div>
+    <table class="table table-striped" id="kongsu_table_head">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>이름</th>
+            <th>메모</th>
+        </tr>
+        </thead>
+        <tbody id="kongsu_table_body">
+
+        <!-- 데이터 -->
+
+        </tbody>
+    </table>
+
+</div>
 
 
-<script src="../../vendors/jquery-1.9.1.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <script src="../../assets/scripts.js"></script>
-
 
 <script src="../../js/my_js/_DB_query.js"></script>
 <script src="../../js/my_js/_static.js"></script>
 
 <script src="../../js/my_js/_auth.js"></script>
 <script src="../../js/my_js/employee.js"></script>
-<script src ="../../js/my_js/tax.js"></script>
-<script src ="../../js/my_js/_service_auth.js"></script>
 <script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/hyunjang.js"></script>
+<script src="../../js/my_js/daily_employee.js"></script>
+<script src="../../js/my_js/kongsu.js"></script>
 
 <script>
 
     $(function() {
 
-        window_resize();
-        employee.employees_load(company_no);  // 직원 리스트 로드
-        employee.new_employee();
-        tax.tax_load();
-        service_auth.load(email);
 
+        //hyunjang.hyunjang_load(company_no);
+        //daily_employee.daily_employee_load(company_no);
+        kongsu.kongsu_load('1','206','2017-07-01','daily');
+        window_resize();
 
     });
     $(window).resize(function() {
@@ -155,39 +127,25 @@
         window_resize();
 
     });
+
     function window_resize() {
         var win_width = $(window).width();
         var win_height = $(window).height();
 
-        //높이--38:tabNav
-        $('#hyunjang_panel').css('height', win_height-47);
-        $('#hyunjang_panel').css('width', win_width);
-        $('#hyunjang_list').css('height', win_height-105);
+        //높이
+        $('#kongsu_table_body').css('height', win_height-134);
+        $('#kongsu_table_head th:last-child').css('width', win_width-140);
+        $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
-    function employee_sujung(type){
-        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
-        if(type == 'enroll'){ employee.new_employee();}
-        if(type == 'delete'){ alert('delete');}
 
+    function modal(hyunjang_modal){
+        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
-    function tax_sujung(type){
-        if(type =='new'){tax.tax_new()}
-        if(type =='update'){tax.tax_update()}
-        if(type =='return'){tax.tax_load()}
+    function hyunjang_indv_modal(table, seventh){
+        parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
 
     }
 
-    function info_load(table, third, forth){
-
-
-        if(table == 'employees_list'){
-            employee.employee_load(company_no, third, forth);
-        }
-        if(table == 'tax_list'){
-            alert('tax_table클릭');
-        }
-
-    }
 
 
 

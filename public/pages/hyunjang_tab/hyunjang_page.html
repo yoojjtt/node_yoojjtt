@@ -26,19 +26,19 @@
     <div class="panel panel-default ">  <!--head -->
         <div class="panel-heading">
             <div class="pull-left">
-                <select class="btn btn-default form-control">
-                    <option>공사 중 </option>
-                    <option>공사 종료</option>
+                <select id="setProc" onChange="setValue()" class="btn btn-default form-control">
+                    <option value="1">공사 중 </option>
+                    <option value="2" >공사 종료</option>
 
 
 
                 </select>
-                <span>총 공사 수:</span>
+                <span>총 공사 수: <span id="total_no"></span></span>
             </div>
             <div class="pull-right">
-                <button class="btn btn-info"id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
-                <button class="btn btn-success" id="btn_save">저장</button>
-                <button class="btn btn-default" id="btn_delete">삭제</button>
+                <button class="btn btn-info" onClick="hyunjang.new_hyunjang()" class="btn btn-success">신규등록</button>
+                <button class="btn btn-success" onClick="hyunjang.hyunjang_save()">저장</button>
+                <button class="btn btn-default" >삭제</button>
             </div>
         </div>
     </div>
@@ -56,87 +56,78 @@
                 </tbody>
             </table>
         </div>
+
+
+
+
+        <!--------------------------------right area ----------------------------->
         <div class="area area2">
             <div class="form-group">
-                <label class="col-sm-3 control-label">*이름</label>
+                <label class="col-sm-3 control-label">*현장명</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="iName" placeholder="이름"></div>
-                    <!--Radio
+                    <div class="input-box"><input type="text" class="form-control" id="hyun_jang_name" placeholder="현장명">
+                    <input type="text" id="hyunjang_id" hidden value="0">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사 상태</label>
+                <div class="col-sm-9">
+
                     <div class="radio-sex">
-                        <div class="box"><input id="sex1" type="radio" name="sex" checked> 남 </div>
-                        <div class="box"><input id="sex2" type="radio" name="sex" > 여 </div>
-                    </div>-->
+                        <div class="box ing"><input id="proc1" value="1" type="radio" name="sex"  checked> 공사 중 </div>
+                        <div class="box end"><input id="proc2" value="2" type="radio" name="sex" > 공사 종료 </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">*직종</label>
+                <label class="col-sm-3 control-label">*책임자</label>
                 <div class="col-sm-9">
-                    <select class="btn-default form-control btn_job">
+                    <select id="bogoja" class="btn-default form-control btn_job"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*발주회사</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="balju_company" placeholder="발주회사"></div>
 
-                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">*주민번호</label>
+                <label class="col-sm-3 control-label">*계약번호</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="iIdNum1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
-                    <div class="input-box"><input type="text" class="form-control" id="iIdNum2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">*핸드폰</label>
-                <div class="col-sm-9">
-                    <select class="btn btn-default form-control" id="sCell1">
-                        <option>010</option>
-                        <option>011</option>
-                        <option>016</option>
-                        <option>017</option>
-                        <option>018</option>
-                        <option>019</option>
-                    </select>
-                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
-                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="hyun_jang_number" placeholder="계약번호"></div>
+
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사 시작일</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="date" class="form-control" id="hyunjang_start"></div>
+                </div>
+            </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">주소</label>
+                <label class="col-sm-3 control-label">*공사 종료일</label>
                 <div class="col-sm-9">
-                    <div class="input_box_post"><input readonly type="text" class="form-control iPost" id="iPost" placeholder=""></div>
-                    <div class="btn_box"><button class="btn btn-default" id="btn_post_search">우편번호검색</button></div>
+                    <div class="input-box"><input type="date" class="form-control" id="hyunjang_end"></div>
                 </div>
             </div>
+
+
             <div class="form-group">
-                <label class="col-sm-3 control-label"></label>
+                <label class="col-sm-3 control-label">*공사내용</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="iAddress1" placeholder="">
+                    <div class="input-box-textarea"><textarea type="text" class="form-control" id="hyun_jang_content"></textarea></div>
                 </div>
             </div>
+
             <div class="form-group">
-                <label class="col-sm-3 control-label">*통상단가</label>
+                <label class="col-sm-3 control-label">*특이사항</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="iDanga"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">*급여계좌</label>
-                <div class="col-sm-9">
-                    <select class="btn btn-default form-control btn_bank" id="sBank">
-                        <option>은행선택</option>
-                        <option>신한</option>
-                        <option>기업</option>
-                        <option>농협</option>
-                        <option>기업</option>
-                        <option>외환</option>
-                    </select>
-                    <div class="input-box"><input type="text" class="form-control" id="iAccountHolder" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label"></label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="iAccount" placeholder="">
+                    <div class="input-box-textarea"><textarea rows="6" type="text" class="form-control" id="remark"></textarea></div>
                 </div>
             </div>
 
@@ -163,7 +154,7 @@
 
         window_resize();
 
-        hyunjang.hyunjang_load(company_no);
+        hyunjang.hyunjang_load(1);
 
 
     });
@@ -182,14 +173,16 @@
         $('#hyunjang_panel').css('width', win_width);
         $('#hyunjang_list').css('height', win_height-105);
     }
-
+    function setValue(){
+       var proc =  $('#setProc').val();
+        hyunjang.hyunjang_load(proc);
+    }
+    /*
     function modal(hyunjang_modal){
         //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
     }
+    */
 
-    function daily_employee_modal(modal, name){
-        parent.parent.modalOpen(modal, '일용직 정보', '100%', '600px', name, '');
-    }
 
 
 </script>

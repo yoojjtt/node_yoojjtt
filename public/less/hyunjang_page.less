@@ -65,15 +65,15 @@
         }
         th {
           text-align: center!important;
-          &:nth-of-type(1) { width: 150px;}
+          &:nth-of-type(1) {width: 150px; text-align:left;}
           &:nth-of-type(2) {width: 150px;}
-          &:nth-of-type(3) {width: 150px;}
+          &:nth-of-type(3) {width: 200px;}
         }
         td {
-          text-align: center!important;
-          &:nth-of-type(1) {  width: 150px;  }
-          &:nth-of-type(2) {  width: 150px;  }
-          &:nth-of-type(3) {  width: 200px;  }
+          //text-align: center!important;
+          &:nth-of-type(1) {  width: 150px; text-align:left; }
+          &:nth-of-type(2) {  width: 150px; text-align:center; }
+          &:nth-of-type(3) {  width: 200px; text-align:center; }
         }
         tr {
           &:nth-child(even) {
@@ -83,8 +83,8 @@
       }
     }
     .area2 {
-      width: 400px;
-      min-width: 400px;
+      width: 500px;
+      min-width: 500px;
 
       .form-group {
         margin-bottom: 5px;
@@ -97,8 +97,13 @@
 
         .input-box {
           float: left;
-          width: 120px;
+          width: 220px;
           margin-right: 5px;
+        }
+        .input-box-textarea{
+          margin-right: 5px;
+          padding-top:5px;
+
         }
         .input_box_post {
           float: left;
@@ -115,12 +120,18 @@
 
         .radio-sex {
           float: left;
-          width: 120px;
+          width: 420px;
           padding: 5px 0 0 10px;
 
           .box {
             float: left;
-            width: 40px;
+            width: 100px;
+          }
+          .ing{
+            color:blue;
+          }
+          .end{
+            color:red;
           }
         }
 

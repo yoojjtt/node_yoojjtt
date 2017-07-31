@@ -25,16 +25,25 @@ daily_employee_info.prototype.handleRoutes = function(router, parent)  //  /m, M
 
 
         if(gubun =="R") {
-            var company_no = data[0];
+            var company_no = req.session.sess_company_no;
+            var job = data[0];
 
 
-
-            var query = "CALL daily_employee_R("+company_no+")";
+            var query = "CALL daily_employee_R("+company_no+",'"+job+"','')";
 
             console.log(query+": 일용직 리스트 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
+
+        }
+        if(gubun =="individual"){
+            var id = data[0];
+
+            var query = "CALL daily_employee_R('','',"+id+")";
+            console.log(query+": 일용직 개별 정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
         }
         if(gubun =="S"){

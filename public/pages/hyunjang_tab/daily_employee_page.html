@@ -26,16 +26,28 @@
     <div class="panel panel-default ">  <!--head -->
         <div class="panel-heading">
             <div class="pull-left">
-                <select class="btn btn-default form-control">
-                    <option>전체(직종)</option>
-                    <option>전체(직종)</option>
-                    <option>전체(직종)</option>
-                    <option>전체(직종)</option>
+                <select id="setJob" onChange="setValue()" class="btn btn-default form-control">
+                    <option value="관리">관리</option>
+                    <option value="반장">반장</option>
+                    <option value="일반">일반</option>
+                    <option value="비계">비계</option>
+                    <option value="보온">보온</option>
+                    <option value="함석">함석</option>
+                    <option value="조공">조공</option>
+                    <option value="기계">기계</option>
+                    <option value="용접">용접</option>
+                    <option value="여공">여공</option>
+                    <option value="대리">대리</option>
+                    <option value="제관">제관</option>
+                    <option value="조장">조장</option>
+                    <option value="포머">포머</option>
+                    <option value="청소">청소</option>
+
                 </select>
-                <span>총 원 : 206명</span>
+                <span>총 원 : <span id="total_daily_employee_no"></span>
             </div>
             <div class="pull-right">
-                <button class="btn btn-info"id="daily_enroll" onClick="modal('hyunjang_modal')" class="enroll-btn btn btn-success">신규등록</button>
+                <button class="btn btn-info"id="daily_enroll" onClick="" class="enroll-btn btn btn-success">신규등록</button>
                 <button class="btn btn-success" id="btn_save">저장</button>
                 <button class="btn btn-default" id="btn_delete">삭제</button>
             </div>
@@ -48,6 +60,7 @@
                 <tr>
                     <th>직종</th>
                     <th>이름</th>
+                    <th>생년월일</th>
                 </tr>
                 </thead>
                 <tbody id="daily_employee_list">
@@ -58,7 +71,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">*이름</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="iName" placeholder="이름"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_name" placeholder="이름"></div>
                     <!--Radio
                     <div class="radio-sex">
                         <div class="box"><input id="sex1" type="radio" name="sex" checked> 남 </div>
@@ -69,22 +82,20 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">*직종</label>
                 <div class="col-sm-9">
-                    <select class="btn-default form-control btn_job">
-
-                    </select>
+                    <select id="daily_employee_job" class="btn-default form-control btn_job"></select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">*주민번호</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="iIdNum1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
-                    <div class="input-box"><input type="text" class="form-control" id="iIdNum2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_jumin1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_jumin2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">*핸드폰</label>
                 <div class="col-sm-9">
-                    <select class="btn btn-default form-control" id="sCell1">
+                    <select id="daily_employee_phone1" class="btn btn-default form-control" id="sCell1">
                         <option>010</option>
                         <option>011</option>
                         <option>016</option>
@@ -92,8 +103,8 @@
                         <option>018</option>
                         <option>019</option>
                     </select>
-                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
-                    <div class="input-box-type2"><input type="text" class="form-control" id="iCell3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box-type2"><input id="daily_employee_phone2" type="text" class="form-control" id="iCell2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box-type2"><input id="daily_employee_phone3" type="text" class="form-control" id="iCell3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
                 </div>
             </div>
 
@@ -101,14 +112,14 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">주소</label>
                 <div class="col-sm-9">
-                    <div class="input_box_post"><input readonly type="text" class="form-control iPost" id="iPost" placeholder=""></div>
+                    <div class="input_box_post"><input id="daily_employee_postnum"readonly type="text" class="form-control iPost" id="iPost" placeholder=""></div>
                     <div class="btn_box"><button class="btn btn-default" id="btn_post_search">우편번호검색</button></div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label"></label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="iAddress1" placeholder="">
+                    <input type="text" id="daily_employee_address" class="form-control" id="iAddress1" placeholder="">
                 </div>
             </div>
             <div class="form-group">
@@ -120,7 +131,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">*급여계좌</label>
                 <div class="col-sm-9">
-                    <select class="btn btn-default form-control btn_bank" id="sBank">
+                    <select id="daily_employee_bank_name" class="btn btn-default form-control btn_bank" id="sBank">
                         <option>은행선택</option>
                         <option>신한</option>
                         <option>기업</option>
@@ -128,13 +139,13 @@
                         <option>기업</option>
                         <option>외환</option>
                     </select>
-                    <div class="input-box"><input type="text" class="form-control" id="iAccountHolder" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
+                    <div class="input-box"><input id="daily_employee_bank_owner" type="text" class="form-control" id="iAccountHolder" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label"></label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="iAccount" placeholder="">
+                    <input id="daily_employee_bank_account" type="text" class="form-control" id="iAccount" placeholder="">
                 </div>
             </div>
 
@@ -161,7 +172,7 @@
 
         window_resize();
 
-        daily_employee.daily_employee_load(company_no);
+        daily_employee.daily_employee_load('관리');
 
 
     });
@@ -180,14 +191,15 @@
         $('#daily_employee_panel').css('width', win_width);
         $('#daily_employee_list').css('height', win_height-105);
     }
+    function setValue(){
+        var job =  $('#setJob').val();
 
-    function modal(hyunjang_modal){
-        //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
+        daily_employee.daily_employee_load(job);
     }
 
-    function daily_employee_modal(modal, name){
-        parent.parent.modalOpen(modal, '일용직 정보', '100%', '600px', name, '');
-    }
+
+
+
 
 
 </script>
