@@ -25,7 +25,7 @@
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select class="btn-default form-control btn_class" id="sHyunjang">
+                    <select id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
@@ -33,7 +33,7 @@
                     <button class="btn btn-default" id="btn_all">전체선택</button>
                 </div>
                 <div class="select-box2">
-                    <select class="btn-default form-control btn_type" id="sKongsu_type">
+                    <select class="select-inner btn-default form-control btn_type" id="sKongsu_type">
                         <option value="0">[공수처리]</option>
                         <option value="1">정상처리</option>
                         <option value="2">결석처리</option>
@@ -50,12 +50,12 @@
         </div>
         <div class="btn_box_right">
 
-            <button class="btn btn-default" id="btn_today">오늘</button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
+            <button class="btn btn-default" onClick="dateValue()" id="btn_today">오늘</button>
+            <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="dateValue_add()" id="btn_right"></div>
             <button class="btn date">
 
                 <div class="input-append date" id="dp3">
-                    <input type="date" style="width: 0; display: none;" readonly>
+                    <input id="dateSearch" type="date" value="">
                     <span class="add-on">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <span class="lbl_targetDay" id="lbl_targetDay"></span>
@@ -63,7 +63,7 @@
                 </div>
 
             </button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
+            <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="dateValue_minus()" id="btn_left"></div>
 
         </div>
     </div>
@@ -110,16 +110,19 @@
 <script src="../../js/my_js/hyunjang.js"></script>
 <script src="../../js/my_js/daily_employee.js"></script>
 <script src="../../js/my_js/kongsu.js"></script>
+<script src="../../js/my_js/daily_employee_register.js"></script>
 
 <script>
 
     $(function() {
 
-
+        daily_employee_register.hyunjang_load(1);
         //hyunjang.hyunjang_load(company_no);
         //daily_employee.daily_employee_load(company_no);
+
         kongsu.kongsu_load('1','206','2017-07-01','daily');
         window_resize();
+        dateValue();
 
     });
     $(window).resize(function() {
@@ -138,11 +141,29 @@
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
 
-    function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
+    function dateValue(){
+        var now = new Date();
+        var year= now.getFullYear();
+        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+        var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+        var chan_val = year + '-' + mon + '-' + day;
+
+
+        $('#dateSearch').val(chan_val);
     }
-    function hyunjang_indv_modal(table, seventh){
-        parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
+    function dateValue_add(){
+
+        var d = $('#dateSearch').val();
+        var dValue = d.split('-');
+        ``
+
+       var str = dValue[0] +"-"+dValue[1]+"-"+(dValue[2]+1);
+       alert(str);
+       //$('#dateSearch').val(str);
+
+    }
+    function dateValue_minus(){
+        var d = $('#dateSearch').val();
 
     }
 

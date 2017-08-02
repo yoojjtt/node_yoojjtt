@@ -209,7 +209,7 @@
   text-align: center!important;
 }
 .daily_employee_page .area_in_box .area1 table th:nth-of-type(1) {
-  width: 50px;
+  width: 100px;
 }
 .daily_employee_page .area_in_box .area1 table th:nth-of-type(2) {
   width: 120px;
@@ -220,17 +220,16 @@
 .daily_employee_page .area_in_box .area1 table th:nth-of-type(4) {
   width: 210px;
 }
-.daily_employee_page .area_in_box .area1 table td {
-  text-align: center!important;
-}
 .daily_employee_page .area_in_box .area1 table td:nth-of-type(1) {
-  width: 50px;
+  width: 100px;
 }
 .daily_employee_page .area_in_box .area1 table td:nth-of-type(2) {
   width: 120px;
+  text-align: center;
 }
 .daily_employee_page .area_in_box .area1 table td:nth-of-type(3) {
   width: 120px;
+  text-align: center;
 }
 .daily_employee_page .area_in_box .area1 table td:nth-of-type(4) {
   width: 210px;
@@ -249,6 +248,19 @@
   float: left;
   width: 60px;
   margin-right: 5px;
+}
+.daily_employee_page .area_in_box .area2 .form-group .input-box-type3 {
+  float: left;
+  width: 340px;
+  margin-bottom: 5px;
+}
+.daily_employee_page .area_in_box .area2 .form-group .input-box-type4 {
+  width: 150px;
+  margin-bottom: 5px;
+}
+.daily_employee_page .area_in_box .area2 .form-group .input-box-type5 {
+  width: 340px;
+  margin-top: 5px;
 }
 .daily_employee_page .area_in_box .area2 .form-group .input-box {
   float: left;
@@ -326,13 +338,14 @@
 }
 .kongsu .head1 .btn_box_left .btn_check_all .select-box2 {
   float: left;
+  width: 125px;
   padding-right: 3px;
 }
 .kongsu .head1 .btn_box_left .btn_check_all #sJob {
   width: 100px;
 }
 .kongsu .head1 .btn_box_left .btn_check_all #sKongsu_type {
-  width: 80px;
+  width: 125px;
 }
 .kongsu .head1 .btn_box_left .btn_check_all .btn_kongsu {
   float: left;
@@ -350,6 +363,14 @@
   color: red;
   background: white;
   margin-right: 5px;
+  height: 34px;
+}
+.kongsu .head1 .btn_box_right .date .input-append {
+  height: 25px;
+}
+.kongsu .head1 .btn_box_right .date input {
+  border: 0px;
+  height: 24px;
 }
 .kongsu .head1 .btn_box_right .date span {
   color: #33acfe;
@@ -557,148 +578,163 @@
   width: 250px;
   margin-top: 5px;
 }
-.danga {
+.register {
   min-width: 1100px;
 }
-.danga .panel {
+.register .panel {
   margin-bottom: 0;
   border: inherit;
 }
-.danga .panel-heading {
+.register .panel-heading {
   height: 47px;
   padding: 6px 10px 6px 10px;
 }
-.danga .panel-heading .pull-left {
+.register .panel-heading .pull-left {
   float: left;
 }
-.danga .panel-heading .pull-left select {
+.register .panel-heading .pull-left select {
   float: left;
   margin-top: 0;
   width: 300px;
   margin-right: 5px;
 }
-.danga .panel-heading .pull-left .btn-box {
+.register .panel-heading .pull-left .btn-box {
   float: left;
   padding-right: 2px;
 }
-.danga .area_in_box {
+.register .panel-heading .pull-left .date {
+  z-index: 10;
+  color: red;
+  background: white;
+  margin-right: 5px;
+  height: 34px;
+}
+.register .panel-heading .pull-left .date .input-append {
+  height: 25px;
+}
+.register .panel-heading .pull-left .date input {
+  border: 0px;
+  height: 24px;
+}
+.register .area_in_box {
   background: white;
   display: block;
   min-width: 1040px;
 }
-.danga .area_in_box .area {
+.register .area_in_box .area {
   padding: 10px;
   float: left;
   font-size: 12px;
 }
-.danga .area_in_box .area1 {
+.register .area_in_box .area1 {
+  margin-top: 40px;
   width: 500px;
   margin-right: 50px;
 }
-.danga .area_in_box .area1 table {
+.register .area_in_box .area1 table {
   width: 500px;
   border: 1px solid #dddddd;
   background: #ffffff;
 }
-.danga .area_in_box .area1 table thead {
+.register .area_in_box .area1 table thead {
   display: block;
   text-align: center;
   background-color: white;
 }
-.danga .area_in_box .area1 table tbody {
+.register .area_in_box .area1 table tbody {
   display: block;
-  height: 550px;
+  height: 510px;
   min-height: 200px;
   overflow: auto;
   background-image: url(../images/bg_pattern2.gif);
 }
-.danga .area_in_box .area1 table th {
+.register .area_in_box .area1 table th {
   text-align: center!important;
 }
-.danga .area_in_box .area1 table th:nth-of-type(1) {
+.register .area_in_box .area1 table th:nth-of-type(1) {
   width: 50px;
 }
-.danga .area_in_box .area1 table th:nth-of-type(2) {
+.register .area_in_box .area1 table th:nth-of-type(2) {
   width: 120px;
 }
-.danga .area_in_box .area1 table th:nth-of-type(3) {
+.register .area_in_box .area1 table th:nth-of-type(3) {
   width: 120px;
 }
-.danga .area_in_box .area1 table th:nth-of-type(4) {
+.register .area_in_box .area1 table th:nth-of-type(4) {
   width: 210px;
 }
-.danga .area_in_box .area1 table td {
+.register .area_in_box .area1 table td {
   text-align: center!important;
 }
-.danga .area_in_box .area1 table td:nth-of-type(1) {
+.register .area_in_box .area1 table td:nth-of-type(1) {
   width: 50px;
 }
-.danga .area_in_box .area1 table td:nth-of-type(2) {
+.register .area_in_box .area1 table td:nth-of-type(2) {
   width: 120px;
 }
-.danga .area_in_box .area1 table td:nth-of-type(3) {
+.register .area_in_box .area1 table td:nth-of-type(3) {
   width: 120px;
 }
-.danga .area_in_box .area1 table td:nth-of-type(4) {
+.register .area_in_box .area1 table td:nth-of-type(4) {
   width: 210px;
 }
-.danga .area_in_box .area1 table tr:nth-child(even) {
+.register .area_in_box .area1 table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.danga .area_in_box .area2 {
+.register .area_in_box .area2 {
   margin-right: 50px;
   padding-top: 250px;
 }
-.danga .area_in_box .area2 .arrow_left {
+.register .area_in_box .area2 .arrow_left {
   color: #dddddd;
   font-size: 50px;
 }
-.danga .area_in_box .area3 {
+.register .area_in_box .area3 {
   width: 350px;
 }
-.danga .area_in_box .area3 select {
+.register .area_in_box .area3 select {
   width: 120px;
   margin-bottom: 5px;
 }
-.danga .area_in_box .area3 table {
+.register .area_in_box .area3 table {
   width: 350px;
   border: 1px solid #dddddd;
   background: #ffffff;
 }
-.danga .area_in_box .area3 table thead {
+.register .area_in_box .area3 table thead {
   display: block;
   text-align: center;
   background-color: white;
 }
-.danga .area_in_box .area3 table tbody {
+.register .area_in_box .area3 table tbody {
   display: block;
   height: 550px;
   min-height: 200px;
   overflow: auto;
   background-image: url(../images/bg_pattern2.gif);
 }
-.danga .area_in_box .area3 table th {
+.register .area_in_box .area3 table th {
   text-align: center!important;
 }
-.danga .area_in_box .area3 table th:nth-of-type(1) {
+.register .area_in_box .area3 table th:nth-of-type(1) {
   width: 100px;
 }
-.danga .area_in_box .area3 table th:nth-of-type(2) {
+.register .area_in_box .area3 table th:nth-of-type(2) {
   width: 120px;
 }
-.danga .area_in_box .area3 table th:nth-of-type(3) {
+.register .area_in_box .area3 table th:nth-of-type(3) {
   width: 130px;
 }
-.danga .area_in_box .area3 table td {
+.register .area_in_box .area3 table td {
   text-align: center!important;
 }
-.danga .area_in_box .area3 table td:nth-of-type(1) {
+.register .area_in_box .area3 table td:nth-of-type(1) {
   width: 100px;
 }
-.danga .area_in_box .area3 table td:nth-of-type(2) {
+.register .area_in_box .area3 table td:nth-of-type(2) {
   width: 120px;
 }
-.danga .area_in_box .area3 table td:nth-of-type(3) {
+.register .area_in_box .area3 table td:nth-of-type(3) {
   width: 120px;
 }
 .dashboard {

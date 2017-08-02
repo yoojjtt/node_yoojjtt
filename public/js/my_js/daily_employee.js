@@ -49,32 +49,86 @@ var daily_employee = function ()
         var return_code = result[0].data[0][0].return_code;
 
             $('#daily_employee_name').val(res.name);
+            $('#daily_employee_id').val(res.id);
+
             $('#daily_employee_jumin1').val(res.jumin1);
             $('#daily_employee_jumin2').val(res.jumin2);
 
 
-            var str = "<option>"+res.job+"</option>";
-            $('#daily_employee_job').empty().append(str);
-
+            //var str = "<option>"+res.job+"</option>";
+            //$('#daily_employee_job').empty().append(str);
+            $('#daily_employee_job').val(res.job);
             var phone = res.phone.split("-");
 
             $('#daily_employee_phone1').val(phone[0]);
             $('#daily_employee_phone2').val(phone[1]);
             $('#daily_employee_phone3').val(phone[2]);
 
-            $('#daily_employee_postnum').val(res.address1);
-            $('#daily_employee_address').val(res.address2+" "+res.postnum);
+            $('#daily_employee_postnum').val(res.postnum);
+            $('#daily_employee_address1').val(res.address1);
+            $('#daily_employee_address2').val(res.address2);
 
             $('#daily_employee_bank_owner').val(res.bank_owner);
 
-            var str2 = "<option>"+res.bank_name+"</option>";
-            $('#daily_employee_bank_name').empty().append(str2);
+            //var str2 = "<option>"+res.bank_name+"</option>";
+            //$('#daily_employee_bank_name').empty().append(str2);
+            $('#daily_employee_bank_name').val(res.bank_name);
             $('#daily_employee_bank_account').val(res.bank_account);
 
         },
-        daily_employee_sujung : function(hyunjang_no){
+        new_daily_employee : function(){
+            $('#daily_employee_name').val('');
+            $('#daily_employee_job').val('0');
+            $('#daily_employee_id').val('');
+            $('#daily_employee_jumin1').val('');
+            $('#daily_employee_jumin2').val('');
+            $('#daily_employee_phone1').val('');
+            $('#daily_employee_phone2').val('');
+            $('#daily_employee_phone3').val('');
+            $('#daily_employee_postnum').val('');
+            $('#daily_employee_address1').val('');
+            $('#daily_employee_address2').val('');
+            $('#daily_employee_bank_name').val('0');
+            $('#daily_employee_bank_owner').val('');
+            $('#daily_employee_bank_account').val('');
+
+        },
+        daily_employee_save : function(){
 
 
+            var phone1 = $('#daily_employee_phone1').val();
+            var phone2 = $('#daily_employee_phone2').val();
+            var phone3 = $('#daily_employee_phone3').val();
+            var phone = phone1 + "-" + phone2 + "-" + phone3;
+
+
+            var gubun = "S";
+            var iData = ['name','id','job','jumin1','jumin2','phone','postnum', 'address1', 'address2', 'bank_name','bank_owner', 'bank_account'];
+
+
+            iData[0] = $('#daily_employee_name').val();
+            iData[1] = $('#daily_employee_id').val();
+            iData[2] = $('#daily_employee_job').val();
+            iData[3] = $('#daily_employee_jumin1').val();
+            iData[4] = $('#daily_employee_jumin2').val();
+            iData[5] = phone;
+            iData[6] = $('#daily_employee_postnum').val();
+            iData[7] = $('#daily_employee_address1').val();
+            iData[8] = $('#daily_employee_address2').val();
+            iData[9] = $('#daily_employee_bank_name').val();
+            iData[10] = $('#daily_employee_bank_owner').val();
+            iData[11] = $('#daily_employee_bank_account').val();
+
+
+            var result = _DB_query.httpService("daily_employee_info",gubun, iData);
+            var msg = result[0].data[0][0].msg;
+            var return_code = result[0].data[0][0].return_code;
+
+            if(return_code =="100"){
+                alert(msg);
+                //location.reload();
+
+            }
 
         }
 

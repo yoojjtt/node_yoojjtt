@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div role="tabpanel" class="register">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+                <select id="hyunjang_select" onChange="" class="btn btn-default form-control"></select>
+                <div class="btn-box">
+                    <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
+
+                        <button class="btn date">
+                            <div class="input-append date" id="dp3">
+                                <input id="toMonth" type="month" value="">
+                            </div>
+                        </button>
+
+                    <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
+                    <button type="button" class="btn btn-default" onClick="hyunjang_set()">조회</button>
+                    <button type="button" class="btn btn-default" onClick="" id="btn_toMonth">현재월로</button>
+                    <button class="btn btn-success" onClick="daily_employee_register.monthly_danga_save()">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area_in_box" id="danga_panel">
+        <div class="area area1">
+            <table id="danga_list" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>삭제</th>
+                    <th>직종</th>
+                    <th>이름</th>
+                    <th>단가</th>
+                </tr>
+                </thead>
+                <tbody id="monthly_danga">
+                </tbody>
+            </table>
+        </div>
+
+
+        <!--- area2 -->
+        <div class="area area2">
+            <div class="glyphicon glyphicon-triangle-left arrow_left"></div>
+        </div>
+        <!-- area2 end -->
+
+
+
+
+        <div class="area area3">
+            <select id="setJob" onChange="employee_set()" class="btn btn-default form-control">
+                <option value="0">직종선택</option>
+                <option value="관리">관리</option>
+                <option value="반장">반장</option>
+                <option value="일반">일반</option>
+                <option value="비계">비계</option>
+                <option value="보온">보온</option>
+                <option value="함석">함석</option>
+                <option value="조공">조공</option>
+                <option value="기계">기계</option>
+                <option value="용접">용접</option>
+                <option value="여공">여공</option>
+                <option value="대리">대리</option>
+                <option value="제관">제관</option>
+                <option value="조장">조장</option>
+                <option value="포머">포머</option>
+                <option value="청소">청소</option>
+            </select>
+            <span>총 원 : <span id="total_daily_employee_no"></span>
+           <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>직종</th>
+                    <th>이름</th>
+                    <th>생년월일</th>
+                </tr>
+                </thead>
+                <tbody id="daily_employee_list">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+<script src="../../assets/scripts.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/_auth.js"></script>
+<script src="../../js/my_js/employee.js"></script>
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/hyunjang.js"></script>
+<script src="../../js/my_js/daily_employee.js"></script>
+<script src="../../js/my_js/daily_employee_register.js"></script>
+
+
+<script>
+
+    $(function() {
+        result_data = [];
+        window_resize();
+
+        hyunjang.hyunjang_load(company_no);
+        daily_employee_register.hyunjang_load(1);
+        toMonth();
+
+
+        //var hyunjang_id =  $('#hyunjang_select').val();
+        //daily_employee_register.monthly_danga_load(hyunjang_id);
+    });
+    $(window).resize(function() {
+        window_resize();
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        $('#danga_panel').css('height', win_height-47);
+        $('#danga_panel').css('width', win_width);
+        $('#danga_tbody').css('height', win_height-150);
+        $('#daily_employee_list').css('height', win_height-189);
+    }
+    function employee_set(){
+        var job =  $('#setJob').val();
+        daily_employee.daily_employee_load(job);
+    }
+    function hyunjang_set(){
+        var hyunjang_id =  $('#hyunjang_select').val();
+        daily_employee_register.monthly_danga_load(hyunjang_id);
+
+    }
+
+
+    function toMonth(){
+        var d = new Date();
+        var year = d.getFullYear();
+        var month = d.getMonth() + 1;
+
+        $('#toMonth').val("'"+year+"-0"+month+"'");
+    }
+    function addMonth(){
+
+    }
+    function minusMonth(){
+
+    }
+
+
+
+    function checkbox_delete(){
+        //$('#monthly_danga input[type="checkbox"]:checked').parent().parent().remove();
+        var unChecked = $('#monthly_danga input[type="checkbox"]').not("input:checked");
+        unChecked.parent().parent().remove();
+        var unCheckedTr = unChecked.parent().parent();
+        var employee_id = unCheckedTr.children().eq(4).text();
+        alert(employee_id);
+        //alert(result_data);
+        //alert(result_data.indexOf("'"+employee_id+"'", 0));
+
+        var find_id = result_data.indexOf("'"+employee_id+"'", 0);
+        if(find_id != -1){
+
+            //alert(result_data);
+            result_data.splice(find_id, 1);
+            //alert(result_data);
+
+        }else{
+            alert("NotFind");
+            //alert(result_data);
+        }
+    }
+
+
+
+</script>
+
+
+<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

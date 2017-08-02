@@ -29,11 +29,20 @@ $("tbody").on("click", "tr", function(){//
 
     if(table =='hyunjang_list'){hyunjang.hyunjang_indv_load(forth);} //현장 개별 정보 로드
 
-    if(table =='daily_employee_list'){daily_employee.daily_employee_indv_load(forth);} // 일용직 개별 정보 로드
+    if(table =='daily_employee_list'){
+        daily_employee.daily_employee_indv_load(forth); // 일용직 개별 정보 로드
+        daily_employee_register.daily_employee_include(forth); // 일용직 개별 monthly_danga에 등록
+
+    }
+
 
 
 
 });
+
+
+
+
 
 
 /*table click event  ---------------------*/

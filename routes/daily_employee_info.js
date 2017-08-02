@@ -47,12 +47,36 @@ daily_employee_info.prototype.handleRoutes = function(router, parent)  //  /m, M
 
         }
         if(gubun =="S"){
-            var hyunjang_no = data[0];
+            var name = data[0];
+            var id = data[1];
+            var job = data[2];
+            var jumin1 = data[3];
+            var jumin2 = data[4];
+            var phone = data[5];
+            var postnum = data[6];
+            var address1 = data[7];
+            var address2 = data[8];
+            var bank_name = data[9];
+            var bank_owner = data[10];
+            var bank_account = data[11];
+            var company_no = req.session.sess_company_no;
 
+            var query = "CALL daily_employee_S('"+name
+                +"','"+id
+                +"','"+job
+                +"','"+jumin1
+                +"','"+jumin2
+                +"','"+phone
+                +"','"+postnum
+                +"','"+address1
+                +"','"+address2
+                +"','"+bank_name
+                +"','"+bank_owner
+                +"','"+bank_account
+                +"','"+company_no
+                +"')";
 
-            var query = "CALL daily_member_S('','"+ hyunjang_no+"')";
-
-            console.log(query+": 개별 현장정보 로드");
+            console.log(query+": 일용직 정보 수정/신규 저장");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

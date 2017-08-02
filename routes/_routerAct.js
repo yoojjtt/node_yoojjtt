@@ -15,8 +15,9 @@ var Company_info = require("./company_info.js");  //회사 정보 수정, 회사
 var Password_info = require("./password_info.js"); //비밀번호 수정, 비밀번호 정보 로드
 var Hyunjang_info = require("./hyunjang_info.js");  //현장정보 로드, 수정
 var Tax_info = require("./tax_info.js"); //세금정보 로드
-var Daily_employee_info = require("./daily_employee_info.js");
-var Kongsu_info = require("./kongsu_info.js");
+var Daily_employee_info = require("./daily_employee_info.js"); //일용직 근로자 정보 로드, 수정
+var Kongsu_info = require("./kongsu_info.js");  // 공수 정보 수정, 로드
+var Daily_employee_register_info = require("./daily_employee_register_info.js");  //일용직 근로자 현장등록 로드, 수정
 
 
 
@@ -37,7 +38,7 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     var tax_info = new Tax_info(router, this);
     var daily_employee_info = new Daily_employee_info(router, this);
     var kongsu_info = new Kongsu_info(router, this);
-
+    var daily_employee_register_info = new Daily_employee_register_info(router, this);
 
 
 
