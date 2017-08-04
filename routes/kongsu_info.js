@@ -25,17 +25,23 @@ kongsu_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_ro
 
 
         if(gubun =="R") {
-            var company_no = data[0];
-            var hyun_jang_num = data[1];
-            var daily_employee_num = data[2];
-            var date = data[3];
+            var company_no = req.session.sess_company_no;
+            var hyun_jang_num = data[0];
+            var daily_employee_num = data[1];
+            var month = data[2];
+            var daily = data[3];
             var infoType = data[4];
 
 
 
 
-            var query = "CALL daily_kongsu_R('"+company_no+"','"+hyun_jang_num+"','"+daily_employee_num+"','"+
-                date+"','"+infoType+"')";
+            var query = "CALL daily_kongsu_R('"+company_no
+                +"','"+hyun_jang_num
+                +"','"+daily_employee_num
+                +"','"+month
+                +"','"+daily
+                +"','"+infoType
+                +"')";
 
             console.log(query+": 공수 daily 로드");
 
@@ -44,16 +50,31 @@ kongsu_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_ro
 
         }
         if(gubun =="S"){
-            /*
-            var hyunjang_no = data[0];
+
+            var company_no = req.session.sess_company_no;
+            var hyunjang_id = data[0];
+            var idGroup = data[1];
+            var daily = data[2];
+            var ins_id = req.session.sess_userEmail;
+            var kongsu = data[3];
+            var total_num = data[4];
 
 
-            var query = "CALL hyunjang_R('','"+ hyunjang_no+"')";
 
-            console.log(query+": 개별 현장정보 로드");
+
+            var query = "CALL daily_kongsu_S('"+company_no
+                +"','"+hyunjang_id
+                +"','"+idGroup
+                +"','"+daily
+                +"','"+ins_id
+                +"','"+kongsu
+                +"','"+total_num
+                +"')";
+
+            console.log(query+": 공수 입력 save");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
-            */
+
         }
 
 

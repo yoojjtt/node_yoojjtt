@@ -25,7 +25,7 @@
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select id="hyunjang_select" class="btn-default form-control btn_class" >
+                    <select onChange="daily_search();" id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
@@ -33,19 +33,29 @@
                     <button class="btn btn-default" id="btn_all">전체선택</button>
                 </div>
                 <div class="select-box2">
-                    <select class="select-inner btn-default form-control btn_type" id="sKongsu_type">
-                        <option value="0">[공수처리]</option>
-                        <option value="1">정상처리</option>
-                        <option value="2">결석처리</option>
-                        <option value="3">휴일처리</option>
-                        <option value="4">미처리</option>
+                    <select class="select-inner btn-default form-control btn_type" id="Kongsu_type">
+                        <option value="">[공수처리]</option>
+                        <option value="1">1 공수 (정상처리)</option>
+                        <option value="0">0 공수 (결석처리)</option>
+                        <option value="0.5">0.2 공수 (기타)</option>
+                        <option value="0.5">0.5 공수 (기타)</option>
+                        <option value="1.5">1.5 공수 (기타)</option>
+                        <option value="2">2 공수 (기타)</option>
+                        <option value="2.5">2.5 공수 (기타)</option>
+                        <option value="3">3 공수 (기타)</option>
+                        <option value="3.5">3.5 공수 (기타)</option>
+                        <option value="4">4 공수 (기타)</option>
+                        <option value="4.5">4.5 공수 (기타)</option>
+                        <option value="5">5 공수 (기타)</option>
+
                         <option value="99">[공수정보삭제]</option>
                     </select>
                 </div>
             </div>
             <div class="btn_etc">
-                <button class="btn btn-success" id="btn_save">저장</button>
-                <button class="btn btn-default" id="btn_month_view">월별현황</button>
+                <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
+                <button onClick="kongsu.kongsu_save()" class="btn btn-success" id="btn_save">저장</button>
+
             </div>
         </div>
         <div class="btn_box_right">
@@ -55,7 +65,7 @@
             <button class="btn date">
 
                 <div class="input-append date" id="dp3">
-                    <input id="dateSearch" type="date" value="">
+                    <input onChange="daily_search();" id="dateSearch" type="date" value="">
                     <span class="add-on">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <span class="lbl_targetDay" id="lbl_targetDay"></span>
@@ -68,19 +78,25 @@
         </div>
     </div>
     <div class="panel-heading head2">
-        <div class="name-label" id="total_label">총 원 : 206명</div>
+        <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
         <div class="name-label">ㅣ </div>
         <div class="name-label normality" id="normality_num"> 정상 : 0명 </div>
         <div class="name-label">ㅣ </div>
         <div class="name-label absence" id="absence_num"> 결석 : 0명 </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=""> 기타 : 0명 </div>
+
 
     </div>
     <table class="table table-striped" id="kongsu_table_head">
         <thead>
         <tr>
             <th>#</th>
+            <th style="display:none;">num</th>
             <th>이름</th>
-            <th>메모</th>
+            <th>주민번호</th>
+            <th>직종</th>
+            <th>공수</th>
         </tr>
         </thead>
         <tbody id="kongsu_table_body">
@@ -115,12 +131,21 @@
 <script>
 
     $(function() {
-
+        result_data_save = [];
         daily_employee_register.hyunjang_load(1);
         //hyunjang.hyunjang_load(company_no);
         //daily_employee.daily_employee_load(company_no);
+        window.onload = function(){
+            var daily = $('#dateSearch').val();
+            var dateVal = daily.split('-');
+            //alert(daily);
 
-        kongsu.kongsu_load('1','206','2017-07-01','daily');
+            var month = dateVal[0] + "-" + dateVal[1];
+            kongsu.kongsu_load(month, daily);
+           //
+
+        }
+
         window_resize();
         dateValue();
 
@@ -144,7 +169,7 @@
     function dateValue(){
         var now = new Date();
         var year= now.getFullYear();
-        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);  // 달이 9월이상이면 ''+10,11,12 찍고 아니면 '0'+ 먼스찍기
         var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
         var chan_val = year + '-' + mon + '-' + day;
 
@@ -155,7 +180,7 @@
 
         var d = $('#dateSearch').val();
         var dValue = d.split('-');
-        ``
+
 
        var str = dValue[0] +"-"+dValue[1]+"-"+(dValue[2]+1);
        alert(str);
@@ -166,11 +191,21 @@
         var d = $('#dateSearch').val();
 
     }
+    function daily_search(){
+        //alert('변경');
+        var daily = $('#dateSearch').val();
+        var dateVal = daily.split('-');
+        //alert(daily);
+
+        var month = dateVal[0] + "-" + dateVal[1];
+        kongsu.kongsu_load(month, daily);
+    }
 
 
 
 
 </script>
+
 
 
 <script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

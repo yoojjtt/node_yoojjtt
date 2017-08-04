@@ -338,7 +338,7 @@
 }
 .kongsu .head1 .btn_box_left .btn_check_all .select-box2 {
   float: left;
-  width: 125px;
+  width: 165px;
   padding-right: 3px;
 }
 .kongsu .head1 .btn_box_left .btn_check_all #sJob {
@@ -453,12 +453,24 @@
 .kongsu .table td:nth-of-type(2) {
   width: 100px;
 }
+.kongsu .table th:nth-of-type(3),
+.kongsu .table td:nth-of-type(3) {
+  width: 100px;
+}
+.kongsu .table th:nth-of-type(4),
+.kongsu .table td:nth-of-type(4) {
+  width: 200px;
+}
+.kongsu .table th:nth-of-type(5),
+.kongsu .table td:nth-of-type(5) {
+  width: 80px;
+}
 .kongsu .table th:last-child {
-  width: calc(315px);
+  width: calc(595px);
   text-align: left;
 }
 .kongsu .table td:last-child {
-  width: calc(295px);
+  width: calc(895px);
   text-align: left;
 }
 .company_info {
@@ -663,20 +675,24 @@
 .register .area_in_box .area1 table th:nth-of-type(4) {
   width: 210px;
 }
-.register .area_in_box .area1 table td {
-  text-align: center!important;
-}
 .register .area_in_box .area1 table td:nth-of-type(1) {
   width: 50px;
+  text-align: center;
 }
 .register .area_in_box .area1 table td:nth-of-type(2) {
   width: 120px;
+  text-align: center;
 }
 .register .area_in_box .area1 table td:nth-of-type(3) {
   width: 120px;
+  text-align: center;
 }
 .register .area_in_box .area1 table td:nth-of-type(4) {
   width: 210px;
+  text-align: right;
+}
+.register .area_in_box .area1 table td input {
+  text-align: right;
 }
 .register .area_in_box .area1 table tr:nth-child(even) {
   background-color: #f2f2f2;

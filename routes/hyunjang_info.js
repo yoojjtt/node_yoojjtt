@@ -30,7 +30,7 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
 
 
-            var query = "CALL hyunjang_R('"+company_no+"','',"+proc+")";
+            var query = "CALL hyunjang_R('"+company_no+"','','"+proc+"')";
 
             console.log(query+": 현장리스트 로드");
 

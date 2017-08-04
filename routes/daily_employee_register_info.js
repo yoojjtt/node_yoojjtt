@@ -31,7 +31,7 @@ daily_employee_register_info.prototype.handleRoutes = function(router, parent)  
             +"','"+month
             +"')";
 
-            console.log(query+": 일용직 근로자 현장 load");
+            console.log(query+": 일용직 근로자 현장등록 load");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
@@ -60,23 +60,30 @@ daily_employee_register_info.prototype.handleRoutes = function(router, parent)  
                 +"','"+total_num
                 +"')";
 
-            console.log(query+": 일용직 근로자 현장 save");
+            console.log(query+": 일용직 근로자 현장등록 save");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
 
         }
-        if(gubun =="S"){
-            /*
+        if(gubun =="D"){
+
+
              var hyunjang_no = data[0];
+             var month_d = data[1];
+             var idGroup_d = data[2];
+             var total_num_d = data[3];
 
+             var query = "CALL monthly_danga_D('"+hyunjang_no
+                 +"','"+month_d
+                 +"','"+ idGroup_d
+                 +"','"+ total_num_d
+                 +"')";
 
-             var query = "CALL hyunjang_R('','"+ hyunjang_no+"')";
-
-             console.log(query+": 개별 현장정보 로드");
+             console.log(query+": 일용직 근로자 현장등록 delete");
 
              parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
-             */
+
         }
 
 

@@ -72,7 +72,7 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
         if(gubun == "employees"){
             var company_no = data[0];
 
-            var query = "CALL employee_list_R('','',"+company_no+")";
+            var query = "CALL employee_list_R('','','',"+company_no+")";
 
             console.log(query+": 직원리스트 정보 로드");
 

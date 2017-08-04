@@ -31,7 +31,12 @@ $("tbody").on("click", "tr", function(){//
 
     if(table =='daily_employee_list'){
         daily_employee.daily_employee_indv_load(forth); // 일용직 개별 정보 로드
-        daily_employee_register.daily_employee_include(forth); // 일용직 개별 monthly_danga에 등록
+
+
+            daily_employee_register.daily_employee_include(forth); // 일용직 개별 monthly_danga에 등록  ,
+            //TODO daily_employee_register가 없기 때문에  emplotee_list 에서는 에러난돠
+
+
 
     }
 

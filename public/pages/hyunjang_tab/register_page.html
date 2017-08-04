@@ -35,8 +35,8 @@
 
                     <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
                     <button type="button" class="btn btn-default" onClick="hyunjang_set()">조회</button>
-                    <button type="button" class="btn btn-default" onClick="" id="btn_toMonth">현재월로</button>
-                    <button class="btn btn-success" onClick="daily_employee_register.monthly_danga_save()">저장</button>
+                    <button type="button" class="btn btn-default" onClick="toMonth()" id="btn_toMonth">현재월로</button>
+                    <button class="btn btn-success" onClick="monthly_daga_save()">저장</button>
                 </div>
             </div>
         </div>
@@ -126,7 +126,8 @@
 <script>
 
     $(function() {
-        result_data = [];
+        //result_data = [];  //monthly_danga 에 추가할 데이터
+        //result_data_delete = [];  // monthly_daga 에서 삭제할 데이터
         window_resize();
 
         hyunjang.hyunjang_load(company_no);
@@ -154,51 +155,33 @@
         var job =  $('#setJob').val();
         daily_employee.daily_employee_load(job);
     }
-    function hyunjang_set(){
+    function hyunjang_set(){  //조회 버튼 눌렀을 떄
         var hyunjang_id =  $('#hyunjang_select').val();
         daily_employee_register.monthly_danga_load(hyunjang_id);
-
     }
-
 
     function toMonth(){
-        var d = new Date();
-        var year = d.getFullYear();
-        var month = d.getMonth() + 1;
+        var now = new Date();
+        var year= now.getFullYear();
+        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+        //var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+        var chan_val = year + '-' + mon ;
 
-        $('#toMonth').val("'"+year+"-0"+month+"'");
+
+
+        $('#toMonth').val(chan_val);
     }
     function addMonth(){
-
+        $('#toMonth').val();
     }
     function minusMonth(){
 
     }
-
-
-
-    function checkbox_delete(){
-        //$('#monthly_danga input[type="checkbox"]:checked').parent().parent().remove();
-        var unChecked = $('#monthly_danga input[type="checkbox"]').not("input:checked");
-        unChecked.parent().parent().remove();
-        var unCheckedTr = unChecked.parent().parent();
-        var employee_id = unCheckedTr.children().eq(4).text();
-        alert(employee_id);
-        //alert(result_data);
-        //alert(result_data.indexOf("'"+employee_id+"'", 0));
-
-        var find_id = result_data.indexOf("'"+employee_id+"'", 0);
-        if(find_id != -1){
-
-            //alert(result_data);
-            result_data.splice(find_id, 1);
-            //alert(result_data);
-
-        }else{
-            alert("NotFind");
-            //alert(result_data);
-        }
+    function monthly_daga_save(){
+        daily_employee_register.monthly_danga_save();
+        daily_employee_register.monthly_danga_delete();
     }
+
 
 
 
