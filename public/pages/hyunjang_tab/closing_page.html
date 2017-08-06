@@ -3,94 +3,156 @@
 
 <head>
     <title>Admin Home Page test</title>
-    <!-- Bootstrap -->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </head>
 
 <body>
+<div class="panel panel-default closing">
 
-<div role="tabpanel" class="tab-pane fade in active " id="com_dashboard_page">
-    <div class="row-fluid">
-        <div class="block" >
-            <div class="navbar navbar-inner  block-header">  <!--head -->
-                <div class="muted pull-left">hello dashboard</div>
-                <div class="pull-right"><span class="badge badge-info">(주)해인엔지니어링</span>
+    <div class="panel-heading head1">
+        <div class="btn_box_left">
+            <div class="btn_check_all">
+                <div class="select-box">
+                    <select onChange="daily_search();" id="hyunjang_select" class="btn-default form-control btn_class" >
 
+                    </select>
                 </div>
+
             </div>
+            <div class="btn_etc">
+                <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
 
-            <div class="block-content collapse in" style="margin:0;"> <!-- body -->
-                <div class="span12 pannel" style="overflow-y:scroll;width:100%;height:500px;">
-                    <div style="margin:10px;">  <!-- 안쪽 공간 여백 -->
-
-
-                        <div class="span12">
-                            <h3>결산</h3>
-                        </div>
-
-
-
-
+                <button type="button" class="btn btn-default" onClick="toMonth()" id="btn_toMonth">현재월로</button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="lib.dateValue_add_month(1)" id="btn_right"></div>
+                <button class="btn date">
+                    <div class="input-append date" id="dp3">
+                        <input onChange="daily_search();"  id="toMonth" type="month" value="">
+                        <span class="add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="lbl_targetDay" id="lbl_targetDay"></span>
+                    </span>
                     </div>
-
-
-
-
-                </div>
-
+                </button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
             </div>
-
         </div>
+
+
+
     </div>
+    <div class="panel-heading head2">
+        <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label normality" id="normality_num"> 정상 : 0명 </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label absence" id="absence_num"> 결석 : 0명 </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=""> 기타 : 0명 </div>
+
+
+    </div>
+    <table class="table table-striped" id="kongsu_table_head">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th style="display:none;">num</th>
+            <th>이름</th>
+            <th>주민번호</th>
+            <th>직종</th>
+            <th id="monthly_closing">
+            </th>
+        </tr>
+        </thead>
+        <tbody id="kongsu_table_body">
+
+        <!-- 데이터 -->
+
+        </tbody>
+    </table>
+
 </div>
 
 
 
-<script src="../../vendors/jquery-1.9.1.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <script src="../../assets/scripts.js"></script>
 
 <script src="../../js/my_js/_DB_query.js"></script>
 <script src="../../js/my_js/_static.js"></script>
 
-<script src="../../js/my_js/_auth.js"></script>
-<script src="../../js/my_js/employee.js"></script>
-<script src="../../js/my_js/UI.js"></script>
-<script src="../../js/my_js/hyunjang.js"></script>
-<script src="../../js/my_js/daily_employee.js"></script>
 
+<script src="../../js/my_js/UI.js"></script>
+
+
+<script src="../../js/my_js/daily_employee_register.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/closing.js"></script>
 <script>
 
     $(function() {
+        //result_data_save = [];
+        daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
+        //TODO 인자값으로 쿠키를 넣어야한다.
+        toMonth();
+        lib.Calendar();
+        closing.monthly_closing_load();
 
-        hyunjang.hyunjang_load(company_no);
-        daily_employee.daily_employee_load(company_no);
+
+        window_resize();
 
 
     });
-    function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이
+        $('#kongsu_table_body').css('height', win_height-134);
+        $('#kongsu_table_head th:last-child').css('width', win_width-140);
+        $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
-    function hyunjang_indv_modal(table, seventh){
-        parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
+
+
+    function toMonth(){  // 현재월로 버튼
+
+        var now = new Date();
+        var year= now.getFullYear();
+        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+
+        var chan_val = year + '-' + mon ;
+        $('#toMonth').val(chan_val);
+
+        var month_select = $('#toMonth').val();
+        lib.Calendar(month_select);
 
     }
-
 
 
 
 </script>
+
 
 
 <script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

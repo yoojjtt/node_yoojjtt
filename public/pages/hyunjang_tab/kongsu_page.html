@@ -130,7 +130,7 @@
 <script src="../../js/my_js/daily_employee.js"></script>
 <script src="../../js/my_js/kongsu.js"></script>
 <script src="../../js/my_js/daily_employee_register.js"></script>
-<script src="../../js/my_js/client_lib.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
 <script>
 
     $(function() {
@@ -174,9 +174,8 @@
         //alert('변경');
         var daily = $('#dateSearch').val();
         var dateVal = daily.split('-');
-        //alert(daily);
-
         var month = dateVal[0] + "-" + dateVal[1];
+
         kongsu.kongsu_load(month, daily);
     }
 

@@ -23,18 +23,18 @@
     <div class="panel panel-default ">  <!--head -->
         <div class="panel-heading">
             <div class="pull-left">
-                <select id="hyunjang_select" onChange="" class="btn btn-default form-control"></select>
+                <select id="hyunjang_select" onChange="daily_employee_register.monthly_danga_load()" class="btn btn-default form-control"></select>
                 <div class="btn-box">
-                    <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
+                    <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
 
                         <button class="btn date">
                             <div class="input-append date" id="dp3">
-                                <input id="toMonth" type="month" value="">
+                                <input onChange="daily_employee_register.monthly_danga_load()" id="toMonth" type="month" value="">
                             </div>
                         </button>
 
-                    <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
-                    <button type="button" class="btn btn-default" onClick="hyunjang_set()">조회</button>
+                    <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="lib.dateValue_add_month(1)" id="btn_right"></div>
+                    <!-- button type="button" class="btn btn-default" onClick="hyunjang_set()">조회</button-->
                     <button type="button" class="btn btn-default" onClick="toMonth()" id="btn_toMonth">현재월로</button>
                     <button class="btn btn-success" onClick="monthly_daga_save()">저장</button>
                 </div>
@@ -121,6 +121,7 @@
 <script src="../../js/my_js/hyunjang.js"></script>
 <script src="../../js/my_js/daily_employee.js"></script>
 <script src="../../js/my_js/daily_employee_register.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
 
 
 <script>
@@ -133,7 +134,7 @@
         hyunjang.hyunjang_load(company_no);
         daily_employee_register.hyunjang_load(1);
         toMonth();
-
+        daily_employee_register.monthly_danga_load()
 
         //var hyunjang_id =  $('#hyunjang_select').val();
         //daily_employee_register.monthly_danga_load(hyunjang_id);
@@ -150,33 +151,25 @@
         $('#danga_panel').css('width', win_width);
         $('#danga_tbody').css('height', win_height-150);
         $('#daily_employee_list').css('height', win_height-189);
+        $('#monthly_danga').css('height', win_height-189);
     }
     function employee_set(){
         var job =  $('#setJob').val();
         daily_employee.daily_employee_load(job);
     }
-    function hyunjang_set(){  //조회 버튼 눌렀을 떄
-        var hyunjang_id =  $('#hyunjang_select').val();
-        daily_employee_register.monthly_danga_load(hyunjang_id);
-    }
 
-    function toMonth(){
+
+    function toMonth(){  // 현재월로 버튼
         var now = new Date();
         var year= now.getFullYear();
         var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-        //var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+
         var chan_val = year + '-' + mon ;
-
-
-
         $('#toMonth').val(chan_val);
+        daily_employee_register.monthly_danga_load()
     }
-    function addMonth(){
-        $('#toMonth').val();
-    }
-    function minusMonth(){
 
-    }
+
     function monthly_daga_save(){
         daily_employee_register.monthly_danga_save();
         daily_employee_register.monthly_danga_delete();

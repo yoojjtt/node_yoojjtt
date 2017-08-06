@@ -489,6 +489,202 @@
   width: calc(1100px);
   text-align: left;
 }
+.closing {
+  min-width: 900px;
+}
+.closing .head1 {
+  height: 47px;
+  padding: 6px;
+}
+.closing .head1 .btn_box_left {
+  float: left;
+}
+.closing .head1 .btn_box_left .btn_check_all {
+  float: left;
+  padding-right: 4px;
+}
+.closing .head1 .btn_box_left .btn_check_all .btn-box {
+  float: left;
+  padding-right: 2px;
+}
+.closing .head1 .btn_box_left .btn_check_all .select-box {
+  float: left;
+  padding-right: 3px;
+  width: 300px;
+}
+.closing .head1 .btn_box_left .btn_check_all .select-box2 {
+  float: left;
+  width: 165px;
+  padding-right: 3px;
+}
+.closing .head1 .btn_box_left .btn_check_all #sJob {
+  width: 100px;
+}
+.closing .head1 .btn_box_left .btn_check_all #sKongsu_type {
+  width: 125px;
+}
+.closing .head1 .btn_box_left .btn_check_all .btn_kongsu {
+  float: left;
+  width: 150px;
+}
+.closing .head1 .btn_box_left .btn_etc {
+  float: left;
+}
+.closing .head1 .btn_etc {
+  float: right;
+}
+.closing .head1 .btn_etc .date {
+  float: right;
+  z-index: 10;
+  color: red;
+  background: white;
+  margin-right: 5px;
+  height: 34px;
+}
+.closing .head1 .btn_etc .date .input-append {
+  height: 25px;
+}
+.closing .head1 .btn_etc .date input {
+  border: 0px;
+  height: 24px;
+}
+.closing .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.closing .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.closing .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.closing .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.closing .head1 .btn_etc .btn-default {
+  float: right;
+  margin-right: 5px;
+}
+.closing .head1 .btn_etc .btn_refresh {
+  float: right;
+}
+.closing .head2 {
+  height: 47px;
+  padding: 6px;
+}
+.closing .head2 .name-label {
+  float: left;
+  padding: 5px;
+}
+.closing .head2 .normality {
+  color: #48eb00;
+}
+.closing .head2 .absence {
+  color: red;
+}
+.closing .head2 .day_off {
+  color: #75e3fe;
+}
+.closing .head2 .yet {
+  color: darkgrey;
+}
+.closing .table {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  border-collapse: collapse;
+}
+.closing .table .zero_data {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+.closing .table th {
+  padding: 0;
+  text-align: center;
+  border-left: 1px solid #ddd;
+}
+.closing .table th div.label_week_date {
+  float: left;
+  width: 35px;
+  border-left: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+  padding-left: 8px;
+}
+.closing .table th div.label_week_date ._week {
+  font-weight: normal;
+  font-size: 10px;
+}
+.closing .table th .sun {
+  color: deeppink!important;
+}
+.closing .table th .sat {
+  color: deepskyblue!important;
+}
+.closing .table tr {
+  text-align: center;
+}
+.closing .table td {
+  font-size: 12px;
+  padding-top: 25px;
+}
+.closing .table tbody {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.closing .table tbody .attendance_label_1 {
+  color: #48eb00;
+}
+.closing .table tbody .attendance_label_2 {
+  color: red;
+}
+.closing .table .td_checkbox {
+  padding: 25px 0 25px 0;
+}
+.closing .table .list_row:hover {
+  background: #dddddd;
+  cursor: pointer;
+}
+.closing .table th:nth-of-type(1) {
+  width: 40px;
+}
+.closing .table th:nth-of-type(2) {
+  width: 90px;
+}
+.closing .table th:nth-of-type(3) {
+  width: 140px;
+}
+.closing .table th:nth-of-type(4) {
+  width: 230px;
+}
+.closing .table th:nth-of-type(5) {
+  width: 80px;
+}
+.closing .table td:nth-of-type(1) {
+  width: 40px;
+}
+.closing .table td:nth-of-type(2) {
+  width: 100px;
+}
+.closing .table td:nth-of-type(3) {
+  width: 100px;
+}
+.closing .table td:nth-of-type(4) {
+  width: 200px;
+}
+.closing .table td:nth-of-type(5) {
+  width: 80px;
+}
+.closing .table th:last-child {
+  width: calc(500px);
+  text-align: left;
+}
+.closing .table td:last-child {
+  width: calc(1100px);
+  text-align: left;
+}
 .company_info {
   min-width: 900px;
 }

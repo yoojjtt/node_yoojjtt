@@ -49,6 +49,32 @@ kongsu_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_ro
 
 
         }
+        if(gubun =="monthly") {
+            var company_no = req.session.sess_company_no;
+            var hyun_jang_num = data[0];
+            var daily_employee_num = data[1];
+            var month = data[2];
+            var daily = data[3];
+            var infoType = data[4];
+
+            //daily = daily.test_string();  //TODO library
+
+
+            var query = "CALL daily_kongsu_R('"+company_no
+                +"','"+hyun_jang_num
+                +"','"+daily_employee_num
+                +"','"+month
+                +"','"+daily
+                +"','"+infoType
+                +"')";
+
+            console.log(query+": 공수 daily 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+
+
+        }
+
         if(gubun =="S"){
 
             var company_no = req.session.sess_company_no;
