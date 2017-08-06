@@ -378,6 +378,12 @@
 .kongsu .head1 .btn_box_right .date .lbl_targetDay {
   color: red;
 }
+.kongsu .head1 .btn_box_right .date span {
+  color: #33acfe;
+}
+.kongsu .head1 .btn_box_right .date .lbl_targetDay {
+  color: red;
+}
 .kongsu .head1 .btn_box_right .btn-default {
   float: right;
   margin-right: 5px;
@@ -445,32 +451,42 @@
   background: #dddddd;
   cursor: pointer;
 }
-.kongsu .table th:nth-of-type(1),
+.kongsu .table th:nth-of-type(1) {
+  width: 40px;
+}
+.kongsu .table th:nth-of-type(2) {
+  width: 90px;
+}
+.kongsu .table th:nth-of-type(3) {
+  width: 140px;
+}
+.kongsu .table th:nth-of-type(4) {
+  width: 230px;
+}
+.kongsu .table th:nth-of-type(5) {
+  width: 80px;
+}
 .kongsu .table td:nth-of-type(1) {
   width: 40px;
 }
-.kongsu .table th:nth-of-type(2),
 .kongsu .table td:nth-of-type(2) {
   width: 100px;
 }
-.kongsu .table th:nth-of-type(3),
 .kongsu .table td:nth-of-type(3) {
   width: 100px;
 }
-.kongsu .table th:nth-of-type(4),
 .kongsu .table td:nth-of-type(4) {
   width: 200px;
 }
-.kongsu .table th:nth-of-type(5),
 .kongsu .table td:nth-of-type(5) {
   width: 80px;
 }
 .kongsu .table th:last-child {
-  width: calc(595px);
+  width: calc(500px);
   text-align: left;
 }
 .kongsu .table td:last-child {
-  width: calc(895px);
+  width: calc(1100px);
   text-align: left;
 }
 .company_info {
@@ -919,6 +935,6 @@ ul#myTab {
   color: red;
 }
 /*tbody tr 클릭시 강조*/
-tr:hover {
+tr:hover td {
   background-color: #4bb1cf;
 }

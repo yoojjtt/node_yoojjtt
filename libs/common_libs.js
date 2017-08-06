@@ -217,6 +217,12 @@ String.prototype.cutByte_start_end = function(s, e) {
     return cut_str;
 }
 
+String.prototype.test_string = function() {
+    var str = this;
+
+    return str + 'test';
+}
+
 /**
  * bool String::byte(void)
  * 해당스트링의 바이트단위 길이를 리턴합니다. (기존의 length 속성은 2바이트 문자를 한글자로 간주합니다)

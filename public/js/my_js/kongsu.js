@@ -30,14 +30,18 @@ var kongsu = function ()
             for (var i = 0; i < res_num; i++)
             {
                 var str = '';
-
+                var kongsu = res[i].kongsu;
                 str += "<tr>"
                 str += "<td>" + "<input onClick='kongsu.kongsu_check(this)' name='checkBox2' type='checkbox'>"+"</td>";
                 str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";
                 str += "<td>" + res[i].name + "</td>";
                 str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
                 str += "<td>" + res[i].job+ "</td>";
-                str += "<td>" + res[i].kongsu + "</td>";
+                if(res[i].kongsu == null){
+                    kongsu = '미입력';
+                    // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
+                }
+                str += "<td>" + kongsu + "</td>";
                 str += "</tr>"
                 $('#kongsu_table_body').append(str);
             }
@@ -48,7 +52,9 @@ var kongsu = function ()
             var daily = $('#dateSearch').val();
             var total_num = result_data_save.length;
             var idGroup = '';
-        alert(result_data_save);
+
+
+
             for(var i = 0 ; i < total_num; i++){
                 var id = result_data_save[i];
 
@@ -60,7 +66,7 @@ var kongsu = function ()
 
             var gubun = "S";
             var iData = ['hyunjang_id','daily_employee_num','date','kongsu','total_num'];
-            /* 임시 데이터 베이스*/
+
             iData[0] = hyunjang_id;
             iData[1] = idGroup;
             iData[2] = daily;
@@ -114,9 +120,59 @@ var kongsu = function ()
             }
             //alert(result_data_save);
 
-        }
+        },
+        check_all : function(n, obj){
+            //chk 가 하나라도 풀려있으면 check all  ==>return 1
+            //chk 가 다 checked 되있으면 check 풀기 ==>return 2
 
+            var chk = document.getElementsByName(obj);
+            var tot = chk.length;
+            var sum = 0;
 
+            //alert(sum +"//"+ result_data_save);
+            for (var i = 0; i < tot; i++) { // check 몇개되있는지 여부 확인
+                var checked = $(chk[i]).prop('checked');
+                if(checked == true){
+                    sum++;
+                }
+            }
+            //alert(sum +"vs"+ tot);
+            if(sum < tot){  // 전체선택 다 안된 상태에서 전체선택 누를 경우
+                //alert(sum);
+                for (var j = 0; j < tot; j++) {
+                    chk[j].checked = true;
+
+                    //(chk[j].checked) = true ? ture : false;
+
+                    var txt = $(chk[j]).parent().parent().children().eq(1).text().trim();
+                    var find_id = result_data_save.indexOf(txt, 0);
+                    if(find_id != -1) {  // 있다면
+                        //alert(result_data_save+"::"+txt);
+                    }else{
+                        result_data_save.push(txt); // 배열에 추가
+                    }
+
+                }
+
+            }else if(sum = tot){  //전체선택 한번 더 누를 경우
+                for (var j = 0; j < tot; j++) {
+                    chk[j].checked = false;
+                    //(chk[j].checked) = true ? ture : false;
+
+                    var txt = $(chk[j]).parent().parent().children().eq(1).text().trim();
+                    var find_id = result_data_save.indexOf(txt, 0);
+                    if(find_id != -1) {  // 있다면
+                        //alert(result_data_save+"::"+txt);
+                        result_data_save.splice(find_id, 1);  // 배열에서 삭제
+                    }else{
+                        //result_data_save.push(txt);
+                    }
+
+                }
+            }
+            //alert(result_data_save);
+
+        },
 
     };
 

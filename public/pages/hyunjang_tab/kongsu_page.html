@@ -30,14 +30,14 @@
                     </select>
                 </div>
                 <div class="btn-box">
-                    <button class="btn btn-default" id="btn_all">전체선택</button>
+                    <button onClick="kongsu.check_all(1,'checkBox2')" class="btn btn-default" id="btn_all">전체선택</button>
                 </div>
                 <div class="select-box2">
                     <select class="select-inner btn-default form-control btn_type" id="Kongsu_type">
                         <option value="">[공수처리]</option>
                         <option value="1">1 공수 (정상처리)</option>
                         <option value="0">0 공수 (결석처리)</option>
-                        <option value="0.5">0.2 공수 (기타)</option>
+                        <option value="0.2">0.2 공수 (기타)</option>
                         <option value="0.5">0.5 공수 (기타)</option>
                         <option value="1.5">1.5 공수 (기타)</option>
                         <option value="2">2 공수 (기타)</option>
@@ -60,8 +60,10 @@
         </div>
         <div class="btn_box_right">
 
-            <button class="btn btn-default" onClick="dateValue()" id="btn_today">오늘</button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="dateValue_add()" id="btn_right"></div>
+            <button class="btn btn-default" onClick="lib.dateValue()" id="btn_today">오늘</button>
+            <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="lib.dateValue_add(1)" id="btn_right"></div>
+
+
             <button class="btn date">
 
                 <div class="input-append date" id="dp3">
@@ -73,7 +75,8 @@
                 </div>
 
             </button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="dateValue_minus()" id="btn_left"></div>
+
+            <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add(-1)" id="btn_left"></div>
 
         </div>
     </div>
@@ -127,7 +130,7 @@
 <script src="../../js/my_js/daily_employee.js"></script>
 <script src="../../js/my_js/kongsu.js"></script>
 <script src="../../js/my_js/daily_employee_register.js"></script>
-
+<script src="../../js/my_js/client_lib.js"></script>
 <script>
 
     $(function() {
@@ -147,7 +150,7 @@
         }
 
         window_resize();
-        dateValue();
+        lib.dateValue();//
 
     });
     $(window).resize(function() {
@@ -166,32 +169,8 @@
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
 
-    function dateValue(){
-        var now = new Date();
-        var year= now.getFullYear();
-        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);  // 달이 9월이상이면 ''+10,11,12 찍고 아니면 '0'+ 먼스찍기
-        var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-        var chan_val = year + '-' + mon + '-' + day;
 
-
-        $('#dateSearch').val(chan_val);
-    }
-    function dateValue_add(){
-
-        var d = $('#dateSearch').val();
-        var dValue = d.split('-');
-
-
-       var str = dValue[0] +"-"+dValue[1]+"-"+(dValue[2]+1);
-       alert(str);
-       //$('#dateSearch').val(str);
-
-    }
-    function dateValue_minus(){
-        var d = $('#dateSearch').val();
-
-    }
-    function daily_search(){
+    function daily_search(){  // 현장, 날짜 변경할 경우 조회
         //alert('변경');
         var daily = $('#dateSearch').val();
         var dateVal = daily.split('-');

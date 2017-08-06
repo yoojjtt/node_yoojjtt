@@ -1,4 +1,4 @@
-
+var _util = require('../libs/common_libs');
 var router_name = 'kongsu_info';
 
 function kongsu_info(router, parent)  //  /m, Mobile_routerAct   생성자
@@ -32,7 +32,7 @@ kongsu_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_ro
             var daily = data[3];
             var infoType = data[4];
 
-
+            //daily = daily.test_string();  //TODO library
 
 
             var query = "CALL daily_kongsu_R('"+company_no
