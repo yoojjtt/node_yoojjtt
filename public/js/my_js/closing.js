@@ -30,17 +30,40 @@ var closing = function ()
             {
                 var str = '';
                 var kongsu = res[i].attendance;
-                str += "<tr>"
-                str += "<td>" + "<input onClick='kongsu.kongsu_check(this)' name='checkBox2' type='checkbox'>"+"</td>";
-                str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";
-                str += "<td>" + res[i].name + "</td>";
-                str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
-                str += "<td>" + res[i].job+ "</td>";
+                var kongsu_daily = kongsu.split('@');
+                var tot_num = kongsu_daily.length;
+
                 if(res[i].attendance == null){
                     kongsu = '미입력';
                     // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
                 }
-                str += "<td>" + kongsu + "</td>";
+
+
+                str += "<tr>"
+
+                str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";
+                str += "<td>" + res[i].name + "</td>";
+                str += "<td>" + res[i].job+ "</td>";
+                str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
+
+
+
+
+                var daily_salary_total = res[i].daily_salary;
+                var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
+                str += "<td>"
+
+                    for(var j = 0; j < tot_num; j++){
+                        str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"
+
+
+                        total_salary += daily_salary_total * kongsu_daily[j];
+                    }
+
+
+                str += "</td>";
+                str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";
+                str += "<td>"+  total_salary.toLocaleString() +"</td>";
                 str += "</tr>"
                 $('#kongsu_table_body').append(str);
             }

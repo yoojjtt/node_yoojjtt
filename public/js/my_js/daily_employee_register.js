@@ -133,7 +133,7 @@ var daily_employee_register = function ()
                 str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
                 str += "<td>"+ res[i].job +"</td>";
                 str += "<td>"+ res[i].name +"</td>";
-                str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";
+                str += "<td>"+ "<input type='text' value='"+res[i].daily_salary.toLocaleString()+"'>" +"</td>";
                 str += "<td style='display:none;'>"+ res[i].id +"</td>";
                 str += "</tr>";
                 $('#monthly_danga').append(str);

@@ -593,6 +593,16 @@
   height: 100%;
   display: block;
   border-collapse: collapse;
+  /*
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    */
+  /*
+    th:last-child {
+      width: calc(5600px);text-align: right;
+    }
+    */
 }
 .closing .table .zero_data {
   position: relative;
@@ -606,15 +616,15 @@
 }
 .closing .table th div.label_week_date {
   float: left;
-  width: 35px;
+  width: 30px;
   border-left: 1px solid #ddd;
   line-height: 1.5;
   color: #a2a2a2;
-  padding-left: 8px;
+  padding-left: 5px;
 }
 .closing .table th div.label_week_date ._week {
   font-weight: normal;
-  font-size: 10px;
+  font-size: 9px;
 }
 .closing .table th .sun {
   color: deeppink!important;
@@ -627,12 +637,19 @@
 }
 .closing .table td {
   font-size: 12px;
-  padding-top: 25px;
 }
 .closing .table tbody {
   display: block;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.closing .table tbody div.label_week_date {
+  float: left;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
 }
 .closing .table tbody .attendance_label_1 {
   color: #48eb00;
@@ -640,50 +657,59 @@
 .closing .table tbody .attendance_label_2 {
   color: red;
 }
-.closing .table .td_checkbox {
-  padding: 25px 0 25px 0;
-}
 .closing .table .list_row:hover {
   background: #dddddd;
   cursor: pointer;
 }
 .closing .table th:nth-of-type(1) {
-  width: 40px;
+  width: 10px;
 }
 .closing .table th:nth-of-type(2) {
-  width: 90px;
+  width: 5%;
 }
 .closing .table th:nth-of-type(3) {
-  width: 140px;
+  width: 5%;
 }
 .closing .table th:nth-of-type(4) {
-  width: 230px;
+  width: 10%;
 }
 .closing .table th:nth-of-type(5) {
-  width: 80px;
+  width: 61%;
+}
+.closing .table th:nth-of-type(6) {
+  width: 10%;
+}
+.closing .table th:nth-of-type(7) {
+  width: 300px;
 }
 .closing .table td:nth-of-type(1) {
-  width: 40px;
+  width: 10px;
 }
 .closing .table td:nth-of-type(2) {
-  width: 100px;
+  width: 5%;
 }
 .closing .table td:nth-of-type(3) {
-  width: 100px;
+  width: 5.2%;
 }
 .closing .table td:nth-of-type(4) {
-  width: 200px;
+  width: 10%;
 }
 .closing .table td:nth-of-type(5) {
-  width: 80px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 61.8%;
 }
-.closing .table th:last-child {
-  width: calc(500px);
-  text-align: left;
+.closing .table td:nth-of-type(6) {
+  width: 10%;
+  padding-right: 20px;
+  text-align: right;
+  border-right: 1px solid #ddd;
+}
+.closing .table td:nth-of-type(7) {
+  width: 300px;
 }
 .closing .table td:last-child {
-  width: calc(1100px);
-  text-align: left;
+  border-right: 1px solid #ddd;
 }
 .company_info {
   min-width: 900px;
@@ -1132,5 +1158,5 @@ ul#myTab {
 }
 /*tbody tr 클릭시 강조*/
 tr:hover td {
-  background-color: #4bb1cf;
+  background-color: #ddddff;
 }

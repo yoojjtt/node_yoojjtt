@@ -143,15 +143,15 @@
       border-left: 1px solid #ddd;
       div.label_week_date{
         float:left;
-        width: 35px;
+        width: 30px;
         border-left: 1px solid #ddd;
         line-height: 1.5;
         color: #a2a2a2;
-        padding-left:8px;
+        padding-left:5px;
 
         ._week{
           font-weight: normal;
-          font-size: 10px;
+          font-size: 9px;
         }
 
       }
@@ -167,12 +167,22 @@
     }
     td {
       font-size: 12px;
-      padding-top: 25px;
+      //padding-top: 25px;
     }
     tbody {
       display: block;
       overflow-y: scroll;
       overflow-x: hidden;
+      div.label_week_date {
+        float: left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        //padding-left: 8px;
+
+      }
 
       .attendance_label_1 {
         color: #48eb00;
@@ -182,10 +192,11 @@
       }
 
     }
-
+    /*
     .td_checkbox {
       padding: 25px 0 25px 0;
     }
+    */
     .list_row:hover {
       background: #dddddd;
       cursor: pointer;
@@ -193,29 +204,36 @@
 
     th {
       //text-align: center!important;
-      &:nth-of-type(1) {width: 40px;}
-      &:nth-of-type(2) {width: 90px;}
-      &:nth-of-type(3) {width: 140px;}
-      &:nth-of-type(4) {width: 230px; }
-      &:nth-of-type(5) {width: 80px; }
+      &:nth-of-type(1) {width: 10px;}
+      &:nth-of-type(2) {width: 5%;}
+      &:nth-of-type(3) {width: 5%;}
+      &:nth-of-type(4) {width: 10%; }
+      &:nth-of-type(5) {width: 61%; }
+      &:nth-of-type(6) {width: 10%; }
+      &:nth-of-type(7) {width: 300px; }
     }
     td {
+
       //text-align: center!important;
-      &:nth-of-type(1) {width: 40px;}
-      &:nth-of-type(2) {width: 100px;}
-      &:nth-of-type(3) {width: 100px;}
-      &:nth-of-type(4) {width: 200px; }
-      &:nth-of-type(5) {width: 80px; }
+      &:nth-of-type(1) {width: 10px;}
+      &:nth-of-type(2) {width: 5%;}
+      &:nth-of-type(3) {width: 5.2%;}
+      &:nth-of-type(4) {width: 10%; }
+      &:nth-of-type(5) {padding-left:2px; padding-right:2px;width: 61.8%; }
+      &:nth-of-type(6) {width: 10%; padding-right:20px; text-align:right; border-right: 1px solid #ddd;}
+      &:nth-of-type(7) {width: 300px; }
     }
 
 
-
+    /*
     th:last-child {
-      width: calc(500px);text-align: left;
+      width: calc(5600px);text-align: right;
     }
+    */
     td:last-child {
-      width: calc(1100px);text-align: left;
+      border-right: 1px solid #ddd; //width: calc(5600px);text-align: right;
     }
+
   }
 
 }
