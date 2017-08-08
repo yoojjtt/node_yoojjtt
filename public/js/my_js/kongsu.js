@@ -45,6 +45,10 @@ var kongsu = function ()
                 str += "</tr>"
                 $('#kongsu_table_body').append(str);
             }
+           $('#total_num').text(res_num);
+            $('#total_num_nomal').text(res_num);
+            $('#total_num_absence').text(res_num);
+            $('#total_num_etc').text(res_num);
         },
         kongsu_save : function(){
             var hyunjang_id = $('#hyunjang_select').val();

@@ -25,11 +25,9 @@ company_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_r
 
 
         if(gubun =="R") {
-            var company_no = data[0];
+            var company_no = req.session.sess_company_no;
 
-
-
-            var query = "CALL company_list_R("+company_no+")";
+            var query = "CALL company_list_R('"+company_no+"')";
 
             console.log(query+": 회사정보 로드");
 

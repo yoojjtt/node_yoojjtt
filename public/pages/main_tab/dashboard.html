@@ -19,68 +19,66 @@
 </head>
 
 <body>
-<div class="panel panel-default dashboard">
+<div class="panel panel-default closing">
 
     <div class="panel-heading head1">
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select class="btn-default form-control btn_class" id="sHyunjang">
+                    <select onChange="daily_search();" id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
-                <div class="btn-box">
-                    <button class="btn btn-default" id="btn_all">전체선택</button>
-                </div>
-                <div class="select-box2">
-                    <select class="btn-default form-control btn_type" id="sKongsu_type">
-                        <option value="0">[공수처리]</option>
-                        <option value="1">정상처리</option>
-                        <option value="2">결석처리</option>
-                        <option value="3">휴일처리</option>
-                        <option value="4">미처리</option>
-                        <option value="99">[공수정보삭제]</option>
-                    </select>
-                </div>
+
             </div>
             <div class="btn_etc">
-                <button class="btn btn-success" id="btn_save">저장</button>
-                <button class="btn btn-default" id="btn_month_view">월별현황</button>
-            </div>
-        </div>
-        <div class="btn_box_right">
+                <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
 
-            <button class="btn btn-default" id="btn_today">오늘</button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-right" id="btn_right"></div>
-            <button class="btn date">
-
-                <div class="input-append date" id="dp3">
-                    <input type="date" style="width: 0; display: none;" readonly>
-                    <span class="add-on">
+                <button type="button" class="btn btn-default" onClick="toMonth()" id="btn_toMonth">현재월로</button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="lib.dateValue_add_month(1)" id="btn_right"></div>
+                <button class="btn date">
+                    <div class="input-append date" id="dp3">
+                        <input onChange="daily_search();"  id="toMonth" type="month" value="">
+                        <span class="add-on">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <span class="lbl_targetDay" id="lbl_targetDay"></span>
                     </span>
-                </div>
-
-            </button>
-            <div class="btn btn-default glyphicon glyphicon-chevron-left" id="btn_left"></div>
-
+                    </div>
+                </button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
+            </div>
         </div>
+
+
+
     </div>
     <div class="panel-heading head2">
-        <div class="name-label" id="total_label">총 원 : 206명</div>
+        <div class="name-label" id="total_label">총 현장 개수: <span id="total_num"></span></div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label normality" id="normality_num"> 정상 : 0명 </div>
+        <div class="name-label absence" id="absence_num"> 총 결산 금액  : <span id="total_money"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label absence" id="absence_num"> 결석 : 0명 </div>
+        <div class="name-label normality" id="normality_num"> 총 투입 비용 : <span id="average_monthly_salary"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" > 총 경비 지출 : <span id="average_danga"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" > 총 수입  : <span id="income"></span> 100,000,000 </div>
+        <div class="name-label">ㅣ </div>
+
 
     </div>
     <table class="table table-striped" id="kongsu_table_head">
         <thead>
         <tr>
+
+            <th style="display:none;">num</th>
             <th>#</th>
             <th>이름</th>
-            <th>메모</th>
+            <th>직종</th>
+            <th>주민번호</th>
+            <th id="monthly_closing">
+            </th>
+            <th>단가</th>
+            <th>총 금액</th>
         </tr>
         </thead>
         <tbody id="kongsu_table_body">
@@ -104,22 +102,26 @@
 <script src="../../js/my_js/_DB_query.js"></script>
 <script src="../../js/my_js/_static.js"></script>
 
-<script src="../../js/my_js/_auth.js"></script>
-<script src="../../js/my_js/employee.js"></script>
-<script src="../../js/my_js/UI.js"></script>
-<script src="../../js/my_js/hyunjang.js"></script>
-<script src="../../js/my_js/daily_employee.js"></script>
-<script src="../../js/my_js/kongsu.js"></script>
 
+<script src="../../js/my_js/UI.js"></script>
+
+
+<script src="../../js/my_js/daily_employee_register.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/closing.js"></script>
 <script>
 
     $(function() {
+        //result_data_save = [];
+        daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
+        //TODO 인자값으로 쿠키를 넣어야한다.
+        toMonth();
+        lib.Calendar();
+        closing.monthly_closing_load();
 
 
-        //hyunjang.hyunjang_load(company_no);
-        //daily_employee.daily_employee_load(company_no);
-        kongsu.kongsu_load('1','206','2017-07-01','daily');
         window_resize();
+
 
     });
     $(window).resize(function() {
@@ -138,18 +140,25 @@
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
 
-    function modal(hyunjang_modal){
-        parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
-    }
-    function hyunjang_indv_modal(table, seventh){
-        parent.modalOpen('hyunjang_modal', '현장 정보', 'auto', '800', seventh, '');
+
+    function toMonth(){  // 현재월로 버튼
+
+        var now = new Date();
+        var year= now.getFullYear();
+        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+
+        var chan_val = year + '-' + mon ;
+        $('#toMonth').val(chan_val);
+
+        var month_select = $('#toMonth').val();
+        lib.Calendar(month_select);
 
     }
-
 
 
 
 </script>
+
 
 
 <script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

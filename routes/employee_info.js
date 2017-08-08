@@ -39,14 +39,27 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var company_no = req.session.sess_company_no;
             var email = req.session.sess_userEmail;
             var type = req.session.sess_type;
+            var infoType = 'profile';
 
 
-            var query = "CALL employee_list_R('','"+email+"','"+type+"','"+company_no+"')";
+            var query = "CALL employee_list_R('','"+email+"','"+type+"','','"+company_no+"','"+infoType+"')";
 
             console.log(query+ ": 개인정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
+
+        }
+        if(gubun == "indiv_R"){
+            var company_no = req.session.sess_company_no;
+            var infoType = 'individual';
+            var employee_id = data[0];
+
+            var query = "CALL employee_list_R('','','','"+employee_id+"','"+company_no+"','"+infoType+"')";
+
+            console.log(query+ ": profile 개인정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
         }
         if(gubun =="S"){
@@ -59,10 +72,28 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var bank_owner = data[6];
             var bank_name = data[7];
             var bank_account = data[8];
-            var company_id = data[9];
+            var postnum = data[9];
+            var address1 = data[10];
+            var address2 = data[11];
+            var company_id = req.session.sess_company_no;
 
 
-            var query = "CALL employee_list_S('"+type+"','"+email+"','"+jumin1+"','"+jumin2+"','"+jumin2+"','"+name+"','"+phone+"','"+bank_account+"','"+bank_name+"','"+bank_owner+"',"+ company_id +")";
+            var query = "CALL employee_list_S('"
+                +type+"','"
+                +email+"','"
+                +jumin1+"','"
+                +jumin2+"','"
+                +jumin2+"','"
+                +name+"','"
+                +phone+"','"
+                +bank_account+"','"
+                +bank_name+"','"
+                +bank_owner+"','"
+                +postnum+"','"
+                +address1+"','"
+                +address2+"','"
+                + company_id
+                +"')";
 
             console.log(query +": 개인정보 수정");
 
@@ -70,9 +101,10 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
 
         }
         if(gubun == "employees"){
-            var company_no = data[0];
+            var company_no = req.session.sess_company_no;
+            var infoType = 'employees';
 
-            var query = "CALL employee_list_R('','','',"+company_no+")";
+            var query = "CALL employee_list_R('','','','','"+company_no+"','"+infoType+"')";
 
             console.log(query+": 직원리스트 정보 로드");
 

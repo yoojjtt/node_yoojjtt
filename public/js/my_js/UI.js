@@ -25,7 +25,10 @@ $("tbody").on("click", "tr", function(){//
     var forth = $(this).children().eq(3).text();
 
 
-    if(table =='employees_list'){daily_employee.daily_employee_indv_load(forth);}  // 직원 개별정보 불러올 때
+    if(table =='employees_list'){ //employee_page에서 직원 개별정보 로드
+        //alert(first);
+        employee.indiv_load(first);
+    }  // 직원 개별정보 불러올 때
 
     if(table =='hyunjang_list'){hyunjang.hyunjang_indv_load(forth);} //현장 개별 정보 로드
 

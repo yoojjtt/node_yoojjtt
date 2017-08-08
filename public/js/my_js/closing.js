@@ -23,11 +23,13 @@ var closing = function ()
             var result = _DB_query.httpService("kongsu_info",gubun, iData);
             var res = result[0].data[0];
             var res_num = result[0].data[0].length;
-
+            var total_money = 0;
+            var total_danga = 0;
 
             $('#kongsu_table_body').empty();
             for (var i = 0; i < res_num; i++)
             {
+
                 var str = '';
                 var kongsu = res[i].attendance;
                 var kongsu_daily = kongsu.split('@');
@@ -37,36 +39,47 @@ var closing = function ()
                     kongsu = '미입력';
                     // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
                 }
-
+                var k = i+1;
 
                 str += "<tr>"
-
                 str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";
+                str += "<td>" + k + "</td>";
                 str += "<td>" + res[i].name + "</td>";
                 str += "<td>" + res[i].job+ "</td>";
                 str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
-
-
-
 
                 var daily_salary_total = res[i].daily_salary;
                 var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
                 str += "<td>"
 
                     for(var j = 0; j < tot_num; j++){
-                        str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"
-
-
-                        total_salary += daily_salary_total * kongsu_daily[j];
+                        //if(kongsu_daily[j] == 0){
+                            //str += "<div class='label_week_date'>"+"" + "</div>"
+                        //}else{
+                            str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"
+                            total_salary += daily_salary_total * kongsu_daily[j];
+                        //}
                     }
-
-
                 str += "</td>";
                 str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";
                 str += "<td>"+  total_salary.toLocaleString() +"</td>";
                 str += "</tr>"
                 $('#kongsu_table_body').append(str);
+
+
+                total_money += total_salary;
+                total_danga += res[i].daily_salary;
             }
+
+            var money = total_money.toLocaleString();
+            //alert(money);
+            //alert(res_num);
+            var average_money = (total_salary/res_num).toLocaleString();
+            var average_danga = (total_danga/res_num).toLocaleString();
+            $('#total_num').text(res_num + " 명");
+            $('#total_money').text(money+ " 원");
+            $('#average_monthly_salary').text(average_money+ " 원");
+            $('#average_danga').text(average_danga+ " 원");
 
         },
 

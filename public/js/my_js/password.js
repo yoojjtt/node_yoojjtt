@@ -7,50 +7,57 @@ var password = function ()
 
     return {
 
-        password_load : function(email){
 
-            var gubun = "R";
-            var iData = ['email'];
-            iData[0] = email;
+        password_sujung : function(){
 
-            var result = _DB_query.httpService("password_info",gubun, iData);
-            var res = result[0].data[0][0];
-            iData[0] = $('#pwd').val(res.pwd);
+            var user_pwd = $('#pwd').val();
+
+            var gubun1 = "check";
+            var iData1 = ['user_pwd','infoType'];
+            iData1[0] = user_pwd;
+            iData1[1] = 'private';
+            var result1 = _DB_query.httpService("password_info",gubun1, iData1);
+
+            var msg1 = result1[0].data[0][0].msg;
+            var return_code1 = result1[0].data[0][0].return_code;
+
+
+            if(return_code1 =="100"){
+
+                var pwd1 = $('#new_pwd1').val();
+                var pwd2 = $('#new_pwd2').val();
+                if(pwd1 !==pwd2){
+                    alert('일치하지 않습니다. 비밀번호를 확인하세요.');
+                    return false
+                }
+
+                var gubun = "S";
+                var iData = ['new_pwd', 'email'];
+                iData[0] = $('#new_pwd1').val();
+                iData[1] = '';
 
 
 
+                var result = _DB_query.httpService("password_info",gubun, iData);
+
+                var msg = result[0].data[0][0].msg;
+                var return_code = result[0].data[0][0].return_code;
+
+                if(return_code =="100"){
+                    alert(msg);
+                    location.reload();
+
+                }
 
 
+                // 신상정보를 수정하면 재로그인 하도록,
 
-        },
-        password_sujung : function(email){
-            var pwd1 = $('#new_pwd').val();
-            var pwd2 = $('#new_pwd2').val();
-            if(pwd1 !==pwd2){
-                alert('일치하지 않습니다. 비밀번호를 확인하세요.');
-                return false
+            }else if(return_code1 =='200'){
+                alert(msg1);
             }
 
-            var gubun = "S";
-            var iData = ['new_pwd', 'email'];
-            iData[0] = $('#new_pwd').val();
-            iData[1] = email;
 
 
-
-            var result = _DB_query.httpService("password_info",gubun, iData);
-
-            var msg = result[0].data[0][0].msg;
-            var return_code = result[0].data[0][0].return_code;
-
-            if(return_code =="100"){
-                alert(msg);
-                location.reload();
-
-            }
-
-
-            // 신상정보를 수정하면 재로그인 하도록,
 
 
 

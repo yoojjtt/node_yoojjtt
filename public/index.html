@@ -84,13 +84,13 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a tabindex="-1" onClick="modalOpen('private_info');" href="#">개인정보 설정</a>
+                            <a tabindex="-1" onClick="modalOpen('private_info', '개인정보설정', 900, 400);" href="#">개인정보 설정</a>
                         </li>
                         <li>
-                            <a tabindex="-1" onClick="modalOpen('company_info', '회사정보설정', 798, 400);" href="#">회사정보 설정</a>
+                            <a tabindex="-1" onClick="modalOpen('company_info', '회사정보설정', 900, 400);" href="#">회사정보 설정</a>
                         </li>
                         <li>
-                            <a tabindex="-1" onClick="modalOpen('password_info');" href="#">비밀번호 변경</a>
+                            <a tabindex="-1" onClick="modalOpen('password_info', '비밀번호 변경', 300, 200);" href="#">비밀번호 변경</a>
                         </li>
 
                         <li class="divider"></li>
@@ -207,14 +207,7 @@
         document.getElementById('iframe_modal').onload = function() {
             var target = document.getElementById('iframe_modal').contentWindow;
 
-            if(_pageName=="modal/hyunjang_modal"){
-                if(_value1 ==''){ // 현장신규등록인 경우
 
-                }else{//현장 테이블 클릭해서 현장번호 있을 경우
-                    target.hyunjang_Info(_value1);
-                    $('#iframe_modal').css('height', 300);
-                }
-            }
             if(_pageName=="modal/notification") {
 
                 $('.modal-footer').css('display', 'none');
@@ -222,6 +215,7 @@
                 $('#iframe_modal').css('height', _height);
 
             }
+            /*
             if(_pageName=='modal/daily_employee_modal'){
                 target.daily_Info(_value1);
                 $('.modal-footer').css('display', '');
@@ -230,7 +224,7 @@
                 $('.modal-body').css('overflow', 'hidden');
 
             }
-
+            */
 
         };
 

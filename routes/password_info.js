@@ -39,12 +39,29 @@ password_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
         }
         if(gubun =="S"){
             var new_pwd = data[0];
-            var email = data[1];
+            var email = req.session.sess_userEmail;
 
 
             var query = "CALL password_S('"+email+ "','"+ new_pwd +"')";
 
             console.log(query+": 비밀번호 변경");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+
+        }
+        if(gubun =="check"){
+
+
+            var email = req.session.sess_userEmail;
+            var pwd = data[0];
+            var infoType = data[1];
+            var company_id = req.session.sess_company_no;
+
+
+
+            var query = "CALL password_check('"+email+"','"+pwd+"','"+company_id +"','"+infoType+"')";
+
+            console.log(query+": 비밀번호 정보 CHECK");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 

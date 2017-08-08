@@ -40,8 +40,8 @@ auth.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_routerAct
         }
         if(gubun =="logout"){
 
-            var company_no = data[0];
-            var email = data[1];
+            var company_no = req.session.sess_company_no;
+            var email = req.session.sess_userEmail;
 
             
             var query = "CALL _auth_logout('"+company_no+"','"+email+"')";

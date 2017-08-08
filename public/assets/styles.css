@@ -211,9 +211,5 @@ body {
   font-size: 12px;
   padding-left: 2px;
 }
-/*추가
-----------------------*/
-.highlight {color:red;}  /*tbody tr 클릭시 강조*/
 
-tbody > tr:hover {background-color: #4bb1cf}
 
