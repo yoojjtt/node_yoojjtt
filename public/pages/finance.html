@@ -6,7 +6,7 @@
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-
+    <link href="../css/style.css" rel="stylesheet"  media="screen">
     <link href="../assets/styles.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -14,129 +14,31 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <style>
-
-
-    </style>
 
 </head>
 
-<body class="img_background">
+<body>
 
+<div class="hyunjang">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class="active"><a href="#" onClick="_tabFrame('finance_tab/nomu_page.html')"  aria-controls="nomu_page" role="tab" data-toggle="tab">노무비 내역</a></li>
+        <li role="presentation"><a href="#" onClick="_tabFrame('finance_tab/guenlo_page.html')" aria-controls="guenlo_page" role="tab" data-toggle="tab">근로 내역</a></li>
+        <li role="presentation"><a href="#" onClick="_tabFrame('finance_tab/insurance_page.html')" aria-controls="insurance_page" role="tab" data-toggle="tab">4대 보험신고</a></li>
+        <li role="presentation"><a href="#" onClick="_tabFrame('finance_tab/conclusion_page.html')" aria-controls="conclusion_page" role="tab" data-toggle="tab">결산</a></li>
+        <li role="presentation"><a href="#" onClick="_tabFrame('finance_tab/retire_page.html')" aria-controls="retire_page" role="tab" data-toggle="tab">퇴직</a></li>
 
-
-<div class="row-fluid" >
-    <!--/span-->
-    <div class="span12" id="content">
-        <div class="span12">
-
-            <ul class="nav nav-tabs" role="tablist" id="myTab">
-                <li role="presentation"><a href="#nomu_page" aria-controls="nomu_page" role="tab" data-toggle="tab">노무비 내역</a></li>
-                <li role="presentation"><a href="#guenlo_page" aria-controls="guenlo_page" role="tab" data-toggle="tab">근로 내역</a></li>
-                <li role="presentation"><a href="#insurance_page" aria-controls="insurance_page" role="tab" data-toggle="tab">4대 보험신고</a></li>
-                <li role="presentation"><a href="#conclusion_page" aria-controls="conclusion_page" role="tab" data-toggle="tab">결산</a></li>
-                <li role="presentation"><a href="#retire_page" aria-controls="retire_page" role="tab" data-toggle="tab">퇴직</a></li>
-            </ul>
-
-            <div class="tab-content">
-
-
-                <div role="tabpanel" class="tab-pane fade in active" id="nomu_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-
-                            <div class="block-content collapse in">
-                                <div class="span12">
-
-                                    <h3>노무비 내역</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tap-pane -->
-
-
-
-
-                <!-- 일용직 등록 -->
-                <div role="tabpanel" class="tab-pane fade" id="guenlo_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                    <h3>근로내역 </h3>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-                <!-- 단가 입력 -->
-                <div role="tabpanel" class="tab-pane fade" id="insurance_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                    <h3>4대 보험</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-
-                <!-- 공수 입력 -->
-                <div role="tabpanel" class="tab-pane fade" id="conclusion_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                    <h3>총 결산</h3>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-                <!-- 결산 -->
-                <div role="tabpanel" class="tab-pane fade" id="retire_page">
-                    <div class="row-fluid" >
-                        <!-- block -->
-                        <div class="block" >
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                    <h3>퇴직금 내역</h3>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- /block -->
-                    </div><!-- row-fluid -->
-                </div><!-- tab-pane -->
-
-
-
-
-
-
-
-
-
-            </div><!-- tab contents -->
-
-        </div><!-- span 12-->
-    </div><!-- span 12 contents -->
-</div><!-- row fluid -->
+    </ul>
+    <!-- tab_contnents -->
+    <div  class="tab_contents" id="tab_contents">
+        <iframe name="iframe_tab_contents"
+                id="iframe_tab_contents"
+                frameborder=0"
+                scrolling="no"
+                width="100%" height="100%"
+                class="">
+        </iframe>
+    </div>
+</div>
 
 
 
@@ -152,38 +54,52 @@
 <script src="../js/my_js/_auth.js"></script>
 <script src="../js/my_js/employee.js"></script>
 <script src="../js/my_js/UI.js"></script>
+<script src="../js/my_js/hyunjang.js"></script>
+<script src="../js/my_js/daily_employee.js"></script>
 
 <script>
 
     $(function() {
-        employee.employees_load(company_no);  // 직원 리스트 로드
-        employee.new_employee();
+
+        window_resize();
+
+        hyunjang.hyunjang_load(company_no);
+        daily_employee.daily_employee_load(company_no);
+        _tabFrame('finance_tab/nomu_page.html');
+
 
     });
-    function employee_sujung(type){
-        if(type == 'update'){ alert('update');}
-        if(type == 'new'){ employee.new_employee();}
-        if(type == 'delete'){ alert('delete');}
-        if(type == 'insert'){ employee.new_employee_insert();}
+
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        var basic_height = win_height-41;
+        $('#tab_contents').css('height', basic_height);
     }
 
-    function info_load(table, first, second){
 
-        if(table == 'employees_list'){
-            employee.employee_load(first, company_no, second);
-        }
-        if(table == 'tax_list'){
-            alert('tax_talbe클릭');
-        }
+
+    function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
+        //alert(num);
+
+        document.getElementById('iframe_tab_contents').src = loadPage;
+        document.getElementById('iframe_tab_contents').onload = function() {
+            var target = document.getElementById('iframe_tab_contents').contentWindow;
+        };
 
     }
+
+
 
 </script>
-
-
-
-
-
 
 
 <script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->

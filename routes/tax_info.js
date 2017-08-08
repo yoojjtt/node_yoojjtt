@@ -25,7 +25,7 @@ tax_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_route
 
 
         if(gubun =="R") {
-            var company_no = data[0];
+            var company_no = req.session.sess_company_no;
 
 
 
@@ -38,7 +38,7 @@ tax_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_route
 
         }
         if(gubun =="S"){
-            //TODO super_user....
+            //TODO ONLY super_user....
             var company_no = data[0];
 
 

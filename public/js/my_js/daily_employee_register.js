@@ -7,7 +7,7 @@ var daily_employee_register = function ()
 
     return {
 
-        hyunjang_load : function(proc){
+        hyunjang_load : function(proc){   // 진행중인 공사만 불러온다. 1
             //공사 중인 것 만 불러온다.
             var gubun = "R";
             var iData = ['proc'];
@@ -133,7 +133,7 @@ var daily_employee_register = function ()
                 str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
                 str += "<td>"+ res[i].job +"</td>";
                 str += "<td>"+ res[i].name +"</td>";
-                str += "<td>"+ "<input type='text' value='"+res[i].daily_salary.toLocaleString()+"'>" +"</td>";
+                str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
                 str += "<td style='display:none;'>"+ res[i].id +"</td>";
                 str += "</tr>";
                 $('#monthly_danga').append(str);

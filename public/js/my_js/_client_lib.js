@@ -50,10 +50,15 @@ var lib = function ()
             var month_change = now.getFullYear()+"-"+months[now.getMonth()];
 
 
+            /* input type='month' 유형의 날짜가 바뀔 때 마다 로드하고싶은 DATA들 추가하면 됨 */
 
+            //TODO 분할 하는 방법 은 없을 까????
             //alert(month_change);
             $('#toMonth').val(month_change);
-            daily_employee_register.monthly_danga_load();
+            daily_employee_register.monthly_danga_load();  //월 바꿀 때마다 register 페이지에 reload
+            closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
+            nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+
 
             /*  closing page 에서 calender 날짜 ***/
             var month_select = $('#toMonth').val();
