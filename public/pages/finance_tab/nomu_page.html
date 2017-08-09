@@ -47,6 +47,12 @@
                 </button>
                 <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
             </div>
+
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-info"  onClick="" id="">노무비 명세서</button>
+            <button class="btn btn-info" onClick="" id="">근로내역 확인서</button>
+            <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
 
 
@@ -67,7 +73,7 @@
         <thead>
         <tr>
             <th colspan="4">인 적 사 항</th>
-            <th colspan="1">출 결 사 항</th>
+            <th colspan="2">출 결 사 항</th>
             <th colspan="10">노무비 내역</th>
         </tr>
         <tr>
@@ -85,6 +91,7 @@
 
             <th id="monthly_closing">
             </th>
+            <th>합계</th>
             <th>단가</th>
             <th>노무비<br> 총액</th>
             <th>갑근세</th>
@@ -93,7 +100,7 @@
             <th>의료<br>보험</th>
             <th>국민<br>연금</th>
             <th>공제 합계</th>
-            <th>차감된<br> 지금액</th>
+            <th>차감된<br> 지급액</th>
 
 
         </tr>
@@ -170,7 +177,11 @@
 
         var month_select = $('#toMonth').val();
         lib.Calendar(month_select);
+        nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
 
+    }
+    function act(){
+        nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
 

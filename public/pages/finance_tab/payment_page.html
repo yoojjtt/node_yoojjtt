@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<div class="panel panel-default closing">
+<div class="panel panel-default payment">
 
     <div class="panel-heading head1">
         <div class="btn_box_left">
@@ -47,6 +47,12 @@
                 </button>
                 <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
             </div>
+
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-info"  onClick="" id="">급여 명세서</button>
+            <button class="btn btn-success" onClick="" id="">저장</button>
+            <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
 
 
@@ -66,19 +72,35 @@
     <table class="table table-striped" id="kongsu_table_head">
         <thead>
         <tr>
+            <th colspan="4">인 적 사 항</th>
+            <th colspan="3">통 장 내역</th>
+            <th colspan="11">노무비 내역</th>
+        </tr>
+        <tr>
 
-            <th style="display:none;">num</th>
-            <th>#</th>
-            <th>이름</th>
-            <th>직종</th>
+            <th  style="display:none;">num</th>
+            <th >#</th>
+            <th >이름</th>
+            <th >직종</th>
             <th>주민번호</th>
-            <th id="monthly_closing">
-            </th>
+            <th>은행</th>
+            <th>예금주</th>
+            <th>계좌번호</th>
+            <th>공수<br>합계</th>
             <th>단가</th>
-            <th>총 금액</th>
+            <th>노무비<br> 총액</th>
+            <th>갑근세</th>
+            <th>주민세</th>
+            <th>고용<br>보험</th>
+            <th>의료<br>보험</th>
+            <th>국민<br>연금</th>
+            <th>공제 합계</th>
+            <th>차감된<br> 지급액</th>
+
+
         </tr>
         </thead>
-        <tbody id="kongsu_table_body">
+        <tbody id="nomu_table_body">
 
         <!-- 데이터 -->
 
@@ -105,6 +127,7 @@
 
 <script src="../../js/my_js/daily_employee_register.js"></script>
 <script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/payment.js"></script>
 <script src="../../js/my_js/closing.js"></script>
 <script>
 
@@ -114,7 +137,7 @@
         //TODO 인자값으로 쿠키를 넣어야한다.
         toMonth();
         lib.Calendar();
-        closing.monthly_closing_load();
+        payment.monthly_closing_load();
 
 
         window_resize();
@@ -132,9 +155,17 @@
         var win_height = $(window).height();
 
         //높이
-        $('#kongsu_table_body').css('height', win_height-134);
+        /*
+        $('#nomu_table_body').css('height', win_height-220);
+        $('#kongsu_table_head th:last-child').css('width', win_width-140);
+        $('#nomu_table_body td:last-child').css('width', win_width-140);
+        */
+        //만약 밑에 여백없이 딱맞게 자르려고 한다면
+
+        $('#kongsu_table_body').css('height', win_height-220);
         $('#kongsu_table_head th:last-child').css('width', win_width-140);
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
+
     }
 
 
@@ -149,10 +180,11 @@
 
         var month_select = $('#toMonth').val();
         lib.Calendar(month_select);
+        payment.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
 
     }
     function act(){
-        closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
+        payment.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
 

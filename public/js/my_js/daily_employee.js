@@ -126,7 +126,7 @@ var daily_employee = function ()
 
             if(return_code =="100"){
                 alert(msg);
-                //location.reload();
+                location.reload();
 
             }
 

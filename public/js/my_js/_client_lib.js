@@ -55,9 +55,12 @@ var lib = function ()
             //TODO 분할 하는 방법 은 없을 까????
             //alert(month_change);
             $('#toMonth').val(month_change);
-            daily_employee_register.monthly_danga_load();  //월 바꿀 때마다 register 페이지에 reload
-            closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
-            nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+
+
+            act();  //각페이지 reload data
+
+
+
 
 
             /*  closing page 에서 calender 날짜 ***/

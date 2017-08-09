@@ -1592,6 +1592,7 @@
 .nomu .table {
   width: 100%;
   max-width: 100%;
+  min-width: 1500px;
   height: 100%;
   display: block;
   border-collapse: collapse;
@@ -1683,14 +1684,14 @@
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(5) {
-  width: 10%;
+  width: 8%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(6) {
-  width: 32%;
+  width: 33.5%;
 }
 .nomu .table th:nth-of-type(7) {
-  width: 5%;
+  width: 4.19%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(8) {
@@ -1698,30 +1699,34 @@
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(9) {
-  width: 5%;
+  width: 4.95%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(10) {
-  width: 5%;
+  width: 4.9%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(11) {
-  width: 5%;
+  width: 4.86%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(12) {
-  width: 5%;
+  width: 4.95%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(13) {
-  width: 5%;
+  width: 4.95%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(14) {
-  width: 5%;
+  width: 4.9%;
   padding-bottom: 20px;
 }
 .nomu .table th:nth-of-type(15) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.nomu .table th:nth-of-type(16) {
   width: 50px;
   padding-bottom: 20px;
 }
@@ -1735,53 +1740,783 @@
   width: 4%;
 }
 .nomu .table td:nth-of-type(4) {
-  width: 4.2%;
+  width: 4.6%;
 }
 .nomu .table td:nth-of-type(5) {
-  width: 10%;
+  width: 8%;
 }
 .nomu .table td:nth-of-type(6) {
-  width: 32%;
+  width: 35%;
   padding-left: 2px;
   padding-right: 2px;
 }
 .nomu .table td:nth-of-type(7) {
-  width: 5%;
-  padding-right: 20px;
+  width: 4%;
   border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(8) {
   width: 5%;
-  padding-bottom: 8px;
+  text-align: right;
+  padding-right: 5px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(9) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(10) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(11) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(12) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(13) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(14) {
   width: 5%;
+  text-align: right;
+  padding-right: 5px;
   padding-bottom: 8px;
+  border-right: 1px solid #ddd;
 }
 .nomu .table td:nth-of-type(15) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+  border-right: 1px solid #ddd;
+}
+.nomu .table td:nth-of-type(16) {
   width: 300px;
+  text-align: right;
+  padding-right: 5px;
 }
 .nomu .table td:last-child {
+  border-right: 1px solid #ddd;
+}
+.payment {
+  min-width: 900px;
+}
+.payment .head1 {
+  height: 47px;
+  padding: 6px;
+}
+.payment .head1 .btn_box_left {
+  float: left;
+}
+.payment .head1 .btn_box_left .btn_check_all {
+  float: left;
+  padding-right: 4px;
+}
+.payment .head1 .btn_box_left .btn_check_all .btn-box {
+  float: left;
+  padding-right: 2px;
+}
+.payment .head1 .btn_box_left .btn_check_all .select-box {
+  float: left;
+  padding-right: 3px;
+  width: 300px;
+}
+.payment .head1 .btn_box_left .btn_check_all .select-box2 {
+  float: left;
+  width: 165px;
+  padding-right: 3px;
+}
+.payment .head1 .btn_box_left .btn_check_all #sJob {
+  width: 100px;
+}
+.payment .head1 .btn_box_left .btn_check_all #sKongsu_type {
+  width: 125px;
+}
+.payment .head1 .btn_box_left .btn_check_all .btn_kongsu {
+  float: left;
+  width: 150px;
+}
+.payment .head1 .btn_box_left .btn_etc {
+  float: left;
+}
+.payment .head1 .btn_etc {
+  float: right;
+}
+.payment .head1 .btn_etc .date {
+  float: right;
+  z-index: 10;
+  color: red;
+  background: white;
+  margin-right: 5px;
+  height: 34px;
+}
+.payment .head1 .btn_etc .date .input-append {
+  height: 25px;
+}
+.payment .head1 .btn_etc .date input {
+  border: 0px;
+  height: 24px;
+}
+.payment .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.payment .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.payment .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.payment .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.payment .head1 .btn_etc .btn-default {
+  float: right;
+  margin-right: 5px;
+}
+.payment .head1 .btn_etc .btn_refresh {
+  float: right;
+}
+.payment .head2 {
+  height: 47px;
+  padding: 6px;
+}
+.payment .head2 .name-label {
+  float: left;
+  padding: 5px;
+}
+.payment .head2 .normality {
+  color: #48eb00;
+}
+.payment .head2 .absence {
+  color: red;
+}
+.payment .head2 .day_off {
+  color: #75e3fe;
+}
+.payment .head2 .yet {
+  color: darkgrey;
+}
+.payment .table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 1500px;
+  height: 100%;
+  display: block;
+  border-collapse: collapse;
+  /*
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    */
+  /*
+    th:last-child {
+      width: calc(5600px);text-align: right;
+    }
+    */
+}
+.payment .table .zero_data {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+.payment .table th {
+  padding: 0;
+  text-align: center;
+  border-left: 1px solid #ddd;
+}
+.payment .table th div.label_week_date {
+  float: left;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+  padding-left: 5px;
+}
+.payment .table th div.label_week_date ._week {
+  font-weight: normal;
+  font-size: 9px;
+}
+.payment .table th .sun {
+  color: deeppink!important;
+}
+.payment .table th .sat {
+  color: deepskyblue!important;
+}
+.payment .table tr {
+  text-align: center;
+}
+.payment .table thead tr:first-child th {
+  padding: 10px;
+}
+.payment .table td {
+  font-size: 12px;
+  padding: 0;
+}
+.payment .table tbody {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.payment .table tbody div.label_week_date {
+  float: left;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+}
+.payment .table tbody .attendance_label_1 {
+  color: #48eb00;
+}
+.payment .table tbody .attendance_label_2 {
+  color: red;
+}
+.payment .table .list_row:hover {
+  background: #dddddd;
+  cursor: pointer;
+}
+.payment .table th:nth-of-type(1) {
+  width: 10px;
+}
+.payment .table th:nth-of-type(2) {
+  width: 2%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(3) {
+  width: 4%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(4) {
+  width: 4%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(5) {
+  width: 8%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(6) {
+  width: 7%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(7) {
+  width: 6%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(8) {
+  width: 10%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(9) {
+  width: 4.95%;
+  padding: 10px 0 10px 0;
+}
+.payment .table th:nth-of-type(10) {
+  width: 4.9%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(11) {
+  width: 4.86%;
+  padding-bottom: 10px;
+}
+.payment .table th:nth-of-type(12) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(13) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(14) {
+  width: 4.9%;
+  padding-bottom: 10px;
+}
+.payment .table th:nth-of-type(15) {
+  width: 4.95%;
+  padding-bottom: 10px;
+}
+.payment .table th:nth-of-type(16) {
+  width: 4.95%;
+  padding-bottom: 10px;
+}
+.payment .table th:nth-of-type(17) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.payment .table th:nth-of-type(18) {
+  width: 50px;
+  padding-bottom: 10px;
+}
+.payment .table td {
+  border-right: 1px solid #ddd;
+}
+.payment .table td:nth-of-type(1) {
+  width: 10px;
+}
+.payment .table td:nth-of-type(2) {
+  width: 2%;
+}
+.payment .table td:nth-of-type(3) {
+  width: 4%;
+}
+.payment .table td:nth-of-type(4) {
+  width: 4.6%;
+}
+.payment .table td:nth-of-type(5) {
+  width: 8%;
+}
+.payment .table td:nth-of-type(6) {
+  width: 7%;
+}
+.payment .table td:nth-of-type(7) {
+  width: 4%;
+}
+.payment .table td:nth-of-type(8) {
+  width: 10%;
+  text-align: right;
+  padding-right: 5px;
+}
+.payment .table td:nth-of-type(9) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(10) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(11) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(12) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(13) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(14) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(15) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(16) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(17) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.payment .table td:nth-of-type(18) {
+  width: 300px;
+  text-align: right;
+  padding-right: 5px;
+}
+.payment .table td .input-box-type1 {
+  width: 80px;
+  text-align: center;
+}
+.payment .table td .input-box-type2 {
+  width: 80px;
+  text-align: center;
+}
+.payment .table td .input-box-type3 {
+  width: 130px;
+  text-align: right;
+}
+.payment .table td:last-child {
+  border-right: 1px solid #ddd;
+}
+.insurance {
+  min-width: 900px;
+}
+.insurance .head1 {
+  height: 47px;
+  padding: 6px;
+}
+.insurance .head1 .btn_box_left {
+  float: left;
+}
+.insurance .head1 .btn_box_left .btn_check_all {
+  float: left;
+  padding-right: 4px;
+}
+.insurance .head1 .btn_box_left .btn_check_all .btn-box {
+  float: left;
+  padding-right: 2px;
+}
+.insurance .head1 .btn_box_left .btn_check_all .select-box {
+  float: left;
+  padding-right: 3px;
+  width: 300px;
+}
+.insurance .head1 .btn_box_left .btn_check_all .select-box2 {
+  float: left;
+  width: 165px;
+  padding-right: 3px;
+}
+.insurance .head1 .btn_box_left .btn_check_all #sJob {
+  width: 100px;
+}
+.insurance .head1 .btn_box_left .btn_check_all #sKongsu_type {
+  width: 125px;
+}
+.insurance .head1 .btn_box_left .btn_check_all .btn_kongsu {
+  float: left;
+  width: 150px;
+}
+.insurance .head1 .btn_box_left .btn_etc {
+  float: left;
+}
+.insurance .head1 .btn_etc {
+  float: right;
+}
+.insurance .head1 .btn_etc .date {
+  float: right;
+  z-index: 10;
+  color: red;
+  background: white;
+  margin-right: 5px;
+  height: 34px;
+}
+.insurance .head1 .btn_etc .date .input-append {
+  height: 25px;
+}
+.insurance .head1 .btn_etc .date input {
+  border: 0px;
+  height: 24px;
+}
+.insurance .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.insurance .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.insurance .head1 .btn_etc .date span {
+  color: #33acfe;
+}
+.insurance .head1 .btn_etc .date .lbl_targetDay {
+  color: red;
+}
+.insurance .head1 .btn_etc .btn-default {
+  float: right;
+  margin-right: 5px;
+}
+.insurance .head1 .btn_etc .btn_refresh {
+  float: right;
+}
+.insurance .head2 {
+  height: 47px;
+  padding: 6px;
+}
+.insurance .head2 .name-label {
+  float: left;
+  padding: 5px;
+}
+.insurance .head2 .normality {
+  color: #48eb00;
+}
+.insurance .head2 .absence {
+  color: red;
+}
+.insurance .head2 .day_off {
+  color: #75e3fe;
+}
+.insurance .head2 .yet {
+  color: darkgrey;
+}
+.insurance .table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 1500px;
+  height: 100%;
+  display: block;
+  border-collapse: collapse;
+  /*
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    */
+  /*
+    th:last-child {
+      width: calc(5600px);text-align: right;
+    }
+    */
+}
+.insurance .table .zero_data {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+.insurance .table th {
+  padding: 0;
+  text-align: center;
+  border-left: 1px solid #ddd;
+}
+.insurance .table th div.label_week_date {
+  float: left;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+  padding-left: 5px;
+}
+.insurance .table th div.label_week_date ._week {
+  font-weight: normal;
+  font-size: 9px;
+}
+.insurance .table th .sun {
+  color: deeppink!important;
+}
+.insurance .table th .sat {
+  color: deepskyblue!important;
+}
+.insurance .table tr {
+  text-align: center;
+}
+.insurance .table thead tr:first-child th {
+  padding: 10px;
+}
+.insurance .table td {
+  font-size: 12px;
+  padding: 0;
+}
+.insurance .table tbody {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.insurance .table tbody div.label_week_date {
+  float: left;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+}
+.insurance .table tbody .attendance_label_1 {
+  color: #48eb00;
+}
+.insurance .table tbody .attendance_label_2 {
+  color: red;
+}
+.insurance .table .list_row:hover {
+  background: #dddddd;
+  cursor: pointer;
+}
+.insurance .table th:nth-of-type(1) {
+  width: 10px;
+}
+.insurance .table th:nth-of-type(2) {
+  width: 2%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(3) {
+  width: 4%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(4) {
+  width: 4%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(5) {
+  width: 8%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(6) {
+  width: 7%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(7) {
+  width: 6%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(8) {
+  width: 10%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(9) {
+  width: 4.95%;
+  padding: 10px 0 10px 0;
+}
+.insurance .table th:nth-of-type(10) {
+  width: 4.9%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(11) {
+  width: 4.86%;
+  padding-bottom: 10px;
+}
+.insurance .table th:nth-of-type(12) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(13) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(14) {
+  width: 4.9%;
+  padding-bottom: 10px;
+}
+.insurance .table th:nth-of-type(15) {
+  width: 4.95%;
+  padding-bottom: 10px;
+}
+.insurance .table th:nth-of-type(16) {
+  width: 4.95%;
+  padding-bottom: 10px;
+}
+.insurance .table th:nth-of-type(17) {
+  width: 4.95%;
+  padding-bottom: 20px;
+}
+.insurance .table th:nth-of-type(18) {
+  width: 50px;
+  padding-bottom: 10px;
+}
+.insurance .table td {
+  border-right: 1px solid #ddd;
+}
+.insurance .table td:nth-of-type(1) {
+  width: 10px;
+}
+.insurance .table td:nth-of-type(2) {
+  width: 2%;
+}
+.insurance .table td:nth-of-type(3) {
+  width: 4%;
+}
+.insurance .table td:nth-of-type(4) {
+  width: 4.6%;
+}
+.insurance .table td:nth-of-type(5) {
+  width: 8%;
+}
+.insurance .table td:nth-of-type(6) {
+  width: 7%;
+}
+.insurance .table td:nth-of-type(7) {
+  width: 4%;
+}
+.insurance .table td:nth-of-type(8) {
+  width: 10%;
+  text-align: right;
+  padding-right: 5px;
+}
+.insurance .table td:nth-of-type(9) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(10) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(11) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(12) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(13) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(14) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(15) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(16) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(17) {
+  width: 5%;
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(18) {
+  width: 300px;
+  text-align: right;
+  padding-right: 5px;
+}
+.insurance .table td .input-box-type1 {
+  width: 80px;
+  text-align: center;
+}
+.insurance .table td .input-box-type2 {
+  width: 80px;
+  text-align: center;
+}
+.insurance .table td .input-box-type3 {
+  width: 130px;
+  text-align: right;
+}
+.insurance .table td:last-child {
   border-right: 1px solid #ddd;
 }
 html {

@@ -1,4 +1,4 @@
-.nomu {
+.insurance {
   min-width: 900px;
 
   .head1 {
@@ -127,6 +127,7 @@
   .table {
     width: 100%;
     max-width: 100%;
+    min-width: 1500px;
     height: 100%;
     display: block;
     border-collapse: collapse;
@@ -219,42 +220,60 @@
     th {
 
       //text-align: center!important;
-      &:nth-of-type(1) {width: 10px;}
-      &:nth-of-type(2) {width: 2%; padding-bottom:20px;}
-      &:nth-of-type(3) {width: 4%; padding-bottom:20px;}
-      &:nth-of-type(4) {width: 4%; padding-bottom:20px;}
-      &:nth-of-type(5) {width: 10%; padding-bottom:20px;}
-      &:nth-of-type(6) {width: 32%; }  // 5번째
-      &:nth-of-type(7) {width: 5%; padding-bottom:20px;}  //단가
-      &:nth-of-type(8) {width: 5%; padding-bottom:20px;} //노무비 총액
-      &:nth-of-type(9) {width: 5%; padding-bottom:20px;}  //갑근세
-      &:nth-of-type(10) {width: 5%; padding-bottom:20px;}  //주민세
-      &:nth-of-type(11) {width: 5%; padding-bottom:20px;}  //고용보험
-      &:nth-of-type(12) {width: 5%; padding-bottom:20px;}  //국민연금
-      &:nth-of-type(13) {width: 5%; padding-bottom:20px;}  //보험차감 합계
-      &:nth-of-type(14) {width: 5%; padding-bottom:20px;} // 차감된 지급액
-      &:nth-of-type(15) {width: 50px; padding-bottom:20px;} // 차감된 지급액
+
+      &:nth-of-type(1) {width: 10px;}  //display:none
+      &:nth-of-type(2) {width: 2%; padding-bottom:20px;}//num
+      &:nth-of-type(3) {width: 4%; padding-bottom:20px;}//이름
+      &:nth-of-type(4) {width: 4%; padding-bottom:20px;}//직종
+      &:nth-of-type(5) {width: 8%; padding-bottom:20px;}//주민번호
+      &:nth-of-type(6) {width: 7%;padding-bottom:20px; }  //은행
+      &:nth-of-type(7) {width: 6%; padding-bottom:20px;} //예금주
+      &:nth-of-type(8) {width: 10%; padding-bottom:20px;}  //계좌번호
+      &:nth-of-type(9) {width: 4.95%; padding:10px 0 10px 0;} //합계
+      &:nth-of-type(10) {width: 4.9%; padding-bottom:20px;}  //단가
+      &:nth-of-type(11) {width: 4.86%; padding-bottom:10px;}  //노무비 총액
+      &:nth-of-type(12) {width: 4.95%; padding-bottom:20px;}  //갑근세
+      &:nth-of-type(13) {width: 4.95%; padding-bottom:20px;}  //주민세
+      &:nth-of-type(14) {width: 4.9%; padding-bottom:10px;}  //고용보험
+      &:nth-of-type(15) {width: 4.95%; padding-bottom:10px;} //의료보험
+      &:nth-of-type(16) {width: 4.95%;; padding-bottom:10px;} //국민연금
+      &:nth-of-type(17) {width: 4.95%; padding-bottom:20px;} //공제합계
+      &:nth-of-type(18) {width: 50px; padding-bottom:10px;} //차감된 지급액
+
 
     }
     td {
+      border-right: 1px solid #ddd;
 
       //text-align: center!important;
-      &:nth-of-type(1) {width: 10px;}
-      &:nth-of-type(2) {width: 2%;}
+      &:nth-of-type(1) {width: 10px;} //id  display:none;
+      &:nth-of-type(2) {width: 2%;}  //num
       &:nth-of-type(3) {width: 4%;}  //이름
-      &:nth-of-type(4) {width: 4.2%;} //직종
-      &:nth-of-type(5) {width: 10%; }
-      &:nth-of-type(6) {width: 32%; padding-left:2px; padding-right:2px; }
-      &:nth-of-type(7) {width: 5%; padding-right:20px;  border-right: 1px solid #ddd;}
-      &:nth-of-type(8) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(9) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(10) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(11) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(12) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(13) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(14) {width: 5%; padding-bottom:8px;}
-      &:nth-of-type(15) {width: 300px; }
+      &:nth-of-type(4) {width: 4.6%;} //직종
+      &:nth-of-type(5) {width: 8%; } //주민번호
+      &:nth-of-type(6) {width: 7%; }  // 은행
+      &:nth-of-type(7) {width: 4%; }  //예금주
+      &:nth-of-type(8) {width: 10%; text-align:right; padding-right:5px;  }  //계좌번호
+      &:nth-of-type(9) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;}  //합계
+      &:nth-of-type(10) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;}  //단가
+      &:nth-of-type(11) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;} //노무비 총액
+      &:nth-of-type(12) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;} //갑근세
+      &:nth-of-type(13) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //주민세
+      &:nth-of-type(14) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //고용보험
+      &:nth-of-type(15) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //의료보험
+      &:nth-of-type(16) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //국민연금
+      &:nth-of-type(17) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //공제합계
+      &:nth-of-type(18) {width: 300px; text-align:right; padding-right:5px;} //차감된 지급액
 
+      .input-box-type1{
+        width:80px; text-align:center;
+      }
+      .input-box-type2{
+        width:80px; text-align:center;
+      }
+      .input-box-type3{
+        width:130px; text-align:right;
+      }
     }
 
 
