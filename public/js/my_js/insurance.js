@@ -44,7 +44,7 @@ var insurance = function ()
                 iData[1] = '';
                 iData[2] = $('#toMonth').val();  // 날짜  2017-08  (월까지만 자른다.)
                 iData[3] = '';
-                iData[4] = 'payment';  //'daily'
+                iData[4] = 'insurance';  //'daily'
 
 
                 var result = _DB_query.httpService("kongsu_info",gubun, iData);
@@ -66,12 +66,14 @@ var insurance = function ()
                 {
 
                     var str = '';
-                    var kongsu = res[i].attendance;
-                    var kongsu_daily = kongsu.split('@');
-                    var tot_num = kongsu_daily.length;
-                    var bank_name = res[i].bank_name;
-                    var bank_owner = res[i].bank_owner;
-                    var bank_account = res[i].bank_account;
+                    var kongsu = res[i].attendance;  //1@3@1@12@1@1@... 형식의 공수
+                    var kongsu_daily = kongsu.split('@');  // @기준으로 자른 공수
+                    var tot_num = kongsu_daily.length; // 총 명개 인지 31/30/29/28 이올 수 있다.
+                    var before_kongsu_row = res[i].before_attendance;  // 전 달 공수
+                    var before_kongsu_daily = before_kongsu_row.split('@');
+                    var before_daily_salary = res[i].before_daily_salary;
+                    var before_tot_num = before_kongsu_daily.length;
+
 
                     //alert(bank_name+bank_owner+bank_account);
 
@@ -87,16 +89,34 @@ var insurance = function ()
                     str += "<td>" + res[i].name + "</td>";
                     str += "<td>" + res[i].job+ "</td>";
                     str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
-                    str += "<td>" + "<input class='input-box-type1' value='"+bank_name+"'>" + "</td>";
-                    str += "<td>" + "<input class='input-box-type2' value='"+bank_owner +"'>"+ "</td>";
-                    str += "<td>" + "<input class='input-box-type3' value='"+bank_account +"'>" + "</td>";
 
+
+
+                    /*  전월 값 계산*/
+
+                    var before_daily_salary = parseFloat(res[i].before_daily_salary);  //전달 단가를 float 형으로
+                    var before_total_salary = 0;  // 전달 노무비 합
+                    var before_kongsu_total = 0; // 전달 공수 합
+                    var before_work_day = 0; //전달 근무일 수
+
+                    for(var k = 0; k < before_tot_num; k++){
+
+                        var before_kongsu = before_kongsu_daily[k]; // 전달의 공수를 @로 자른 배열
+                       if(before_kongsu_daily[k]>0){
+                            before_kongsu_total += parseFloat(before_kongsu);
+                            before_work_day += 1;
+
+                       }
+                    }
+
+                    str += "<td>" + before_work_day + "</td>";
+                    str += "<td>" + before_kongsu_total+ "</td>";
+                    str += "<td>" + (before_kongsu_total*before_daily_salary).toLocaleString() + "</td>";
+
+                    /* 현재월에 대한 금액 공수 게산 */
                     var daily_salary_total = res[i].daily_salary;
-                    var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
+                    var total_salary = 0;  // 금액을 더할 때는 int 로 초기값 설정해야 한다.
                     var gab_tax = 0;  // 갑근세계산을 위한 float 변수;
-
-
-
                     var daily_salary = parseFloat(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
                     var kongsu_total = 0;
 
@@ -105,25 +125,22 @@ var insurance = function ()
                         //str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>";
                         total_salary += daily_salary_total * kongsu_daily[j];
                         var kongsu = parseFloat(kongsu_daily[j]);
-
+                        //alert(kongsu);
                         if(kongsu_daily[j]>0){
                             kongsu_total += kongsu
+
+
                         }
 
                         if(daily_salary > 100000){  // 단가가 면세액 기준 보다 높은 경우 갑근세 해당
                             if(kongsu_daily[j]>0){  // 공수가 1 이상인 것 한에서 적용 //TODO 공수가 있는 것 한해서 계산해야한다.
                                 gab_tax += (daily_salary*kongsu-exception_money) * income_rate;  // 갑근세 계산식!!
 
-
-
                             }
                         }
-
-                        //}
-
                     }
 
-                    str += "<td>"+ kongsu_total+"</td>";
+                    str += "<td>"+ kongsu_total.toFixed(1)+"</td>";
                     str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";  //단가(String)
                     str += "<td>"+  total_salary.toLocaleString() +"</td>";   // 노무비 총액(String)
 

@@ -113,7 +113,7 @@ var nomu = function ()
 
                         }
                     str += "</td>";
-                    str += "<td>"+ kongsu_total+"</td>";
+                    str += "<td>"+ kongsu_total.toFixed(1)+"</td>";
                     str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";  //단가(String)
                     str += "<td>"+  total_salary.toLocaleString() +"</td>";   // 노무비 총액(String)
 

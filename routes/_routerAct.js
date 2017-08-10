@@ -18,6 +18,7 @@ var Tax_info = require("./tax_info.js"); //세금정보 로드
 var Daily_employee_info = require("./daily_employee_info.js"); //일용직 근로자 정보 로드, 수정
 var Kongsu_info = require("./kongsu_info.js");  // 공수 정보 수정, 로드
 var Daily_employee_register_info = require("./daily_employee_register_info.js");  //일용직 근로자 현장등록 로드, 수정
+var Retire_info = require("./retire_info");
 var Test = require("./test.js");  //flex_test
 
 
@@ -40,6 +41,7 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     var daily_employee_info = new Daily_employee_info(router, this);
     var kongsu_info = new Kongsu_info(router, this);
     var daily_employee_register_info = new Daily_employee_register_info(router, this);
+    var retire_info = new Retire_info(router, this);
     var test = new Test(router, this);  //flex_test
 
 

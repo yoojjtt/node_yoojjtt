@@ -86,8 +86,8 @@ var kongsu = function ()
             var return_code = result[0].data[0][0].return_code;
 
             if(return_code == '100'){
-                //alert(msg);
-                location.reload();
+                alert(msg);
+                //location.reload();
 
 
             }
