@@ -37,6 +37,17 @@ flex_test.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_rout
 
 
         }
+        if(gubun =="member"){
+            var type ='대표';
+            var email = data[0];
+            var phone = data[1];
+            var pwd = data[2];
+
+
+            var query = "CALL _member_register('"+type +"','" +email + "','" + phone +"','" +pwd +"');";   //대표가 서비스를 처음 신청할 때
+            console.log(query+": 회원가입");
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+        }
 
 
     });

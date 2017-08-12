@@ -8,6 +8,10 @@
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+
+
+
+
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
     <link href="../../css/style.css" rel="stylesheet" media="screen">
 
@@ -50,7 +54,7 @@
 
         </div>
         <div class="pull-right">
-            <button class="btn btn-info"  onClick="" id="">노무비 명세서</button>
+            <button class="btn btn-info"  onClick="print_test()" id="">노무비 명세서</button>
             <button class="btn btn-info" onClick="" id="">근로내역 확인서</button>
             <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
@@ -134,6 +138,20 @@
 <script src="../../js/my_js/_client_lib.js"></script>
 <script src="../../js/my_js/nomu.js"></script>
 <script src="../../js/my_js/closing.js"></script>
+
+<script src="../../js/print_js/print.js"></script>
+
+
+
+<!-- jspdf
+<script src="../../js/print_js/html2canvas.js"></script>
+<script src="../../js/print_js/jspdf.js"></script>
+-->
+
+<script src="../../js/print_js/vfs_fonts.js"></script>
+<script src="../../js/print_js/pdfmake.min.js"></script>
+
+
 <script>
 
     $(function() {
@@ -183,6 +201,12 @@
     function act(){
         nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
+    function print_test(){
+
+
+    print.pdf();
+
+    }
 
 
 
@@ -190,8 +214,6 @@
 
 
 
-<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="../../assets/DT_bootstrap.js"></script>
 </body>
 
 
