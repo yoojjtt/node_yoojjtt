@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc42797-b919-4759-932b-8c8d5ea9b544" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/print_js/blob-stream.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/print_js/html2canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/print_js/pdfkit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/print_js/pdfmake.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/docs/0001.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/docs/01.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/print_js/jspdf.js" afterPath="$PROJECT_DIR$/public/js/print_js/jspdf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" afterPath="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/nomu.js" afterPath="$PROJECT_DIR$/public/js/my_js/nomu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/payment.js" afterPath="$PROJECT_DIR$/public/js/my_js/payment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/print_js/print.js" afterPath="$PROJECT_DIR$/public/js/print_js/print.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/print_js/vfs_fonts.js" afterPath="$PROJECT_DIR$/public/js/print_js/vfs_fonts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance.html" afterPath="$PROJECT_DIR$/public/pages/finance.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,9 +32,12 @@
       <file leaf-file-name="nomu_page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="112" column="36" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="444">
+              <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,31 +45,9 @@
       <file leaf-file-name="print.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/print_js/print.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
-              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="763">
+              <caret line="315" column="64" lean-forward="false" selection-start-line="315" selection-start-column="64" selection-end-line="315" selection-end-column="64" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UI.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/my_js/UI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nomu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="876">
-              <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-              <folding>
-                <marker date="1502546425065" expanded="true" signature="2625:2638" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,8 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_temp</find>
-      <find>_te</find>
       <find>family</find>
       <find>body</find>
       <find>#body</find>
@@ -112,6 +92,8 @@
       <find>addImage</find>
       <find>addfont</find>
       <find>addFont</find>
+      <find>fontStyle</find>
+      <find>align</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,21 +126,17 @@
         <option value="$PROJECT_DIR$/public/pages/hyunjang_tab/closing_page.html" />
         <option value="$PROJECT_DIR$/public/pages/hyunjang_tab/register_page.html" />
         <option value="$PROJECT_DIR$/public/js/my_js/_client_lib.js" />
-        <option value="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" />
         <option value="$PROJECT_DIR$/public/less/payment_page.less" />
         <option value="$PROJECT_DIR$/public/less/insurance-page.less" />
         <option value="$PROJECT_DIR$/public/less/insurance_page.less" />
         <option value="$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html" />
         <option value="$PROJECT_DIR$/public/less/style.less" />
-        <option value="$PROJECT_DIR$/public/pages/finance.html" />
         <option value="$PROJECT_DIR$/public/less/retire_page.less" />
-        <option value="$PROJECT_DIR$/public/js/my_js/payment.js" />
         <option value="$PROJECT_DIR$/public/js/my_js/insurance.js" />
         <option value="$PROJECT_DIR$/service_config.js" />
         <option value="$PROJECT_DIR$/routes/kongsu_info.js" />
         <option value="$PROJECT_DIR$/routes/_routerAct.js" />
         <option value="$PROJECT_DIR$/routes/retire_info.js" />
-        <option value="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" />
         <option value="$PROJECT_DIR$/public/js/my_js/kongsu.js" />
         <option value="$PROJECT_DIR$/public/pages/finance_tab/retire_page.html" />
         <option value="$PROJECT_DIR$/public/js/my_js/retire.js" />
@@ -167,8 +145,12 @@
         <option value="&lt;dde64bd4-71cc-4147-806e-a20bf2d9e2be&gt;/public/js/print_js/jspdf.js" />
         <option value="$PROJECT_DIR$/public/js/print_js/pdfkit.js" />
         <option value="$PROJECT_DIR$/public/js/print_js/vfs_fonts.js" />
-        <option value="$PROJECT_DIR$/public/js/my_js/nomu.js" />
         <option value="$PROJECT_DIR$/public/js/print_js/jspdf.js" />
+        <option value="$PROJECT_DIR$/public/pages/finance.html" />
+        <option value="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" />
+        <option value="$PROJECT_DIR$/public/js/my_js/payment.js" />
+        <option value="$PROJECT_DIR$/public/js/my_js/nomu.js" />
+        <option value="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" />
         <option value="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" />
         <option value="$PROJECT_DIR$/public/js/print_js/print.js" />
       </list>
@@ -183,8 +165,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1042" />
+    <option name="width" value="2326" />
+    <option name="height" value="1258" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -204,6 +186,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -244,7 +228,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,24 +246,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="my_js" />
+              <option name="myItemId" value="finance_tab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_yoojjtt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_yoojjtt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Ryu jong tae/Desktop/GitHub/node_yoojjtt/public/pages/main.html&#10;remote&#9;ACTION&#9;WebDeployment.BrowseServers&#10;remote host&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Ryu jong tae/Desktop/GitHub/node_yoojjtt/public/pages/finance_tab/nomu_page.html&#10;remote&#9;ACTION&#9;WebDeployment.BrowseServers&#10;remote host&#9;null&#9;null" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -291,14 +291,14 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ryu jong tae\Desktop\node_yoojjtt\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ryu jong tae\Desktop\GitHub\node_yoojjtt\public\pages\modal" />
       <recent name="C:\Users\Ryu jong tae\Desktop\GitHub\node_yoojjtt" />
       <recent name="C:\Users\Ryu jong tae\Desktop\GitHub\node_yoojjtt\less" />
       <recent name="C:\Users\Ryu jong tae\Desktop\node_yoojjtt\public\pages" />
+      <recent name="C:\Users\Ryu jong tae\Desktop\node_yoojjtt\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ryu jong tae\Desktop\node_yoojjtt\public" />
     </key>
   </component>
@@ -574,11 +574,15 @@
       <workItem from="1502414312425" duration="1998000" />
       <workItem from="1502514371473" duration="28248000" />
       <workItem from="1502559935286" duration="1763000" />
+      <workItem from="1502590613099" duration="4039000" />
+      <workItem from="1502604569480" duration="690000" />
+      <workItem from="1502625135597" duration="884000" />
+      <workItem from="1502669585124" duration="25260000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="956583000" />
+    <option name="totallyTimeSpent" value="987456000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -590,13 +594,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="2326" height="1258" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24162163" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18702702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16472694" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17770815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22565866" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30577576" sideWeight="0.5257787" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23543401" sideWeight="0.47422126" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19325434" sideWeight="0.47422126" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49570355" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -652,13 +657,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/tax_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/pages/hyunjang_tab/daily_employee_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="774">
@@ -708,13 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/payment_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/pages/copy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -750,13 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
@@ -775,13 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="239" column="63" lean-forward="false" selection-start-line="239" selection-start-column="63" selection-end-line="239" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/finance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -813,24 +790,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/hyunjang_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/_routerAct.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/kongsu_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -845,13 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/daily_employee_register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="191" column="18" lean-forward="false" selection-start-line="191" selection-start-column="18" selection-end-line="191" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -894,7 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1602">
           <caret line="89" column="28" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="89" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <marker date="1502080476024" expanded="true" signature="1286:1299" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -943,7 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2754">
           <caret line="0" column="16964" lean-forward="false" selection-start-line="0" selection-start-column="16964" selection-end-line="0" selection-end-column="16964" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,44 +906,112 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/print_js/pdfmake.min.js" />
-    <entry file="file://$PROJECT_DIR$/public/js/print_js/jspdf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="66" column="20" lean-forward="false" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="876">
-          <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-          <folding>
-            <marker date="1502546425065" expanded="true" signature="2625:2638" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/my_js/UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
+        <state relative-caret-position="22">
           <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/finance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="31" column="49" lean-forward="true" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/daily_employee_register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1502674517650" expanded="true" signature="1949:1962" ph="..." />
+            <marker date="1502674517650" expanded="true" signature="5162:5175" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/hyunjang_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/hyunjang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding>
+            <marker date="1501490800744" expanded="true" signature="1009:1022" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/kongsu_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-550">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/print_js/jspdf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="66" column="14" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1502683589622" expanded="true" signature="2965:2978" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="149" column="64" lean-forward="true" selection-start-line="149" selection-start-column="64" selection-end-line="149" selection-end-column="64" />
+          <folding>
+            <marker date="1502688275296" expanded="true" signature="3053:3066" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/payment_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="215" column="0" lean-forward="true" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="112" column="36" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="444">
+          <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#1;n#thead#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/print_js/print.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="763">
+          <caret line="315" column="64" lean-forward="false" selection-start-line="315" selection-start-column="64" selection-end-line="315" selection-end-column="64" />
           <folding />
         </state>
       </provider>

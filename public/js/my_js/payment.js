@@ -58,7 +58,7 @@ var payment = function ()
                 var income_rate = parseFloat(income)/100;
                 var jumin_tax = parseFloat(jumin)/100;
 
-
+                //$('#balju_company').text(balju_company);
 
 
                 $('#nomu_table_body').empty();

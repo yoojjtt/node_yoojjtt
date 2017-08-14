@@ -50,6 +50,7 @@
 
         </div>
         <div class="pull-right">
+
             <button class="btn btn-info"  onClick="" id="">급여 명세서</button>
             <button class="btn btn-success" onClick="" id="">저장</button>
             <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
@@ -59,7 +60,9 @@
 
     </div>
     <div class="panel-heading head2">
-        <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
+        <div class="name-label" id="baluju_company"></div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=bogoja></div>
         <div class="name-label">ㅣ </div>
         <div class="name-label absence" id="absence_num"> 결산 금액  : <span id="total_money"></span> </div>
         <div class="name-label">ㅣ </div>
@@ -129,6 +132,24 @@
 <script src="../../js/my_js/_client_lib.js"></script>
 <script src="../../js/my_js/payment.js"></script>
 <script src="../../js/my_js/closing.js"></script>
+
+<!-- print_plugin-->
+<script language="javascript" type="text/javascript" src="../../js/print_js/jspdf.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/png_support.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/canvas.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/addimage.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/png.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/zlib.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/addhtml.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/FileSaver.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/split_text_to_size.js"></script>
+<script language="javascript" type="text/javascript" src="../../js/print_js/plugins/standard_fonts_metrics.js"></script>
+<script type="text/javascript" src="../../js/print_js/customfonts.js"></script>
+<script type="text/javascript" src="../../js/print_js/vfs_fonts.js"></script>
+
+<script src="../../js/print_js/print.js"></script>
+
+<!-- pdf printing javascript-->
 <script>
 
     $(function() {
@@ -185,6 +206,12 @@
     }
     function act(){
         payment.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+    }
+    function print_test(){
+
+
+        //print.nomu_pdf();
+
     }
 
 

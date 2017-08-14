@@ -55,8 +55,8 @@
 
         </div>
         <div class="pull-right">
-            <button class="btn btn-info"  onClick="print_test()" id="">노무비 명세서</button>
-            <button class="btn btn-info" onClick="" id="">근로내역 확인서</button>
+            <button class="btn btn-info"  onClick="print.nomu_pdf();" id="">노무비 명세서</button>
+            <button class="btn btn-info" onClick="print.work_pdf();" id="">근로내역 확인서</button>
             <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
 
@@ -64,6 +64,11 @@
 
     </div>
     <div class="panel-heading head2">
+        <div style="display:none;" class="name-label" id="hyun_jang_name"></div>
+        <div class="name-label" id="balju_company"></div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=bogoja></div>
+        <div class="name-label">ㅣ </div>
         <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
         <div class="name-label">ㅣ </div>
         <div class="name-label absence" id="absence_num"> 결산 금액  : <span id="total_money"></span> </div>
@@ -117,6 +122,7 @@
         </tbody>
     </table>
 
+
 </div>
 
 
@@ -158,6 +164,8 @@
 <script type="text/javascript" src="../../js/print_js/vfs_fonts.js"></script>
 
 <script src="../../js/print_js/print.js"></script>
+
+<!-- pdf printing javascript-->
 
 
 <script>
@@ -208,12 +216,6 @@
     }
     function act(){
         nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
-    }
-    function print_test(){
-
-
-    print.pdf();
-
     }
 
 

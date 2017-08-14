@@ -51,7 +51,13 @@ var nomu = function ()
                 var res_num = result[0].data[0].length;
                 var total_money = 0;
                 var total_danga = 0;
-
+                var balju_company = res[0].balju_company;
+                var bogoja = res[0].bogoja;
+                var hyun_jang_name = res[0].hyun_jang_name;
+                //alert(balju_company);
+                $('#balju_company').empty().append(balju_company);
+                $('#bogoja').empty().append(bogoja);
+                $('#hyun_jang_name').empty().append(hyun_jang_name);
 
                 var exception_money = parseFloat(exception);
                 var income_rate = parseFloat(income)/100;
@@ -63,9 +69,9 @@ var nomu = function ()
 
                     var str = '';
                     var kongsu = res[i].attendance;
-                    var kongsu_daily = kongsu.split('@');
+                    var kongsu_daily = kongsu.split('@@');
                     var tot_num = kongsu_daily.length;
-
+                    //alert(tot_num);
                     if(res[i].attendance == null){
                         kongsu = '미입력';
                         // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
@@ -124,7 +130,7 @@ var nomu = function ()
                     var jumin_tax_c = (gab_tax_c*jumin_tax).toFixed(0); // 계산할 떄 float 값으로 들어와야된다.
                     var jumin_tax_val = Number(jumin_tax_c).toLocaleString();
                     var employee_tax = total_salary*p_employee ;  //  노무비 총액 * 개인 고용보험율 (0.065)
-                    var med_tax = total_salary*p_med;  // 노무비 총액 * 개인 의료보험율 (0.036)
+                    var med_tax = parseInt(total_salary*p_med);  // 노무비 총액 * 개인 의료보험율 (0.036)
                     var pension_tax = total_salary*p_pension;  //노무비 총액  * 개인 국민연금(0.045)
 
 

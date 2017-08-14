@@ -23,12 +23,15 @@ var daily_employee_register = function ()
             for (var i = 0; i < res_num; i++)
             {
                 var str = '';
+
                 //var j = i+1;
                 str += "<option value='"+res[i].id+"'>";
                 str += res[i].hyun_jang_name
 
                 str += "</option>";
                 $("#hyunjang_select").append(str);
+                //$("#bogoja").append(res[i].balju_company);
+                //$("#baluju_company").append(res[i].bogoja);
 
             }
 
