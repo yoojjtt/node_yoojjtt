@@ -1617,6 +1617,14 @@
   text-align: center;
   border-left: 1px solid #ddd;
 }
+.nomu .table th div.label_week_date_jumin {
+  float: left;
+  width: 100px;
+  border-left: 1px solid #ddd;
+  line-height: 1.5;
+  color: #a2a2a2;
+  padding-left: 5px;
+}
 .nomu .table th div.label_week_date {
   float: left;
   width: 30px;
@@ -1673,62 +1681,62 @@
 }
 .nomu .table th:nth-of-type(2) {
   width: 2%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(3) {
   width: 4%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(4) {
   width: 4%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(5) {
   width: 8%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(6) {
   width: 33.5%;
 }
 .nomu .table th:nth-of-type(7) {
   width: 4.19%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(8) {
   width: 5%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(9) {
   width: 4.95%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(10) {
   width: 4.9%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(11) {
   width: 4.86%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(12) {
   width: 4.95%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(13) {
   width: 4.95%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(14) {
   width: 4.9%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(15) {
   width: 4.95%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(16) {
   width: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .nomu .table td:nth-of-type(1) {
   width: 10px;
@@ -2917,4 +2925,36 @@ ul#myTab {
 /*tbody tr 클릭시 강조*/
 tr:hover td {
   background-color: #ddddff;
+}
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

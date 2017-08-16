@@ -51,7 +51,7 @@
         </div>
         <div class="pull-right">
 
-            <button class="btn btn-info"  onClick="" id="">급여 명세서</button>
+            <button class="btn btn-info"  onClick="print.payment_pdf();" id="">급여 명세서</button>
             <button class="btn btn-success" onClick="" id="">저장</button>
             <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
@@ -207,12 +207,8 @@
     function act(){
         payment.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
-    function print_test(){
 
 
-        //print.nomu_pdf();
-
-    }
 
 
 

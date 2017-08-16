@@ -54,10 +54,31 @@ var nomu = function ()
                 var balju_company = res[0].balju_company;
                 var bogoja = res[0].bogoja;
                 var hyun_jang_name = res[0].hyun_jang_name;
+                var hyun_jang_number = res[0].hyun_jang_number;
+                var company_name = res[0].company_name;
+                var company_address = res[0].company_address;
+                var company_phone = res[0].company_phone;
+                var president = res[0].president;
+
                 //alert(balju_company);
                 $('#balju_company').empty().append(balju_company);
                 $('#bogoja').empty().append(bogoja);
+                /* 현장명, 사업장관리번호, 사업자명, 소재지, 공사명, 회사 전화번호,
+                    고용관리 책임자, 책임자의 주민등록번호, 대표이름
+                 */
                 $('#hyun_jang_name').empty().append(hyun_jang_name);
+
+
+                //$('#hyun_jang_number').empty().append(hyun_jang_number);
+                $('#company_name').empty().append(company_name);
+                $('#company_address').empty().append(company_address);
+                $('#company_phone').empty().append(company_phone);
+                $('#president').empty().append(president);
+                //$('#acc_name').empty().append(acc_name);
+                //$('#acc-jumin').empty().append(acc_jumin);
+
+
+
 
                 var exception_money = parseFloat(exception);
                 var income_rate = parseFloat(income)/100;
@@ -83,7 +104,20 @@ var nomu = function ()
                     str += "<td>" + k + "</td>";
                     str += "<td>" + res[i].name + "</td>";
                     str += "<td>" + res[i].job+ "</td>";
-                    str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
+
+
+                   var address1 =  res[i].address1;
+                   var address1_leng = address1.length;
+                   if(address1_leng >11 ){
+                       //alert(address1_leng);
+                       address1 = address1.substring(-10, 10);  // s_index, e_index
+                       //alert(address1)
+                   }
+
+                    str += "<td>" 
+                        +"<div class='label_week_date_jumin'>"+res[i].jumin1 +"-"+ res[i].jumin2 + "</div>"
+                        +"<div class='label_week_date_jumin'>"+address1 + "</div>"
+                        +"</td>";
 
                     var daily_salary_total = res[i].daily_salary;
                     var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.

@@ -122,6 +122,10 @@
  </div>
 <!-- contents -->
 
+<div class="loader"> </div>
+<div class="container" style="display:none;"> <h1>로딩 후 화면</h1> <div>
+
+
 
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -141,6 +145,8 @@
         if (email == false) {  //WHEN anonymous try to access, then  getting off and redirect to LOGIN_page;
             location.href = "/pages/login.html";
             $("#fixed_top").hide();
+
+
 
         } else { //WHEN login success,
 
@@ -162,6 +168,11 @@
                 $('#company_management').css('display', 'none');
                 $('#hyunjang_management').css('display', 'none');
             }
+            _hidePage();
+
+
+
+
         }
 
         window_resize();
@@ -175,6 +186,7 @@
     });
 
     function window_resize() {
+
         var win_width = $(window).width();
         var win_height = $(window).height();
 
@@ -229,6 +241,24 @@
         };
 
     }
+    function _showPage(){
+
+        //lert('로드시작');
+        var loader = $("div.loader");
+        var container = $("div.container");
+        loader.css("display","block");
+        container.css("display","block");
+    }
+    function _hidePage(){
+
+        //alert('로드종료');
+        var loader = $("div.loader");
+        var container = $("div.container");
+        loader.css("display","none");
+        container.css("display","block");
+    }
+
+
 
 
 

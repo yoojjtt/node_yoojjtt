@@ -41,6 +41,17 @@ var retire = function ()
                     var start = res[i].start_work_kongsu;
                     var pluse_one = res[i].plus_one;
                     var pluse_two = res[i].plus_two;
+                    var pluse_three = res[i].plus_three;
+                    var pluse_four = res[i].plus_four;
+                    var pluse_five = res[i].plus_five;
+                    var pluse_six = res[i].plus_six;
+                    var pluse_seven = res[i].plus_seven;
+                    var pluse_eight = res[i].plus_eight;
+                    var pluse_nine = res[i].plus_nine;
+                    var pluse_ten = res[i].plus_ten;
+                    var pluse_eleven = res[i].plus_eleven;
+
+
 
 
                         //alert(present[1]);
@@ -57,15 +68,15 @@ var retire = function ()
                         str += "<td>" + start + "</td>";
                         str += "<td>" + pluse_one + "</td>";
                         str += "<td>" + pluse_two +"</td>";
-                        str += "<td>" + "4월 공수" +"</td>";
-                        str += "<td>" + "5월 공수" +"</td>";
-                        str += "<td>" + "6월 공수" +"</td>";
-                        str += "<td>" + "7월 공수" +"</td>";
-                        str += "<td>" + "8월 공수" +"</td>";
-                        str += "<td>" + "9월 공수" +"</td>";
-                        str += "<td>" + "10월 공수" +"</td>";
-                        str += "<td>" + "11월 공수" +"</td>";
-                        str += "<td>" + "12월 공수" +"</td>";
+                        str += "<td>" + pluse_three +"</td>";
+                        str += "<td>" + pluse_four +"</td>";
+                        str += "<td>" + pluse_five +"</td>";
+                        str += "<td>" + pluse_six +"</td>";
+                        str += "<td>" + pluse_seven +"</td>";
+                        str += "<td>" + pluse_eight+"</td>";
+                        str += "<td>" + pluse_nine +"</td>";
+                        str += "<td>" + pluse_ten +"</td>";
+                        str += "<td>" + pluse_eleven +"</td>";
                         str += "<td>" + "근무 개월 수" +"</td>";
                         str += "<td>" + "최근 3개월"+ "<br>"+ "평균 급여" +"</td>";
                     str += "</tr>"
