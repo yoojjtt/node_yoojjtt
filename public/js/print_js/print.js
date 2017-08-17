@@ -376,10 +376,10 @@ var print = function ()
                     doc.drawText(155, 166, [day]);
 
                 }
-                 doc.addPage();
-                 doc.addImage(img2, 'png', 0, 0, 298, 210);  //  x,y,w,h,
-                 doc.addPage();
-                 doc.addImage(img3, 'png', 0, 0, 298, 210);  //  x,y,w,h,
+                 //doc.addPage();
+                 //doc.addImage(img2, 'png', 0, 0, 298, 210);  //  x,y,w,h,
+                 //doc.addPage();
+                 //doc.addImage(img3, 'png', 0, 0, 298, 210);  //  x,y,w,h,
                  doc.save('job-1.pdf');
                 parent.parent._hidePage();
             });

@@ -26,7 +26,7 @@
     <div class="panel panel-default ">  <!--head -->
         <div class="panel-heading">
             <div class="pull-left">
-                <select id="setJob" onChange="setValue()" class="btn btn-default form-control">
+                <select id="setJob" onChange="setValue()" class="input-box-type2 btn btn-default form-control">
                     <option value="0">직종선택</option>
                     <option value="관리">관리</option>
                     <option value="반장">반장</option>
@@ -45,7 +45,8 @@
                     <option value="청소">청소</option>
 
                 </select>
-                <span>총 원 : <span id="total_daily_employee_no"></span>
+                <div class="input-box-type2"><input type="text" class="form-control" id="search_input" onkeyup="lib.onKeyup()" placeholder="이름 검색"></div>
+                <div class="number_text"><span class="">총 원 : <span id="total_daily_employee_no"></span></span></div>
             </div>
             <div class="pull-right">
                 <button class="btn btn-info" id="daily_enroll" onClick="daily_employee.new_daily_employee()" >신규등록</button>
@@ -196,6 +197,7 @@
 <script src="../../js/my_js/_static.js"></script>
 
 <script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
 <script src="../../js/my_js/_table_ui.js"></script>
 <script src="../../js/my_js/daily_employee.js"></script>
 
@@ -229,6 +231,7 @@
 
         daily_employee.daily_employee_load(job);
     }
+
 
 
 

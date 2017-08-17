@@ -32,7 +32,7 @@ var closing = function ()
 
                 var str = '';
                 var kongsu = res[i].attendance;
-                var kongsu_daily = kongsu.split('@');
+                var kongsu_daily = kongsu.split('@@');
                 var tot_num = kongsu_daily.length;
 
                 if(res[i].attendance == null){
@@ -51,16 +51,25 @@ var closing = function ()
                 var daily_salary_total = res[i].daily_salary;
                 var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
                 str += "<td>"
-
+                var kongsu_total = 0; // 공수합계를 구하는 변수
                     for(var j = 0; j < tot_num; j++){
-                        //if(kongsu_daily[j] == 0){
-                            //str += "<div class='label_week_date'>"+"" + "</div>"
-                        //}else{
-                            str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"
-                            total_salary += daily_salary_total * kongsu_daily[j];
-                        //}
+
+                        if(j>31){
+                            break;
+                        }
+
+                        str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>";
+                        total_salary += daily_salary_total * kongsu_daily[j];
+
+                        var kongsu = parseFloat(kongsu_daily[j]);
+
+                        if(kongsu_daily[j]>0){
+                            kongsu_total += kongsu
+                        }
+
                     }
                 str += "</td>";
+                str += "<td>"+ kongsu_total.toFixed(1)+"</td>";
                 str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";
                 str += "<td>"+  total_salary.toLocaleString() +"</td>";
                 str += "</tr>"

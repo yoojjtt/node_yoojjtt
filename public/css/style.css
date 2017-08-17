@@ -325,6 +325,17 @@
 .daily_employee_page .panel-heading .pull-left span {
   margin-left: 6px;
 }
+.daily_employee_page .panel-heading .pull-left .input-box-type2 {
+  float: left;
+  width: 110px;
+  margin-right: 5px;
+}
+.daily_employee_page .panel-heading .pull-left .number_text {
+  margin-top: 8px;
+  float: left;
+  width: 110px;
+  margin-right: 5px;
+}
 .daily_employee_page .panel-heading .pull-right {
   position: absolute;
   right: 10px;
@@ -774,7 +785,7 @@
 .closing .table th {
   padding: 0;
   text-align: center;
-  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 .closing .table th div.label_week_date {
   float: left;
@@ -782,7 +793,6 @@
   border-left: 1px solid #ddd;
   line-height: 1.5;
   color: #a2a2a2;
-  padding-left: 5px;
 }
 .closing .table th div.label_week_date ._week {
   font-weight: normal;
@@ -812,6 +822,8 @@
   border-right: 1px solid #ddd;
   line-height: 1.5;
   color: #a2a2a2;
+  padding: 0;
+  text-align: center;
 }
 .closing .table tbody .attendance_label_1 {
   color: #48eb00;
@@ -823,9 +835,6 @@
   background: #dddddd;
   cursor: pointer;
 }
-.closing .table th:nth-of-type(1) {
-  width: 10px;
-}
 .closing .table th:nth-of-type(2) {
   width: 2%;
   padding-bottom: 8px;
@@ -835,26 +844,26 @@
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(4) {
-  width: 5%;
+  width: 4%;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(5) {
-  width: 10%;
+  width: 8%;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(6) {
   width: 62%;
 }
 .closing .table th:nth-of-type(7) {
-  width: 7%;
-  padding-bottom: 8px;
+  width: 4%;
 }
 .closing .table th:nth-of-type(8) {
-  width: 300px;
+  width: 5%;
   padding-bottom: 8px;
 }
-.closing .table td:nth-of-type(1) {
-  width: 10px;
+.closing .table th:nth-of-type(9) {
+  width: 5%;
+  padding-bottom: 8px;
 }
 .closing .table td:nth-of-type(2) {
   width: 2%;
@@ -863,24 +872,27 @@
   width: 5%;
 }
 .closing .table td:nth-of-type(4) {
-  width: 5.2%;
+  width: 4.2%;
 }
 .closing .table td:nth-of-type(5) {
-  width: 10%;
+  width: 8%;
 }
 .closing .table td:nth-of-type(6) {
-  padding-left: 2px;
-  padding-right: 2px;
-  width: 63%;
+  width: 64%;
+  padding-left: 0;
+  padding-right: 0;
 }
 .closing .table td:nth-of-type(7) {
-  width: 7%;
+  width: 3%;
+}
+.closing .table td:nth-of-type(8) {
+  width: 6%;
+}
+.closing .table td:nth-of-type(9) {
+  width: 6%;
   padding-right: 20px;
   text-align: right;
   border-right: 1px solid #ddd;
-}
-.closing .table td:nth-of-type(8) {
-  width: 300px;
 }
 .closing .table td:last-child {
   border-right: 1px solid #ddd;
@@ -1305,11 +1317,24 @@
   font-size: 50px;
 }
 .register .area_in_box .area3 {
-  width: 350px;
+  width: 380px;
 }
 .register .area_in_box .area3 select {
-  width: 120px;
+  float: left;
+  width: 110px;
   margin-bottom: 5px;
+  margin-right: 5px;
+}
+.register .area_in_box .area3 .input-box-type2 {
+  float: left;
+  width: 110px;
+  margin-right: 5px;
+}
+.register .area_in_box .area3 .number_text {
+  margin-top: 8px;
+  float: left;
+  width: 100px;
+  margin-right: 5px;
 }
 .register .area_in_box .area3 table {
   width: 350px;

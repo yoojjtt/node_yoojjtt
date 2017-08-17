@@ -7,19 +7,21 @@ var lib = function ()
 
     return {
 
-        dateValue : function(){
+        dateValue : function(){  // xxxx-xx-xx 현재일
             var now = new Date();
             var year= now.getFullYear();
             var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);  // 달이 9월이상이면 ''+10,11,12 찍고 아니면 '0'+ 먼스찍기
             var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
             var chan_val = year + '-' + mon + '-' + day;
-            $('#dateSearch').val(chan_val);
-            daily_search();
+            //$('#dateSearch').val(chan_val);
+            //daily_search();
+            return chan_val;
         },
         dateValue_add : function(addday){  // 1이오면 하루 증가, -1 이 오면 하루 차감
             var day = document.getElementById('dateSearch').value;
             var resultDay = lib.GetDateAdd(day ,addday);
             //document.getElementById('dateSearch').value = day;
+            return resultDay;
         },
         GetDateAdd : function(strSDate, Days){
             var SDate_pYyyymmdd = strSDate.replace(eval("/\\" + "-" + "/g"), "");
@@ -29,16 +31,17 @@ var lib = function ()
             var SDate = new Date(SDate_yyyy, SDate_mm - 1, SDate_dd);
             SDate.getDate(SDate.getDate() + Days);
             var resultDate = new Date(Date.parse(SDate) + Days * 1000 * 60 * 60 * 24);
-            var test =  resultDate.getFullYear() + "-" + ((resultDate.getMonth() + 101) +
+            var day_val =  resultDate.getFullYear() + "-" + ((resultDate.getMonth() + 101) +
                 "").substring(1, 3) + "-" + ((resultDate.getDate() + 100) + "").substring(1, 3);
 
-            $('#dateSearch').val(test);
-            daily_search();
+
+            return day_val;
         },
         dateValue_add_month : function(addMonth){  // date type 이 월인 경우 1이오면 하루 증가, -1 이 오면 하루 차감
             var day = document.getElementById('toMonth').value;
             var resultDay = lib.GetDateAdd_month(day ,addMonth);
             //document.getElementById('dateSearch').value = day;
+            return resultDay;
         },
         GetDateAdd_month : function(strSDate, Months){
 
@@ -49,23 +52,8 @@ var lib = function ()
             var new_date = now.setMonth(now.getMonth()+Months);
             var month_change = now.getFullYear()+"-"+months[now.getMonth()];
 
+            return month_change;
 
-            /* input type='month' 유형의 날짜가 바뀔 때 마다 로드하고싶은 DATA들 추가하면 됨 */
-
-            //TODO 분할 하는 방법 은 없을 까????
-            //alert(month_change);
-            $('#toMonth').val(month_change);
-
-
-            act();  //각페이지 reload data
-
-
-
-
-
-            /*  closing page 에서 calender 날짜 ***/
-            var month_select = $('#toMonth').val();
-            lib.Calendar(month_select);
 
         },
         Calendar : function(date){
@@ -137,6 +125,39 @@ var lib = function ()
 
             $('#monthly_closing').empty().append(calendar);
         },
+        onKeyup : function(){
+            // Declare variables
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("search_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("daily_employee_list");  //search 하고자 하는 table
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        },
+        toMonth: function(){  // xxxx-xx 현재월을 찍는다.
+            var now = new Date();
+            var year= now.getFullYear();
+            var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+
+            var month_val = year + '-' + mon ;
+            //var str = '';
+            //str += chan_val;
+
+            return month_val;
+
+        }
+
 
     };
 
