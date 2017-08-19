@@ -24,7 +24,9 @@
         }
         .select-box2 {
           float: left;
+          width:165px;
           padding-right: 3px;
+
         }
 
 
@@ -34,7 +36,7 @@
         }
 
         #sKongsu_type {
-          width:80px;
+          width:125px;
         }
 
         .btn_kongsu {
@@ -48,15 +50,33 @@
       }
 
     }
-    .btn_box_right {
+    .btn_etc{
       float: right;
 
       .date {
         float: right;
-        z-index: 10;
+        z-index: 10;  // 최상위
         color: red;
         background: white;
         margin-right: 5px;
+        height:34px;
+        .input-append{
+          height:25px;
+        }
+        input{
+          border:0px;
+          height:24px;
+
+        }
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+
 
         span {
           color: #33acfe;
@@ -118,19 +138,53 @@
     }
 
     th {
+      padding:0;
       text-align: center;
+      border-right: 1px solid #ddd;
+      div.label_week_date{
+        float:left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+
+
+        ._week{
+          font-weight: normal;
+          font-size: 9px;
+        }
+
+      }
+      .sun{
+        color: deeppink!important;
+      }
+      .sat{
+        color: deepskyblue!important;
+      }
     }
     tr {
       text-align: center;
     }
     td {
       font-size: 12px;
-      padding-top: 25px;
+      //padding-top: 25px;
     }
     tbody {
       display: block;
       overflow-y: scroll;
       overflow-x: hidden;
+      div.label_week_date {
+        float: left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        padding:0;
+        text-align:center;
+        //padding-left: 8px;
+
+      }
 
       .attendance_label_1 {
         color: #48eb00;
@@ -140,25 +194,62 @@
       }
 
     }
-
+    /*
     .td_checkbox {
       padding: 25px 0 25px 0;
     }
+    */
     .list_row:hover {
       background: #dddddd;
       cursor: pointer;
     }
 
+    th {
 
-    th:nth-of-type(1), td:nth-of-type(1) { width: 40px; }
-    th:nth-of-type(2), td:nth-of-type(2) { width: 100px; }
+      &:nth-of-type(2) {width: 3%; padding-bottom:20px;}//#
+      &:nth-of-type(3) {width: 20%; padding-bottom:20px;}//현장
+      &:nth-of-type(4) {width: 6%; padding-bottom:20px;}//담당자
+      &:nth-of-type(5) {width: 10%; padding-bottom:20px;}//발주처
+      &:nth-of-type(6) {width: 10%;padding-bottom:20px; }//현장 관리번호
+      &:nth-of-type(7) {width: 5%; padding-bottom:20px; padding-top:10px;}//현장 관리자 인원
+      &:nth-of-type(8) {width: 5%; padding-bottom:20px;}//현장 근무인원
+      &:nth-of-type(9) {width: 5%; padding-bottom:20px;}//평균 단가
+      &:nth-of-type(10) {width: 5%; padding-bottom:20px;}//평균 인건비
+      &:nth-of-type(11) {width: 5%; padding-bottom:20px;}//인거비 합계
+      &:nth-of-type(12) {width: 5%; padding-bottom:20px;}//총 지출비용
+      &:nth-of-type(13) {width: 5%; padding-bottom:20px;}//총 지출비용
+      &:nth-of-type(14) {width: 5%; padding-bottom:20px;}//총 지출비용
 
+
+
+
+    }
+    td {
+
+
+      &:nth-of-type(2) {width: 3%; padding-bottom:20px;}//#
+      &:nth-of-type(3) {width: 4%; padding-bottom:20px;}//현장
+      &:nth-of-type(4) {width: 4%; padding-bottom:20px;}//담당자
+      &:nth-of-type(5) {width: 8%; padding-bottom:20px;}//발주처
+      &:nth-of-type(6) {width: 8%;padding-bottom:20px; }//현장 관리번호
+      &:nth-of-type(7) {width: 5%; padding-bottom:20px;}//현장 관리자 인원
+      &:nth-of-type(8) {width: 5%; padding-bottom:20px;}//현장 근무인원
+      &:nth-of-type(9) {width: 5%; padding-bottom:20px;}//평균 단가
+      &:nth-of-type(10) {width: 5%; padding-bottom:20px;}//평균 인건비
+      &:nth-of-type(11) {width: 5%; padding-bottom:20px;}//인거비 합계
+      &:nth-of-type(12) {width: 5%; padding-bottom:20px;}//총 지출비용
+    }
+
+
+    /*
     th:last-child {
-      width: calc(315px);text-align: left;
+      width: calc(5600px);text-align: right;
     }
+    */
     td:last-child {
-      width: calc(295px);text-align: left;
+      border-right: 1px solid #ddd; //width: calc(5600px);text-align: right;
     }
+
   }
 
 }

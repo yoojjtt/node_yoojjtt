@@ -3,49 +3,47 @@
 
 <head>
     <title>Admin Home Page test</title>
+
     <!-- 부트스트랩 -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
-    <link href="../../css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+
 </head>
 
 <body>
-<div class="panel panel-default closing">
+<div class="panel panel-default dashboard">
 
     <div class="panel-heading head1">
         <div class="btn_box_left">
             <div class="btn_check_all">
-                <div class="select-box">
-                    <select onChange="daily_search();" id="hyunjang_select" class="btn-default form-control btn_class" >
 
-                    </select>
-                </div>
 
             </div>
             <div class="btn_etc">
                 <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
 
-                <button type="button" class="btn btn-default" onClick="toMonth()" id="btn_toMonth">현재월로</button>
-                <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="lib.dateValue_add_month(1)" id="btn_right"></div>
+                <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="month_change(1)" id="btn_right"></div>
                 <button class="btn date">
                     <div class="input-append date" id="dp3">
-                        <input onChange="daily_search();"  id="toMonth" type="month" value="">
+                        <input onChange="load();"  id="toMonth" type="month" value="">
                         <span class="add-on">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <span class="lbl_targetDay" id="lbl_targetDay"></span>
                     </span>
                     </div>
                 </button>
-                <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="lib.dateValue_add_month(-1)" id="btn_left"></div>
+                <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="month_change(-1)" id="btn_left"></div>
             </div>
         </div>
 
@@ -61,7 +59,7 @@
         <div class="name-label">ㅣ </div>
         <div class="name-label" > 총 경비 지출 : <span id="average_danga"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label" > 총 수입  : <span id="income"></span> 100,000,000 </div>
+        <div class="name-label" > 총 수입  : <span id="income"></span></div>
         <div class="name-label">ㅣ </div>
 
 
@@ -72,13 +70,17 @@
 
             <th style="display:none;">num</th>
             <th>#</th>
-            <th>이름</th>
-            <th>직종</th>
-            <th>주민번호</th>
-            <th id="monthly_closing">
-            </th>
-            <th>단가</th>
-            <th>총 금액</th>
+            <th>현장</th>
+            <th>담당자</th>
+            <th>발주처</th>
+            <th>현장관리번호</th>
+            <th>관리자<br> 인원</th>
+            <th>근무<br> 인원</th>
+            <th>평균 <br>단가</th>
+            <th>평균 <br>인건비</th>
+            <th>인건비 <br>합계</th>
+            <th>총 투입<br>비용</th>
+            <th>총 지출<br>비용</th>
         </tr>
         </thead>
         <tbody id="kongsu_table_body">
@@ -112,57 +114,48 @@
 <script>
 
     $(function() {
-        //result_data_save = [];
-        daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
-        //TODO 인자값으로 쿠키를 넣어야한다.
-        toMonth();
-        lib.Calendar();
-        closing.monthly_closing_load();
 
-
+        //daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
+        present_month();
         window_resize();
-
-
     });
     $(window).resize(function() {
-
         window_resize();
-
     });
-
     function window_resize() {
         var win_width = $(window).width();
         var win_height = $(window).height();
-
-        //높이
         $('#kongsu_table_body').css('height', win_height-134);
         $('#kongsu_table_head th:last-child').css('width', win_width-140);
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
     }
 
 
-    function toMonth(){  // 현재월로 버튼
-
-        var now = new Date();
-        var year= now.getFullYear();
-        var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-
-        var chan_val = year + '-' + mon ;
-        $('#toMonth').val(chan_val);
-
-        var month_select = $('#toMonth').val();
-        lib.Calendar(month_select);
-
+    function load(){
+        var m = $('#toMonth').val();
+        lib.Calendar(m); // th 의 월별 일자 변경
+        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
+    function present_month(){  // 현재월로 버튼
+        var m = lib.toMonth();
+        $('#toMonth').val(m);
+        lib.Calendar(m);
+        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+    }
+    function month_change(interval){  //달 +1,-1 버튼
+        var m = lib.dateValue_add_month(interval);
+        $('#toMonth').val(m);
+        //alert(m);
+        lib.Calendar(m);
+        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+    }
+
 
 
 
 </script>
 
 
-
-<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="../../assets/DT_bootstrap.js"></script>
 </body>
 
 

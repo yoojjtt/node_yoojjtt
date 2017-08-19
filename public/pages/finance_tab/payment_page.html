@@ -52,7 +52,7 @@
         <div class="pull-right">
 
             <button class="btn btn-info"  onClick="print.payment_pdf();" id="">급여 명세서</button>
-            <button class="btn btn-success" onClick="" id="">저장</button>
+            <button class="btn btn-success" onClick="payment.account_save()" id="">저장</button>
             <!-- button class="btn btn-default" id="btn_delete">삭제</button -->
         </div>
 
@@ -181,7 +181,6 @@
 
 
     function load(){
-
         payment.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
     function present_month(){  // 현재월로 버튼

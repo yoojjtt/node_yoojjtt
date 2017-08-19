@@ -23,30 +23,29 @@ daily_employee_info.prototype.handleRoutes = function(router, parent)  //  /m, M
         //console.log(apiKey);
 
 
-
-        if(gubun =="R") {
+        if (gubun == "R") {
             var company_no = req.session.sess_company_no;
             var job = data[0];
 
 
-            var query = "CALL daily_employee_R("+company_no+",'"+job+"','')";
+            var query = "CALL daily_employee_R(" + company_no + ",'" + job + "','')";
 
-            console.log(query+": 일용직 리스트 로드");
+            console.log(query + ": 일용직 리스트 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
 
         }
-        if(gubun =="individual"){
+        if (gubun == "individual") {
             var id = data[0];
 
-            var query = "CALL daily_employee_R('','',"+id+")";
-            console.log(query+": 일용직 개별 정보 로드");
+            var query = "CALL daily_employee_R('',''," + id + ")";
+            console.log(query + ": 일용직 개별 정보 로드");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
         }
-        if(gubun =="S"){
+        if (gubun == "S") {
             var name = data[0];
             var id = data[1];
             var job = data[2];
@@ -61,26 +60,51 @@ daily_employee_info.prototype.handleRoutes = function(router, parent)  //  /m, M
             var bank_account = data[11];
             var company_no = req.session.sess_company_no;
 
-            var query = "CALL daily_employee_S('"+name
-                +"','"+id
-                +"','"+job
-                +"','"+jumin1
-                +"','"+jumin2
-                +"','"+phone
-                +"','"+postnum
-                +"','"+address1
-                +"','"+address2
-                +"','"+bank_name
-                +"','"+bank_owner
-                +"','"+bank_account
-                +"','"+company_no
-                +"')";
+            var query = "CALL daily_employee_S('" + name
+                + "','" + id
+                + "','" + job
+                + "','" + jumin1
+                + "','" + jumin2
+                + "','" + phone
+                + "','" + postnum
+                + "','" + address1
+                + "','" + address2
+                + "','" + bank_name
+                + "','" + bank_owner
+                + "','" + bank_account
+                + "','" + company_no
+                + "')";
 
-            console.log(query+": 일용직 정보 수정/신규 저장");
+            console.log(query + ": 일용직 정보 수정/신규 저장");
 
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
         }
+        if(gubun == "account_save"){
+            var company_no = req.session.sess_company_no;
+            var value_g = data[0];
+            var total_num = data[1];
+            var month = data[2];
+            var hyunjang_id = data[3];
+
+            var query = "CALL daily_employee_account_S('"
+                +company_no
+                +"','"+hyunjang_id
+                +"','"+month
+                +"','"+value_g
+                +"','"+total_num
+                +"')";
+
+            console.log(query+": 급여명세서 account_save");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+
+
+
+        }
+
+
+
 
 
     });

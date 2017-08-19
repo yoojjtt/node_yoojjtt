@@ -184,6 +184,72 @@ var payment = function ()
 
 
         },
+        account_save : function(){
+            alert('save');
+            var month = $('#toMonth').val();
+            var hyunjang_id = $('#hyunjang_select').val();
+            var total_num = $('#nomu_table_body tr').size();
+            //var id_G = '';
+            //var account_G = '';
+            //var accountName_G = '';
+            //var accountOwner_G = '';
+
+            var value_array = '';
+
+            for (var i = 0; i < total_num; i++) {
+
+                var id = $('#nomu_table_body tr').eq(i).children().eq(0).text();
+                var account_name = $('#nomu_table_body tr').eq(i).children().find('input').eq(0).val();
+                var account_owner = $('#nomu_table_body tr').eq(i).children().find('input').eq(1).val();
+                var account = $('#nomu_table_body tr').eq(i).children().find('input').eq(2).val();
+
+
+
+                if(account_name == '' || undefined || null){
+                    account_name = 'EMPTY'+i;
+                }
+                if(account_owner == '' || undefined || null){
+                    account_owner = 'EMPTY'+i;
+                }
+                if(account == '' || undefined || null){
+                    account = 'EMPTY'+i;
+                }
+                /*
+                id_G += id + "@"+
+                account_G += account + "@";
+                accountName_G += account_name + "@";
+                accountOwner_G += account_owner + "@";
+                   */
+                value_array += id +"@"+account + "@" +account_name + "@" +account_owner + "@" +"//";
+            }
+            //alert(id_G + "//" + account_G + "//" + accountName_G + "//" + accountOwner_G);
+
+            //alert(value_array);
+
+
+
+            var gubun = "account_save";
+            var iData = ['value','total_num', 'month','hyunjang_id'];
+            iData[0] = value_array;
+            iData[1] = total_num;
+            iData[2] = month;
+            iData[3] = hyunjang_id;
+
+            var result = _DB_query.httpService("daily_employee_info",gubun, iData);
+            var msg = result[0].data[0][0].msg;
+            //var res = result[0].data[0][0];
+            var return_code = result[0].data[0][0].return_code;
+            if(return_code == '100'){
+                alert(msg);
+                location.reload();
+
+            }
+
+            
+
+
+
+        }
 
 
     };

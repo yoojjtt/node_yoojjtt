@@ -103,7 +103,7 @@ var insurance = function ()
 
                         var before_kongsu = before_kongsu_daily[k]; // 전달의 공수를 @로 자른 배열
                        if(before_kongsu_daily[k]>0){
-                            before_kongsu_total += parseFloat(before_kongsu);
+                            before_kongsu_total += parseInt(before_kongsu);
                             before_work_day += 1;
 
                        }
@@ -117,7 +117,7 @@ var insurance = function ()
                     var daily_salary_total = res[i].daily_salary;
                     var total_salary = 0;  // 금액을 더할 때는 int 로 초기값 설정해야 한다.
                     var gab_tax = 0;  // 갑근세계산을 위한 float 변수;
-                    var daily_salary = parseFloat(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
+                    var daily_salary = parseInt(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
                     var kongsu_total = 0;
 
                     for(var j = 0; j < tot_num; j++){

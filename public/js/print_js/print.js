@@ -204,10 +204,10 @@ var print = function ()
             
             //TODO  전체명수를 7로 나눠서, 몇번 실행할지를 구한다음.
             //TODO 7명만 1,2,3 page 찍고 다음 8번재 사람부터 1,2,3 페이지찍고 다음 종료한 사람으로부터 7명
-
+            var p = window.parent.parent;
 
             alert('근로 내역서');
-            parent.parent._showPage();
+            p._showPage();
 
             var img = new Image();
             var img2 = new Image();
@@ -381,7 +381,7 @@ var print = function ()
                  //doc.addPage();
                  //doc.addImage(img3, 'png', 0, 0, 298, 210);  //  x,y,w,h,
                  doc.save('job-1.pdf');
-                parent.parent._hidePage();
+                p._hidePage();
             });
 
 
@@ -395,9 +395,9 @@ var print = function ()
 
         },
         payment_pdf : function(){
-
+            var p = window.parent.parent;
             alert('급여 지급');
-            parent.parent._showPage();
+            p._showPage();
             var img = new Image();
             img.addEventListener('load', function() {
                 var doc = new jsPDF({
@@ -504,7 +504,7 @@ var print = function ()
 
                 }
                 doc.save('dailyMeber_payList.pdf');
-                parent.parent._hidePage();
+                p._hidePage();
 
             });
             img.src = '../../docs/dailyMember_payList.png';
