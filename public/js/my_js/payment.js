@@ -185,7 +185,7 @@ var payment = function ()
 
         },
         account_save : function(){
-            alert('save');
+            //alert('save');
             var month = $('#toMonth').val();
             var hyunjang_id = $('#hyunjang_select').val();
             var total_num = $('#nomu_table_body tr').size();
