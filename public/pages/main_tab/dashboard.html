@@ -53,18 +53,18 @@
     <div class="panel-heading head2">
         <div class="name-label" id="total_label">총 현장 개수: <span id="total_num"></span></div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label absence" id="absence_num"> 총 결산 금액  : <span id="total_money"></span> </div>
+        <div class="name-label absence" id="absence_num"> 회사 총 결산 금액  : <span id="total_money"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label normality" id="normality_num"> 총 투입 비용 : <span id="average_monthly_salary"></span> </div>
+        <div class="name-label normality" id="normality_num"> 회사 총 투입 비용 : <span id="average_monthly_salary"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label" > 총 경비 지출 : <span id="average_danga"></span> </div>
+        <div class="name-label" > 회사 총 경비 지출 : <span id="average_danga"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label" > 총 수입  : <span id="income"></span></div>
+        <div class="name-label" > 회사 총 수입  : <span id="income"></span></div>
         <div class="name-label">ㅣ </div>
 
 
     </div>
-    <table class="table table-striped" id="kongsu_table_head">
+    <table class="table table-striped" id="dashboard_table_head">
         <thead>
         <tr>
 
@@ -73,7 +73,8 @@
             <th>현장</th>
             <th>담당자</th>
             <th>발주처</th>
-            <th>현장관리번호</th>
+            <th>공사<br>시작일</th>
+            <th>공사<br>종료일</th>
             <th>관리자<br> 인원</th>
             <th>근무<br> 인원</th>
             <th>평균 <br>단가</th>
@@ -83,7 +84,7 @@
             <th>총 지출<br>비용</th>
         </tr>
         </thead>
-        <tbody id="kongsu_table_body">
+        <tbody id="dashboard_table_body">
 
         <!-- 데이터 -->
 
@@ -110,7 +111,7 @@
 
 <script src="../../js/my_js/daily_employee_register.js"></script>
 <script src="../../js/my_js/_client_lib.js"></script>
-<script src="../../js/my_js/closing.js"></script>
+<script src="../../js/my_js/dashboard.js"></script>
 <script>
 
     $(function() {
@@ -125,29 +126,29 @@
     function window_resize() {
         var win_width = $(window).width();
         var win_height = $(window).height();
-        $('#kongsu_table_body').css('height', win_height-134);
-        $('#kongsu_table_head th:last-child').css('width', win_width-140);
-        $('#kongsu_table_body td:last-child').css('width', win_width-140);
+        $('#dashboard_table_body').css('height', win_height-134);
+        $('#dashboard_table_head th:last-child').css('width', win_width-140);
+        $('#dashboard_table_body td:last-child').css('width', win_width-140);
     }
 
 
     function load(){
         var m = $('#toMonth').val();
         lib.Calendar(m); // th 의 월별 일자 변경
-        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+        dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
     function present_month(){  // 현재월로 버튼
         var m = lib.toMonth();
         $('#toMonth').val(m);
         lib.Calendar(m);
-        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+        dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
     function month_change(interval){  //달 +1,-1 버튼
         var m = lib.dateValue_add_month(interval);
         $('#toMonth').val(m);
         //alert(m);
         lib.Calendar(m);
-        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+        dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
 

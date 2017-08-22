@@ -58,7 +58,6 @@
 
     $(function() {
         window_resize();
-        //TODO 지울 것 많음!!
         employee.new_employee();
         tax.tax_load();
         service_auth.load(email);
@@ -80,30 +79,7 @@
         $('#tab_contents').css('height', basic_height);
     }
 
-    function employee_sujung(type){
-        if(type == 'update'){ employee.employee_save();}  //updatae기능과 insert기능 같이
-        if(type == 'enroll'){ employee.new_employee();}
-        if(type == 'delete'){ alert('delete');}
 
-    }
-    function tax_sujung(type){
-        if(type =='new'){tax.tax_new()}
-        if(type =='update'){tax.tax_update()}
-        if(type =='return'){tax.tax_load()}
-
-    }
-
-    function info_load(table, third, forth){
-
-
-        if(table == 'employees_list'){
-            employee.employee_load(company_no, third, forth);
-        }
-        if(table == 'tax_list'){
-            alert('tax_table클릭');
-        }
-
-    }
     function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
         //alert(num);
 

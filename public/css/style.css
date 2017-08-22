@@ -1563,7 +1563,7 @@
   padding-bottom: 20px;
 }
 .dashboard .table th:nth-of-type(5) {
-  width: 10%;
+  width: 15%;
   padding-bottom: 20px;
 }
 .dashboard .table th:nth-of-type(6) {
@@ -1571,7 +1571,7 @@
   padding-bottom: 20px;
 }
 .dashboard .table th:nth-of-type(7) {
-  width: 5%;
+  width: 10%;
   padding-bottom: 20px;
   padding-top: 10px;
 }
@@ -1608,23 +1608,23 @@
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(3) {
-  width: 4%;
+  width: 20%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(4) {
-  width: 4%;
+  width: 6%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(5) {
-  width: 8%;
+  width: 15%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(6) {
-  width: 8%;
+  width: 10%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(7) {
-  width: 5%;
+  width: 10%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(8) {

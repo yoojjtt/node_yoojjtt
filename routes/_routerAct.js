@@ -7,6 +7,7 @@ var Con = new Config();
 /** @namespace Con.db_config */
 var dbConnection = mysql.createPool(Con.db_config);
 
+var Dashboard = require("./dashboard_info.js");
 var Member = require("./member.js");  //서비스 신청, 직원등록
 var Auth = require("./auth.js"); //로그인
 var Service_info = require("./_service_info.js");  // super user 에 의한 서비스기간 설정
@@ -30,6 +31,7 @@ function Mobile_routerAct(router)   //  생성자, 매개변수의 인자값  /m
     console.log('router standby~~');
 
     //sqltest (프로시져 테스트)
+    var dashboard = new Dashboard(router, this);
     var member = new Member(router, this);
     var auth = new Auth(router, this);
     var service_info = new Service_info(router, this);
