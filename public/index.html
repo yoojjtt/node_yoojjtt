@@ -122,8 +122,8 @@
  </div>
 <!-- contents -->
 
-<div class="loader"> </div>
-<div class="container" style="display:none;"> <h1>로딩 후 화면</h1> <div>
+<div class="loader" style="z-index:9999;"> </div>
+<div class="container" style="display:none; z-index:9999;"> <h1>로딩 후 화면</h1> <div>
 
 
 
@@ -227,27 +227,18 @@
                 $('#iframe_modal').css('height', _height);
 
             }
-            /*
-            if(_pageName=='modal/daily_employee_modal'){
-                target.daily_Info(_value1);
-                $('.modal-footer').css('display', '');
-                $('.modal-body').css('width', _width);
-                $('.modal-body').css('height', _height);
-                $('.modal-body').css('overflow', 'hidden');
-
-            }
-            */
 
         };
 
     }
     function _showPage(){
 
-        //lert('로드시작');
+        //alert('로드시작');
         var loader = $("div.loader");
         var container = $("div.container");
         loader.css("display","block");
         container.css("display","block");
+
     }
     function _hidePage(){
 

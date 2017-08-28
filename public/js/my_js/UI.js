@@ -24,6 +24,10 @@ $("tbody").on("click", "tr", function(){//
     var third = $(this).children().eq(2).text();
     var forth = $(this).children().eq(3).text();
 
+    $('#bogoja_change').val('');  //select 버튼 다시 default로 주기위해서
+    $('#change_btn').css('display', 'block');
+    $('#change_select').css('display', 'none');
+
 
     if(table =='employees_list'){ //employee_page에서 직원 개별정보 로드
         //alert(first);

@@ -25,7 +25,11 @@ var closing = function ()
             var res_num = result[0].data[0].length;
             var total_money = 0;
             var total_danga = 0;
-
+            if(res  == false) {
+                //alert('db없음');
+                var month = $('#toMonth').val();
+                alert(month + ' 입력값이 없습니다.');
+            }
             $('#kongsu_table_body').empty();
             for (var i = 0; i < res_num; i++)
             {

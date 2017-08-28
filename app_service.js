@@ -32,6 +32,8 @@ Mobile_start.prototype.configureExpress = function()
     app.use(bodyParser.json());
 
     app.use(express.static(path.join(__dirname, 'public')));
+    app.use('/swagger-ui', express.static(path.join(__dirname, './node_modules/swagger-ui/dist')));
+
 
 
 

@@ -63,15 +63,6 @@
         <!--------------------------------right area ----------------------------->
         <div class="area area2">
             <div class="form-group">
-                <label class="col-sm-3 control-label">*현장명</label>
-                <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="hyun_jang_name" placeholder="현장명">
-                    <input type="text" id="hyunjang_id" hidden value="0">
-                    </div>
-
-                </div>
-            </div>
-            <div class="form-group">
                 <label class="col-sm-3 control-label">*공사 상태</label>
                 <div class="col-sm-9">
 
@@ -82,22 +73,57 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">*책임자</label>
+                <label class="col-sm-3 control-label">*현장 종류</label>
                 <div class="col-sm-9">
-                    <select id="bogoja" class="btn-default form-control btn_job"></select>
+                    <select id="hyunjang_sort" class="btn-default form-control btn_job">
+                        <option value="0">선택</option>
+                        <option value="건설">건설</option>
+                        <option value="일반">일반</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*현장명</label>
+                <div class="col-sm-9">
+                    <div class="input-box-name"><input type="text" class="form-control" id="hyun_jang_name" placeholder="현장명">
+                    <input type="text" id="hyunjang_id" hidden value="0">
+                    </div>
+
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">*발주회사</label>
                 <div class="col-sm-9">
-                    <div class="input-box"><input type="text" class="form-control" id="balju_company" placeholder="발주회사"></div>
+                    <div class="input-box-name2"><input type="text" class="form-control" id="balju_company" placeholder="발주회사"></div>
 
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*책임자</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input id="bogoja" type="text" class=" form-control"></div>
+                    <div id="change_btn" class="input-box"><button class='btn btn-default' onClick="hyunjang.change()">변경</button></div>
+                    <div id="change_select" style="display:none" class="input-box">
+                        <select  onchange="hyunjang.select()" id="bogoja_change" class="btn-default form-control btn_change">
+                            <option value="">변경</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="col-sm-3 control-label">*계약번호</label>
                 <div class="col-sm-9">
                     <div class="input-box"><input type="text" class="form-control" id="hyun_jang_number" placeholder="계약번호"></div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*관리번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="manageNumber" placeholder="산재관리번호"></div>
 
                 </div>
             </div>

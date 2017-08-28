@@ -18,7 +18,7 @@ var hyunjang = function ()
             var res = result[0].data[0];
             //iData[0] = $('#pwd').val(res.pwd);
             var res_num = result[0].data[0].length;
-            -
+
             $("#total_no").empty().append(res_num);
             $("#hyunjang_list").empty();
             for (var i = 0; i < res_num; i++)
@@ -40,6 +40,29 @@ var hyunjang = function ()
                 $("#hyunjang_list").append(str);
 
             }
+
+            // var str = "<option>"+"변경"+"</option>";
+            // $('#bogoja_change').append(str);
+            // var select = '';
+
+            gubun = "Select";
+            iData = ['infoType'];
+            iData[0] = 'select';  // 빈값이 들어오면 오류가 나니까
+
+            var result = _DB_query.httpService("employee_info", gubun, iData);
+            var res = result[0].data[0];
+
+            var bogoja_num = result[0].data[0].length;
+
+
+            for(var j = 0; j< bogoja_num; j++){
+                var option = '';
+                option += "<option value='"+res[j].name+"'>"+res[j].name+"</option>";
+
+                $('#bogoja_change').append(option);
+            }
+            //alert(option);
+
 
 
 
@@ -67,14 +90,16 @@ var hyunjang = function ()
 
             $('#hyun_jang_name').val(res.hyun_jang_name);
             $('#hyunjang_id').val(res.id);
-            var str = "<option>"+res.bogoja+"</option>";
-            $('#bogoja').empty().append(str);
+            //var str = "<option>"+res.bogoja+"</option>";
+            $('#bogoja').val(res.bogoja);
             $('#hyun_jang_number').val(res.hyun_jang_number);
+            $('#manageNumber').val(res.manageBunho);
             $('#balju_company').val(res.balju_company);
             $('#hyunjang_start').val(res.hyunjang_start);
             $('#hyunjang_end').val(res.hyunjang_end);
             $('#hyun_jang_content').val(res.hyun_jang_content);
             $('#remark').val(res.remark);
+            $('#hyunjang_sort').val(res.hyunjang_sort);
 
             var proc = res.hyunjang_proc;
 
@@ -90,16 +115,23 @@ var hyunjang = function ()
 
 
 
+
+
+
+
         },
         new_hyunjang : function(){
             $('#hyunjang_id').val(0);
             $('#hyun_jang_name').val('');
             $('#hyun_jang_number').val('');
+            $('#manageNumber').val('');
             $('#balju_company').val('');
             $('#hyunjang_start').val('');
             $('#hyunjang_end').val('');
             $('#hyun_jang_content').val('');
             $('#remark').val('');
+            $('#bogoja').val('');
+            $('#hyunjang_sort').val('건설');
 
             var gubun = "selectR";
             var iData = ['manager'];
@@ -122,7 +154,7 @@ var hyunjang = function ()
 
 
             var gubun = "S";
-            var iData = ['hyunjang_id','hyunjang_no','proc','bogoja','balju_company','hyun_jang_number'
+            var iData = ['hyunjang_id','hyunjang_no','proc','hyunjang_sort','bogoja','balju_company','hyun_jang_number','manageNumber'
                 ,'hyunjang_start','hyunjang_end','hyun_jang_content','remark'];
 
 
@@ -130,13 +162,15 @@ var hyunjang = function ()
             iData[0] = $('#hyunjang_id').val();
             iData[1] = $('#hyun_jang_name').val();
             iData[2] = radio;
-            iData[3] = $('#bogoja').val();
-            iData[4] = $('#balju_company').val();
-            iData[5] = $('#hyun_jang_number').val();
-            iData[6] = $('#hyunjang_start').val();
-            iData[7] = $('#hyunjang_end').val();
-            iData[8] = $('#hyun_jang_content').val();
-            iData[9] = $('#remark').val();
+            iData[3] = $('#hyunjang_sort').val();
+            iData[4] = $('#bogoja').val();
+            iData[5] = $('#balju_company').val();
+            iData[6] = $('#hyun_jang_number').val();
+            iData[7] = $('#manageNumber').val();
+            iData[8] = $('#hyunjang_start').val();
+            iData[9] = $('#hyunjang_end').val();
+            iData[10] = $('#hyun_jang_content').val();
+            iData[11] = $('#remark').val();
             var result = _DB_query.httpService("hyunjang_info",gubun, iData);
             var msg = result[0].data[0][0].msg;
             var return_code = result[0].data[0][0].return_code;
@@ -148,6 +182,15 @@ var hyunjang = function ()
             }
 
 
+        },
+        select : function(){
+            var bogoja = $('#bogoja_change').val();
+            $('#bogoja').val(bogoja)
+        },
+        change : function(){
+            //alert('변경');
+            $('#change_btn').css('display', 'none');
+            $('#change_select').css('display', 'block');
         }
 
 

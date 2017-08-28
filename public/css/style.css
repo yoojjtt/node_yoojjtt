@@ -260,6 +260,9 @@
   width: 60px;
   margin-right: 5px;
 }
+.hyunjang_page .area_in_box .area2 .form-group .btn_job {
+  width: 100px;
+}
 .hyunjang_page .area_in_box .area2 .form-group .input-box {
   float: left;
   width: 220px;
@@ -296,8 +299,23 @@
 .hyunjang_page .area_in_box .area2 .form-group .radio-sex .end {
   color: red;
 }
-.hyunjang_page .area_in_box .area2 .form-group .btn_job {
-  width: 120px;
+.hyunjang_page .area_in_box .area2 .form-group .input-box {
+  float: left;
+  width: 150px;
+  margin-right: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input-box .btn_change {
+  width: 100px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input-box-name {
+  float: left;
+  width: 320px;
+  margin-right: 5px;
+}
+.hyunjang_page .area_in_box .area2 .form-group .input-box-name2 {
+  float: left;
+  width: 210px;
+  margin-right: 5px;
 }
 .hyunjang_page .area_in_box .area2 .form-group .btn_bank {
   width: 120px;
@@ -1604,7 +1622,7 @@
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(2) {
-  width: 3%;
+  width: 4%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(3) {
@@ -1616,7 +1634,7 @@
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(5) {
-  width: 15%;
+  width: 17%;
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(6) {
@@ -1644,6 +1662,14 @@
   padding-bottom: 20px;
 }
 .dashboard .table td:nth-of-type(12) {
+  width: 5%;
+  padding-bottom: 20px;
+}
+.dashboard .table td:nth-of-type(13) {
+  width: 5%;
+  padding-bottom: 20px;
+}
+.dashboard .table td:nth-of-type(14) {
   width: 5%;
   padding-bottom: 20px;
 }

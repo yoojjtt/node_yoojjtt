@@ -62,6 +62,17 @@ employee_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
 
         }
+        if(gubun == "Select"){
+            var company_no = req.session.sess_company_no;
+            var infoType = data[0];
+
+            var query = "CALL employee_list_R('','','','','"+company_no+"','"+infoType+"')";
+
+            console.log(query+ ": profile 개인정보 로드");
+
+            parent.mysql_proc_exec(query, res, req, router_name); //Mobile_routerAct.mysql_proc_exec
+
+        }
         if(gubun =="S"){
             var type = data[0];
             var email = data[1];

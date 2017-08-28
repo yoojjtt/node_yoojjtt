@@ -119,6 +119,8 @@
         //daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
         present_month();
         window_resize();
+
+
     });
     $(window).resize(function() {
         window_resize();
@@ -126,7 +128,7 @@
     function window_resize() {
         var win_width = $(window).width();
         var win_height = $(window).height();
-        $('#dashboard_table_body').css('height', win_height-134);
+        $('#dashboard_table_body').css('height', win_height-169);
         $('#dashboard_table_head th:last-child').css('width', win_width-140);
         $('#dashboard_table_body td:last-child').css('width', win_width-140);
     }
@@ -136,6 +138,7 @@
         var m = $('#toMonth').val();
         lib.Calendar(m); // th 의 월별 일자 변경
         dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+
     }
     function present_month(){  // 현재월로 버튼
         var m = lib.toMonth();
@@ -150,6 +153,25 @@
         lib.Calendar(m);
         dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
+
+
+
+//    $(document).ajaxStart(function() {
+//        // 로딩 바 이미지를 띄우고
+//        //$('#load').show();
+//        // 화면의 중앙에 위치하도록 top, left 조정 (화면에 따라 조정 필요)
+//        //alert('ajax_start');
+////        var p = window.parent.parent;
+////        p._showPage();
+//        // ajax 통신이 종료되었을 때 실행될 이벤트
+//    }).ajaxStop(function() {
+//        // 로딩 바 태그와 이미지를 모두 hide 처리
+//        //$('#load').hide();
+//        //alert('ajax_end');
+//        var p = window.parent.parent;
+//        p._hidePage();
+//    });
+
 
 
 

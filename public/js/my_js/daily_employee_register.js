@@ -127,20 +127,33 @@ var daily_employee_register = function ()
             result_data_save = [];  //monthly_danga 에 추가할 데이터
             result_data_delete = [];  // monthly_daga 에서 삭제할 데이터
 
-            $('#monthly_danga').empty();
-            for (var i = 0; i < res_num; i++)
-            {
-                result_data_save.push("'"+res[i].id+"'");
-                var str = '';
-                str += "<tr>";
-                str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
-                str += "<td>"+ res[i].job +"</td>";
-                str += "<td>"+ res[i].name +"</td>";
-                str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
-                str += "<td style='display:none;'>"+ res[i].id +"</td>";
-                str += "</tr>";
-                $('#monthly_danga').append(str);
+            if(res  == false){
+                //alert('db없음');
+                alert(month+' 입력값이 없습니다.');
+                // var nodata = '';
+                //     nodata += "<div>";
+                //     nodata += '입력 값이 없습니다.';
+                //
+                //     nodata += "</div>";
+                // $('#monthly_danga').empty().append(nodata);
+                $('#monthly_danga').empty();
+            }else{
+                $('#monthly_danga').empty();
+                for (var i = 0; i < res_num; i++)
+                {
+                    result_data_save.push("'"+res[i].id+"'");
+                    var str = '';
+                    str += "<tr>";
+                    str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
+                    str += "<td>"+ res[i].job +"</td>";
+                    str += "<td>"+ res[i].name +"</td>";
+                    str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
+                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
+                    str += "</tr>";
+                    $('#monthly_danga').append(str);
+                }
             }
+
             //alert(result_data_save);
 
 

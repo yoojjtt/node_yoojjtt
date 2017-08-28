@@ -62,16 +62,13 @@
     $(function() {
 
         window_resize();
-
-    hyunjang.hyunjang_load(company_no);
-    daily_employee.daily_employee_load(company_no);
+        hyunjang.hyunjang_load(company_no);
+        daily_employee.daily_employee_load(company_no);
         _tabFrame('hyunjang_tab/hyunjang_page.html');
-
 
     });
 
     $(window).resize(function() {
-
         window_resize();
 
     });

@@ -24,7 +24,11 @@ var kongsu = function ()
             var result = _DB_query.httpService("kongsu_info",gubun, iData);
             var res = result[0].data[0];
             var res_num = result[0].data[0].length;
+            if(res  == false) {
+                //alert('db없음');
 
+                alert(month + ' 입력값이 없습니다.');
+            }
 
             $('#kongsu_table_body').empty();
             for (var i = 0; i < res_num; i++)

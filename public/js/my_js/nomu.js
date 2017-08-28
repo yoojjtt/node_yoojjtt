@@ -22,8 +22,8 @@ var nomu = function ()
             var c_employee = res1.c_employee; // 법인 고용 보험
             var p_med = res1.p_med/100; // 개인 건강보험
             var c_med = res1.c_med; // 법인 건강보험
-            var p_old = res1.p_old; // 개인 노인고용보험
-            var c_old = res1.c_old; // 법인 노인고용보험
+            var p_old = res1.p_old/100; // 개인 노인요양보험
+            var c_old = res1.c_old; // 법인 노인요양보험
             var p_pension = res1.p_pension/100; // 개인 국민연금
             var c_pension = res1.c_pension; // 법인 국민연금
             var startDay = res1.startDay;  // 세금 적용기간 시작일
@@ -32,7 +32,9 @@ var nomu = function ()
 
             //alert(exception);
 
-
+            //alert(result1);
+            //alert($('#hyunjang_select').val());
+           // alert($('#toMonth').val());
             if(result1){
                 var gubun = "R";
                 var iData = ['hyunjang_no','daily_employee_num','month','daily','infoType'];
@@ -52,6 +54,7 @@ var nomu = function ()
                 var total_money = 0;
                 var total_danga = 0;
                 var balju_company = res[0].balju_company;
+                //console.log(result);
                 var bogoja = res[0].bogoja;
                 var hyun_jang_name = res[0].hyun_jang_name;
                 var hyun_jang_number = res[0].hyun_jang_number;
@@ -59,6 +62,7 @@ var nomu = function ()
                 var company_address = res[0].company_address;
                 var company_phone = res[0].company_phone;
                 var president = res[0].president;
+                var hyunjang_sort = res[0].hyunjang_sort;
 
                 //alert(balju_company);
                 $('#balju_company').empty().append(balju_company);
@@ -84,57 +88,72 @@ var nomu = function ()
                 var income_rate = parseFloat(income)/100;
                 var jumin_tax = parseFloat(jumin)/100;
 
+
+
+
+
+
+
+
+
+
+
+
                 $('#kongsu_table_body').empty();
+
+
+
+                /*공수를 구하는 로직*/
                 for (var i = 0; i < res_num; i++)
                 {
 
                     var str = '';
-                    var kongsu = res[i].attendance;
-                    var kongsu_daily = kongsu.split('@@');
-                    var tot_num = kongsu_daily.length;
+                    var kongsu = res[i].attendance;  //  1@@1@@1@@... 의 형태로 들어온다.
+                    var kongsu_daily = kongsu.split('@@'); //@@ 기준으로 자른다.
+                    var tot_num = kongsu_daily.length; // 자른 배열의 길이를 구한다.
                     //alert(tot_num);
-                    if(res[i].attendance == null){
+                    if(res[i].attendance == null){  // 공수입력값이 없으면 미입력
                         kongsu = '미입력';
                         // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
                     }
                     var k = i+1;
 
                     str += "<tr>"
-                    str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";
-                    str += "<td>" + k + "</td>";
-                    str += "<td>" + res[i].name + "</td>";
-                    str += "<td>" + res[i].job+ "</td>";
+                    str += "<td style='display:none;'>" + res[i].daily_employee_num + "</td>";  //첫번쨰 칸:: (안보임) 근로자 id
+                    str += "<td>" + k + "</td>";  //두번째 칸:: index
+                    str += "<td>" + res[i].name + "</td>";//세번째 칸:: 이름
+                    str += "<td>" + res[i].job+ "</td>";//네번째 칸:: 직종
 
 
-                   var address1 =  res[i].address1;
-                   var address1_leng = address1.length;
-                   if(address1_leng >11 ){
+                   var address1 =  res[i].address1;  //주소 편집
+                   var address1_leng = address1.length;  // 주소가 길어지는 경우 잘라준다.
+                   if(address1_leng >11 ){  // 11자보다 커지면 자른다.
                        //alert(address1_leng);
                        address1 = address1.substring(-10, 10);  // s_index, e_index
                        //alert(address1)
                    }
 
                     str += "<td>" 
-                        +"<div class='label_week_date_jumin'>"+res[i].jumin1 +"-"+ res[i].jumin2 + "</div>"
-                        +"<div class='label_week_date_jumin'>"+address1 + "</div>"
+                        +"<div class='label_week_date_jumin'>"+res[i].jumin1 +"-"+ res[i].jumin2 + "</div>"  //다섯번째 칸윗 부분:: 주민등록번호
+                        +"<div class='label_week_date_jumin'>"+address1 + "</div>" // 다섯번째 칸 아래부분:: 주소
                         +"</td>";
 
                     var daily_salary_total = res[i].daily_salary;
                     var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
                     var gab_tax = 0;  // 갑근세계산을 위한 float 변수;
 
-                    str += "<td>"  //출결현황
+                    str += "<td>"  //출결현황을 찍는다.
 
-                        var daily_salary = parseFloat(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
+                        var daily_salary = parseInt(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 Int 로 바꿈
                         var kongsu_total = 0;
 
                         for(var j = 0; j < tot_num; j++){
                             //if(kongsu_daily[j] == 0){
                             //str += "<div class='label_week_date'>"+"" + "</div>"
                             //}else{
-                            str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"
+                            str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>"  //여섯번째 칸:: 공수
                             total_salary += daily_salary_total * kongsu_daily[j];
-                            var kongsu = parseFloat(kongsu_daily[j]);
+                            var kongsu = parseInt(kongsu_daily[j]);
 
                             if(kongsu_daily[j]>0){
                                 kongsu_total += kongsu
@@ -153,24 +172,88 @@ var nomu = function ()
 
                         }
                     str += "</td>";
-                    str += "<td>"+ kongsu_total.toFixed(1)+"</td>";
-                    str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";  //단가(String)
-                    str += "<td>"+  total_salary.toLocaleString() +"</td>";   // 노무비 총액(String)
+                    str += "<td>"+ kongsu_total.toFixed(1)+"</td>";  //일곱번째 칸:: 공수합계
+                    str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";  //여덟번째 칸:: 단가(String)
+                    str += "<td>"+  total_salary.toLocaleString() +"</td>";   //아홉번째 칸:: 노무비 총액(String)
 
 
 
                     var gab_tax_c = gab_tax.toFixed(0); // data 형이 string이 아닌 float 을 위해서
-                    var gab_tax_val = Number(gab_tax.toFixed(0)).toLocaleString();  // , string 돈 액수로 표현하기 위해서
+                    var gab_tax_val = Number(gab_tax.toFixed(0));  // , string 돈 액수로 표현하기 위해서
                     var jumin_tax_c = (gab_tax_c*jumin_tax).toFixed(0); // 계산할 떄 float 값으로 들어와야된다.
-                    var jumin_tax_val = Number(jumin_tax_c).toLocaleString();
+                    var jumin_tax_val = Number(jumin_tax_c);
+                    //console.log(total_salary*p_med);
+                    //console.log(total_salary*p_old);
+
                     var employee_tax = total_salary*p_employee ;  //  노무비 총액 * 개인 고용보험율 (0.065)
-                    var med_tax = parseInt(total_salary*p_med);  // 노무비 총액 * 개인 의료보험율 (0.036)
-                    var pension_tax = total_salary*p_pension;  //노무비 총액  * 개인 국민연금(0.045)
+
+
+                    /*국민 건강에 대해서 */
+                    if(hyunjang_sort == '건설') {
+                        //alert(hyunjang_sort);
+                        //alert(kongsu_total);
+                        if(kongsu_total >= 20){
+
+
+                            /*국민연금 && 의료보험*/
+                            if(total_salary > 4490000){
+
+                                var pension_tax = Math.floor((4490000*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10; // 노무비 총액 * 개인 의료보험율 (0.036)
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10; // 개인의료보험 * 노인장기보험율(0.0655)
+                                var med_old_tax = med_tax+old_tax; // 의료보험 + 노인장기용양  = 건강보험
+
+                            }else if(total_salary>280000 && total_salary < 4490000){
+                                var pension_tax = Math.floor((total_salary*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10;
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10;
+                                var med_old_tax = med_tax+old_tax;
+                            }else{
+                                var pension_tax = 12600;
+                                var med_tax = 8560; //
+                                var old_tax = 560; //
+                                var med_old_tax = med_tax+old_tax;
+                            }
+
+                        }else{
+                            var med_old_tax = 0;
+                            var pension_tax = 0;
+                        }
+                    }else{// 일반 공사인경우
+                        //alert(hyunjang_sort);
+                        if(kongsu_total >= 7){
+                            /*국민연금 && 의료보험*/
+                            if(total_salary > 4490000){
+
+                                var pension_tax = Math.floor((4490000*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10; // 노무비 총액 * 개인 의료보험율 (0.036)
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10; // 개인의료보험 * 노인장기보험율(0.0655)
+                                var med_old_tax = med_tax+old_tax; // 의료보험 + 노인장기용양  = 건강보험
+
+                            }else if(total_salary>280000 && total_salary < 4490000){
+                                var pension_tax = Math.floor((total_salary*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10;
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10;
+                                var med_old_tax = med_tax+old_tax;
+                            }else{
+                                var pension_tax = 12600;
+                                var med_tax = 8560; //
+                                var old_tax = 560; //
+                                var med_old_tax = med_tax+old_tax;
+                            }
+                        }else{
+                            var med_old_tax = 0;
+                            var pension_tax = 0;
+                        }
+                    }
 
 
 
 
-                    var total_tax_sum = parseFloat(gab_tax_c) + parseFloat(jumin_tax_c)+employee_tax+med_tax+pension_tax;
+
+
+
+                    var total_tax_sum = parseInt(gab_tax_c) + parseInt(jumin_tax_c)+employee_tax+med_old_tax+pension_tax;
 
                     if(gab_tax_val == '0'){  // 면제기준이면 치환
                         gab_tax_val = '-';
@@ -181,13 +264,13 @@ var nomu = function ()
 
                     var real_income = (total_salary - total_tax_sum);
 
-                    str += "<td>"+ gab_tax_val +"</td>";   //갑근세
-                    str += "<td>"+ jumin_tax_val+"</td>";  //주민세
-                    str += "<td>"+  employee_tax.toLocaleString() +"</td>";
-                    str += "<td>"+  med_tax.toLocaleString() +"</td>";
-                    str += "<td>"+  pension_tax.toLocaleString() +"</td>";
-                    str += "<td>"+  total_tax_sum.toLocaleString() +"</td>";
-                    str += "<td>"+  real_income.toLocaleString() +"</td>";
+                    str += "<td>"+ gab_tax_val.toLocaleString() +"</td>";   //갑근세
+                    str += "<td>"+ jumin_tax_val.toLocaleString()+"</td>";  //주민세
+                    str += "<td>"+  employee_tax.toLocaleString() +"</td>"; //고용보험
+                    str += "<td>"+  med_old_tax.toLocaleString() +"</td>"; //건강보험
+                    str += "<td>"+  pension_tax.toLocaleString() +"</td>"; //국민연금
+                    str += "<td>"+  total_tax_sum.toLocaleString() +"</td>"; //세금합산
+                    str += "<td>"+  real_income.toLocaleString() +"</td>"; // 정산금액
 
                     str += "</tr>"
                     $('#kongsu_table_body').append(str);
@@ -195,11 +278,9 @@ var nomu = function ()
 
                     total_money += total_salary;
                     total_danga += res[i].daily_salary;
-                }
+                } // 개인별 row계산 끝 for문 끝
 
                 var money = total_money.toLocaleString();
-                //alert(money);
-                //alert(res_num);
                 var average_money = (total_salary/res_num).toLocaleString();
                 var average_danga = (total_danga/res_num).toLocaleString();
                 $('#total_num').text(res_num + " 명");

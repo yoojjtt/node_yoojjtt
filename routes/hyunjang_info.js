@@ -54,19 +54,34 @@ hyunjang_info.prototype.handleRoutes = function(router, parent)  //  /m, Mobile_
             var hyunjang_id = data[0];
             var hyun_jang_name = data[1];
             var proc = data[2];
-            var bogoja = data[3];
-            var balju_company = data[4];
-            var hyun_jang_number = data[5];
-            var hyunjang_start = data[6];
-            var hyunjang_end = data[7];
-            var hyun_jang_content = data[8];
-            var remark = data[9];
+            var hyunjang_sort = data[3]
+            var bogoja = data[4];
+            var balju_company = data[5];
+            var hyun_jang_number = data[6];
+            var manageNumber = data[7];
+            var hyunjang_start = data[8];
+            var hyunjang_end = data[9];
+            var hyun_jang_content = data[10];
+            var remark = data[11];
             var company_no = req.session.sess_company_no;
             var email = req.session.sess_userEmail;
 
 
-            var query = "CALL hyunjang_S("+hyunjang_id +",'"+ hyun_jang_name +"','"+ proc+"','"+bogoja+"','"+balju_company
-            +"','"+hyun_jang_number+"','"+hyunjang_start+"','"+hyunjang_end+"','"+hyun_jang_content+"','"+remark+"','"+company_no+"','"+ email+"')";
+            var query = "CALL hyunjang_S("+hyunjang_id
+                +",'"+ hyun_jang_name
+                +"','"+ proc
+                +"','"+ hyunjang_sort
+                +"','"+bogoja
+                +"','"+balju_company
+                +"','"+hyun_jang_number
+                +"','"+manageNumber
+                +"','"+hyunjang_start
+                +"','"+hyunjang_end
+                +"','"+hyun_jang_content
+                +"','"+remark
+                +"','"+company_no
+                +"','"+ email
+                +"')";
 
             console.log(query+": 개별 현장정보 로드");
 

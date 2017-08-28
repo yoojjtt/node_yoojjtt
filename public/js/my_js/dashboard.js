@@ -10,6 +10,7 @@ var dashboard = function ()
 
         monthly_closing_load : function(){
 
+
             var month = $('#toMonth').val();
             //alert(month);
 
@@ -19,12 +20,15 @@ var dashboard = function ()
 
             iData[0] = month;
 
-
             var result = _DB_query.httpService("dashboard_info",gubun, iData);
             var res = result[0].data[0];
             var res_num = result[0].data[0].length;
             var j = 0;
+
             $('#dashboard_table_body').empty();
+
+
+
             for (var i = 0; i < res_num; i++)
             {
 
@@ -43,13 +47,35 @@ var dashboard = function ()
                 str += "<td>" + res[i].num_manager+"명" + "</td>";
                 str += "<td>" + res[i].num_worker+"명" + "</td>";
 
-                var average_danga = parseInt(res[i].average_danga).toLocaleString();
-                if(average_danga == NaN){
-                    alert(average_danga);
+
+                if(res[i].average_danga  == null){
+                    res[i].average_danga = 0;
                 }
-                str += "<td>" + average_danga + "</td>";
-                str += "<td>" + "얼마" + "</td>";
-                str += "<td>" + "얼마" + "</td>";
+                //console.log(res[i].average_danga);
+                var average_danga = parseInt(res[i].average_danga).toLocaleString();
+
+                // var average_danga = parseInt(res[i].average_danga).toLocaleString();
+                // if(average_danga == NaN){
+                //     average_danga = '미등록';
+                // }
+                str += "<td>" + average_danga + "</td>";  //평균 단가
+
+                 var average_pay = 0;
+                // if(res[i].num_worker == 0){
+                //     average_pay = 0;
+                if(res[i].total_pay == null){
+                         res[i].total_pay = 0;
+                         average_pay = 0;
+                }else{ // total_pay 값이 있다면...
+                     average_pay = parseInt(parseInt(res[i].total_pay)/parseInt(res[i].num_worker));
+                }
+
+
+                console.log(res[i].num_worker);
+                console.log(res[i].total_pay);
+
+                str += "<td>" + average_pay.toLocaleString() + "</td>";  //평균 인건비
+                str += "<td>" + parseInt(res[i].total_pay).toLocaleString() + "</td>"; //인건비 합계
                 str += "<td>" + "얼마" + "</td>";
                 str += "<td>" + "얼마" + "</td>";
                 str += "<td>"+"</td>";
@@ -57,6 +83,8 @@ var dashboard = function ()
                 $('#dashboard_table_body').append(str);
             }
 
+
+            $('#total_num').empty().append(res_num);
         },
 
 
