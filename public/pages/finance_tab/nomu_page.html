@@ -30,7 +30,7 @@
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select onChange="" id="hyunjang_select" class="btn-default form-control btn_class" >
+                    <select onChange="search()" id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
@@ -39,7 +39,7 @@
             <div class="btn_etc">
                 <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
                 <button type="button" class="btn btn-default" onClick="search()" id="search">조회</button>
-                <button type="button" class="btn btn-default" onClick="" id="btn_toMonth">현재월로</button>
+                <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
 
                 <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="month_change(1)" id="btn_right"></div>
                 <button class="btn date">

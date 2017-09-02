@@ -201,7 +201,7 @@ var print = function ()
 
         },
         work_pdf : function(){
-            
+
             //TODO  전체명수를 7로 나눠서, 몇번 실행할지를 구한다음.
             //TODO 7명만 1,2,3 page 찍고 다음 8번재 사람부터 1,2,3 페이지찍고 다음 종료한 사람으로부터 7명
             var p = window.parent.parent;
@@ -333,22 +333,28 @@ var print = function ()
                     var average_kongsu = [];
 
                     for(var k=0; k<31; k++){
+                        var daily_kongsu = kongsu.eq(k).text();
+
                         if(kongsu.eq(k).text()>0){
                             total_kongsu.push(kongsu.eq(k).text());
                             //average_kongsu.push(kongsu.eq(k).text());
+                            daily_kongsu = "O";
+                        }else{
+                            daily_kongsu = "-";
                         }
 
                         if(k<15){
                             doc.drawText(
                                 138+(k*3)+(k*1.8)   //x position
                                 ,(81.5+(11*h))-(1.4*h)  //y position
-                                ,[kongsu.eq(k).text()]
+                                //,[kongsu.eq(k).text()]
+                                ,[daily_kongsu]
                             );
                         }else{
                             doc.drawText(
                                 138+((k-15)*3)+((k-15)*1.8) //x position
                                 ,(86.5+(11*h))-(1.4*h)  //y position
-                                ,[kongsu.eq(k).text()]
+                                ,[daily_kongsu]
                             );
                         }
                     }/* text 값 잘못 찍으면 오류난다.*/

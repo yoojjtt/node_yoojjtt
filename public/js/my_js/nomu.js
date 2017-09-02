@@ -8,6 +8,10 @@ var nomu = function ()
     return {
 
         monthly_closing_load : function(){
+            //var p = window.parent.parent;
+            alert('조회시작');
+            //p._showPage();
+
             /*세금 정보를 먼저 불러온다. 혹시 오류 있을 수 있으니 변수뒤에 1을 붙여줌*/
             var gubun1 = "R";
             var iData1 = ['company_id'];
@@ -48,12 +52,21 @@ var nomu = function ()
                 iData[4] = 'monthly';  //'daily'
 
 
+
                 var result = _DB_query.httpService("kongsu_info",gubun, iData);
                 var res = result[0].data[0];
                 var res_num = result[0].data[0].length;
                 var total_money = 0;
                 var total_danga = 0;
-                var balju_company = res[0].balju_company;
+
+                if(res[0]){
+                    alert('조회완료');
+                }else{
+                    alert('조회 결과 없음');
+                    $('#kongsu_table_body').empty();
+                    return false
+                }
+
                 //console.log(result);
                 var bogoja = res[0].bogoja;
                 var hyun_jang_name = res[0].hyun_jang_name;

@@ -22,11 +22,6 @@
 					type: 'POST',
 					async:false,
 					data:{ gubun:gubun, data:data },
-					// beforeSend: function(){
-					// 	alert('ss');
-                     //    var p = window.parent.parent;
-                     //    p._showPage();
-					// },
 
 
 

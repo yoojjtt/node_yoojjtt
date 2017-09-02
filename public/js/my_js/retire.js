@@ -8,7 +8,7 @@ var retire = function ()
     return {
 
         monthly_closing_load : function(){
-
+            alert('조회 시작');
 
 
                 var gubun = "R";
@@ -31,7 +31,17 @@ var retire = function ()
 
                  var present_kongsu = 0;
 
+
+                if(res[0]){
+                    alert('조회완료');
+                }else{
+                    alert('조회 결과 없음');
+                    $('#retire_table_body').empty();
+                    return false
+                }
                 $('#retire_table_body').empty();
+
+
                 for (var i = 0; i < res_num; i++)
                 {
 

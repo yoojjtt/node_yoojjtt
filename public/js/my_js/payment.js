@@ -54,6 +54,17 @@ var payment = function ()
                 var total_danga = 0;
 
 
+                if(res[0]){
+                    alert('조회완료');
+                }else{
+                    alert('조회 결과 없음');
+                    $('#nomu_table_body').empty();
+                    return false
+                }
+
+
+
+
                 var exception_money = parseFloat(exception);
                 var income_rate = parseFloat(income)/100;
                 var jumin_tax = parseFloat(jumin)/100;

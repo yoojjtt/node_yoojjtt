@@ -148,4 +148,41 @@ charts or filled areas).
                         
                         // we might be able to interpolate a point below,
                         // this can give us a better y
-                        if (withlines && j > 0 && otherpoints[j - otherps] != null
+                        if (withlines && j > 0 && otherpoints[j - otherps] != null)
+                            bottom = qy + (otherpoints[j - otherps + accumulateOffset] - qy) * (px - qx) / (otherpoints[j - otherps + keyOffset] - qx);
+
+                        newpoints[l + accumulateOffset] += bottom;
+                        
+                        i += ps;
+                    }
+
+                    fromgap = false;
+                    
+                    if (l != newpoints.length && withbottom)
+                        newpoints[l + 2] += bottom;
+                }
+
+                // maintain the line steps invariant
+                if (withsteps && l != newpoints.length && l > 0
+                    && newpoints[l] != null
+                    && newpoints[l] != newpoints[l - ps]
+                    && newpoints[l + 1] != newpoints[l - ps + 1]) {
+                    for (m = 0; m < ps; ++m)
+                        newpoints[l + ps + m] = newpoints[l + m];
+                    newpoints[l + 1] = newpoints[l - ps + 1];
+                }
+            }
+
+            datapoints.points = newpoints;
+        }
+        
+        plot.hooks.processDatapoints.push(stackData);
+    }
+    
+    $.plot.plugins.push({
+        init: init,
+        options: options,
+        name: 'stack',
+        version: '1.2'
+    });
+})(jQuery);

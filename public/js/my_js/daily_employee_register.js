@@ -104,7 +104,7 @@ var daily_employee_register = function ()
                 }
 
                 //alert(result_data_save);
-
+                //alert(result_data_delete);
             }else{
                 alert("NotFind");
                 //alert(result_data_save);
@@ -128,20 +128,63 @@ var daily_employee_register = function ()
             result_data_delete = [];  // monthly_daga 에서 삭제할 데이터
 
             if(res  == false){
-                //alert('db없음');
+
                 alert(month+' 입력값이 없습니다.');
-                // var nodata = '';
-                //     nodata += "<div>";
-                //     nodata += '입력 값이 없습니다.';
-                //
-                //     nodata += "</div>";
-                // $('#monthly_danga').empty().append(nodata);
-                $('#monthly_danga').empty();
+                $('#monthly_danga').empty()
+                $('#beforeList').css('display','inline');
+
             }else{
+                $('#beforeList').css('display','none');
                 $('#monthly_danga').empty();
                 for (var i = 0; i < res_num; i++)
                 {
                     result_data_save.push("'"+res[i].id+"'");
+                    var str = '';
+                    str += "<tr>";
+                    str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
+                    str += "<td>"+ res[i].job +"</td>";
+                    str += "<td>"+ res[i].name +"</td>";
+                    str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
+                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
+                    str += "</tr>";
+                    $('#monthly_danga').append(str);
+                }
+            }
+
+            //alert(result_data_save);
+
+
+        },
+        monthly_danga_load_before : function(){   //  전달 명단 불러오는 버튼
+            //alert('전달명단');
+             var month = lib.dateValue_add_month(-1);
+
+             var hyunjang_id = $('#hyunjang_select').val();
+             var gubun = "R";
+            var iData = ['hyunjang_id','month'];
+            iData[0] = hyunjang_id;
+            iData[1] = month;
+
+
+            var result = _DB_query.httpService("daily_employee_register_info",gubun, iData);
+            var res = result[0].data[0];
+            var res_num = result[0].data[0].length;
+
+            result_data_save = [];  //monthly_danga 에 추가할 데이터
+            result_data_delete = [];  // monthly_daga 에서 삭제할 데이터
+
+            if(res  == false){
+
+                alert(month+'전달 값이 없습니다. 등록하세요.');
+                $('#monthly_danga').empty()
+                $('#beforeList').css('display','inline');
+
+            }else{
+                $('#beforeList').css('display','none');
+                $('#monthly_danga').empty();
+                for (var i = 0; i < res_num; i++)
+                {
+                    result_data_save.push("'"+res[i].id+"'");  //명단 id 배열에 넣음
                     var str = '';
                     str += "<tr>";
                     str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
@@ -217,8 +260,7 @@ var daily_employee_register = function ()
             var month = $('#toMonth').val();
             var hyunjang_id = $('#hyunjang_select').val();
 
-
-
+            //alert(result_data_delete);
             var total_num = result_data_delete.length;
             var idGroup = '';
             for (var i = 0; i < total_num; i++) {

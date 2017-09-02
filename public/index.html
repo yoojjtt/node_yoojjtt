@@ -76,6 +76,9 @@
                 <li id="finance_management" class="dropdown">
                     <a onClick="_callFrame('finance');" href="#">재무관리</a>
                 </li>
+                <li id="account_management" class="dropdown">
+                    <a onClick="_callFrame('account_manager');" href="#">회계관리</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
@@ -122,8 +125,8 @@
  </div>
 <!-- contents -->
 
-<div class="loader" style="z-index:9999;"> </div>
-<div class="container" style="display:none; z-index:9999;"> <h1>로딩 후 화면</h1> <div>
+<!--<div class="loader" style="z-index:9999;"> </div>-->
+<!--<div class="container" style="display:none; z-index:9999;"> <h1>로딩 후 화면</h1> <div>-->
 
 
 
@@ -168,7 +171,7 @@
                 $('#company_management').css('display', 'none');
                 $('#hyunjang_management').css('display', 'none');
             }
-            _hidePage();
+            //_hidePage();
 
 
 
@@ -228,26 +231,11 @@
 
             }
 
+
         };
 
     }
-    function _showPage(){
 
-        //alert('로드시작');
-        var loader = $("div.loader");
-        var container = $("div.container");
-        loader.css("display","block");
-        container.css("display","block");
-
-    }
-    function _hidePage(){
-
-        //alert('로드종료');
-        var loader = $("div.loader");
-        var container = $("div.container");
-        loader.css("display","none");
-        container.css("display","block");
-    }
 
 
 
@@ -257,9 +245,6 @@
 </script>
 
 
-
-<script src="vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="assets/DT_bootstrap.js"></script>
 
 </body>
 </html>

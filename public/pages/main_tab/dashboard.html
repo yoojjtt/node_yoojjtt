@@ -21,7 +21,8 @@
 </head>
 
 <body>
-<div class="panel panel-default dashboard">
+<div id="dashboard" class="panel panel-default dashboard">
+
 
     <div class="panel-heading head1">
         <div class="btn_box_left">
@@ -94,6 +95,8 @@
 </div>
 
 
+<div class="loader" ></div>
+
 
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -154,23 +157,34 @@
         dashboard.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
+    $(document).ajaxStart(function() {
+        //$('html').css("cursor", "wait");
+        _showPage();
+
+    }).ajaxStop(function() {
+
+        _hidePage();
+
+    });
 
 
-//    $(document).ajaxStart(function() {
-//        // 로딩 바 이미지를 띄우고
-//        //$('#load').show();
-//        // 화면의 중앙에 위치하도록 top, left 조정 (화면에 따라 조정 필요)
-//        //alert('ajax_start');
-////        var p = window.parent.parent;
-////        p._showPage();
-//        // ajax 통신이 종료되었을 때 실행될 이벤트
-//    }).ajaxStop(function() {
-//        // 로딩 바 태그와 이미지를 모두 hide 처리
-//        //$('#load').hide();
-//        //alert('ajax_end');
-//        var p = window.parent.parent;
-//        p._hidePage();
-//    });
+    function _showPage() {
+        var loader = $("div.loader");
+        $('#dashboard_table_body').empty();
+        //var container = $("div.container");
+        alert('ajax 시작');
+
+        loader.css("display", "block");
+        //container.css("display", "block");
+    }
+    function _hidePage(){
+        var loader = $("div.loader");
+       // var container = $("div.container");
+        alert('ajax 종료');
+        loader.css("display", "none");
+       // container.css("display", "block");
+    }
+
 
 
 

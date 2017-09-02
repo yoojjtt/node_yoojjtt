@@ -71,8 +71,8 @@ var dashboard = function ()
                 }
 
 
-                console.log(res[i].num_worker);
-                console.log(res[i].total_pay);
+                //console.log(res[i].num_worker);
+                //console.log(res[i].total_pay);
 
                 str += "<td>" + average_pay.toLocaleString() + "</td>";  //평균 인건비
                 str += "<td>" + parseInt(res[i].total_pay).toLocaleString() + "</td>"; //인건비 합계

@@ -36,7 +36,9 @@
                     <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="month_change(1)" id="btn_right"></div>
                     <!-- button type="button" class="btn btn-default" onClick="hyunjang_set()">조회</button-->
                     <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
+                    <button id="beforeList" type="button" class="btn btn-default" style="display:none;" onclick="daily_employee_register.monthly_danga_load_before()">전달 명단</button>
                     <button class="btn btn-success" onClick="monthly_daga_save()">저장</button>
+
                 </div>
             </div>
         </div>
@@ -173,9 +175,6 @@
 
 </script>
 
-
-<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
-<script src="../../assets/DT_bootstrap.js"></script>
 </body>
 
 
