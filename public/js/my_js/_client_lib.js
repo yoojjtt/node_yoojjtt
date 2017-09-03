@@ -157,6 +157,47 @@ var lib = function ()
             return month_val;
 
         }
+        ,more_than_sixty: function(jumin1, jumin2){
+            // 주민등록상 생일을 현재 날짜와 비교하여 나이계산 (만) // 8403211 일 경우 29세, 주민등록상 생일 지났으므로 28세 출력하도록
+
+
+            var curDateObj = new Date(); // 날짜 Object 생성
+            var curDate = ""; // 현재일자
+            var tmpAge = 0; // 임시나이
+            var curYear = curDateObj.getFullYear(); // 현재년도
+            var curMonth = curDateObj.getMonth() + 1; // 현재월
+            if(curMonth < 10) curMonth = "0" + curMonth; // 현재 월이 10보다 작을경우 '0' 문자 합한다
+            var curDay = curDateObj.getDate(); // 현재일
+            if(curDay < 10) curDay = "0" + curDay; // 현재 일이 10보다 작을경우 '0' 문자 합한다
+            curDate = curYear + curMonth + curDay;
+            var genType = jumin2.substring(0, 1); // 주민번호 뒷자리 성별구분 문자 추출
+            if(genType <= 2) {
+                tmpAge = curYear - (1900 + parseInt(jumin1.substring(0, 2))); // 1, 2 일경우
+            } else {
+                tmpAge = curYear - (2000 + parseInt(jumin1.substring(0, 2))); // 그 외의 경우
+            }
+            var tmpBirthday = jumin1.substring(2, 6); // 주민번호 4자리 생일문자 추출
+            if(curDate < (curYear + tmpBirthday)) {
+                tmpAge += 1;
+            }
+                //alert(tmpAge); // 2012년 4월 13일 일 경우 2012413 반환
+
+            // console.log(curYear+"/"+curMonth+"/"+curDate);
+            // console.log(tmpAge+"/"+tmpBirthday);
+            // console.log(curDate);
+
+
+            if(tmpAge > 60){
+
+                //alert("만 60세이상.");
+
+                return false;
+
+            }else{
+                return true;
+            }
+
+        }
 
 
     };

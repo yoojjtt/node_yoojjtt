@@ -7,7 +7,7 @@ var daily_employee_register = function ()
 
     return {
 
-        hyunjang_load : function(proc){   // 진행중인 공사만 불러온다. 1
+        hyunjang_load : function(proc){   // 진행중인 공사만 불러온다. 1  //현장 select 박스
             //공사 중인 것 만 불러온다.
             var gubun = "R";
             var iData = ['proc'];
@@ -53,18 +53,47 @@ var daily_employee_register = function ()
                 result_data_save.push("'"+res.id+"'");
                 var str = '';
                 str += "<tr>";
+                str += "<td style='display:none;'>"+ res.id +"</td>";
                 str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
                 str += "<td>"+ res.job +"</td>";
                 str += "<td>"+ res.name +"</td>";
                 str += "<td>"+ "<input type='text'>" +"</td>";
-                str += "<td style='display:none;'>"+ res.id +"</td>";
+
+
+                sixty_check = lib.more_than_sixty(res.jumin1,res.jumin2);
+
+                if(sixty_check  == false){
+                    alert('60세 이상입니다.');
+                    str += "<td>"+ "<input type='checkbox' name='pension' value='"+0+"'>" +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='medical' value='"+0+"'>" +"</td>";
+
+
+                }else{
+                    //alert('60세 미만입니다.');
+                    str += "<td>"+ "<input type='checkbox' name='pension' value='"+1+"'>" +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='medical' value='"+1+"'>" +"</td>";
+
+
+                }
+
+
                 str += "</tr>";
 
                 $('#monthly_danga').append(str);
+
             }else{
                 alert('이미 등록됨');
             }
-
+            $('input:checkbox[name="pension"]').each(function() {
+                if(this.value == "1"){ //값 비교
+                    this.checked = true; //checked 처리
+                }
+            });
+            $('input:checkbox[name="medical"]').each(function() {
+                if(this.value == "1"){ //값 비교
+                    this.checked = true; //checked 처리
+                }
+            });
             /*
               var res_num = result_data.length;
               for(var i = 0; i < res_num; i++){
@@ -78,14 +107,19 @@ var daily_employee_register = function ()
             var month = $('#toMonth').val();
             var hyunjang_id = $('#hyunjang_select').val();
 
-            //$('#monthly_danga input[type="checkbox"]:checked').parent().parent().remove();
-            var unChecked = $('#monthly_danga input[type="checkbox"]').not("input:checked");
-            unChecked.parent().parent().remove();
-            var unCheckedTr = unChecked.parent().parent();
-            var employee_id = unCheckedTr.children().eq(4).text();
-            //alert(employee_id);
-            //alert(result_data_save);
-            //alert(result_data_save.indexOf("'"+employee_id+"'", 0));
+            //$('#monthly_danga input[type=
+            var checkbox = document.getElementsByName("checkBox");
+            var checkboxNum = checkbox.length;  //checkBox name 의 개수를 반환
+            //alert(checkboxNum);
+            for(var c = 0; c < checkboxNum; c++){
+              var uncheck= checkbox[c].checked;  // checked여부를 boolean으로 반환
+              if(uncheck == false){
+                  var tr = $(checkbox[c]).parent().parent();
+                  tr.remove();
+                  var employee_id = tr.children().eq(0).text();
+                  break // checked false 반환하자마자 remove를 하기 때문에 employee_id 값을 여러개 반환 오류남  break로 해결
+              }
+            }
 
             var find_id = result_data_save.indexOf("'"+employee_id+"'", 0);
             if(find_id != -1){  // 있다면
@@ -99,15 +133,10 @@ var daily_employee_register = function ()
                 }else{// 없다면 추가
                     result_data_delete.push(employee_id);   // delete data는 id0@id1@id2@id3 형식으로 넘겨서 '' 없이 넣는다.
                     //alert(result_data_delete);
-
-
                 }
-
-                //alert(result_data_save);
-                //alert(result_data_delete);
             }else{
                 alert("NotFind");
-                //alert(result_data_save);
+
             }
 
         },
@@ -139,15 +168,39 @@ var daily_employee_register = function ()
                 for (var i = 0; i < res_num; i++)
                 {
                     result_data_save.push("'"+res[i].id+"'");
+
+
+
                     var str = '';
                     str += "<tr>";
+                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
                     str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
                     str += "<td>"+ res[i].job +"</td>";
                     str += "<td>"+ res[i].name +"</td>";
                     str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
-                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='pension'  value='"+res[i].pension+"'>" +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='medical' value='"+res[i].medical+"'>" +"</td>";
                     str += "</tr>";
                     $('#monthly_danga').append(str);
+                    //alert(res[i].daily_salary + "//"+res[i].pension+"//"+res[i].medical);
+
+                    if(res[i].pension == '1'){
+                        $('input:checkbox[name="pension"]').each(function() {
+                            if(this.value == "1"){ //값 비교
+                                this.checked = true; //checked 처리
+                            }
+                        });
+                    }
+                    if(res[i].medical =='1'){
+                        $('input:checkbox[name="medical"]').each(function() {
+                            if(this.value == "1"){ //값 비교
+                                this.checked = true; //checked 처리
+                            }
+                        });
+                    }
+
+
+
                 }
             }
 
@@ -187,11 +240,13 @@ var daily_employee_register = function ()
                     result_data_save.push("'"+res[i].id+"'");  //명단 id 배열에 넣음
                     var str = '';
                     str += "<tr>";
+                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
                     str += "<td>"+ "<input onClick='daily_employee_register.daily_employee_exclude()' name='checkBox' type='checkbox' checked>"+"</td>";
                     str += "<td>"+ res[i].job +"</td>";
                     str += "<td>"+ res[i].name +"</td>";
                     str += "<td>"+ "<input type='text' value='"+res[i].daily_salary+"'>" +"</td>";  //TODO .toLocaleString 하면 저장할 때 , 앞에 까지 읽는다.
-                    str += "<td style='display:none;'>"+ res[i].id +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='medical' value='"+res[i].pension+"'>" +"</td>";
+                    str += "<td>"+ "<input type='checkbox' name='medical' value='"+res[i].medical+"'>" +"</td>";
                     str += "</tr>";
                     $('#monthly_danga').append(str);
                 }
@@ -216,42 +271,66 @@ var daily_employee_register = function ()
                 return false
             }
 
+
+
+
+
             //alert($('#monthly_danga tr').size());
             var total_num = $('#monthly_danga tr').size();
-            var idGroup = '';
-            var dangaGroup = '';
+            var value_array = '';
             for (var i = 0; i < total_num; i++) {
 
-                var chk = $('#monthly_danga tr').eq(i).children().find('input[type="checkbox"]').is(':checked');
-                var id = $('#monthly_danga tr').eq(i).children().eq(4).text();
+                var chk = $('#monthly_danga tr').eq(i).children().eq(1).find('input[type="checkbox"]').is(':checked');
+                var id = $('#monthly_danga tr').eq(i).children().eq(0).text();
+                var pension_c = $('#monthly_danga tr').eq(i).children().eq(5).find('input[type="checkbox"]').is(':checked');
+                var medical_c = $('#monthly_danga tr').eq(i).children().eq(6).find('input[type="checkbox"]').is(':checked');
                 if (chk == true) {
 
                     var danga = $('table tr').eq(i+1).find('input[type="text"]').val();
+                    var pension_val = 0;
+                    var medical_val = 0;
+                   // alert(pension_c);
+                    if(pension_c == true){
+                        pension_val = 1;
+                    }else{
+                        pension_val = 0;
+                    }
+                    if(medical_c == true){
+                        medical_val = 1;
+                    }else{
+                        medical_val = 0;
+                    }
+
                     //alert(id+"님의 단가: "+danga);
                     //TODO danga에는 i+1 을 해야 오류가 나지않는 이유는??
-                    idGroup += id + "@";
-                    dangaGroup += danga + "@";
-
+                    value_array += id +"@"+danga + "@" +pension_val + "@" +medical_val + "@" +"//";
                 }
             }
-            //alert(idGroup+"///"+dangaGroup);
-            var gubun = "S";
-            var iData = ['hyunjang_id','idGroup','month','dangaGroup','total_num'];
-            iData[0] = hyunjang_id;
-            iData[1] = idGroup;
-            iData[2] = month;
-            iData[3] = dangaGroup;
-            iData[4] = total_num;
+            alert(value_array);
 
-            var result = _DB_query.httpService("daily_employee_register_info",gubun, iData);
-            var msg = result[0].data[0][0].msg;
-            //var res = result[0].data[0][0];
-            var return_code = result[0].data[0][0].return_code;
-            if(return_code == '100'){
-                //alert(msg);
-                location.reload();
 
-            }
+
+
+                 var gubun = "S";
+                var iData = ['hyunjang_id','value','month','total_num'];
+                iData[0] = hyunjang_id;
+                iData[1] = value_array;
+                iData[2] = month;
+                iData[3] = total_num;
+
+
+                var result = _DB_query.httpService("daily_employee_register_info",gubun, iData);
+                var msg = result[0].data[0][0].msg;
+                console.log(result);
+
+                //alert(result);
+                //var res = result[0].data[0][0];
+                // var return_code = result[0].data[0][0].return_code;
+                // if(return_code == '100'){
+                //     //alert(msg);
+                //     location.reload();
+                //
+                // }
 
 
 
@@ -288,12 +367,12 @@ var daily_employee_register = function ()
             var return_code = result[0].data[0][0].return_code;
             //alert(return_code);
 
-            if(return_code == '100'){
-                //alert(msg);
-                location.reload();
-
-
-              }
+            // if(return_code == '100'){
+            //     //alert(msg);
+            //     location.reload();
+            //
+            //
+            //   }
 
 
         },

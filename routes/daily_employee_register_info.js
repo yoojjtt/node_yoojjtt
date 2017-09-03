@@ -42,21 +42,20 @@ daily_employee_register_info.prototype.handleRoutes = function(router, parent)  
         if(gubun =="S") {
             var company_no = req.session.sess_company_no;
             var hyunjang_id = data[0];
-            var idGroup = data[1];
+            var value = data[1];
             var month = data[2];
             var ins_id = req.session.sess_userEmail;
-            var dangaGroup = data[3];
-            var total_num = data[4];
+            var total_num = data[3];
+
 
 
 
 
             var query = "CALL monthly_danga_S('"+company_no
                 +"','"+hyunjang_id
-                +"','"+idGroup
+                +"','"+value
                 +"','"+month
                 +"','"+ins_id
-                +"','"+dangaGroup
                 +"','"+total_num
                 +"')";
 

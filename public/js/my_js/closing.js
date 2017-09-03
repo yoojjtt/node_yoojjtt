@@ -76,6 +76,7 @@ var closing = function ()
                 str += "<td>"+ kongsu_total.toFixed(1)+"</td>";
                 str += "<td>"+ res[i].daily_salary.toLocaleString() +"</td>";
                 str += "<td>"+  total_salary.toLocaleString() +"</td>";
+                str += "<td>"+"</td>"
                 str += "</tr>"
                 $('#kongsu_table_body').append(str);
 

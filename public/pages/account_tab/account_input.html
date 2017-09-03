@@ -17,9 +17,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href="/css/style.min.css" rel="stylesheet">
-    <link href="/css/datepicker.css" rel="stylesheet" type="text/css"/>
-
+    <!--<link href="/css/style.min.css" rel="stylesheet">-->
+    <!--<link href="/css/datepicker.css" rel="stylesheet" type="text/css"/>-->
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
 </head>
 <body>
 
@@ -210,13 +210,14 @@
 
 
 
-<script src="/js/_static.min.js"></script>
-<script src="/js/_common_util.min.js"></script>
-<script src="/js/_DB_query.min.js"></script>
-<script src="/js/account_input.min.js"></script>
+<!--<script src="/js/_static.min.js"></script>-->
+<!--<script src="/js/_common_util.min.js"></script>-->
 
-<script type="text/javascript" src="/js/bootstrap-datepicker.js" charset="UTF-8"></script>
-<script type="text/javascript" src="/js/locales/bootstrap-datepicker.kr.js" charset="UTF-8"></script>
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/account_input.js"></script>
+
+<!--<script type="text/javascript" src="/js/bootstrap-datepicker.js" charset="UTF-8"></script>-->
+<!--<script type="text/javascript" src="/js/locales/bootstrap-datepicker.kr.js" charset="UTF-8"></script>-->
 
 <script>
 
@@ -225,27 +226,27 @@
         windows_resize();
         account_input._init();
 
-        $('#dp6').datepicker({
-            format: "yyyy-mm-dd",
-            startView: 3,
-            todayBtn:false, //"linked"
-            language: "kr",
-            orientation: "top auto",
-            pickTime : false,
-            defalutDate : new Date(),
-            keyboardNavigation: false,
-            forceParse: false,
-            autoclose: true,
-            todayHighlight: true
-        });
-
-        $('#dp6').datepicker()
-            .on('changeDate', function(ev){
-                //if (ev.date.valueOf() < startDate.valueOf()){
-                //}
-                //console.log(ev);//return;
-                account_input.change_target_day(ev.date);
-            });
+//        $('#dp6').datepicker({
+//            format: "yyyy-mm-dd",
+//            startView: 3,
+//            todayBtn:false, //"linked"
+//            language: "kr",
+//            orientation: "top auto",
+//            pickTime : false,
+//            defalutDate : new Date(),
+//            keyboardNavigation: false,
+//            forceParse: false,
+//            autoclose: true,
+//            todayHighlight: true
+//        });
+//
+//        $('#dp6').datepicker()
+//            .on('changeDate', function(ev){
+//                //if (ev.date.valueOf() < startDate.valueOf()){
+//                //}
+//                //console.log(ev);//return;
+//                account_input.change_target_day(ev.date);
+//            });
 
 
 

@@ -779,36 +779,29 @@
   color: darkgrey;
 }
 .closing .table {
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
+  width: 100% ;
+  max-width: 100% ;
   display: block;
   border-collapse: collapse;
-  /*
-    .td_checkbox {
-      padding: 25px 0 25px 0;
-    }
-    */
-  /*
-    th:last-child {
-      width: calc(5600px);text-align: right;
-    }
-    */
+  min-width: 1500px;
+  max-width: 1550px;
 }
 .closing .table .zero_data {
   position: relative;
   top: 70px;
   text-align: center;
 }
+.closing .table thead {
+  border-bottom: 1px solid #ddd;
+}
 .closing .table th {
   padding: 0;
   text-align: center;
-  border-right: 1px solid #ddd;
+  border-bottom: none;
 }
 .closing .table th div.label_week_date {
   float: left;
-  width: 30px;
-  border-left: 1px solid #ddd;
+  width: 25px;
   line-height: 1.5;
   color: #a2a2a2;
 }
@@ -828,14 +821,16 @@
 .closing .table td {
   font-size: 12px;
 }
-.closing .table tbody {
+.closing .table tbody#kongsu_table_body {
+  min-width: 1500px;
+  max-width: 1550px;
   display: block;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.closing .table tbody div.label_week_date {
+.closing .table tbody#kongsu_table_body div.label_week_date {
   float: left;
-  width: 30px;
+  width: 25px;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   line-height: 1.5;
@@ -843,10 +838,10 @@
   padding: 0;
   text-align: center;
 }
-.closing .table tbody .attendance_label_1 {
+.closing .table tbody#kongsu_table_body .attendance_label_1 {
   color: #48eb00;
 }
-.closing .table tbody .attendance_label_2 {
+.closing .table tbody#kongsu_table_body .attendance_label_2 {
   color: red;
 }
 .closing .table .list_row:hover {
@@ -854,65 +849,69 @@
   cursor: pointer;
 }
 .closing .table th:nth-of-type(2) {
-  width: 2%;
+  width: 50px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(3) {
-  width: 5%;
+  width: 150px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(4) {
-  width: 4%;
+  width: 90px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(5) {
-  width: 8%;
+  width: 220px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(6) {
-  width: 62%;
+  width: 790px;
 }
 .closing .table th:nth-of-type(7) {
-  width: 4%;
+  width: 120px;
 }
 .closing .table th:nth-of-type(8) {
-  width: 5%;
+  width: 160px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(9) {
-  width: 5%;
+  width: 100px;
   padding-bottom: 8px;
 }
 .closing .table td:nth-of-type(2) {
-  width: 2%;
+  width: 50px;
 }
 .closing .table td:nth-of-type(3) {
-  width: 5%;
+  width: 120px;
 }
 .closing .table td:nth-of-type(4) {
-  width: 4.2%;
+  width: 100px;
 }
 .closing .table td:nth-of-type(5) {
-  width: 8%;
+  width: 200px;
 }
 .closing .table td:nth-of-type(6) {
-  width: 64%;
+  min-width: 60px;
+  width: 820px;
   padding-left: 0;
   padding-right: 0;
 }
 .closing .table td:nth-of-type(7) {
-  width: 3%;
+  width: 100px;
 }
 .closing .table td:nth-of-type(8) {
-  width: 6%;
+  width: 100px;
 }
 .closing .table td:nth-of-type(9) {
-  width: 6%;
-  padding-right: 20px;
-  text-align: right;
-  border-right: 1px solid #ddd;
+  width: 100px;
+}
+.closing .table th:last-child {
+  width: calc(100px);
+  text-align: left;
 }
 .closing .table td:last-child {
+  width: calc(1200px);
+  text-align: left;
   border-right: 1px solid #ddd;
 }
 .company_info {
@@ -1296,7 +1295,7 @@
   width: 50px;
 }
 .register .area_in_box .area1 table th:nth-of-type(2) {
-  width: 120px;
+  width: 70px;
 }
 .register .area_in_box .area1 table th:nth-of-type(3) {
   width: 120px;
@@ -1304,21 +1303,35 @@
 .register .area_in_box .area1 table th:nth-of-type(4) {
   width: 210px;
 }
-.register .area_in_box .area1 table td:nth-of-type(1) {
-  width: 50px;
-  text-align: center;
+.register .area_in_box .area1 table th:nth-of-type(5) {
+  width: 80px;
+}
+.register .area_in_box .area1 table th:nth-of-type(6) {
+  width: 80px;
 }
 .register .area_in_box .area1 table td:nth-of-type(2) {
-  width: 120px;
+  width: 40px;
   text-align: center;
 }
 .register .area_in_box .area1 table td:nth-of-type(3) {
-  width: 120px;
+  width: 90px;
   text-align: center;
 }
 .register .area_in_box .area1 table td:nth-of-type(4) {
-  width: 210px;
+  width: 100px;
   text-align: right;
+}
+.register .area_in_box .area1 table td:nth-of-type(5) {
+  width: 170px;
+  text-align: center;
+}
+.register .area_in_box .area1 table td:nth-of-type(6) {
+  width: 100px;
+  text-align: center;
+}
+.register .area_in_box .area1 table td:nth-of-type(7) {
+  width: 80px;
+  text-align: center;
 }
 .register .area_in_box .area1 table td input {
   text-align: right;
@@ -3081,6 +3094,496 @@
 .retire .table td:last-child {
   border-right: 1px solid #ddd;
 }
+.settlement_page_box {
+  height: 100%;
+  min-width: 1050px;
+  background-color: white;
+}
+.settlement_page_box .settlement_big_box {
+  width: 100%;
+  height: 100%;
+}
+.settlement_page_box .settlement_big_box .btn {
+  width: 100%;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox {
+  width: 100%;
+  height: 100%;
+  min-width: 1213px;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .Sbox_head {
+  text-align: left;
+  font-size: 13px;
+  height: 100px;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .Sbox_head .date_guide_txt,
+.settlement_page_box .settlement_big_box .settlement_inBox .Sbox_head #endDay {
+  color: #6633CC;
+  font-weight: 700;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .Sbox {
+  min-width: 380px;
+  float: left;
+  padding: 10px;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .table {
+  min-width: inherit;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .income_box ._total_sum {
+  height: 40px;
+  color: #99CCFF;
+  font-weight: 700;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .income_box .table tbody {
+  color: #99CCFF;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .expenditure_box ._total_sum {
+  padding: 20px 0 20px 0;
+  color: #FF0066;
+  font-weight: 700;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .expenditure_box .table tbody {
+  color: #FF0066;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .summary_box ._total_sum {
+  padding-top: 20px;
+  color: #99CCFF;
+  font-weight: 700;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .summary_box .table tbody {
+  color: #000;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .table th:nth-of-type(1),
+.settlement_page_box .settlement_big_box .settlement_inBox .table td:nth-of-type(1) {
+  width: 90px;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .table th:nth-of-type(2),
+.settlement_page_box .settlement_big_box .settlement_inBox .table td:nth-of-type(2) {
+  width: 120px;
+}
+.settlement_page_box .settlement_big_box .settlement_inBox .table th:last-child,
+.settlement_page_box .settlement_big_box .settlement_inBox .table td:last-child {
+  text-align: left;
+}
+.account_group_manager {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.account_group_manager_content {
+  width: 360px;
+  height: 250px;
+}
+.account_group_manager_content .header {
+  height: 30px;
+}
+.account_group_manager_content .header .radio {
+  float: left;
+  width: 125px;
+  padding: 0 0 0 35px;
+}
+.account_group_manager_content .header .radio label {
+  padding-left: 0;
+}
+.account_group_manager_content .header .radio .radio_box {
+  float: left;
+  width: 30px;
+  margin-right: 15px;
+}
+.account_group_manager_content .header .radio .radio_box input {
+  margin-left: -16px;
+}
+.account_group_manager_content .header .input_box {
+  float: left;
+  width: 110px;
+}
+.account_group_manager_content .header .btn_box {
+  float: left;
+}
+.account_group_manager_content .header .btn_box ._btnClass {
+  float: left;
+  margin-left: 5px;
+}
+.account_group_manager_content .table {
+  width: 338px;
+  max-width: 100%;
+  height: 202px;
+  margin: 10px 0 0 10px;
+  display: block;
+  border: 1px solid gainsboro;
+}
+.account_group_manager_content .table .selected {
+  color: white;
+  background: #CCFF99;
+}
+.account_group_manager_content .table tr {
+  text-align: left;
+}
+.account_group_manager_content .table td {
+  width: 340px;
+}
+#account_input_box,
+#input_group2,
+#input_group3 {
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.payment_page {
+  min-width: 1090px !important;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 10px 10px 0 10px;
+}
+.payment_page .calendar_area {
+  float: left;
+  width: 210px;
+  height: 100%;
+}
+.payment_page .input_list_area {
+  float: left;
+  width: 850px;
+  min-width: 850px;
+  height: 100%;
+}
+.payment_page .input_list_area .selected {
+  color: white;
+  background: #CCFF99;
+}
+.payment_page .input_list_area .oSelected {
+  color: white;
+  background: #FF0066;
+}
+.payment_page .input_list_area .list-group {
+  padding: 5px;
+}
+.payment_page .input_list_area #input_group2 {
+  width: 0;
+  visibility: hidden;
+}
+.payment_page .input_list_area .write_big_box {
+  font-size: 12px;
+  height: 60px;
+}
+.payment_page .input_list_area .write_big_box #gubun_list tbody {
+  overflow-y: hidden;
+}
+.payment_page .input_list_area .write_big_box #gubun_list tbody td {
+  width: 153px;
+}
+.payment_page .input_list_area .write_big_box .write_box {
+  display: none;
+  margin-top: 10px;
+  height: 150px;
+  border-top: 1px solid #dddddd;
+}
+.payment_page .input_list_area .write_big_box .write_box .table {
+  border: 1px solid #dddddd;
+  min-width: inherit;
+}
+.payment_page .input_list_area .write_big_box .write_box .table .list_row:hover {
+  background: #66FFCC;
+  cursor: pointer;
+}
+.payment_page .input_list_area .write_big_box .write_box .table tbody td {
+  text-align: left;
+  width: 133px;
+  font-size: 12px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_box {
+  float: left;
+  padding-bottom: 5px;
+  margin: 5px 5px 0 5px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_box .guide_txt {
+  height: 20px;
+  font-weight: 700;
+  text-align: left;
+  margin: 8px 0 3px 3px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group {
+  color: #99CCFF;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_gubun,
+.payment_page .input_list_area .write_big_box .write_box .input_group {
+  text-align: left;
+  width: 150px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_gubun tbody,
+.payment_page .input_list_area .write_big_box .write_box .input_group tbody {
+  height: 130px;
+}
+.payment_page .input_list_area .write_big_box .write_box .selected_incom {
+  color: #99CCFF;
+}
+.payment_page .input_list_area .write_big_box .write_box .selected_outcom {
+  color: #FF0066;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group3 {
+  width: 0;
+  display: none;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group3 .class_div {
+  padding-bottom: 3px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group3 .btn-xs {
+  height: 25px;
+  width: 150px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group3 tbody {
+  height: 102px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_group4 {
+  width: 0;
+  display: none;
+  width: 300px !important;
+}
+.payment_page .input_list_area .write_big_box .write_box .guide_txt3 {
+  position: relative;
+  padding: 7px;
+  font-weight: 700;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents_label {
+  padding: 7px 0 0 0;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents_label .right_txt {
+  font-weight: bold;
+  text-align: right;
+  height: 28px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents {
+  width: 150px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents .form-control {
+  width: 150px;
+  font-size: 14px;
+  padding: 3px 6px;
+  height: 28px;
+  text-align: right;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents .memo_textarea {
+  height: 44px;
+  text-align: left;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents .form_line {
+  height: 30px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents .check_box {
+  padding-top: 2px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents .check_box ._box {
+  float: left;
+  padding-right: 10px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents textarea {
+  height: 50px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents #iMoney,
+.payment_page .input_list_area .write_big_box .write_box .input_contents #iTargetDay {
+  text-align: center;
+  IME-MODE: disabled;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents_button {
+  padding-top: 3px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents_button .btn {
+  width: 80px;
+}
+.payment_page .input_list_area .write_big_box .write_box .input_contents_button ._box {
+  padding: 2px 0 1px 0;
+}
+.payment_page .input_list_area .payment_top_space {
+  padding: 6px 1px;
+}
+.payment_page .input_list_area .payment_list {
+  height: 220px;
+  padding: 10px 0 0 0;
+}
+.payment_page .input_list_area .payment_list .table .zero_data {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+.payment_page .input_list_area .payment_list .table .select {
+  background: #66FFCC;
+  color: white;
+}
+.payment_page .input_list_area .payment_list .table td {
+  font-size: 11px;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(1),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(1) {
+  width: 100px;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(2),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(2) {
+  width: 150px;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(3),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(3) {
+  width: 150px;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(4),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(4) {
+  width: 150px;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(2),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(2) {
+  text-align: left;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(3),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(3) {
+  text-align: right;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(4),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(4) {
+  text-align: right;
+}
+.payment_page .input_list_area .payment_list .table th:nth-of-type(5),
+.payment_page .input_list_area .payment_list .table td:nth-of-type(5) {
+  text-align: left;
+}
+.payment_page .input_list_area .payment_list .table .list_row:hover {
+  background: #EEE;
+  cursor: pointer;
+}
+.payment_page .input_list_area .income {
+  color: #99CCFF;
+}
+.payment_page .input_list_area .outcom {
+  color: #FF0066;
+}
+.payment_page .input_list_area .date_guide_txt {
+  color: #6633CC;
+}
+.payment_page .input_list_area .list_total {
+  padding-left: 200px;
+  height: 45px;
+}
+.payment_page .input_list_area .list_total .sum {
+  float: left;
+}
+.payment_page .input_list_area .list_total .income {
+  float: left;
+  width: 185px;
+  text-align: right;
+}
+.payment_page .input_list_area .list_total .outcom {
+  float: left;
+  width: 150px;
+  text-align: right;
+}
+.payment_page .input_list_area .today_total {
+  padding-left: 176px;
+  height: 45px;
+}
+.payment_page .input_list_area .today_total ._label {
+  float: left;
+  width: 70px;
+}
+.payment_page .input_list_area .today_total ._data {
+  float: left;
+  width: 300px;
+  color: #FF0066;
+}
+.payment_page .input_list_area .month_total {
+  padding-left: 176px;
+  height: 60px;
+}
+.payment_page .input_list_area .month_total .total_sum {
+  height: 20px;
+}
+.payment_page .input_list_area .month_total .total_sum ._label {
+  float: left;
+  width: 70px;
+}
+.payment_page .input_list_area .month_total .total_sum ._data {
+  float: left;
+  width: 300px;
+}
+.payment_page .input_list_area .month_total .total_result ._label {
+  float: left;
+  width: 70px;
+}
+.payment_page .input_list_area .month_total .total_result ._data {
+  float: left;
+  width: 550px;
+}
+.account_manager .nav-tabs {
+  padding: 10px 0 0 5px;
+}
+.account_manager .tab-content {
+  padding: 0 5px 0 5px;
+}
+.account_manager ._logout_box {
+  position: fixed;
+  top: 10px;
+  right: 5px;
+}
+.report_page_head {
+  padding-top: 10px;
+}
+.report_page_head .btn {
+  width: 100px;
+}
+.report_page_body {
+  padding-top: 20px;
+}
+.report_page_body .report_term {
+  height: 50px;
+  display: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+.report_page_body .date_guide_txt {
+  color: #6633CC;
+}
+.report_page_body .expenditure {
+  color: #FF0066;
+}
+.report_page_body .income {
+  color: #99CCFF;
+}
+.report_page_body .tuition {
+  color: black;
+}
+.report_page_body .report_txt {
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+.report_page_body .table {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-collapse: collapse;
+}
+.report_page_body .table .zero_data {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+.report_page_body .table th:nth-of-type(1),
+.report_page_body .table td:nth-of-type(1) {
+  min-width: 80px;
+}
+.report_page_body .table th:nth-of-type(2),
+.report_page_body .table td:nth-of-type(2) {
+  min-width: 120px;
+}
+.report_page_body .table th:last-child {
+  text-align: left;
+}
+.report_page_body .table td:last-child {
+  text-align: left;
+}
+.report_page_body .table tbody {
+  height: 100px;
+}
 html {
   overflow-y: hidden;
   overflow-x: hidden;
@@ -3126,6 +3629,7 @@ tr:hover td {
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+  background-color: red;
 }
 @-webkit-keyframes spin {
   0% {

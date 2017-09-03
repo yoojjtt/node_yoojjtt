@@ -41,7 +41,7 @@ $("tbody").on("click", "tr", function(){//
 
 
             daily_employee_register.daily_employee_include(forth); // 일용직 개별 monthly_danga에 등록  ,
-            //TODO daily_employee_register가 없기 때문에  emplotee_list 에서는 에러난돠
+            //TODO daily_employee_register가 없기 때문에  emplotee_list 에서는 에러난다.
 
 
 
