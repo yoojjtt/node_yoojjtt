@@ -30,7 +30,7 @@
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select onChange="search()" id="hyunjang_select" class="btn-default form-control btn_class" >
+                    <select onChange="" id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
@@ -205,23 +205,18 @@
         nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
-    function load(){
-        var m = $('#toMonth').val();
-        lib.Calendar(m); // th 의 월별 일자 변경
-        nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
-    }
     function present_month(){  // 현재월로 버튼
         var m = lib.toMonth();
         $('#toMonth').val(m);
         lib.Calendar(m);
-        nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+        //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
     function month_change(interval){  //달 +1,-1 버튼
         var m = lib.dateValue_add_month(interval);
         $('#toMonth').val(m);
         //alert(m);
         lib.Calendar(m);
-        search();
+        //search();
         //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 

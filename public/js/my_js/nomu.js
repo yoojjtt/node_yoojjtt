@@ -97,9 +97,9 @@ var nomu = function ()
 
 
 
-                var exception_money = parseFloat(exception);
-                var income_rate = parseFloat(income)/100;
-                var jumin_tax = parseFloat(jumin)/100;
+                var exception_money = parseInt(exception);
+                var income_rate = parseInt(income)/100;
+                var jumin_tax = parseInt(jumin)/100;
 
 
 
@@ -121,8 +121,21 @@ var nomu = function ()
                 {
 
                     var str = '';
-                    var kongsu = res[i].attendance;  //  1@@1@@1@@... 의 형태로 들어온다.
-                    var kongsu_daily = kongsu.split('@@'); //@@ 기준으로 자른다.
+                    if(res[i].attendance == null){
+                        var kongsu = '';  //1@3@1@12@1@1@... 형식의 공수
+
+                        var attendace_info = '';  // //기준으로 자른 공수,  입사일   kongsu_daily
+                        var startWork = '';
+                        var kongsu_daily = '';
+                        //console.log(startWork);
+                    }else{
+                        var kongsu = res[i].attendance;  //1@3@1@12@1@1@... 형식의 공수
+
+                        var attendace_info = kongsu.split('//');  // //기준으로 자른 공수,  입사일   kongsu_daily
+                        var startWork = attendace_info[1];
+                        var kongsu_daily = attendace_info[0].split('@@');
+                        //console.log(startWork);
+                    }
                     var tot_num = kongsu_daily.length; // 자른 배열의 길이를 구한다.
                     //alert(tot_num);
                     if(res[i].attendance == null){  // 공수입력값이 없으면 미입력

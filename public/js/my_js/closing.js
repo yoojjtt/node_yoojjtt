@@ -35,13 +35,21 @@ var closing = function ()
             {
 
                 var str = '';
-                var kongsu = res[i].attendance;
-                var kongsu_daily = kongsu.split('@@');
-                var tot_num = kongsu_daily.length;
+
+
+
 
                 if(res[i].attendance == null){
                     kongsu = '미입력';
                     // TODO 결석 배열 만들어서 결석 토탈에 넣어준다.
+                }else{
+                    var attendance_info = res[i].attendance;
+                    var attendance =  attendance_info.split('//');
+
+
+                    //console.log(attendance);
+                    var kongsu_daily = attendance[0].split('@@');
+                    var tot_num = kongsu_daily.length;
                 }
                 var k = i+1;
 

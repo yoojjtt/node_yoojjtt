@@ -132,7 +132,7 @@ var daily_employee_register = function ()
                     alert("Find delete id");
                 }else{// 없다면 추가
                     result_data_delete.push(employee_id);   // delete data는 id0@id1@id2@id3 형식으로 넘겨서 '' 없이 넣는다.
-                    //alert(result_data_delete);
+                    alert(result_data_delete);
                 }
             }else{
                 alert("NotFind");
@@ -306,7 +306,7 @@ var daily_employee_register = function ()
                     value_array += id +"@"+danga + "@" +pension_val + "@" +medical_val + "@" +"//";
                 }
             }
-            alert(value_array);
+            //alert(value_array);
 
 
 
@@ -324,13 +324,13 @@ var daily_employee_register = function ()
                 console.log(result);
 
                 //alert(result);
-                //var res = result[0].data[0][0];
-                // var return_code = result[0].data[0][0].return_code;
-                // if(return_code == '100'){
-                //     //alert(msg);
-                //     location.reload();
-                //
-                // }
+                var res = result[0].data[0][0];
+                var return_code = result[0].data[0][0].return_code;
+                if(return_code == '100'){
+                    alert(msg);
+                    location.reload();
+
+                }
 
 
 

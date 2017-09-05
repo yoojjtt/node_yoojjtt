@@ -861,11 +861,12 @@
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(5) {
-  width: 220px;
+  width: 290px;
   padding-bottom: 8px;
 }
 .closing .table th:nth-of-type(6) {
-  width: 790px;
+  min-width: 422px;
+  max-width: 422px;
 }
 .closing .table th:nth-of-type(7) {
   width: 120px;
@@ -891,8 +892,8 @@
   width: 200px;
 }
 .closing .table td:nth-of-type(6) {
-  min-width: 60px;
-  width: 820px;
+  min-width: 420px;
+  max-width: 420px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -1790,7 +1791,7 @@
 .nomu .table {
   width: 100%;
   max-width: 100%;
-  min-width: 1500px;
+  min-width: 1050px;
   height: 100%;
   display: block;
   border-collapse: collapse;
@@ -1825,15 +1826,14 @@
 }
 .nomu .table th div.label_week_date {
   float: left;
-  width: 30px;
+  width: 20px;
   border-left: 1px solid #ddd;
   line-height: 1.5;
   color: #a2a2a2;
-  padding-left: 5px;
 }
 .nomu .table th div.label_week_date ._week {
   font-weight: normal;
-  font-size: 9px;
+  font-size: 8px;
 }
 .nomu .table th .sun {
   color: deeppink!important;
@@ -1848,17 +1848,17 @@
   padding: 10px;
 }
 .nomu .table td {
-  font-size: 12px;
+  font-size: 11px;
   padding: 0;
 }
 .nomu .table tbody {
   display: block;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 .nomu .table tbody div.label_week_date {
   float: left;
-  width: 30px;
+  width: 20px;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   line-height: 1.5;
@@ -1894,7 +1894,7 @@
   padding-bottom: 10px;
 }
 .nomu .table th:nth-of-type(6) {
-  width: 33.5%;
+  width: 26.5%;
 }
 .nomu .table th:nth-of-type(7) {
   width: 4.19%;
@@ -1946,13 +1946,13 @@
   width: 4%;
 }
 .nomu .table td:nth-of-type(4) {
-  width: 4.6%;
+  width: 4.2%;
 }
 .nomu .table td:nth-of-type(5) {
   width: 8%;
 }
 .nomu .table td:nth-of-type(6) {
-  width: 35%;
+  width: 27%;
   padding-left: 2px;
   padding-right: 2px;
 }
@@ -2124,7 +2124,7 @@
 .payment .table {
   width: 100%;
   max-width: 100%;
-  min-width: 1500px;
+  min-width: 1050px;
   height: 100%;
   display: block;
   border-collapse: collapse;
@@ -2143,6 +2143,10 @@
   position: relative;
   top: 70px;
   text-align: center;
+}
+.payment .table .input-sm {
+  height: 20px;
+  padding: 5px;
 }
 .payment .table th {
   padding: 0;
@@ -2273,6 +2277,7 @@
 }
 .payment .table td {
   border-right: 1px solid #ddd;
+  padding: 5px;
 }
 .payment .table td:nth-of-type(1) {
   width: 10px;
@@ -2290,7 +2295,7 @@
   width: 8%;
 }
 .payment .table td:nth-of-type(6) {
-  width: 7%;
+  width: 5%;
 }
 .payment .table td:nth-of-type(7) {
   width: 4%;
@@ -2619,7 +2624,12 @@
   padding-bottom: 20px;
 }
 .insurance .table th:nth-of-type(18) {
+  width: 6%;
+  padding-bottom: 10px;
+}
+.insurance .table th:nth-of-type(19) {
   width: 50px;
+  text-align: left;
   padding-bottom: 10px;
 }
 .insurance .table td {
@@ -2706,8 +2716,14 @@
   padding-bottom: 8px;
 }
 .insurance .table td:nth-of-type(18) {
-  width: 300px;
+  width: 7%;
   text-align: right;
+  padding-right: 5px;
+  padding-bottom: 8px;
+}
+.insurance .table td:nth-of-type(19) {
+  width: 300px;
+  text-align: left;
   padding-right: 5px;
 }
 .insurance .table td .input-box-type1 {

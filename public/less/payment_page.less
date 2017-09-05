@@ -127,7 +127,7 @@
   .table {
     width: 100%;
     max-width: 100%;
-    min-width: 1500px;
+    min-width: 1050px;  // 화면에 최소값을 줘서 더 아래에는 변화가 없도록
     height: 100%;
     display: block;
     border-collapse: collapse;
@@ -137,7 +137,10 @@
       top: 70px;
       text-align: center;
     }
-
+    .input-sm{
+      height:20px;
+      padding:5px;
+    }
     th {
       padding:0;
       text-align: center;
@@ -244,6 +247,7 @@
     }
     td {
       border-right: 1px solid #ddd;
+      padding:5px;
 
       //text-align: center!important;
       &:nth-of-type(1) {width: 10px;} //id  display:none;
@@ -251,7 +255,7 @@
       &:nth-of-type(3) {width: 4%;}  //이름
       &:nth-of-type(4) {width: 4.6%;} //직종
       &:nth-of-type(5) {width: 8%; } //주민번호
-      &:nth-of-type(6) {width: 7%; }  // 은행
+      &:nth-of-type(6) {width: 5%; }  // 은행
       &:nth-of-type(7) {width: 4%; }  //예금주
       &:nth-of-type(8) {width: 10%; text-align:right; padding-right:5px;  }  //계좌번호
       &:nth-of-type(9) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;}  //합계

@@ -23,7 +23,7 @@ var payment = function ()
             var c_employee = res1.c_employee; // 법인 고용 보험
             var p_med = res1.p_med/100; // 개인 건강보험
             var c_med = res1.c_med; // 법인 건강보험
-            var p_old = res1.p_old; // 개인 노인고용보험
+            var p_old = res1.p_old/100; // 개인 노인고용보험
             var c_old = res1.c_old; // 법인 노인고용보험
             var p_pension = res1.p_pension/100; // 개인 국민연금
             var c_pension = res1.c_pension; // 법인 국민연금
@@ -65,9 +65,9 @@ var payment = function ()
 
 
 
-                var exception_money = parseFloat(exception);
-                var income_rate = parseFloat(income)/100;
-                var jumin_tax = parseFloat(jumin)/100;
+                var exception_money = parseInt(exception);
+                var income_rate = parseInt(income)/100;
+                var jumin_tax = parseInt(jumin)/100;
 
                 //$('#balju_company').text(balju_company);
 
@@ -77,12 +77,26 @@ var payment = function ()
                 {
 
                     var str = '';
-                    var kongsu = res[i].attendance;
-                    var kongsu_daily = kongsu.split('@');
+                    if(res[i].attendance == null){
+                        var kongsu = '';  //1@3@1@12@1@1@... 형식의 공수
+
+                        var attendace_info = '';  // //기준으로 자른 공수,  입사일   kongsu_daily
+                        var startWork = '';
+                        var kongsu_daily = '';
+                        //console.log(startWork);
+                    }else{
+                        var kongsu = res[i].attendance;  //1@3@1@12@1@1@... 형식의 공수
+
+                        var attendace_info = kongsu.split('//');  // //기준으로 자른 공수,  입사일   kongsu_daily
+                        var startWork = attendace_info[1];
+                        var kongsu_daily = attendace_info[0].split('@@');
+                        //console.log(startWork);
+                    }
                     var tot_num = kongsu_daily.length;
                     var bank_name = res[i].bank_name;
                     var bank_owner = res[i].bank_owner;
                     var bank_account = res[i].bank_account;
+                    var hyunjang_sort = res[i].hyunjang_sort;
 
                     //alert(bank_name+bank_owner+bank_account);
 
@@ -98,9 +112,9 @@ var payment = function ()
                     str += "<td>" + res[i].name + "</td>";
                     str += "<td>" + res[i].job+ "</td>";
                     str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
-                    str += "<td>" + "<input class='input-box-type1' value='"+bank_name+"'>" + "</td>";
-                    str += "<td>" + "<input class='input-box-type2' value='"+bank_owner +"'>"+ "</td>";
-                    str += "<td>" + "<input class='input-box-type3' value='"+bank_account +"'>" + "</td>";
+                    str += "<td>" + "<input class='input-box-type1 form-control input-sm' value='"+bank_name+"'>" + "</td>";
+                    str += "<td>" + "<input class='input-box-type2 form-control input-sm' value='"+bank_owner +"'>"+ "</td>";
+                    str += "<td>" + "<input class='input-box-type3 form-control input-sm' value='"+bank_account +"'>" + "</td>";
 
                     var daily_salary_total = res[i].daily_salary;
                     var total_salary = 0;  // 금액을 더할 때는 in 로 초기값 설정해야 한다.
@@ -108,14 +122,14 @@ var payment = function ()
 
 
 
-                    var daily_salary = parseFloat(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
+                    var daily_salary = parseInt(res[i].daily_salary);  // 단가를 String 형에서 계산하기위해 FLOAT 으로 바꿈
                     var kongsu_total = 0;
 
                     for(var j = 0; j < tot_num; j++){
 
                         //str += "<div class='label_week_date'>"+kongsu_daily[j] + "</div>";
                         total_salary += daily_salary_total * kongsu_daily[j];
-                        var kongsu = parseFloat(kongsu_daily[j]);
+                        var kongsu = parseInt(kongsu_daily[j]);
 
                         if(kongsu_daily[j]>0){
                             kongsu_total += kongsu
@@ -145,13 +159,80 @@ var payment = function ()
                     var jumin_tax_c = (gab_tax_c*jumin_tax).toFixed(0); // 계산할 떄 float 값으로 들어와야된다.
                     var jumin_tax_val = Number(jumin_tax_c).toLocaleString();
                     var employee_tax = total_salary*p_employee ;  //  노무비 총액 * 개인 고용보험율 (0.065)
-                    var med_tax = total_salary*p_med;  // 노무비 총액 * 개인 의료보험율 (0.036)
-                    var pension_tax = total_salary*p_pension;  //노무비 총액  * 개인 국민연금(0.045)
 
 
 
 
-                    var total_tax_sum = parseFloat(gab_tax_c) + parseFloat(jumin_tax_c)+employee_tax+med_tax+pension_tax;
+
+
+                    /*국민 건강에 대해서 */
+                    if(hyunjang_sort == '건설') {
+                        //alert(hyunjang_sort);
+                        //alert(kongsu_total);
+                        if(kongsu_total >= 20){
+
+
+                            /*국민연금 && 의료보험*/
+                            if(total_salary > 4490000){
+
+                                var pension_tax = Math.floor((4490000*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10; // 노무비 총액 * 개인 의료보험율 (0.036)
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10; // 개인의료보험 * 노인장기보험율(0.0655)
+                                var med_old_tax = med_tax+old_tax; // 의료보험 + 노인장기용양  = 건강보험
+
+                            }else if(total_salary>280000 && total_salary < 4490000){
+                                var pension_tax = Math.floor((total_salary*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10;
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10;
+                                var med_old_tax = med_tax+old_tax;
+                            }else{
+                                var pension_tax = 12600;
+                                var med_tax = 8560; //
+                                var old_tax = 560; //
+                                var med_old_tax = med_tax+old_tax;
+                            }
+
+                        }else{
+                            var med_old_tax = 0;
+                            var pension_tax = 0;
+                        }
+                    }else{// 일반 공사인경우
+                        //alert(hyunjang_sort);
+                        if(kongsu_total >= 7){
+                            /*국민연금 && 의료보험*/
+                            if(total_salary > 4490000){
+
+                                var pension_tax = Math.floor((4490000*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10; // 노무비 총액 * 개인 의료보험율 (0.036)
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10; // 개인의료보험 * 노인장기보험율(0.0655)
+                                var med_old_tax = med_tax+old_tax; // 의료보험 + 노인장기용양  = 건강보험
+
+                            }else if(total_salary>280000 && total_salary < 4490000){
+                                var pension_tax = Math.floor((total_salary*p_pension)/10)*10;  //노무비 총액  * 개인 국민연금(0.045)
+                                var med_tax = Math.floor((total_salary*p_med)/10)*10;
+                                var old_tax = Math.floor((med_tax*p_old)/10)*10;
+                                var med_old_tax = med_tax+old_tax;
+                            }else{
+                                var pension_tax = 12600;
+                                var med_tax = 8560; //
+                                var old_tax = 560; //
+                                var med_old_tax = med_tax+old_tax;
+                            }
+                        }else{
+                            var med_old_tax = 0;
+                            var pension_tax = 0;
+                        }
+                    }
+
+
+
+                    // var med_tax = total_salary*p_med;  // 노무비 총액 * 개인 의료보험율 (0.036)
+                    // var pension_tax = total_salary*p_pension;  //노무비 총액  * 개인 국민연금(0.045)
+
+
+
+
+                    var total_tax_sum = parseInt(gab_tax_c) + parseInt(jumin_tax_c)+employee_tax+med_tax+pension_tax;
 
                     if(gab_tax_val == '0'){  // 면제기준이면 치환
                         gab_tax_val = '-';
@@ -165,7 +246,7 @@ var payment = function ()
                     str += "<td>"+ gab_tax_val +"</td>";   //갑근세
                     str += "<td>"+ jumin_tax_val+"</td>";  //주민세
                     str += "<td>"+  employee_tax.toLocaleString() +"</td>";
-                    str += "<td>"+  med_tax.toLocaleString() +"</td>";
+                    str += "<td>"+  med_old_tax.toLocaleString() +"</td>";
                     str += "<td>"+  pension_tax.toLocaleString() +"</td>";
                     str += "<td>"+  total_tax_sum.toLocaleString() +"</td>";
                     str += "<td>"+  real_income.toLocaleString() +"</td>";
