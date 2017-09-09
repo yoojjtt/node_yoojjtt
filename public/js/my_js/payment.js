@@ -158,8 +158,8 @@ var payment = function ()
                     var gab_tax_val = Number(gab_tax.toFixed(0)).toLocaleString();  // , string 돈 액수로 표현하기 위해서
                     var jumin_tax_c = (gab_tax_c*jumin_tax).toFixed(0); // 계산할 떄 float 값으로 들어와야된다.
                     var jumin_tax_val = Number(jumin_tax_c).toLocaleString();
-                    var employee_tax = total_salary*p_employee ;  //  노무비 총액 * 개인 고용보험율 (0.065)
 
+                    var employee_tax = Math.floor((total_salary*p_employee)/10)*10 ;  //  노무비 총액 * 개인 고용보험율 (0.065)
 
 
 
@@ -230,9 +230,9 @@ var payment = function ()
                     // var pension_tax = total_salary*p_pension;  //노무비 총액  * 개인 국민연금(0.045)
 
 
+                    console.log(gab_tax_c +"//"+ jumin_tax_c +"//"+ employee_tax +"//"+ med_old_tax+"//"+ pension_tax);
 
-
-                    var total_tax_sum = parseInt(gab_tax_c) + parseInt(jumin_tax_c)+employee_tax+med_tax+pension_tax;
+                    var total_tax_sum = Number(parseInt(gab_tax_c) + parseInt(jumin_tax_c)+parseInt(employee_tax)+parseInt(med_old_tax)+parseInt(pension_tax));
 
                     if(gab_tax_val == '0'){  // 면제기준이면 치환
                         gab_tax_val = '-';

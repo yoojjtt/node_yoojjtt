@@ -10,6 +10,12 @@ var nomu = function ()
         monthly_closing_load : function(){
             //var p = window.parent.parent;
             alert('조회시작');
+            $('#kongsu_table_body').empty();
+            //var empty = '';
+            //empty += "<div style='text-align:center; padding-top:100px;'>"+"로딩중..."+"</div>";
+            //$('#kongsu_table_body').append(empty);
+
+
             //p._showPage();
 
             /*세금 정보를 먼저 불러온다. 혹시 오류 있을 수 있으니 변수뒤에 1을 붙여줌*/
@@ -64,6 +70,11 @@ var nomu = function ()
                 }else{
                     alert('조회 결과 없음');
                     $('#kongsu_table_body').empty();
+                    var empty = '';
+                    empty += "<div style='text-align:center; padding-top:100px;'>"+"데이터가 없습니다"+"</div>"
+
+
+                    $('#kongsu_table_body').append(empty);
                     return false
                 }
 
@@ -210,8 +221,8 @@ var nomu = function ()
                     var jumin_tax_val = Number(jumin_tax_c);
                     //console.log(total_salary*p_med);
                     //console.log(total_salary*p_old);
+                    var employee_tax = Math.floor((total_salary*p_employee)/10)*10 ;  //  노무비 총액 * 개인 고용보험율 (0.065)
 
-                    var employee_tax = total_salary*p_employee ;  //  노무비 총액 * 개인 고용보험율 (0.065)
 
 
                     /*국민 건강에 대해서 */
@@ -278,8 +289,8 @@ var nomu = function ()
 
 
 
-
-                    var total_tax_sum = parseInt(gab_tax_c) + parseInt(jumin_tax_c)+employee_tax+med_old_tax+pension_tax;
+                    console.log(gab_tax_c +"//"+ jumin_tax_c +"//"+ employee_tax +"//"+ med_old_tax+"//"+ pension_tax);
+                    var total_tax_sum = Number(parseInt(gab_tax_c) + parseInt(jumin_tax_c)+parseInt(employee_tax)+parseInt(med_old_tax)+parseInt(pension_tax));
 
                     if(gab_tax_val == '0'){  // 면제기준이면 치환
                         gab_tax_val = '-';

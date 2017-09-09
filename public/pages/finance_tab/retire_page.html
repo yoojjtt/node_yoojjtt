@@ -25,7 +25,7 @@
         <div class="btn_box_left">
             <div class="btn_check_all">
                 <div class="select-box">
-                    <select onChange="load();" id="hyunjang_select" class="btn-default form-control btn_class" >
+                    <select onChange="" id="hyunjang_select" class="btn-default form-control btn_class" >
 
                     </select>
                 </div>
@@ -33,12 +33,12 @@
             </div>
             <div class="btn_etc">
                 <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
-
+                <button type="button" class="btn btn-default" onClick="search()" id="search">조회</button>
                 <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
                 <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="month_change(1)" id="btn_right"></div>
                 <button class="btn date">
                     <div class="input-append date" id="dp3">
-                        <input onChange="load();"  id="toMonth" type="month" value="">
+                        <input onChange=""  id="toMonth" type="month" value="">
                         <span class="add-on">
                         <span class="glyphicon glyphicon-calendar"></span>
                         <span class="lbl_targetDay" id="lbl_targetDay"></span>
@@ -71,11 +71,7 @@
     </div>
     <table class="table table-striped" id="kongsu_table_head">
         <thead>
-        <tr>
-            <th colspan="5">인 적 사 항</th>
-            <th colspan="12">월 별 공 수 </th>
-            <th colspan="2">근무 정보</th>
-        </tr>
+
 
         <tr>
 
@@ -85,20 +81,8 @@
             <th >직종</th>
             <th>주민번호</th>
             <th>입사일</th>
-            <th>입사일 <br>+ 1M</th>
-            <th>입사일 <br>+ 2M</th>
-            <th>입사일 <br>+ 3M</th>
-            <th>입사일 <br>+ 4M</th>
-            <th>입사일 <br>+ 5M</th>
-            <th>입사일 <br>+ 6M</th>
-            <th>입사일 <br>+ 7M</th>
-            <th>입사일 <br>+ 8M</th>
-            <th>입사일 <br>+ 9M</th>
-            <th>입사일 <br>+ 10M</th>
-            <th>입사일 <br>+ 11M</th>
-            <th>입사일 <br>+ 12M</th>
             <th>근무 <br>개월 수</th>
-            <th>3개월 <br>평균 금액</th>
+
 
 
         </tr>
@@ -155,19 +139,19 @@
         $('#kongsu_table_body td:last-child').css('width', win_width-140);
 
     }
-    function load(){
-        retire.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
-    }
     function present_month(){  // 현재월로 버튼
         var m = lib.toMonth();
         $('#toMonth').val(m);
 
-        retire.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+
     }
     function month_change(interval){  //달 +1,-1 버튼
         var m = lib.dateValue_add_month(interval);
         $('#toMonth').val(m);
 
+
+    }
+    function search(){
         retire.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 

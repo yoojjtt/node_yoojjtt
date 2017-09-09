@@ -75,20 +75,9 @@ var retire = function ()
                         str += "<td>" + res[i].job+ "</td>";
                         str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
                         str += "<td>" + res[i].start_work + "</td>";
-                        str += "<td>" + start + "</td>";
-                        str += "<td>" + pluse_one + "</td>";
-                        str += "<td>" + pluse_two +"</td>";
-                        str += "<td>" + pluse_three +"</td>";
-                        str += "<td>" + pluse_four +"</td>";
-                        str += "<td>" + pluse_five +"</td>";
-                        str += "<td>" + pluse_six +"</td>";
-                        str += "<td>" + pluse_seven +"</td>";
-                        str += "<td>" + pluse_eight+"</td>";
-                        str += "<td>" + pluse_nine +"</td>";
-                        str += "<td>" + pluse_ten +"</td>";
-                        str += "<td>" + pluse_eleven +"</td>";
+
                         str += "<td>" + "근무 개월 수" +"</td>";
-                        str += "<td>" + "최근 3개월"+ "<br>"+ "평균 급여" +"</td>";
+
                     str += "</tr>"
                     $('#retire_table_body').append(str);
 

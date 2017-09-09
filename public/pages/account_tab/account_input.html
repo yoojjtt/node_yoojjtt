@@ -17,6 +17,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+     <!--jQuery UI CSS파일-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+
     <!--<link href="/css/style.min.css" rel="stylesheet">-->
     <!--<link href="/css/datepicker.css" rel="stylesheet" type="text/css"/>-->
     <link href="../../css/style.css" rel="stylesheet"  media="screen">
@@ -218,6 +221,8 @@
 
 <!--<script type="text/javascript" src="/js/bootstrap-datepicker.js" charset="UTF-8"></script>-->
 <!--<script type="text/javascript" src="/js/locales/bootstrap-datepicker.kr.js" charset="UTF-8"></script>-->
+ <!--jQuery UI 라이브러리 js파일-->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 <script>
 
@@ -226,27 +231,27 @@
         windows_resize();
         account_input._init();
 
-//        $('#dp6').datepicker({
-//            format: "yyyy-mm-dd",
-//            startView: 3,
-//            todayBtn:false, //"linked"
-//            language: "kr",
-//            orientation: "top auto",
-//            pickTime : false,
-//            defalutDate : new Date(),
-//            keyboardNavigation: false,
-//            forceParse: false,
-//            autoclose: true,
-//            todayHighlight: true
-//        });
-//
-//        $('#dp6').datepicker()
-//            .on('changeDate', function(ev){
-//                //if (ev.date.valueOf() < startDate.valueOf()){
-//                //}
-//                //console.log(ev);//return;
-//                account_input.change_target_day(ev.date);
-//            });
+        $('#dp6').datepicker({
+            format: "yyyy-mm-dd",
+            startView: 3,
+            todayBtn:false, //"linked"
+            language: "kr",
+            orientation: "top auto",
+            pickTime : false,
+            defalutDate : new Date(),
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        $('#dp6').datepicker()
+            .on('changeDate', function(ev){
+                //if (ev.date.valueOf() < startDate.valueOf()){
+                //}
+                //console.log(ev);//return;
+                account_input.change_target_day(ev.date);
+            });
 
 
 

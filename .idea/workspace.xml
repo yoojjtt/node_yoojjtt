@@ -2,22 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc42797-b919-4759-932b-8c8d5ea9b544" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/my_js/_loading.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace (DESKTOP-FFH88SN의 충돌된 사본 2017-09-01 (1)).xml" afterPath="$PROJECT_DIR$/.idea/workspace (DESKTOP-FFH88SN의 충돌된 사본 2017-09-01 (1)).xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace (DESKTOP-FFH88SN의 충돌된 사본 2017-09-01).xml" afterPath="$PROJECT_DIR$/.idea/workspace (DESKTOP-FFH88SN의 충돌된 사본 2017-09-01).xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/closing.js" afterPath="$PROJECT_DIR$/public/js/my_js/closing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" afterPath="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/insurance.js" afterPath="$PROJECT_DIR$/public/js/my_js/insurance.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/account_manager.js" afterPath="$PROJECT_DIR$/public/js/my_js/account_manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/dashboard.js" afterPath="$PROJECT_DIR$/public/js/my_js/dashboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/nomu.js" afterPath="$PROJECT_DIR$/public/js/my_js/nomu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/payment.js" afterPath="$PROJECT_DIR$/public/js/my_js/payment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/less/closing_page.less" afterPath="$PROJECT_DIR$/public/less/closing_page.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/less/insurance_page.less" afterPath="$PROJECT_DIR$/public/less/insurance_page.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/less/nomu_page.less" afterPath="$PROJECT_DIR$/public/less/nomu_page.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/less/payment_page.less" afterPath="$PROJECT_DIR$/public/less/payment_page.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/my_js/retire.js" afterPath="$PROJECT_DIR$/public/js/my_js/retire.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/less/retire_page.less" afterPath="$PROJECT_DIR$/public/less/retire_page.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/account_manager.html" afterPath="$PROJECT_DIR$/public/pages/account_manager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/account_tab/account_closing.html" afterPath="$PROJECT_DIR$/public/pages/account_tab/account_closing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/account_tab/account_input.html" afterPath="$PROJECT_DIR$/public/pages/account_tab/account_input.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/account_tab/account_report.html" afterPath="$PROJECT_DIR$/public/pages/account_tab/account_report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/hyunjang_tab/register_page.html" afterPath="$PROJECT_DIR$/public/pages/hyunjang_tab/register_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/finance_tab/retire_page.html" afterPath="$PROJECT_DIR$/public/pages/finance_tab/retire_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pages/modal/load.html" afterPath="$PROJECT_DIR$/public/pages/modal/load.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,26 +41,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="insurance_page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html">
+      <file leaf-file-name="nomu_page.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="94" column="21" lean-forward="false" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+            <state relative-caret-position="415">
+              <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="insurance.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/my_js/insurance.js">
+      <file leaf-file-name="_loading.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/my_js/_loading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-              <folding>
-                <marker date="1504618267803" expanded="true" signature="4745:4758" ph="..." />
-                <marker date="1504618267803" expanded="true" signature="13984:13995" ph="..." />
-                <marker date="1504618267803" expanded="true" signature="14738:14748" ph="..." />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="retire_page.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/less/retire_page.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1033">
+              <caret line="245" column="0" lean-forward="true" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,33 +74,13 @@
       <file leaf-file-name="nomu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="137" column="21" lean-forward="false" selection-start-line="137" selection-start-column="21" selection-end-line="137" selection-end-column="21" />
+            <state relative-caret-position="87">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
-                <marker date="1504619631587" expanded="true" signature="5162:5175" ph="..." />
+                <marker date="1504937029000" expanded="true" signature="317:354" ph="..." />
+                <marker date="1504937029000" expanded="true" signature="2564:2601" ph="..." />
+                <marker date="1504937029000" expanded="true" signature="5589:5602" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="payment.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/my_js/payment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
-              <folding>
-                <marker date="1504619659833" expanded="true" signature="3913:3926" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insurance_page.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/less/insurance_page.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4338">
-              <caret line="241" column="55" lean-forward="false" selection-start-line="241" selection-start-column="55" selection-end-line="241" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>font</find>
       <find>label</find>
       <find>hyun_jang</find>
       <find>setfont</find>
@@ -135,8 +124,9 @@
       <find>28</find>
       <find>kongsu_total</find>
       <find>Float</find>
-      <find>float</find>
       <find>console</find>
+      <find>load</find>
+      <find>float</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,16 +135,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/pages/copy.html" />
-        <option value="$PROJECT_DIR$/routes/daily_employee_info.js" />
-        <option value="$PROJECT_DIR$/public/js/print_js/print.js" />
-        <option value="$PROJECT_DIR$/routes/_dashboard.js" />
-        <option value="$PROJECT_DIR$/routes/_routerAct.js" />
         <option value="$PROJECT_DIR$/routes/dashboard_info.js" />
         <option value="$PROJECT_DIR$/public/less/dashboard.less" />
         <option value="$PROJECT_DIR$/public/pages/hyunjang.html" />
         <option value="$PROJECT_DIR$/routes/employee_info.js" />
-        <option value="$PROJECT_DIR$/public/js/my_js/_auth.js" />
         <option value="$PROJECT_DIR$/public/js/my_js/UI.js" />
         <option value="$PROJECT_DIR$/public/pages/hyunjang_tab/daily_employee_page.html" />
         <option value="$PROJECT_DIR$/public/js/my_js/kongsu.js" />
@@ -167,7 +151,6 @@
         <option value="$PROJECT_DIR$/public/pages/main_tab/employee_page.html" />
         <option value="$PROJECT_DIR$/public/pages/main.html" />
         <option value="$PROJECT_DIR$/public/pages/modal/load.html" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/less/account_input.less" />
         <option value="$PROJECT_DIR$/public/less/account_closing.less" />
@@ -177,9 +160,6 @@
         <option value="$PROJECT_DIR$/public/less/style.less" />
         <option value="$PROJECT_DIR$/public/js/my_js/account_input.js" />
         <option value="$PROJECT_DIR$/public/pages/account_manager.html" />
-        <option value="$PROJECT_DIR$/public/pages/account_tab/account_input.html" />
-        <option value="$PROJECT_DIR$/public/pages/account_tab/account_report.html" />
-        <option value="$PROJECT_DIR$/public/pages/account_tab/account_closing.html" />
         <option value="$PROJECT_DIR$/public/less/register_page.less" />
         <option value="$PROJECT_DIR$/routes/daily_employee_register_info.js" />
         <option value="$PROJECT_DIR$/public/pages/hyunjang_tab/kongsu_page.html" />
@@ -190,12 +170,22 @@
         <option value="$PROJECT_DIR$/public/js/my_js/daily_employee_register.js" />
         <option value="$PROJECT_DIR$/public/less/closing_page.less" />
         <option value="$PROJECT_DIR$/public/pages/finance_tab/payment_page.html" />
-        <option value="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" />
         <option value="$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html" />
         <option value="$PROJECT_DIR$/public/less/insurance_page.less" />
         <option value="$PROJECT_DIR$/public/js/my_js/insurance.js" />
-        <option value="$PROJECT_DIR$/public/js/my_js/nomu.js" />
+        <option value="$PROJECT_DIR$/public/js/my_js/retire.js" />
+        <option value="$PROJECT_DIR$/public/pages/finance_tab/retire_page.html" />
+        <option value="$PROJECT_DIR$/public/less/retire_page.less" />
+        <option value="$PROJECT_DIR$/public/js/my_js/account_manager.js" />
+        <option value="$PROJECT_DIR$/public/pages/account_tab/account_closing.html" />
+        <option value="$PROJECT_DIR$/public/pages/account_tab/account_report.html" />
+        <option value="$PROJECT_DIR$/public/pages/account_tab/account_input.html" />
         <option value="$PROJECT_DIR$/public/js/my_js/payment.js" />
+        <option value="$PROJECT_DIR$/public/js/my_js/nomu.js" />
+        <option value="$PROJECT_DIR$/public/js/my_js/_auth.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html" />
+        <option value="$PROJECT_DIR$/public/js/my_js/_loading.js" />
       </list>
     </option>
   </component>
@@ -205,7 +195,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
@@ -229,94 +219,55 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_yoojjtt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="my_js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="less" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="node_yoojjtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node_yoojjtt" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,11 +311,14 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.nomu.js">
-    <configuration default="false" name="_client_lib.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="_client_lib.js" working-dir="$PROJECT_DIR$/public/js/my_js">
-      <method />
-    </configuration>
-    <configuration default="false" name="nomu.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="nomu.js" working-dir="$PROJECT_DIR$/public/js/my_js">
-      <method />
+    <configuration name="_client_lib.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="_client_lib.js" working-dir="$PROJECT_DIR$/public/js/my_js" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
@@ -403,15 +357,6 @@
       <option name="filePath" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -432,6 +377,7 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <configuration name="nomu.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="nomu.js" working-dir="$PROJECT_DIR$/public/js/my_js" />
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Node.js._client_lib.js" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.nomu.js" />
@@ -686,11 +632,15 @@
       <workItem from="1504495212298" duration="455000" />
       <workItem from="1504526942260" duration="11179000" />
       <workItem from="1504613324774" duration="3871000" />
+      <workItem from="1504700331403" duration="599000" />
+      <workItem from="1504703672635" duration="2633000" />
+      <workItem from="1504926506481" duration="2384000" />
+      <workItem from="1504931917239" duration="3694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1201205000" />
+    <option name="totallyTimeSpent" value="1210515000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -703,17 +653,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="0" y="23" width="1362" height="745" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12298603" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22019334" sideWeight="0.4920635" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13656388" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21585903" sideWeight="0.4920635" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1321267" sideWeight="0.49488422" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21639344" sideWeight="0.4452202" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21639344" sideWeight="0.5547798" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21396731" sideWeight="0.4544787" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21396731" sideWeight="0.5455213" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18307692" sideWeight="0.49063963" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32677597" sideWeight="0.48174006" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17230769" sideWeight="0.50078005" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1715847" sideWeight="0.49838883" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20358814" sideWeight="0.50793654" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989071" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -727,7 +678,7 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -770,41 +721,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/UI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/employee_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="191" column="39" lean-forward="false" selection-start-line="191" selection-start-column="39" selection-end-line="191" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/_client_lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/modal/private_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="200" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/my_js/_DB_query.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -841,13 +757,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/pages/account.html" />
-    <entry file="file://$PROJECT_DIR$/public/less/retire_page.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/less/account_closing.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1669">
@@ -890,60 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/finance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/less/account_manager.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1478">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/account_input.js" />
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="64" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/account_manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_input.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_closing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1035,9 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding>
-            <marker date="1504528089281" expanded="true" signature="1630:1643" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1059,11 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="364" column="44" lean-forward="true" selection-start-line="364" selection-start-column="44" selection-end-line="364" selection-end-column="44" />
-          <folding>
-            <marker date="1504529217280" expanded="true" signature="1654:1667" ph="..." />
-            <marker date="1504529217280" expanded="true" signature="6188:6201" ph="..." />
-            <marker date="1504529217280" expanded="true" signature="9025:9038" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,23 +922,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="40" column="16" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="104" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/less/insurance_page.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4338">
-          <caret line="241" column="55" lean-forward="false" selection-start-line="241" selection-start-column="55" selection-end-line="241" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="3630">
+          <caret line="242" column="0" lean-forward="false" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1095,47 +936,165 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/insurance_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="94" column="21" lean-forward="false" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/retire.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/retire_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_closing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="117" column="10" lean-forward="false" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/account_input.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="56" lean-forward="false" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
+    <entry file="file://$PROJECT_DIR$/public/pages/account_tab/account_input.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="137" column="21" lean-forward="false" selection-start-line="137" selection-start-column="21" selection-end-line="137" selection-end-column="21" />
+        <state relative-caret-position="166">
+          <caret line="241" column="38" lean-forward="true" selection-start-line="241" selection-start-column="38" selection-end-line="241" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/account_manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/account_manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
           <folding>
-            <marker date="1504619631587" expanded="true" signature="5162:5175" ph="..." />
+            <marker date="1504936230000" expanded="true" signature="3913:3926" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/my_js/insurance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="290" column="0" lean-forward="true" selection-start-line="285" selection-start-column="20" selection-end-line="290" selection-end-column="0" />
           <folding>
-            <marker date="1504618267803" expanded="true" signature="4745:4758" ph="..." />
-            <marker date="1504618267803" expanded="true" signature="13984:13995" ph="..." />
-            <marker date="1504618267803" expanded="true" signature="14738:14748" ph="..." />
+            <marker date="1504618267000" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1504618267000" expanded="true" signature="13984:13995" ph="..." />
+            <marker date="1504618267000" expanded="true" signature="14738:14748" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/my_js/payment.js">
+    <entry file="file://$PROJECT_DIR$/public/pages/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+        <state relative-caret-position="-142">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/finance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
           <folding>
-            <marker date="1504619659833" expanded="true" signature="3913:3926" ph="..." />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/_auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="239" column="0" lean-forward="false" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/pages/finance_tab/nomu_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/nomu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <marker date="1504937029000" expanded="true" signature="317:354" ph="..." />
+            <marker date="1504937029000" expanded="true" signature="2564:2601" ph="..." />
+            <marker date="1504937029000" expanded="true" signature="5589:5602" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/my_js/_loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/less/retire_page.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1033">
+          <caret line="245" column="0" lean-forward="true" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

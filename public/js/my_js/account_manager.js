@@ -7,13 +7,13 @@ var account_manager = function ()
     return {
         _init : function () {
 
-            admin_login.login_check();
-
-            $('#btn_logout').click(this.btn_logout_handler);
-
-            $('#btn_help').click(this.btn_help_handler);
-
-            $('#tab2').click(this.tab_click_handler);
+            // admin_login.login_check();
+            //
+            // $('#btn_logout').click(this.btn_logout_handler);
+            //
+            // $('#btn_help').click(this.btn_help_handler);
+            //
+            // $('#tab2').click(this.tab_click_handler);
 
         },
         tab_click_handler : function () {
