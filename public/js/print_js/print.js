@@ -49,9 +49,9 @@ var print = function ()
                 var total_row = $('#kongsu_table_body tr').length;  //table의 총 row 수
 
                 //var hyunjang = $('#hyunjang_select').text();
-                var balju_company = $('#balju_company').text();
+                var balju_company = $('#balju_company').text().toString();
                 var bogoja = $('#bogoja').text();
-                var hyun_jang_name = $('#hyun_jang_name').text();
+                var hyun_jang_name = ($('#hyun_jang_name').text()).toString();
                 var date = $('#toMonth').val();
 
 
@@ -62,7 +62,7 @@ var print = function ()
                 doc.setTextColor(0,0,0);
                 doc.setCharSpace(1);
 
-
+                console.log(balju_company);
                 doc.setFontSize(6);
                 doc.drawText(33,11,[balju_company]);
                 doc.drawText(33,15,[hyun_jang_name]);
@@ -88,12 +88,39 @@ var print = function ()
 
                 for(var i=0; i<total_row; i++){
 
+                    /*15칸이니까 15칸 씩 높이값 초기화, 15칸 다채워지면 addPage한다. */
+                    if(i % 15 == 0){ h = 0;}  //첫번째 줄 i = 0 15로 나누면 나머지가 0 즉 첫줄의 높이는 0
+                    if(i % 15 == 1){ h = 1;}
+                    if(i % 15 == 2){ h = 2;}
+                    if(i % 15 == 3){ h = 3;}
+                    if(i % 15 == 4){ h = 4;}
+                    if(i % 15 == 5){ h = 5;}
+                    if(i % 15 == 6){ h = 6;}
+                    if(i % 15 == 7){ h = 7;}
+                    if(i % 15 == 8){ h = 8;}
+                    if(i % 15 == 9){ h = 9;}
+                    if(i % 15 == 10){ h = 10;}
+                    if(i % 15 == 11){ h = 11;}
+                    if(i % 15 == 12){ h = 12;}
+                    if(i % 15 == 13){ h = 13;}
+                    if(i % 15 == 14){ h = 14;}
+
+                    if(i>0){
+                        if(i % 15 == 0)
+                        {  //i= 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14
+                            // 0 % 14 = 14
+                            doc.addPage();
+                            doc.addImage(img, 'png', 0, 0, 298, 210);  //  x,y,w,h,
+
+                        }
+                    }
+
                     var tr = $('#kongsu_table_body tr').eq(i);
-                    var index = tr.children().eq(1).text();
-                    var name = tr.children().eq(2).text();
-                    var job = tr.children().eq(3).text();
-                    var jumin = tr.children().eq(4).find('div').eq(0).text();
-                    var address = tr.children().eq(4).find('div').eq(1).text();
+                    var index = tr.children().eq(1).text().toString();
+                    var name = tr.children().eq(2).text().toString();
+                    var job = tr.children().eq(3).text().toString(0);
+                    var jumin = tr.children().eq(4).find('div').eq(0).text().toString();
+                    var address = tr.children().eq(4).find('div').eq(1).text().toString();
 
 
 
@@ -128,49 +155,59 @@ var print = function ()
                     doc.setCharSpace(1);
 
                     doc.setFontSize(6);
-                    doc.drawText(7,(39+(11*i))-(1.4*i),[index]);
-                    doc.drawText(13,(39+(11*i))-(1.4*i),[job]);
+                    doc.drawText(7,(39+(11*h))-(1.4*h),[index]);
+                    doc.drawText(13,(39+(11*h))-(1.4*h),[job]);
 
                     doc.setFontSize(7);
-                    doc.drawText(20,(39+(11*i))-(1.4*i),[name]);
+                    doc.drawText(20,(39+(11*h))-(1.4*h),[name]);
 
                     doc.setFontSize(6);
                     doc.setCharSpace(0);
-                    doc.drawText(31,(41+(11*i))-(1.4*i),[address]);
+                    doc.drawText(31,(41+(11*h))-(1.4*h),[address]);
 
                     doc.setFont('MsGothic');
                     doc.setFontSize(10);
                     doc.setCharSpace(0);
 
-                    doc.drawText(32,(37+(11*i))-(1.4*i),[jumin]);
+                    doc.drawText(32,(37+(11*h))-(1.4*h),[jumin]);
 
 
+                    /* 31 kongsu 를 찍는  로직 */
                     for(var k=0; k<31; k++){
+
+                        var kongsu_d = kongsu.eq(k).text();
+
+
                         if(k<15){
+
                             doc.drawText(
-                                60+(k*6)+(k*0.5)   //x position
-                                ,(36+(11*i))-(1.3*i)  //y position
-                                ,[kongsu.eq(k).text()]
+                                60+(k*6)+(k*0.55)   //x position  60은 1일 시작 + [k]번쨰+ 폭이 늘어나면서 조금씩 더커져야
+                                ,(36+(11*h))-(1.3*h)  //y position
+                                ,[kongsu_d]
                             );
                         }else{
                             doc.drawText(
-                                60+((k-15)*6)+((k-15)*0.5) //x position
-                                ,(41+(11*i))-(1.3*i)  //y position
-                                ,[kongsu.eq(k).text()]
+                                60+((k-15)*6)+((k-15)*0.55) //x position  두번째 줄 k-15는 k값이 16부터 시작해서
+                                ,(41+(11*h))-(1.3*h)  //y position
+                                ,[kongsu_d]
                             );
                         }
                     }/* text 값 잘못 찍으면 오류난다.*/
-                    doc.setFontSize(8);
-                    doc.drawText(165,(38+(11*i))-(1.4*i),[total_kongsu]);
-                    doc.drawText(173,(38+(11*i))-(1.4*i),[danga]);
-                    doc.drawText(186,(38+(11*i))-(1.4*i),[total_income]);
-                    doc.drawText(203,(38+(11*i))-(1.4*i),[gab_tax]);
-                    doc.drawText(215,(38+(11*i))-(1.4*i),[jumin_tax]);
-                    doc.drawText(225,(38+(11*i))-(1.4*i),[employ_tax]);
-                    doc.drawText(238,(38+(11*i))-(1.4*i),[med_tax]);
-                    doc.drawText(251,(38+(11*i))-(1.4*i),[pension]);
-                    doc.drawText(262,(38+(11*i))-(1.4*i),[tax_total]);
-                    doc.drawText(274,(38+(11*i))-(1.4*i),[closing_money]);
+
+
+                    /*  총 공수, 일일 단가, 노무비 총액, 갑근세, 주민세, 고용보험, 의료보험, 국민연금, 계, 차감 지급액  */
+                    doc.setFontSize(8);  //9 넘어가면 폰트 칸넘침
+
+                    doc.drawText(165,(38+(11*h))-(1.4*h),[total_kongsu]);
+                    doc.drawText(173,(38+(11*h))-(1.4*h),[danga]);
+                    doc.drawText(186,(38+(11*h))-(1.4*h),[total_income]);
+                    doc.drawText(203,(38+(11*h))-(1.4*h),[gab_tax]);
+                    doc.drawText(215,(38+(11*h))-(1.4*h),[jumin_tax]);
+                    doc.drawText(225,(38+(11*h))-(1.4*h),[employ_tax]);
+                    doc.drawText(238,(38+(11*h))-(1.4*h),[med_tax]);
+                    doc.drawText(250,(38+(11*h))-(1.4*h),[pension]);
+                    doc.drawText(262,(38+(11*h))-(1.4*h),[tax_total]);
+                    doc.drawText(274,(38+(11*h))-(1.4*h),[closing_money]);
 
 
 
@@ -233,7 +270,7 @@ var print = function ()
 
 
                 var total_row = $('#kongsu_table_body tr').length;  //table의 총 row 수
-                var balju_company = $('#balju_company').text();
+                var balju_company = $('#balju_company').text().toString();
                 var bogoja = $('#bogoja').text();
                 var hyun_jang_name = $('#hyun_jang_name').text();
                 var date_val = $('#toMonth').val();

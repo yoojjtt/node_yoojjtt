@@ -125,8 +125,9 @@
  </div>
 <!-- contents -->
 
-<!--<div class="loader" style="z-index:9999;"> </div>-->
-<!--<div class="container" style="display:none; z-index:9999;"> <h1>로딩 후 화면</h1> <div>-->
+<!-- print 할 때 로드 -->
+<div class="loader" style="display:none;"> </div>
+<div class="container" style="display:none;"> <h1>로딩 후 화면</h1> <div>
 
 
 
@@ -236,6 +237,26 @@
 
     }
 
+    /* print 생성할 때 로드 시작 */
+
+    function _showPage(){
+
+        //alert('로드시작');
+        var loader = $("div.loader");
+        var container = $("div.container");
+        loader.css("display","block");
+        container.css("display","block");
+        return true
+
+    }
+    function _hidePage(){
+
+        //alert('로드종료');
+        var loader = $("div.loader");
+        var container = $("div.container");
+        loader.css("display","none");
+        container.css("display","none");
+    }
 
 
 

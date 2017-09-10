@@ -8,12 +8,17 @@ var loading = function ()
     return {
 
         start : function(){
-            alert('start')
+            // alert('시작');
+            //$('#loading').css('display','block');
+            var loader = document.getElementById('loading');
+            loader.style.display = 'block';
+            return true;
         },
         end : function(){
-           alert('end')
-
-
+            //$('#loading').css('display','none');
+            var loader = document.getElementById('loading');
+            loader.style.display = 'none';
+            return true;
         }
 
 

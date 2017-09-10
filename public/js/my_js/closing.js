@@ -8,6 +8,7 @@ var closing = function ()
     return {
 
         monthly_closing_load : function(){
+            $('#kongsu_table_body').empty();
             var gubun = "R";
             var iData = ['hyunjang_no','daily_employee_num','month','daily','infoType'];
             /* 임시 데이터 베이스*/
@@ -28,9 +29,12 @@ var closing = function ()
             if(res  == false) {
                 //alert('db없음');
                 var month = $('#toMonth').val();
-                alert(month + ' 입력값이 없습니다.');
+                //alert(month + ' 입력값이 없습니다.');
+                var empty = '';
+                empty += "<div style='text-align:center; padding-top:100px;'>"+month+" 등록된 리스트가 없습니다"+"</div>"
+                $('#kongsu_table_body').append(empty);
             }
-            $('#kongsu_table_body').empty();
+
             for (var i = 0; i < res_num; i++)
             {
 

@@ -21,10 +21,12 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 
     <!--<link href="/css/style.min.css" rel="stylesheet">-->
-    <!--<link href="/css/datepicker.css" rel="stylesheet" type="text/css"/>-->
+    <link href="../../css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css"/>
+
+
     <link href="../../css/style.css" rel="stylesheet"  media="screen">
 </head>
-<body>
+<body style="height:100%;">
 
 <div class="payment_page panel panel-default" id="payment_page" >
 
@@ -219,10 +221,10 @@
 <script src="../../js/my_js/_DB_query.js"></script>
 <script src="../../js/my_js/account_input.js"></script>
 
-<!--<script type="text/javascript" src="/js/bootstrap-datepicker.js" charset="UTF-8"></script>-->
+<script type="text/javascript" src="../../js/my_js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <!--<script type="text/javascript" src="/js/locales/bootstrap-datepicker.kr.js" charset="UTF-8"></script>-->
  <!--jQuery UI 라이브러리 js파일-->
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<!--<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>-->
 
 <script>
 
@@ -231,13 +233,13 @@
         windows_resize();
         account_input._init();
 
-        $('#dp6').datepicker({
-            format: "yyyy-mm-dd",
-            startView: 3,
+        $('#dp6').datetimepicker({
+            format: 'DD/MM/YYYY',
+            startView: 2,
+            pickTime : false,
             todayBtn:false, //"linked"
             language: "kr",
             orientation: "top auto",
-            pickTime : false,
             defalutDate : new Date(),
             keyboardNavigation: false,
             forceParse: false,
@@ -245,7 +247,7 @@
             todayHighlight: true
         });
 
-        $('#dp6').datepicker()
+        $('#dp6').datetimepicker()
             .on('changeDate', function(ev){
                 //if (ev.date.valueOf() < startDate.valueOf()){
                 //}

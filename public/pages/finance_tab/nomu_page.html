@@ -132,8 +132,12 @@
         </tbody>
     </table>
 
+    <div id="loading"><img id="loading-image" src="../../images/ajax-loader.gif" alt="Loading..." /></div>
+
 
 </div>
+
+
 
 
 
@@ -182,7 +186,7 @@
 <script>
 
     $(function() {
-
+        $('#loading').css('display','block');
         daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
         present_month();
         window_resize();
@@ -203,7 +207,23 @@
     function search(){
         var m = $('#toMonth').val();
         lib.Calendar(m); // th 의 월별 일자 변경
-        nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+            var loader = document.getElementById('loading');
+            //loader.style.display = 'block';
+        //$('#loading').show().css('display','block');
+
+        //if(loader.style.display = 'block'){
+
+
+//        $(p).$('#loader').show(function(){
+//         alert('dd');
+        //$('#loading').css('display','block');
+
+
+            nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
+//        })
+
+        //}
+
     }
 
     function present_month(){  // 현재월로 버튼
@@ -221,15 +241,29 @@
         //nomu.monthly_closing_load(); // 월 바꿀 때마다 nomu 페이지에 reload
     }
 
-    /* ajax 로딩을 위한 javascript */
-    $(window)
-        .ajaxStart(function(){
-
-            loading.start();
-        })
-        .ajaxStop(function(){
-            loading.end();
-        });
+//    $(document).bind("ajaxStart", function(){
+//        alert('dd');
+//        $('#loading').css('display','block');
+//        //var p = window.parent.parent;
+//        //p._showPage();
+//
+//    }).bind("ajaxComplete", function(){
+//        $('#loading').css('display','none');
+//        //var p = window.parent.parent;
+//
+//        //p._hidePage();
+//
+//    });
+//    /* ajax 로딩을 위한 javascript */
+    //세금 테이블 ajax가 두번일어나기 때문에 한번더 하면 로딩시작로딩엔드/ 로딩시작로딩엔드가 두번의 프로세스가 일어나기 때문에
+//    $(window)
+//        .ajaxStart(function(){
+//            loading.start();
+//            alert('start')
+//        })
+//        .ajaxStop(function(){
+//            loading.end();
+//        });
 
 
 

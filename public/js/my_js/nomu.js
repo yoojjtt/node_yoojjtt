@@ -8,22 +8,22 @@ var nomu = function ()
     return {
 
         monthly_closing_load : function(){
-            //var p = window.parent.parent;
-            alert('조회시작');
+
+        alert('조회 시작');
+
+
             $('#kongsu_table_body').empty();
-            //var empty = '';
-            //empty += "<div style='text-align:center; padding-top:100px;'>"+"로딩중..."+"</div>";
-            //$('#kongsu_table_body').append(empty);
 
 
-            //p._showPage();
 
-            /*세금 정보를 먼저 불러온다. 혹시 오류 있을 수 있으니 변수뒤에 1을 붙여줌*/
             var gubun1 = "R";
             var iData1 = ['company_id'];
             iData1[0] = '';
 
             var result1 = _DB_query.httpService("tax_info",gubun1, iData1);
+            /*세금 정보를 먼저 불러온다. 혹시 오류 있을 수 있으니 변수뒤에 1을 붙여줌*/
+
+
             var res1 = result1[0].data[0][0];
             var exception = res1.exception; //면세 범위
             var income = res1.income; // 갑근세::  (월급여 - exception) * 갑근세 * 근무일 수
@@ -46,6 +46,7 @@ var nomu = function ()
             //alert($('#hyunjang_select').val());
            // alert($('#toMonth').val());
             if(result1){
+
                 var gubun = "R";
                 var iData = ['hyunjang_no','daily_employee_num','month','daily','infoType'];
                 /* 임시 데이터 베이스*/
@@ -67,9 +68,17 @@ var nomu = function ()
 
                 if(res[0]){
                     alert('조회완료');
+                    //p._hidePage();
+                    //loaderE
+
                 }else{
                     alert('조회 결과 없음');
+                   // p._hidePage();
                     $('#kongsu_table_body').empty();
+                    //$('#loading').css('display','none');
+
+                    //TODO loaderE 추후에 다시 할 것
+                    //loaderE
                     var empty = '';
                     empty += "<div style='text-align:center; padding-top:100px;'>"+"데이터가 없습니다"+"</div>"
 
@@ -87,6 +96,7 @@ var nomu = function ()
                 var company_phone = res[0].company_phone;
                 var president = res[0].president;
                 var hyunjang_sort = res[0].hyunjang_sort;
+                var balju_company = res[0].balju_company;
 
                 //alert(balju_company);
                 $('#balju_company').empty().append(balju_company);
@@ -137,7 +147,8 @@ var nomu = function ()
 
                         var attendace_info = '';  // //기준으로 자른 공수,  입사일   kongsu_daily
                         var startWork = '';
-                        var kongsu_daily = '';
+                        var nullV = "0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@0@@";
+                        var kongsu_daily = nullV.split('@@');
                         //console.log(startWork);
                     }else{
                         var kongsu = res[i].attendance;  //1@3@1@12@1@1@... 형식의 공수

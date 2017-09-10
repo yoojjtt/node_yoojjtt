@@ -18,7 +18,9 @@ var daily_employee_register = function ()
 
             var res_num = result[0].data[0].length;
 
-
+            if(result){
+                $('#loading').css('display','none');
+             }
             $("#hyunjang_select").empty();
             for (var i = 0; i < res_num; i++)
             {
@@ -37,6 +39,12 @@ var daily_employee_register = function ()
 
         },
         daily_employee_include : function(employee_id){  //일용직 근로자 클릭해서 왼쪽 table에 추가할 때
+            //console.log(result_data_save)
+            if(result_data_save[0] == null){// 데이터가 없음 상태일 때
+                $('#monthly_danga').empty();
+            }
+
+
 
             var gubun = "individual";
             var iData = ['employee_id'];
@@ -158,9 +166,12 @@ var daily_employee_register = function ()
 
             if(res  == false){
 
-                alert(month+' 입력값이 없습니다.');
-                $('#monthly_danga').empty()
+                //alert(month+' 입력값이 없습니다.');
+                $('#monthly_danga').empty();
                 $('#beforeList').css('display','inline');
+                var empty = '';
+                empty += "<div style='text-align:center; padding-top:100px;'>"+month+" 등록된 리스트가 없습니다"+"</div>"
+                $('#monthly_danga').append(empty);
 
             }else{
                 $('#beforeList').css('display','none');

@@ -8,7 +8,7 @@ var kongsu = function ()
     return {
 
         kongsu_load : function(month, daily){
-
+            $('#kongsu_table_body').empty();
             var gubun = "R";
             var iData = ['hyunjang_no','daily_employee_num','month','daily','infoType'];
             /* 임시 데이터 베이스*/
@@ -25,12 +25,14 @@ var kongsu = function ()
             var res = result[0].data[0];
             var res_num = result[0].data[0].length;
             if(res  == false) {
-                //alert('db없음');
 
-                alert(month + ' 입력값이 없습니다.');
+                //alert(month + ' 입력값');
+                var empty = '';
+                empty += "<div style='text-align:center; padding-top:100px;'>"+month+" 등록된 리스트가 없습니다"+"</div>"
+                $('#kongsu_table_body').append(empty);
             }
 
-            $('#kongsu_table_body').empty();
+
             for (var i = 0; i < res_num; i++)
             {
                 var str = '';
