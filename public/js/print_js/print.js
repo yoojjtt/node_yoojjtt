@@ -176,7 +176,9 @@ var print = function ()
                     for(var k=0; k<31; k++){
 
                         var kongsu_d = kongsu.eq(k).text();
-
+                        if(kongsu_d == '0'){
+                            kongsu_d = ' ';
+                        }
 
                         if(k<15){
 
@@ -241,6 +243,11 @@ var print = function ()
 
             //TODO  전체명수를 7로 나눠서, 몇번 실행할지를 구한다음.
             //TODO 7명만 1,2,3 page 찍고 다음 8번재 사람부터 1,2,3 페이지찍고 다음 종료한 사람으로부터 7명
+            var exist = $('#kongsu_table_body').length;
+            if(exist < 1 ){
+                alert('조회를 먼저해주세요');
+                return false
+            }
             var p = window.parent.parent;
 
             alert('근로 내역서');
@@ -377,7 +384,7 @@ var print = function ()
                             //average_kongsu.push(kongsu.eq(k).text());
                             daily_kongsu = "O";
                         }else{
-                            daily_kongsu = "-";
+                            daily_kongsu = " ";
                         }
 
                         if(k<15){

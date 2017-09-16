@@ -48,19 +48,8 @@ var retire = function ()
                     var str = '';
                     var k = i+1;
 
-                    var start = res[i].start_work_kongsu;
-                    var pluse_one = res[i].plus_one;
-                    var pluse_two = res[i].plus_two;
-                    var pluse_three = res[i].plus_three;
-                    var pluse_four = res[i].plus_four;
-                    var pluse_five = res[i].plus_five;
-                    var pluse_six = res[i].plus_six;
-                    var pluse_seven = res[i].plus_seven;
-                    var pluse_eight = res[i].plus_eight;
-                    var pluse_nine = res[i].plus_nine;
-                    var pluse_ten = res[i].plus_ten;
-                    var pluse_eleven = res[i].plus_eleven;
-
+                    var work_month = res[i].retire_work_month
+                console.log(work_month)
 
 
 
@@ -76,7 +65,10 @@ var retire = function ()
                         str += "<td>" + res[i].jumin1 +"-"+ res[i].jumin2 + "</td>";
                         str += "<td>" + res[i].start_work + "</td>";
 
-                        str += "<td>" + "근무 개월 수" +"</td>";
+                        if(res[i].retire_work_month == ''){
+                            work_month = '0';
+                        }
+                        str += "<td>" + work_month +"</td>";
 
                     str += "</tr>"
                     $('#retire_table_body').append(str);
