@@ -70,10 +70,13 @@ var nomu = function ()
                     alert('조회완료');
                     //p._hidePage();
                     //loaderE
+                    $('#conclusion_update').css('display', 'block');
+
 
                 }else{
                     alert('조회 결과 없음');
                    // p._hidePage();
+
                     $('#kongsu_table_body').empty();
                     //$('#loading').css('display','none');
 
@@ -300,7 +303,7 @@ var nomu = function ()
 
 
 
-                    console.log(gab_tax_c +"//"+ jumin_tax_c +"//"+ employee_tax +"//"+ med_old_tax+"//"+ pension_tax);
+                    //console.log(gab_tax_c +"//"+ jumin_tax_c +"//"+ employee_tax +"//"+ med_old_tax+"//"+ pension_tax);
                     var total_tax_sum = Number(parseInt(gab_tax_c) + parseInt(jumin_tax_c)+parseInt(employee_tax)+parseInt(med_old_tax)+parseInt(pension_tax));
 
                     if(gab_tax_val == '0'){  // 면제기준이면 치환
@@ -324,13 +327,14 @@ var nomu = function ()
                     $('#kongsu_table_body').append(str);
 
 
-                    total_money += total_salary;
+                    total_money += real_income;
                     total_danga += res[i].daily_salary;
+                    //console.log(total_salary);
                 } // 개인별 row계산 끝 for문 끝
 
                 var money = total_money.toLocaleString();
-                var average_money = (total_salary/res_num).toLocaleString();
-                var average_danga = (total_danga/res_num).toLocaleString();
+                var average_money = parseInt(total_money/res_num).toLocaleString();
+                var average_danga = parseInt(total_danga/res_num).toLocaleString();
                 $('#total_num').text(res_num + " 명");
                 $('#total_money').text(money+ " 원");
                 $('#average_monthly_salary').text(average_money+ " 원");
@@ -343,6 +347,74 @@ var nomu = function ()
 
 
         },
+        conclusion_save : function(){
+            var total_row = $('#kongsu_table_body tr').length;
+            var individual = [];
+            var groups = '';
+            for(var i=0; i<total_row; i++){
+
+                var tr = $('#kongsu_table_body tr').eq(i);
+                var id = tr.children().eq(0).text();
+                var name = tr.children().eq(2).text();
+                var job = tr.children().eq(3).text();
+                var danga = tr.children().eq(6).text();
+                var kongsu = tr.children().eq(7).text();
+                var final_income = tr.children().eq(15).text();
+
+                var person = "//"+id+"//"+name+"//"+job+"//"+danga+"//"+kongsu+"//"+final_income;
+
+                groups += "@@"+person;
+
+
+            }
+            // //id//name//job//danga//공수/차감된지급
+
+
+            var total_num = $('#total_num').text();
+            var total_money = lib.uncomma($('#total_money').text());
+            var average_monthly_salary = lib.uncomma($('#average_monthly_salary').text());
+            var average_danga = lib.uncomma($('#average_danga').text());
+
+            console.log(total_num);
+            console.log(total_money);
+            console.log(average_monthly_salary);
+            console.log(average_danga);
+            console.log(groups);
+
+
+            var gubun = "closing";
+            var iData = ['hyunjang_no',
+                'monthly_date',
+                'total_num',
+                'total_money',
+                'average_monthly_salary',
+                'average_danga',
+                'groups'
+            ];
+            /* 임시 데이터 베이스*/
+
+            console.log($('#hyunjang_select').val() + $('#toMonth').val());
+
+            iData[0] = $('#hyunjang_select').val();
+            iData[1] = $('#toMonth').val();
+            iData[2] = total_num;
+            iData[3] = total_money;
+            iData[4] = average_monthly_salary;
+            iData[5] = average_danga;
+            iData[6] = groups;
+
+
+
+
+            var result = _DB_query.httpService("dashboard_info",gubun, iData);
+            var res = result[0].data[0][0].msg;
+            //var res_num = result[0].data[0].length;
+            alert(res);
+            //console.log(result);
+
+
+
+        }
 
 
     };

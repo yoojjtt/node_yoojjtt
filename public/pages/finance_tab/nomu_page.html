@@ -11,10 +11,9 @@
 
 
 
-
-
     <link href="../../assets/styles.css" rel="stylesheet" media="screen">
     <link href="../../css/style.css" rel="stylesheet" media="screen">
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -23,7 +22,7 @@
 
 </head>
 
-<body>
+<body   ng-app="employee_ag">
 <div class="panel panel-default nomu">
 
     <div class="panel-heading head1">
@@ -38,6 +37,7 @@
             </div>
             <div class="btn_etc">
                 <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
+                <button style="display:none;"type="button" class="btn btn-default" onClick="nomu.conclusion_save();" id="conclusion_update">갱신</button>
                 <button type="button" class="btn btn-default" onClick="search()" id="search">조회</button>
                 <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
 
@@ -82,7 +82,7 @@
         <div class="name-label">ㅣ </div>
         <div class="name-label absence" id="absence_num"> 결산 금액  : <span id="total_money"></span> </div>
         <div class="name-label">ㅣ </div>
-        <div class="name-label normality" id="normality_num"> 평균 월 금액 : <span id="average_monthly_salary"></span> </div>
+        <div class="name-label normality" id="normality_num"> 평균 월급액 : <span id="average_monthly_salary"></span> </div>
         <div class="name-label">ㅣ </div>
         <div class="name-label" id=""> 평균 단가 : <span id="average_danga"></span> </div>
 
@@ -145,6 +145,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
 
 <script src="../../assets/scripts.js"></script>
 
@@ -256,7 +259,7 @@
 //    });
 //    /* ajax 로딩을 위한 javascript */
     //세금 테이블 ajax가 두번일어나기 때문에 한번더 하면 로딩시작로딩엔드/ 로딩시작로딩엔드가 두번의 프로세스가 일어나기 때문에
-//    $(window)
+//    $(window)ㄱ
 //        .ajaxStart(function(){
 //            loading.start();
 //            alert('start')

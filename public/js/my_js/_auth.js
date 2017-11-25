@@ -20,7 +20,7 @@ var auth = function ()
             var last_time = result[0].data[0][0].last_time;
             var return_code = result[0].data[0][0].return_code;
 
-
+                console.log(res);
             if(return_code =='100'){
                 var email = res.userEmail;
                 var company_no = res.companyNo;

@@ -29,6 +29,9 @@ var print = function ()
                 //doc.internal.getNumberOfPages(2);
                 doc.addImage(img, 'png', 0, 0, 298, 210);  //  x,y,w,h,
 
+
+                //console.log("처음 " + pages)
+
                 doc.addFont('HMKMMAG.TTF', 'MagicR', 'normal', 'Identity-H');
                 doc.addFont('HMKMRHD.TTF', 'HeadlineR', 'normal', 'Identity-H');
                 doc.addFont('msgothic.ttf', 'MsGothic', 'normal', 'Identity-H');
@@ -49,20 +52,18 @@ var print = function ()
                 var total_row = $('#kongsu_table_body tr').length;  //table의 총 row 수
 
                 //var hyunjang = $('#hyunjang_select').text();
-                var balju_company = $('#balju_company').text().toString();
-                var bogoja = $('#bogoja').text();
-                var hyun_jang_name = ($('#hyun_jang_name').text()).toString();
-                var date = $('#toMonth').val();
+                var balju_company = $('#balju_company').text().toString();  //발주회사
+                var bogoja = $('#bogoja').text();  // 보고자
+                var hyun_jang_name = ($('#hyun_jang_name').text()).toString(); //현장이름
+                var date = $('#toMonth').val(); // 날짜 input value
 
 
-                //alert(hyun_jang_name);
 
+
+                //console.log(balju_company);
                 doc.setFont('HeadlineR');        // set font
-
                 doc.setTextColor(0,0,0);
                 doc.setCharSpace(1);
-
-                console.log(balju_company);
                 doc.setFontSize(6);
                 doc.drawText(33,11,[balju_company]);
                 doc.drawText(33,15,[hyun_jang_name]);
@@ -71,22 +72,22 @@ var print = function ()
 
 
                 /*sum 을 구하는 배열*/
-                var sum_total_kongsu =[];
-                var sum_danga = [];
-                var sum_total_income = [];
-                var sum_gab_tax = [];
-                var sum_jumin_tax = [];
-                var sum_employ_tax = [];
-                var sum_med_tax = [];
-                var sum_pension = [];
-                var sum_tax_total = [];
-                var sum_closing_money = [];
+                var sum_total_kongsu =[];  // 모든 인원의 공수 합  배열
+                var sum_danga = [];  // 단가 합 배열
+                var sum_total_income = []; //노무비 총액 합
+                var sum_gab_tax = []; // 갑 근세 합
+                var sum_jumin_tax = [];  // 주민세 합
+                var sum_employ_tax = [];  // 고용보험
+                var sum_med_tax = []; // 건강보험
+                var sum_pension = [];  //연금 합
+                var sum_tax_total = [];  //공제 합계
+                var sum_closing_money = [];  //차감된 지급액 합계
+
+                var pages = 0; // 페이지 수를 계산하기 위해서,  페이지 수를 for문 밖에서 해야 초기화안됨
 
 
 
-
-
-                for(var i=0; i<total_row; i++){
+                for(var i=0; i<total_row; i++){  //개별 정보를 찍는 for 문!!!!!!
 
                     /*15칸이니까 15칸 씩 높이값 초기화, 15칸 다채워지면 addPage한다. */
                     if(i % 15 == 0){ h = 0;}  //첫번째 줄 i = 0 15로 나누면 나머지가 0 즉 첫줄의 높이는 0
@@ -103,14 +104,29 @@ var print = function ()
                     if(i % 15 == 11){ h = 11;}
                     if(i % 15 == 12){ h = 12;}
                     if(i % 15 == 13){ h = 13;}
-                    if(i % 15 == 14){ h = 14;}
+                    if(i % 15 == 14){ h = 14;pages +=1;}
 
+
+
+                    // 페이지가 늘어나면,
                     if(i>0){
                         if(i % 15 == 0)
                         {  //i= 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14
-                            // 0 % 14 = 14
-                            doc.addPage();
+
+
+                            /*페이지가 추가된다*/
+                            doc.addPage(); //페이지 추가
+
+                            //console.log("페이지 숫자:" +  pages);
                             doc.addImage(img, 'png', 0, 0, 298, 210);  //  x,y,w,h,
+                            doc.setFont('HeadlineR');        // set font
+                            doc.setTextColor(0,0,0);
+                            doc.setCharSpace(1);
+                            doc.setFontSize(6);
+                            doc.drawText(33,11,[balju_company]);
+                            doc.drawText(33,15,[hyun_jang_name]);
+                            doc.drawText(33,20,[hyun_jang_name]);
+                            doc.drawText(95,16,[date]);
 
                         }
                     }
@@ -118,7 +134,7 @@ var print = function ()
                     var tr = $('#kongsu_table_body tr').eq(i);
                     var index = tr.children().eq(1).text().toString();
                     var name = tr.children().eq(2).text().toString();
-                    var job = tr.children().eq(3).text().toString(0);
+                    var job = tr.children().eq(3).text().toString();
                     var jumin = tr.children().eq(4).find('div').eq(0).text().toString();
                     var address = tr.children().eq(4).find('div').eq(1).text().toString();
 
@@ -139,16 +155,9 @@ var print = function ()
                     var tax_total = tr.children().eq(14).text(); // 공제합계
                     var closing_money = tr.children().eq(15).text();  //차감된 지급액
 
-                    sum_total_kongsu.push(parseInt(total_kongsu));
-                    sum_danga.push(danga);
-                    sum_total_income.push(total_income);
-                    sum_gab_tax.push(gab_tax);
-                    sum_jumin_tax.push(jumin_tax);
-                    sum_employ_tax.push(employ_tax);
-                    sum_med_tax.push(med_tax);
-                    sum_pension.push(pension);
-                    sum_tax_total.push(tax_total);
-                    sum_closing_money.push(closing_money);
+
+
+
                     /* document에 출력 */
                     doc.setFont('HeadlineR');        // set font
                     doc.setTextColor(0,0,0);
@@ -176,7 +185,7 @@ var print = function ()
                     for(var k=0; k<31; k++){
 
                         var kongsu_d = kongsu.eq(k).text();
-                        if(kongsu_d == '0'){
+                        if(kongsu_d == '0'  || kongsu_d == ""){  //공백에 대한 error를 막기위해
                             kongsu_d = ' ';
                         }
 
@@ -212,19 +221,184 @@ var print = function ()
                     doc.drawText(274,(38+(11*h))-(1.4*h),[closing_money]);
 
 
+                        sum_total_kongsu.push(Number(total_kongsu));
+                        sum_danga.push(Number(lib.uncomma(danga)));
+                        sum_total_income.push(Number(lib.uncomma(total_income)));
+                        sum_gab_tax.push(Number(lib.uncomma(gab_tax)));
+                        sum_jumin_tax.push(Number(lib.uncomma(jumin_tax)));
+                        sum_employ_tax.push(Number(lib.uncomma(employ_tax)));
+                        sum_med_tax.push(Number(lib.uncomma(med_tax)));
+                        sum_pension.push(Number(lib.uncomma(pension)));
+                        sum_tax_total.push(Number(lib.uncomma(tax_total)));
+                        sum_closing_money.push(Number(lib.uncomma(closing_money)));
 
-                }
-                //alert(sum_closing_money);
-                var res_closing_money = 0;
-                for (var i = 0; i < sum_closing_money.length; i++)
-                {
-                    res_closing_money += sum_closing_money[i];
-                    //alert(res_closing_money);
+                        // 15 로 딱 나누어질 때 pages가 1이 늘어날 때 도 찍고, 배열이 끝날 때도 찍고
 
 
-                }
-               // alert(res_closing_money);
-                /*toLocaleString을 변환시켜줘야한다. */
+
+
+
+            /*소계 합계 찍는 로직 for문 안에서 만들어지고 있음*/
+                    doc.setCharSpace(-0.5);
+                    if(i>0){
+
+                        if(i == 14){ //i 는 0부터 시작, 14일 때는 15번째
+
+                            //console.log("1페이지일 때"+"공수합"+hab_sum(sum_total_kongsu));
+                            var hab_total_kongsu = lib.hab_sum(sum_total_kongsu).toString(); // Number를 string으로 변환하지않으면 에러발생
+                            var hab_danga = lib.hab_sum(sum_danga).toLocaleString();
+                            var hab_total_income = lib.hab_sum(sum_total_income).toLocaleString();
+                            var hab_gab_tax = lib.hab_sum(sum_gab_tax).toLocaleString();
+                            var hab_jumin_tax = lib.hab_sum(sum_jumin_tax).toLocaleString();
+                            var hab_employ_tax = lib.hab_sum(sum_employ_tax).toLocaleString();
+                            var hab_med_tax = lib.hab_sum(sum_med_tax).toLocaleString();
+                            var hab_pension = lib.hab_sum(sum_pension).toLocaleString();
+                            var hab_tax_total  = lib.hab_sum(sum_tax_total).toLocaleString();
+                            var hab_closing_money = lib.hab_sum(sum_closing_money).toLocaleString();
+                            doc.drawText(165,183,[hab_total_kongsu]);
+                            doc.drawText(173,183,[hab_danga]);
+                            doc.drawText(187,183,[hab_total_income]);
+                            doc.drawText(203,183,[hab_gab_tax]);
+                            doc.drawText(215,183,[hab_jumin_tax]);
+                            doc.drawText(225,183,[hab_employ_tax]);
+                            doc.drawText(238,183,[hab_med_tax]);
+                            doc.drawText(250,183,[hab_pension]);
+                            doc.drawText(262,183,[hab_tax_total]);
+                            doc.drawText(275,183,[hab_closing_money]);
+
+                            /* 소계끝  합계시작 */
+                            /* 1페이지는 소계와 합계가 같다*/
+                            doc.drawText(165,193,[hab_total_kongsu]);
+                            doc.drawText(173,193,[hab_danga]);
+                            doc.drawText(187,193,[hab_total_income]);
+                            doc.drawText(203,193,[hab_gab_tax]);
+                            doc.drawText(215,193,[hab_jumin_tax]);
+                            doc.drawText(225,193,[hab_employ_tax]);
+                            doc.drawText(238,193,[hab_med_tax]);
+                            doc.drawText(250,193,[hab_pension]);
+                            doc.drawText(262,193,[hab_tax_total]);
+                            doc.drawText(275,193,[hab_closing_money]);
+
+
+
+                        }else if(i > 15){ //1페이지 아닐 경우
+
+
+                                var last_p = pages*15-1;
+                                console.log(last_p);
+                            if(i == last_p){ //중간페이지 :: 페이지가 증가할 때, i== 30, 45, ...  pages*15 - 1 = i
+                                /* 중간 페이지 */
+
+
+                                var arr_s = i-14;  //배열 자를 시작점
+                                var arr_e = pages*15;
+
+                                var hab_total_kongsu = lib.hab_sum(lib.arr_cut(sum_total_kongsu, arr_s, arr_e)).toString();
+                                var hab_danga = lib.hab_sum(lib.arr_cut(sum_danga, arr_s, arr_e)).toLocaleString();
+                                var hab_total_income = lib.hab_sum(lib.arr_cut(sum_total_income, arr_s, arr_e)).toLocaleString();
+                                var hab_gab_tax = lib.hab_sum(lib.arr_cut(sum_gab_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_jumin_tax = lib.hab_sum(lib.arr_cut(sum_jumin_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_employ_tax = lib.hab_sum(lib.arr_cut(sum_employ_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_med_tax = lib.hab_sum(lib.arr_cut(sum_med_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_pension = lib.hab_sum(lib.arr_cut(sum_pension, arr_s, arr_e)).toLocaleString();
+                                var hab_tax_total = lib.hab_sum(lib.arr_cut(sum_tax_total, arr_s, arr_e)).toLocaleString();
+                                var hab_closing_money = lib.hab_sum(lib.arr_cut(sum_closing_money, arr_s, arr_e)).toLocaleString();
+                                console.log(pages+' 페이지일 때'+hab_total_kongsu);
+                                //console.log(pages+' 페이지일 때'+lib.hab_sum(hab_danga));
+
+                                doc.drawText(167,183,[hab_total_kongsu]);
+                                doc.drawText(173,183,[hab_danga]);
+                                doc.drawText(187,183,[hab_total_income]);
+                                doc.drawText(203,183,[hab_gab_tax]);
+                                doc.drawText(215,183,[hab_jumin_tax]);
+                                doc.drawText(225,183,[hab_employ_tax]);
+                                doc.drawText(238,183,[hab_med_tax]);
+                                doc.drawText(250,183,[hab_pension]);
+                                doc.drawText(262,183,[hab_tax_total]);
+                                doc.drawText(275,183,[hab_closing_money]);
+                                /* 소계끝  합계시작 */
+                                /* final 합계 f*/
+                                var f_hab_total_kongsu = lib.hab_sum(sum_total_kongsu).toString();
+                                var f_hab_danga = lib.hab_sum(sum_danga).toLocaleString();
+                                var f_hab_total_income = lib.hab_sum(sum_total_income).toLocaleString();
+                                var f_hab_gab_tax = lib.hab_sum(sum_gab_tax).toLocaleString();
+                                var f_hab_jumin_tax = lib.hab_sum(sum_jumin_tax).toLocaleString();
+                                var f_hab_employ_tax = lib.hab_sum(sum_employ_tax).toLocaleString();
+                                var f_hab_med_tax = lib.hab_sum(sum_med_tax).toLocaleString();
+                                var f_hab_pension = lib.hab_sum(sum_pension).toLocaleString();
+                                var f_hab_tax_total = lib.hab_sum(sum_tax_total).toLocaleString();
+                                var f_hab_closing_money = lib.hab_sum(sum_closing_money).toLocaleString();
+                                doc.drawText(167,193,[f_hab_total_kongsu]);
+                                doc.drawText(173,193,[f_hab_danga]);
+                                doc.drawText(187,193,[f_hab_total_income]);
+                                doc.drawText(203,193,[f_hab_gab_tax]);
+                                doc.drawText(215,193,[f_hab_jumin_tax]);
+                                doc.drawText(225,193,[f_hab_employ_tax]);
+                                doc.drawText(238,193,[f_hab_med_tax]);
+                                doc.drawText(250,193,[f_hab_pension]);
+                                doc.drawText(262,193,[f_hab_tax_total]);
+                                doc.drawText(275,193,[f_hab_closing_money]);
+
+
+                            }else if(total_row-1 == i){ // 마지막 페이지 인경우
+                                pages +=1;
+                                var arr_e = pages*15;
+                                var arr_s = arr_e-15;
+
+
+                                var hab_total_kongsu = lib.hab_sum(lib.arr_cut(sum_total_kongsu, arr_s, arr_e)).toString();
+                                var hab_danga = lib.hab_sum(lib.arr_cut(sum_danga, arr_s, arr_e)).toLocaleString();
+                                var hab_total_income = lib.hab_sum(lib.arr_cut(sum_total_income, arr_s, arr_e)).toLocaleString();
+                                var hab_gab_tax = lib.hab_sum(lib.arr_cut(sum_gab_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_jumin_tax = lib.hab_sum(lib.arr_cut(sum_jumin_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_employ_tax = lib.hab_sum(lib.arr_cut(sum_employ_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_med_tax = lib.hab_sum(lib.arr_cut(sum_med_tax, arr_s, arr_e)).toLocaleString();
+                                var hab_pension = lib.hab_sum(lib.arr_cut(sum_pension, arr_s, arr_e)).toLocaleString();
+                                var hab_tax_total = lib.hab_sum(lib.arr_cut(sum_tax_total, arr_s, arr_e)).toLocaleString();
+                                var hab_closing_money = lib.hab_sum(lib.arr_cut(sum_closing_money, arr_s, arr_e)).toLocaleString();
+
+
+                                doc.drawText(167,183,[hab_total_kongsu]);
+                                doc.drawText(173,183,[hab_danga]);
+                                doc.drawText(187,183,[hab_total_income]);
+                                doc.drawText(203,183,[hab_gab_tax]);
+                                doc.drawText(215,183,[hab_jumin_tax]);
+                                doc.drawText(225,183,[hab_employ_tax]);
+                                doc.drawText(238,183,[hab_med_tax]);
+                                doc.drawText(250,183,[hab_pension]);
+                                doc.drawText(262,183,[hab_tax_total]);
+                                doc.drawText(275,183,[hab_closing_money]);
+                                /* 소계끝  합계시작 */
+                                /* final 합계 f*/
+                                var f_hab_total_kongsu = lib.hab_sum(sum_total_kongsu).toString();
+                                var f_hab_danga = lib.hab_sum(sum_danga).toLocaleString();
+                                var f_hab_total_income = lib.hab_sum(sum_total_income).toLocaleString();
+                                var f_hab_gab_tax = lib.hab_sum(sum_gab_tax).toLocaleString();
+                                var f_hab_jumin_tax = lib.hab_sum(sum_jumin_tax).toLocaleString();
+                                var f_hab_employ_tax = lib.hab_sum(sum_employ_tax).toLocaleString();
+                                var f_hab_med_tax = lib.hab_sum(sum_med_tax).toLocaleString();
+                                var f_hab_pension = lib.hab_sum(sum_pension).toLocaleString();
+                                var f_hab_tax_total = lib.hab_sum(sum_tax_total).toLocaleString();
+                                var f_hab_closing_money = lib.hab_sum(sum_closing_money).toLocaleString();
+                                doc.drawText(167,193,[f_hab_total_kongsu]);
+                                doc.drawText(173,193,[f_hab_danga]);
+                                doc.drawText(187,193,[f_hab_total_income]);
+                                doc.drawText(203,193,[f_hab_gab_tax]);
+                                doc.drawText(215,193,[f_hab_jumin_tax]);
+                                doc.drawText(225,193,[f_hab_employ_tax]);
+                                doc.drawText(238,193,[f_hab_med_tax]);
+                                doc.drawText(250,193,[f_hab_pension]);
+                                doc.drawText(262,193,[f_hab_tax_total]);
+                                doc.drawText(275,193,[f_hab_closing_money]);
+
+
+                            }
+
+                        }
+                    }
+
+                } // //개별 정보를 찍는 for 문 END !!!!
+
 
 
 

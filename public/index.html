@@ -177,6 +177,7 @@
 
 
 
+
         }
 
         window_resize();
@@ -207,7 +208,9 @@
             document.getElementById('iframe_contents').src = page;
             document.getElementById('iframe_contents').onload = function() {
                 var target = document.getElementById('iframe_contents').contentWindow;
-                //target.comInfo(num, companyName, gubun_val);  //
+                if(email != 'yoojjtt@gmail.com'){
+                    target.none_visibility()
+                }
             };
 
     }

@@ -22,8 +22,11 @@
         <ul class="nav nav-tabs" role="tablist" id="myTab">
             <li role="presentation" class="active"><a onclick="_tabFrame('main_tab/dashboard.html');" href="#" aria-controls="com_dashboard_page" role="tab" data-toggle="tab">전체 현황</a></li>
             <li role="presentation"><a onclick="_tabFrame('main_tab/employee_page.html');" href="#" aria-controls="employee_page" role="tab" data-toggle="tab">직원 관리</a></li>
-            <li role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금 관리</a></li>
-            <li role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">계정 관리</a></li>
+            <li id="tax_manager" role="presentation"><a onclick="_tabFrame('main_tab/tax_page.html');" href="#" aria-controls="messages_page" role="tab" data-toggle="tab">세금 관리</a></li>
+            <li id="service_manager" role="presentation"><a onclick="_tabFrame('main_tab/service_page.html');" href="#" aria-controls="service_page" role="tab" data-toggle="tab">계정 관리</a></li>
+            <li id="map_manager" role="presentation"><a onclick="_tabFrame('main_tab/map.html');" href="#" aria-controls="map_page" role="tab" data-toggle="tab">지도</a></li>
+            <li id="dashboard_manager" role="presentation"><a onclick="_tabFrame('main_tab/dashboard_test.html');" href="#" aria-controls="dashboard_page" role="tab" data-toggle="tab">구글차트</a></li>
+            <li id="SMS_manager" role="presentation"><a onclick="_tabFrame('main_tab/SMS.html');" href="#" aria-controls="dashboard_page" role="tab" data-toggle="tab">SMS</a></li>
 
         </ul>
         <!-- tab_contnents -->
@@ -59,12 +62,24 @@
         _tabFrame('main_tab/dashboard.html');
         //parent.modalOpen('load', '로딩중', 300, 200);
 
+
+
+
+
     });
 
     $(window).resize(function() {
         window_resize();
     });
 
+    function none_visibility(){
+        var Visible_none1 = document.getElementById('tax_manager');
+        var Visible_none2 = document.getElementById('service_manager');
+        var Visible_none3 = document.getElementById('map_manager');
+        Visible_none1.style.display = 'none';
+        Visible_none2.style.display = 'none';
+        Visible_none3.style.display = 'none';
+    }
     function window_resize() {
         var win_width = $(window).width();
         var win_height = $(window).height();

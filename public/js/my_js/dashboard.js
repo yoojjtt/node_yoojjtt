@@ -86,6 +86,41 @@ var dashboard = function ()
 
             $('#total_num').empty().append(res_num);
         },
+        closing_data_load : function(){
+            var hyunjang_state = '';
+            //TODO 나중에 현장이 종료이냐 진행이냐 구분해서 불러와야한다
+
+            var gubun = "ALL";
+            var iData = ['state'];
+
+            iData[0] = hyunjang_state;
+
+            var result = _DB_query.httpService("dashboard_info",gubun, iData);
+            var res = result[0].data[0];
+            var res_num = result[0].data[0].length;
+            var str = '';
+
+            for (var i = 0; i < res_num; i++){
+                str +="<table>";
+
+                str += "<td>"+ res[i].company_id + "</td>";
+                str += "<td>"+ res[i].hyunjang_id + "</td>";
+                str += "<td>"+ res[i].monthly_date + "</td>";
+                str += "<td>"+ res[i].total_num + "</td>";
+                str += "<td>"+ res[i].total_money + "</td>";
+                str += "<td>"+ res[i].avg_danga + "</td>";
+                str += "<td>"+ res[i].avg_monthly_salary + "</td>";
+
+
+
+
+    //               "<td>"+ res[i].avg_monthly_salary + "</td>";
+                str +="</table>";
+
+            }
+            $('#contents').empty().append(str);
+
+        }
 
 
     };

@@ -198,6 +198,25 @@ var lib = function ()
             }
 
         }
+        ,hab_sum: function(array){ //배열 합계
+
+                var result = 0.0;
+
+                for (var i = 0; i < array.length; i++)
+                    result += array[i];
+
+                return result;
+
+        }
+        ,arr_cut: function(arr, start, end){
+            var result = [];
+            result = arr.slice(start, end);
+            return result;
+        }
+        ,uncomma: function(str){ //toLocaleString 콤마 지우기
+                str = String(str);
+                return str.replace(/[^\d]+/g, '');
+        }
 
 
     };

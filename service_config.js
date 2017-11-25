@@ -3,11 +3,11 @@ function bauhaus_config() {
 
     var return_val = {
         "db_config" : {
-            host     : '125.209.195.23',
+            host     : '220.230.113.201',
             port     : 3306,
             user     : 'root',
-            password : 'pi1005^^!',
-            database : 'yoojjtt'
+            password : 'Pi667788!',
+            database : 'one_paper'
         },
         "mail_config" : {
             /* gmail작동안함.
